@@ -20,14 +20,6 @@
   .nav-stats { font-family: var(--sans); font-size: 11px; color: var(--muted); white-space: nowrap; }
   .nav-stats b { color: var(--body); font-weight: 600; }
   .empty { font-family: var(--sans); color: var(--muted); padding: 40px 0; font-style: italic; }
-  .result-count { font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin: 2px 2px 16px; }
-  .result-count b { color: var(--body); font-weight: 600; }
-  .result-row .nav-q { display: block; }
-  .result-branch { display: block; font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.04em; color: var(--accent-deep); margin-top: 4px; }
-  #searchResults mark { background: var(--accent-soft); color: var(--ink-strong); border-radius: 2px; padding: 0 1px; }
-  .result-snippet { display: block; font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--muted); margin-top: 5px; }
-  .result-row.active { background: var(--surface-soft); border-bottom-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
-  .suggest { background: none; border: none; padding: 0; font: inherit; color: var(--accent-deep); cursor: pointer; border-bottom: 1px solid var(--accent-deep); }
 </style>
 </head>
 <body>
@@ -35,12 +27,12 @@
   <header class="masthead" style="padding-bottom: 0; border-bottom: none; margin-bottom: 8px;">
     <span class="eyebrow"><a href="index.html">&larr; Overview</a> &nbsp;&middot;&nbsp; Browse all trees</span>
     <h1 class="page-title">Browse the knowledge graph</h1>
-    <p class="dek">97 built argument trees, grouped by branch. Type to filter by topic, Q-ID, or branch.</p>
+    <p class="dek">121 built argument trees, grouped by branch. Type to filter by topic, Q-ID, or branch.</p>
   </header>
 
   <div class="searchwrap">
-    <input id="q" type="search" placeholder="Search… e.g. resurrection, Habermas, swoon theory, big bang, Q-3.3" aria-label="Search the apologetics knowledge graph by topic, expert, objection, or Q-ID" autocomplete="off" autofocus>
-    <div class="hint">Searches inside every tree (experts, objections, quotes), not just titles, plus related terms and typos. Try &ldquo;Habermas&rdquo;, &ldquo;swoon theory&rdquo;, or &ldquo;Islam&rdquo;. Use &uarr;&darr; and Enter to open; Esc to clear.</div>
+    <input id="q" type="search" placeholder="Search… e.g. resurrection, Kalam, morality, Islam, fine-tuning" autofocus>
+    <div class="hint">Tip: search hits question text, Q-ID, and branch name. Press Esc to clear.</div>
   </div>
 
   <div id="results">
@@ -60,11 +52,14 @@
   <a class="nav-row" href="Q-1.7.1.html" data-s="q-1.7.1 why doesn’t god make his existence more obvious? §1 existence of god"><span class="nav-qid">Q-1.7.1</span><span class="nav-q">Why doesn’t God make his existence more obvious?</span><span class="nav-stats"><b>7</b> src &middot; <b>4</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§2 Problem of Evil">
-  <h3 class="branch-h">§2 &middot; Problem of Evil <span class="branch-count">5</span></h3>
+  <h3 class="branch-h">§2 &middot; Problem of Evil <span class="branch-count">8</span></h3>
   <a class="nav-row" href="Q-2.2.1.html" data-s="q-2.2.1 does the amount of evil make god unlikely? §2 problem of evil"><span class="nav-qid">Q-2.2.1</span><span class="nav-q">Does the amount of evil make God unlikely?</span><span class="nav-stats"><b>10</b> src &middot; <b>3</b> exp &middot; <b>13</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-2.4.1.html" data-s="q-2.4.1 why does god allow children to suffer? §2 problem of evil"><span class="nav-qid">Q-2.4.1</span><span class="nav-q">Why does God allow children to suffer?</span><span class="nav-stats"><b>10</b> src &middot; <b>4</b> exp &middot; <b>13</b> obj &middot; <b>7</b> gaps</span></a>
   <a class="nav-row" href="Q-2.4.3.html" data-s="q-2.4.3 why does god let christians keep suffering? §2 problem of evil"><span class="nav-qid">Q-2.4.3</span><span class="nav-q">Why does God let Christians keep suffering?</span><span class="nav-stats"><b>3</b> src &middot; <b>3</b> exp &middot; <b>9</b> obj &middot; <b>5</b> gaps</span></a>
-  <a class="nav-row" href="Q-2.5.1.html" data-s="q-2.5.1 is eternal hell compatible with a loving god? §2 problem of evil"><span class="nav-qid">Q-2.5.1</span><span class="nav-q">Is eternal hell compatible with a loving God?</span><span class="nav-stats"><b>17</b> src &middot; <b>6</b> exp &middot; <b>11</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-2.5.1.html" data-s="q-2.5.1 is eternal hell compatible with a loving god? §2 problem of evil"><span class="nav-qid">Q-2.5.1</span><span class="nav-q">Is eternal hell compatible with a loving God?</span><span class="nav-stats"><b>19</b> src &middot; <b>6</b> exp &middot; <b>12</b> obj &middot; <b>7</b> gaps</span></a>
+  <a class="nav-row" href="Q-2.5.2.html" data-s="q-2.5.2 annihilationism vs eternal torment vs universalism §2 problem of evil"><span class="nav-qid">Q-2.5.2</span><span class="nav-q">Annihilationism vs eternal torment vs universalism</span><span class="nav-stats"><b>2</b> src &middot; <b>2</b> exp &middot; <b>7</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-2.5.5.html" data-s="q-2.5.5 is hell’s severity fair? §2 problem of evil"><span class="nav-qid">Q-2.5.5</span><span class="nav-q">Is hell’s severity fair?</span><span class="nav-stats"><b>6</b> src &middot; <b>1</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-2.5.6.html" data-s="q-2.5.6 the fate of the unevangelised §2 problem of evil"><span class="nav-qid">Q-2.5.6</span><span class="nav-q">The fate of the unevangelised</span><span class="nav-stats"><b>9</b> src &middot; <b>4</b> exp &middot; <b>11</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-2.6.3.html" data-s="q-2.6.3 what is god doing on a cross? §2 problem of evil"><span class="nav-qid">Q-2.6.3</span><span class="nav-q">What is God doing on a cross?</span><span class="nav-stats"><b>14</b> src &middot; <b>1</b> exp &middot; <b>13</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§3 Resurrection &amp; Christology">
@@ -125,10 +120,11 @@
   <a class="nav-row" href="Q-6.7.1.html" data-s="q-6.7.1 do all religions lead to god? §6 other religions"><span class="nav-qid">Q-6.7.1</span><span class="nav-q">Do all religions lead to God?</span><span class="nav-stats"><b>15</b> src &middot; <b>6</b> exp &middot; <b>13</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§7 Theology Proper">
-  <h3 class="branch-h">§7 &middot; Theology Proper <span class="branch-count">3</span></h3>
+  <h3 class="branch-h">§7 &middot; Theology Proper <span class="branch-count">4</span></h3>
   <a class="nav-row" href="Q-7.1.1.html" data-s="q-7.1.1 what is the doctrine of the trinity? §7 theology proper"><span class="nav-qid">Q-7.1.1</span><span class="nav-q">What is the doctrine of the Trinity?</span><span class="nav-stats"><b>11</b> src &middot; <b>6</b> exp &middot; <b>12</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-7.1.13.html" data-s="q-7.1.13 was the trinity invented at nicaea? §7 theology proper"><span class="nav-qid">Q-7.1.13</span><span class="nav-q">Was the Trinity invented at Nicaea?</span><span class="nav-stats"><b>7</b> src &middot; <b>3</b> exp &middot; <b>11</b> obj &middot; <b>5</b> gaps</span></a>
-  <a class="nav-row" href="Q-7.4.2.html" data-s="q-7.4.2 does middle knowledge reconcile sovereignty and freedom? §7 theology proper"><span class="nav-qid">Q-7.4.2</span><span class="nav-q">Does middle knowledge reconcile sovereignty and freedom?</span><span class="nav-stats"><b>3</b> src &middot; <b>3</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-7.4.1.html" data-s="q-7.4.1 divine foreknowledge and the “bare foreknowledge” problem §7 theology proper"><span class="nav-qid">Q-7.4.1</span><span class="nav-q">Divine foreknowledge and the “bare foreknowledge” problem</span><span class="nav-stats"><b>4</b> src &middot; <b>1</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-7.4.2.html" data-s="q-7.4.2 does middle knowledge reconcile sovereignty and freedom? §7 theology proper"><span class="nav-qid">Q-7.4.2</span><span class="nav-q">Does middle knowledge reconcile sovereignty and freedom?</span><span class="nav-stats"><b>3</b> src &middot; <b>3</b> exp &middot; <b>7</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§8 Christology">
   <h3 class="branch-h">§8 &middot; Christology <span class="branch-count">2</span></h3>
@@ -136,20 +132,40 @@
   <a class="nav-row" href="Q-8.2.1.html" data-s="q-8.2.1 why did jesus die? §8 christology"><span class="nav-qid">Q-8.2.1</span><span class="nav-q">Why did Jesus die?</span><span class="nav-stats"><b>12</b> src &middot; <b>5</b> exp &middot; <b>10</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§9 Soteriology">
-  <h3 class="branch-h">§9 &middot; Soteriology <span class="branch-count">1</span></h3>
-  <a class="nav-row" href="Q-9.5.1.html" data-s="q-9.5.1 what saves you? §9 soteriology"><span class="nav-qid">Q-9.5.1</span><span class="nav-q">What saves you?</span><span class="nav-stats"><b>8</b> src &middot; <b>4</b> exp &middot; <b>10</b> obj &middot; <b>6</b> gaps</span></a>
+  <h3 class="branch-h">§9 &middot; Soteriology <span class="branch-count">6</span></h3>
+  <a class="nav-row" href="Q-9.2.1.html" data-s="q-9.2.1 union with christ: the framework of applied redemption §9 soteriology"><span class="nav-qid">Q-9.2.1</span><span class="nav-q">Union with Christ: the framework of applied redemption</span><span class="nav-stats"><b>5</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.3.1.html" data-s="q-9.3.1 does god choose who is saved? §9 soteriology"><span class="nav-qid">Q-9.3.1</span><span class="nav-q">Does God choose who is saved?</span><span class="nav-stats"><b>5</b> src &middot; <b>2</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.3.2.html" data-s="q-9.3.2 calvinism vs arminianism — the verdict and the molinist resolution §9 soteriology"><span class="nav-qid">Q-9.3.2</span><span class="nav-q">Calvinism vs Arminianism — the verdict and the Molinist resolution</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>7</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.3.3.html" data-s="q-9.3.3 corporate vs individual election §9 soteriology"><span class="nav-qid">Q-9.3.3</span><span class="nav-q">Corporate vs individual election</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>4</b> obj &middot; <b>3</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.5.1.html" data-s="q-9.5.1 the nature of saving faith §9 soteriology"><span class="nav-qid">Q-9.5.1</span><span class="nav-q">The nature of saving faith</span><span class="nav-stats"><b>9</b> src &middot; <b>5</b> exp &middot; <b>10</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.6.3.html" data-s="q-9.6.3 the unevangelised — judged on the light they received? §9 soteriology"><span class="nav-qid">Q-9.6.3</span><span class="nav-q">The unevangelised — judged on the light they received?</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§10 Pneumatology">
-  <h3 class="branch-h">§10 &middot; Pneumatology <span class="branch-count">1</span></h3>
-  <a class="nav-row" href="Q-10.2.1.html" data-s="q-10.2.1 the person &amp; work of the holy spirit §10 pneumatology"><span class="nav-qid">Q-10.2.1</span><span class="nav-q">The person &amp; work of the Holy Spirit</span><span class="nav-stats"><b>4</b> src &middot; <b>2</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
+  <h3 class="branch-h">§10 &middot; Pneumatology <span class="branch-count">6</span></h3>
+  <a class="nav-row" href="Q-10.1.1.html" data-s="q-10.1.1 is the holy spirit a person, and is the holy spirit god? §10 pneumatology"><span class="nav-qid">Q-10.1.1</span><span class="nav-q">Is the Holy Spirit a person, and is the Holy Spirit God?</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>9</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-10.1.2.html" data-s="q-10.1.2 is the holy spirit god? §10 pneumatology"><span class="nav-qid">Q-10.1.2</span><span class="nav-q">Is the Holy Spirit God?</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-10.2.1.html" data-s="q-10.2.1 the person and work of the holy spirit §10 pneumatology"><span class="nav-qid">Q-10.2.1</span><span class="nav-q">The person and work of the Holy Spirit</span><span class="nav-stats"><b>6</b> src &middot; <b>2</b> exp &middot; <b>8</b> obj &middot; <b>8</b> gaps</span></a>
+  <a class="nav-row" href="Q-10.3.2.html" data-s="q-10.3.2 spiritual gifts and the fruit of the spirit §10 pneumatology"><span class="nav-qid">Q-10.3.2</span><span class="nav-q">Spiritual gifts and the fruit of the Spirit</span><span class="nav-stats"><b>2</b> src &middot; <b>2</b> exp &middot; <b>4</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-10.4.1.html" data-s="q-10.4.1 baptism in the holy spirit: initiation or second blessing? §10 pneumatology"><span class="nav-qid">Q-10.4.1</span><span class="nav-q">Baptism in the Holy Spirit: initiation or second blessing?</span><span class="nav-stats"><b>4</b> src &middot; <b>1</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-10.4.2.html" data-s="q-10.4.2 the filling of the holy spirit and the spirit-filled life §10 pneumatology"><span class="nav-qid">Q-10.4.2</span><span class="nav-q">The filling of the Holy Spirit and the Spirit-filled life</span><span class="nav-stats"><b>4</b> src &middot; <b>1</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§11 Ecclesiology">
-  <h3 class="branch-h">§11 &middot; Ecclesiology <span class="branch-count">1</span></h3>
-  <a class="nav-row" href="Q-11.3.1.html" data-s="q-11.3.1 baptism, the lord’s supper &amp; the sacraments §11 ecclesiology"><span class="nav-qid">Q-11.3.1</span><span class="nav-q">Baptism, the Lord’s Supper &amp; the sacraments</span><span class="nav-stats"><b>4</b> src &middot; <b>2</b> exp &middot; <b>4</b> obj &middot; <b>6</b> gaps</span></a>
+  <h3 class="branch-h">§11 &middot; Ecclesiology <span class="branch-count">4</span></h3>
+  <a class="nav-row" href="Q-11.3.1.html" data-s="q-11.3.1 baptism: ordinance or sacrament? §11 ecclesiology"><span class="nav-qid">Q-11.3.1</span><span class="nav-q">Baptism: ordinance or sacrament?</span><span class="nav-stats"><b>7</b> src &middot; <b>2</b> exp &middot; <b>11</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-11.3.2.html" data-s="q-11.3.2 infant baptism vs believer’s baptism §11 ecclesiology"><span class="nav-qid">Q-11.3.2</span><span class="nav-q">Infant baptism vs believer’s baptism</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>4</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-11.3.3.html" data-s="q-11.3.3 the lord’s supper and the real presence §11 ecclesiology"><span class="nav-qid">Q-11.3.3</span><span class="nav-q">The Lord’s Supper and the real presence</span><span class="nav-stats"><b>6</b> src &middot; <b>1</b> exp &middot; <b>8</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-11.3.6.html" data-s="q-11.3.6 sacrament vs ordinance: the means-of-grace question §11 ecclesiology"><span class="nav-qid">Q-11.3.6</span><span class="nav-q">Sacrament vs ordinance: the means-of-grace question</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>2</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§12 Eschatology">
-  <h3 class="branch-h">§12 &middot; Eschatology <span class="branch-count">1</span></h3>
-  <a class="nav-row" href="Q-12.2.1.html" data-s="q-12.2.1 the second coming &amp; last things §12 eschatology"><span class="nav-qid">Q-12.2.1</span><span class="nav-q">The second coming &amp; last things</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>7</b> obj &middot; <b>6</b> gaps</span></a>
+  <h3 class="branch-h">§12 &middot; Eschatology <span class="branch-count">8</span></h3>
+  <a class="nav-row" href="Q-12.1.1.html" data-s="q-12.1.1 the intermediate state §12 eschatology"><span class="nav-qid">Q-12.1.1</span><span class="nav-q">The intermediate state</span><span class="nav-stats"><b>3</b> src &middot; <b>1</b> exp &middot; <b>5</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.1.4.html" data-s="q-12.1.4 hell — what is it like? the nature of the final state §12 eschatology"><span class="nav-qid">Q-12.1.4</span><span class="nav-q">Hell — what is it like? The nature of the final state</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.1.html" data-s="q-12.2.1 the second coming and the delay of the parousia §12 eschatology"><span class="nav-qid">Q-12.2.1</span><span class="nav-q">The second coming and the delay of the parousia</span><span class="nav-stats"><b>10</b> src &middot; <b>2</b> exp &middot; <b>9</b> obj &middot; <b>7</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.2.html" data-s="q-12.2.2 millennial views — premillennialism, postmillennialism, amillennialism §12 eschatology"><span class="nav-qid">Q-12.2.2</span><span class="nav-q">Millennial views — premillennialism, postmillennialism, amillennialism</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>11</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.3.html" data-s="q-12.2.3 preterism or futurism? §12 eschatology"><span class="nav-qid">Q-12.2.3</span><span class="nav-q">Preterism or futurism?</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.4.html" data-s="q-12.2.4 the rapture and its timing §12 eschatology"><span class="nav-qid">Q-12.2.4</span><span class="nav-q">The rapture and its timing</span><span class="nav-stats"><b>3</b> src &middot; <b>1</b> exp &middot; <b>4</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.6.html" data-s="q-12.2.6 the resurrection of the body §12 eschatology"><span class="nav-qid">Q-12.2.6</span><span class="nav-q">The resurrection of the body</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>7</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-12.2.8.html" data-s="q-12.2.8 the new heavens and the new earth §12 eschatology"><span class="nav-qid">Q-12.2.8</span><span class="nav-q">The new heavens and the new earth</span><span class="nav-stats"><b>2</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§13 Anthropology">
   <h3 class="branch-h">§13 &middot; Anthropology <span class="branch-count">1</span></h3>
@@ -202,386 +218,30 @@
   <a class="nav-row" href="Q-22.2.7.html" data-s="q-22.2.7 the origin of satan &amp; the fall of the angels §22 angelology"><span class="nav-qid">Q-22.2.7</span><span class="nav-q">The origin of Satan &amp; the fall of the angels</span><span class="nav-stats"><b>7</b> src &middot; <b>1</b> exp &middot; <b>7</b> obj &middot; <b>2</b> gaps</span></a>
 </div>
   </div>
-  <div class="result-count" id="resultcount" role="status" aria-live="polite" style="display:none;"></div>
-  <div id="searchResults" role="list" style="display:none;"></div>
-  <div class="empty" id="noresults" aria-live="polite" style="display:none;"></div>
+  <div class="empty" id="noresults" style="display:none;">No trees match that search.</div>
 </div>
 
-<script src="search-index.js"></script>
 <script>
-/* ----------------------------------------------------------------------------
-   Client-side search engine for the browse page.
-
-   This is a static, offline (file://) site of ~97 short records, so there is no
-   server to query. Everything below runs in the browser and borrows the
-   techniques a real search backend (Lucene / Elasticsearch / Algolia) uses,
-   scaled to fit the corpus:
-
-     - Tokenisation + inverted matching     -> multi-word queries, any order (AND)
-     - Stop-word removal                    -> ignore "the / does / is" noise
-     - Light stemming + two-way prefix      -> morality~moral, suffering~suffer
-     - Synonym / vocabulary expansion       -> "Islam"->Qur'an, "big bang"->universe
-     - Full-text body index                 -> find experts/objections/quotes, not just titles
-     - Fuzzy (edit-distance) + did-you-mean -> tolerate and suggest fixes for typos
-     - BM25-style IDF weighting             -> rare words (Kalam, Habermas) rank high
-     - Field boosting                       -> Q-ID > title > body > branch
-     - Ranking, highlighting, snippets      -> best first, show why (with a body excerpt)
-     - Keyboard nav + ?q= deep links        -> arrow/Enter to open, shareable searches
-
-   The body text comes from search-index.js, generated offline by
-   scripts/build_search_index.py and loaded via a <script> tag above (browsers
-   block fetch() of local files on file:// pages, so a global is the robust way).
-
-   Semantic/vector search was considered and left out on purpose: it needs an
-   offline embedding build step and ships a much larger payload, unjustified for
-   97 short records. The synonym + full-text layers cover the practical gap.
----------------------------------------------------------------------------- */
-const q          = document.getElementById('q');
-const browseView = document.getElementById('results');
-const searchView = document.getElementById('searchResults');
-const countEl    = document.getElementById('resultcount');
-const nores      = document.getElementById('noresults');
-
-/* --- text utilities ------------------------------------------------------ */
-// lowercase, fold curly quotes, drop apostrophes (qur'an -> quran), rest -> space
-const norm = s => s.toLowerCase()
-  .replace(/[‘’ʼ'`]/g, '')
-  .replace(/[^a-z0-9§.]+/g, ' ')
-  .replace(/\s+/g, ' ').trim();
-
-const STOP = new Set(('a an and are as at be been but by can could did do does for from ' +
-  'had has have he her his how i in into is it its make may might must no not of on or ' +
-  'our should so than that the their them then there these they this to vs was we were ' +
-  'what when where which who whom why will with without you your').split(' '));
-
-// light, deterministic stemmer (consistency matters more than linguistic purity)
-function stem(w){
-  if (w.length < 4) return w;
-  let s = w;
-  if (/(s|x|z|ch|sh)es$/.test(s))                          s = s.slice(0, -2);       // witnesses -> witness
-  else if (/ies$/.test(s) && s.length > 4)                 s = s.slice(0, -3) + 'y';  // studies -> study
-  else if (/s$/.test(s) && !/ss$/.test(s) && s.length > 4) s = s.slice(0, -1);        // gospels -> gospel
-  if (/ing$/.test(s) && s.length > 5)                      s = s.slice(0, -3);        // suffering -> suffer
-  else if (/ed$/.test(s) && s.length > 4)                  s = s.slice(0, -2);        // raised -> rais
-  return s;
-}
-
-// tokenise -> array of stems (stop-words removed, unless that empties the query)
-function tokens(str){
-  const raw = norm(str).split(' ').filter(Boolean);
-  let kept = raw.filter(t => !STOP.has(t));
-  if (!kept.length) kept = raw;            // query was all stop-words: keep them
-  return kept;
-}
-
-// Levenshtein edit distance with an early ceiling (typo tolerance)
-function lev(a, b){
-  if (Math.abs(a.length - b.length) > 2) return 3;
-  const n = b.length;
-  let prev = Array.from({length: n + 1}, (_, i) => i);
-  for (let i = 1; i <= a.length; i++){
-    const cur = [i];
-    for (let j = 1; j <= n; j++)
-      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-    prev = cur;
-  }
-  return prev[n];
-}
-
-/* --- synonym / vocabulary bridge ---------------------------------------- *
- * The core problem: people search everyday words ("Islam", "big bang",
- * "suffering") while the trees use scholarly ones ("Qur'an", "universe
- * beginning", "problem of evil"). Each group below makes those equivalent.   */
-const SYN_GROUPS = [
-  ['islam','islamic','muslim','quran','koran','surah','sura','muhammad','mohammed','allah','mecca'],
-  ['jesus','christ','christology','messiah','messianic','isaiah'],
-  ['god','deity','divine','divinity','theism','theistic','yahweh'],
-  ['resurrection','risen','raised','easter','tomb','appearances'],
-  ['evil','suffering','pain','theodicy','hell','damnation'],
-  ['kalam','cosmological','cosmology','universe','cosmos','bigbang','big','bang','cause','beginning','contingency'],
-  ['finetuning','design','designer','intelligent','teleological','dna','biological','complexity','irreducible'],
-  ['moral','morality','ethics','ethical','values'],
-  ['bible','biblical','scripture','testament','gospel','canon','canonicity','manuscript','text','textual','translation','inspired','inspiration','inerrancy','contradiction'],
-  ['science','scientific','scientism'],
-  ['evolution','darwin','darwinism','creation','creationism','species'],
-  ['naturalism','naturalistic','materialism'],
-  ['miracle','hume','supernatural'],
-  ['consciousness','brain','mind','dualism','soul'],
-  ['atheism','atheist','agnostic','lacktheism','sceptic','skeptic','unbelief'],
-  ['religion','pluralism','hinduism','hindu','mormon','josephsmith','buddhism','faiths'],
-  ['trinity','trinitarian','triune','nicaea','nicene','godhead'],
-  ['incarnation','atonement','crucifixion','crucified','cross','salvation','soteriology','saved','redemption','sacrifice'],
-  ['homosexuality','gay','lgbt','sexuality','sexual','abortion','prolife','slavery','slaves','polygamy','concubines','genocide','canaanite','conquest'],
-  ['spirit','pneumatology','holyspirit','ghost'],
-  ['church','ecclesiology','sacrament','baptism','eucharist','communion','supper'],
-  ['eschatology','secondcoming','endtimes','apocalypse','heaven','eternal','afterlife'],
-  ['image','imago','humanity','human','anthropology','dignity','worth'],
-  ['meaning','purpose','nihilism','worldview','relativism','truth','objective'],
-  ['faith','reason','rational','evidence','evidential','belief','believe','trust','proof'],
-  ['apologetics','apologetic','apologist','methodology','debate','crossexamination','evangelism','presuppositional'],
-  ['angel','angelology','satan','devil','demon'],
-  ['josephus','tacitus','extrabiblical','historical','sources'],
-];
-// stem(word) -> Set of related stems
-const SYN = new Map();
-for (const g of SYN_GROUPS){
-  const stems = g.map(stem);
-  for (const w of stems){
-    if (!SYN.has(w)) SYN.set(w, new Set());
-    stems.forEach(x => SYN.get(w).add(x));
-  }
-}
-
-/* --- full-text index (page bodies: experts, objections, quotes) ----------- *
- * Built offline by scripts/build_search_index.py into search-index.js (loaded
- * above). Maps href -> {d: dek summary, c: body text}. Absent -> title-only.   */
-const INDEX = (typeof window !== 'undefined' && window.SEARCH_INDEX) || {};
-
-/* --- build the search index from the DOM rows + the full-text bodies ------- */
-const DOCS = [];
-const VOCAB = new Set();                      // word pool for "did you mean" suggestions
-document.querySelectorAll('.branch-block').forEach(block => {
-  const branch = block.dataset.branch || '';
-  block.querySelectorAll('.nav-row').forEach(row => {
-    const qid      = row.querySelector('.nav-qid').textContent.trim();
-    const question = row.querySelector('.nav-q').textContent.trim();
-    const statsEl  = row.querySelector('.nav-stats');
-    const srcEl    = statsEl ? statsEl.querySelector('b') : null;
-    const href     = row.getAttribute('href');
-    const entry    = INDEX[href] || { d: '', c: '' };
-    const cRaw     = ((entry.d || '') + ' ' + (entry.c || '')).trim();   // body text, original case
-    const cWords   = norm(cRaw).split(' ').filter(Boolean);
-    const qWords   = norm(question).split(' ').filter(Boolean);
-    DOCS.push({
-      href, qid, question, branch,
-      stats:   statsEl ? statsEl.innerHTML : '',
-      src:     srcEl ? (parseInt(srcEl.textContent, 10) || 0) : 0,
-      idClean: qid.toLowerCase().replace(/[^a-z0-9]/g, ''),
-      qNorm:   norm(question),
-      qTerms:  new Set(tokens(question).map(stem)),
-      bTerms:  new Set(tokens(branch).map(stem)),
-      qWords,
-      bWords:  norm(branch).split(' ').filter(Boolean),
-      cRaw,
-      cNorm:   cWords.join(' '),
-      cTerms:  new Set(cWords.filter(w => !STOP.has(w)).map(stem)),
+  const q = document.getElementById('q');
+  const rows = Array.from(document.querySelectorAll('.nav-row'));
+  const blocks = Array.from(document.querySelectorAll('.branch-block'));
+  const nores = document.getElementById('noresults');
+  function filter() {
+    const t = q.value.trim().toLowerCase();
+    let any = false;
+    rows.forEach(r => {
+      const hit = !t || r.dataset.s.includes(t);
+      r.style.display = hit ? '' : 'none';
+      if (hit) any = true;
     });
-    qWords.forEach(w => { if (w.length >= 4) VOCAB.add(w); });
-    cWords.forEach(w => { if (w.length >= 4) VOCAB.add(w); });
-  });
-});
-const VOCAB_LIST = [...VOCAB];
-
-// document frequency over titles -> IDF (BM25-ish): rare terms win. Body-only
-// terms (e.g. "swoon", "Habermas") are absent here, so they get max IDF — which
-// is exactly right: they are highly distinctive.
-const N = DOCS.length, df = new Map();
-DOCS.forEach(d => d.qTerms.forEach(t => df.set(t, (df.get(t) || 0) + 1)));
-const idf = t => Math.log(1 + N / (1 + (df.get(t) || 0)));
-
-/* --- matching ------------------------------------------------------------ */
-// does stem `s` hit a field (stem-set `set` for exact, word-list `words` for
-// prefix/fuzzy)? returns a quality weight 0..1.
-function fieldHit(s, set, words){
-  if (set.has(s)) return 1;
-  for (const w of words){
-    if (w === s) return 1;
-    if (s.length >= 4 && w.length >= 4 && (w.startsWith(s) || s.startsWith(w))) return 0.7;
-  }
-  if (s.length >= 4){
-    const thr = s.length >= 7 ? 2 : 1;
-    for (const w of words) if (w.length >= 4 && lev(w, s) <= thr) return 0.45;
-  }
-  return 0;
-}
-
-function scoreDoc(d, groups, rawQuery){
-  let score = 0, matched = 0;
-  for (const g of groups){
-    let best = 0;                                   // best hit across this term's synonyms
-    for (const s of g.stems)
-      best = Math.max(best, 2.0 * fieldHit(s, d.qTerms, d.qWords),   // title (highest)
-                            1.0 * fieldHit(s, d.bTerms, d.bWords));  // branch name
-    // body matches on the user's LITERAL term only — expanding synonyms into free
-    // prose over-matches (every cosmology page mentions "cause" / "universe")
-    if (g.primary.length >= 3 && d.cTerms.has(g.primary)) best = Math.max(best, 1.2);
-    if (best > 0){ matched++; score += best * idf(g.primary); }
-  }
-  // exact-phrase and Q-ID bonuses (independent of token matching)
-  let phrase = false, idhit = false;
-  if (rawQuery.length >= 2 && d.qNorm.includes(rawQuery)){ score += 6; phrase = true; }
-  if (rawQuery.includes(' ') && d.cNorm.includes(rawQuery)){ score += 4; }   // exact phrase in body
-  const idq = rawQuery.replace(/[^a-z0-9]/g, '');
-  if (idq.length >= 2 && /\d/.test(idq) && d.idClean.includes(idq)){ score += 8; idhit = true; }
-
-  if (score === 0) return { score: 0, matched: 0 };
-  let eff = (phrase || idhit) ? groups.length : matched;   // a phrase/ID hit counts as complete
-  if (eff < groups.length) score *= 0.35;                  // prefer full multi-term (AND) matches
-  return { score, matched: eff };
-}
-
-/* --- highlight matched words in a question ------------------------------- */
-const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-function highlight(text, groups){
-  return text.split(/([A-Za-z0-9’'-]+)/).map(tok => {
-    if (!/[A-Za-z0-9]/.test(tok)) return esc(tok);
-    const s = stem(norm(tok));
-    const hit = groups.some(g => [...g.stems].some(gs =>
-      gs === s ||
-      (s.length >= 4 && gs.length >= 4 && (gs.startsWith(s) || s.startsWith(gs))) ||
-      (s.length >= 4 && lev(gs, s) <= (s.length >= 7 ? 2 : 1))));
-    return hit ? '<mark>' + esc(tok) + '</mark>' : esc(tok);
-  }).join('');
-}
-
-/* --- snippet: a short body excerpt around a body-only match --------------- */
-function makeSnippet(d, groups){
-  if (!d.cRaw) return '';
-  // find a query term that matched the BODY but not the title (the news worth showing)
-  let hitWord = '';
-  for (const g of groups){
-    for (const s of g.stems) if (d.cTerms.has(s) && !d.qTerms.has(s)){ hitWord = s; break; }
-    if (hitWord) break;
-  }
-  if (!hitWord) return '';
-  const re = /[A-Za-z0-9’'-]+/g;
-  let m, pos = -1, mlen = 0;
-  while ((m = re.exec(d.cRaw))) if (stem(norm(m[0])) === hitWord){ pos = m.index; mlen = m[0].length; break; }
-  if (pos < 0) return '';
-  const start = Math.max(0, pos - 60), end = Math.min(d.cRaw.length, pos + mlen + 95);
-  const snip = (start > 0 ? '… ' : '') + d.cRaw.slice(start, end).trim() + (end < d.cRaw.length ? ' …' : '');
-  return '<span class="result-snippet">' + highlight(snip, groups) + '</span>';
-}
-
-// nearest vocabulary word to the user's term, for "did you mean" on zero results
-function suggestion(rawInput){
-  const terms = tokens(rawInput).filter(t => t.length >= 4).sort((a, b) => b.length - a.length);
-  if (!terms.length) return '';
-  const t = terms[0], cap = t.length >= 7 ? 2 : 1;
-  let best = '', bestD = cap + 1;
-  for (const w of VOCAB_LIST){
-    if (Math.abs(w.length - t.length) >= bestD) continue;
-    const d = lev(t, w);
-    if (d > 0 && d < bestD){ bestD = d; best = w; if (d === 1) break; }
-  }
-  return best;
-}
-
-/* --- render -------------------------------------------------------------- */
-let activeIdx = -1;          // keyboard-highlighted result, -1 = none
-let currentHrefs = [];       // hrefs of the currently shown results, in rank order
-
-function showBrowse(){
-  browseView.style.display = '';
-  searchView.style.display = 'none';
-  countEl.style.display = 'none';
-  nores.style.display = 'none';
-  activeIdx = -1; currentHrefs = [];
-}
-
-function runSearch(rawInput){
-  const rawQuery = norm(rawInput);
-  let groups, hits = [];
-
-  // Q-ID lookup ("q-3.3", "3.3", "Q3.3"): match by Q-ID only. Otherwise the
-  // query tokenises into 'q' + '3.3', and 'q' matches the cross-reference Q-IDs
-  // in every page body — returning all 97 trees.
-  const idm = rawInput.trim().match(/^q?[\s-]*([0-9]+(?:\.[0-9]+)*)$/i);
-  if (idm){
-    const key = 'q' + idm[1].replace(/\./g, '');
-    groups = [];
-    for (const d of DOCS)
-      if (d.idClean.includes(key)) hits.push({ d, score: 1, matched: 1 });
-    hits.sort((a, b) => a.d.idClean.length - b.d.idClean.length ||
-                        a.d.idClean.localeCompare(b.d.idClean));
-  } else {
-    // each user term -> {primary stem (drives IDF), set of stems incl. synonyms}
-    groups = tokens(rawInput).map(stem).map(t => {
-      const set = new Set([t]);
-      if (SYN.has(t)) SYN.get(t).forEach(x => set.add(x));
-      return { primary: t, stems: set };
+    blocks.forEach(b => {
+      const visible = b.querySelectorAll('.nav-row:not([style*="none"])').length;
+      b.style.display = visible ? '' : 'none';
     });
-    for (const d of DOCS){
-      const r = scoreDoc(d, groups, rawQuery);
-      if (r.score > 0) hits.push({ d, score: r.score, matched: r.matched });
-    }
-    // rank: most query terms matched, then relevance score, then richer trees
-    hits.sort((a, b) => b.matched - a.matched || b.score - a.score ||
-                        b.d.src - a.d.src || a.d.question.length - b.d.question.length);
+    nores.style.display = any ? 'none' : '';
   }
-
-  // prefer trees that match ALL query terms; fall back to partial matches only
-  // when nothing matches everything (keeps multi-word queries precise)
-  const full = hits.filter(h => h.matched >= groups.length);
-  if (full.length) hits = full;
-
-  browseView.style.display = 'none';
-  activeIdx = -1;
-  currentHrefs = hits.map(h => h.d.href);
-  if (!hits.length){
-    searchView.innerHTML = '';
-    searchView.style.display = 'none';
-    countEl.innerHTML = '';
-    countEl.style.display = 'none';
-    const sug = suggestion(rawInput);
-    nores.innerHTML = 'No trees match that search.' + (sug
-      ? ' Did you mean <button type="button" class="suggest" data-sug="' + esc(sug) + '">' + esc(sug) + '</button>?'
-      : ' Try a broader or related word, or browse the branches above.');
-    nores.style.display = '';
-    return;
-  }
-  searchView.innerHTML = hits.map(({ d }) =>
-    '<a class="nav-row result-row" role="listitem" href="' + d.href + '">' +
-      '<span class="nav-qid">' + esc(d.qid) + '</span>' +
-      '<span class="nav-q">' + highlight(d.question, groups) +
-        '<span class="result-branch">' + esc(d.branch) + '</span>' +
-        makeSnippet(d, groups) + '</span>' +
-      '<span class="nav-stats">' + d.stats + '</span>' +
-    '</a>').join('');
-  countEl.innerHTML = '<b>' + hits.length + '</b> ' + (hits.length === 1 ? 'tree' : 'trees') +
-    ' for &ldquo;' + esc(rawInput.trim()) + '&rdquo; &middot; ranked by relevance';
-  countEl.style.display = '';
-  searchView.style.display = '';
-  nores.style.display = 'none';
-}
-
-function filter(){
-  const v = q.value.trim();
-  // keep ?q= in sync so searches are shareable/bookmarkable (isolated so a
-  // file:// restriction on replaceState can't break search itself)
-  try { history.replaceState(null, '', v ? ('?q=' + encodeURIComponent(v)) : location.pathname); } catch (e) {}
-  try { v ? runSearch(v) : showBrowse(); }
-  catch (err){ console.error('search error', err); showBrowse(); }  // never blank the page
-}
-
-// move the keyboard highlight to result i and scroll it into view
-function setActive(i){
-  const rows = searchView.children;
-  if (activeIdx >= 0 && rows[activeIdx]) rows[activeIdx].classList.remove('active');
-  activeIdx = i;
-  if (rows[activeIdx]){ rows[activeIdx].classList.add('active'); rows[activeIdx].scrollIntoView({ block: 'nearest' }); }
-}
-
-q.addEventListener('input', filter);
-q.addEventListener('keydown', e => {
-  if (e.key === 'Escape'){ q.value = ''; filter(); return; }
-  const open = searchView.style.display !== 'none' && currentHrefs.length;
-  if (!open) return;
-  if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(currentHrefs.length - 1, activeIdx + 1)); }
-  else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(0, activeIdx - 1)); }
-  else if (e.key === 'Enter'){ const i = activeIdx >= 0 ? activeIdx : 0; if (currentHrefs[i]) window.location.href = currentHrefs[i]; }
-});
-
-// "did you mean" suggestion is a button inside #noresults
-nores.addEventListener('click', e => {
-  const b = e.target.closest('.suggest');
-  if (b){ q.value = b.dataset.sug; filter(); q.focus(); }
-});
-
-// deep link: ?q=... pre-fills and runs a search on load
-const initialQ = new URLSearchParams(location.search).get('q');
-if (initialQ) q.value = initialQ;
-filter();
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', e => { if (e.key === 'Escape') { q.value=''; filter(); } });
 </script>
 </body>
 </html>
