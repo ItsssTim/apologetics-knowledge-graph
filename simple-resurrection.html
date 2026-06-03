@@ -151,7 +151,11 @@
 
   /* intro map of the 4 E's */
   .map { margin-top: 6px; }
-  .map-item { display: flex; align-items: baseline; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
   .map-item:first-of-type { border-top: none; }
   .map-e {
     font-family: 'SF Pro Text', system-ui, sans-serif;
@@ -219,10 +223,10 @@
     <p class="tagline">It is the claim the whole thing hangs on. Here is the case the way Lee Strobel lays it out in <em>The Case for Christ</em>, walked through one honest step at a time.</p>
 
     <div class="map">
-      <div class="map-item"><div class="map-e">1</div><div><div class="map-title">Execution</div><div class="map-sub">Was he actually dead?</div></div></div>
-      <div class="map-item"><div class="map-e">2</div><div><div class="map-title">Early testimony</div><div class="map-sub">Is it just a legend that grew over time?</div></div></div>
-      <div class="map-item"><div class="map-e">3</div><div><div class="map-title">Empty tomb</div><div class="map-sub">Was the grave really empty?</div></div></div>
-      <div class="map-item"><div class="map-e">4</div><div><div class="map-title">Eyewitnesses</div><div class="map-sub">Did people actually see him alive?</div></div></div>
+      <a class="map-item" href="#e1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Execution</div><div class="map-sub">Was he actually dead?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#e2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Early testimony</div><div class="map-sub">Is it just a legend that grew over time?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#e3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Empty tomb</div><div class="map-sub">Was the grave really empty?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#e4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Eyewitnesses</div><div class="map-sub">Did people actually see him alive?</div></div><span class="map-go">&rsaquo;</span></a>
     </div>
 
     <div class="cue">Swipe up to begin &darr;</div>
@@ -354,7 +358,7 @@
   // Summary topics jump to their section. Handled in JS because CSS scroll-snap
   // on the scroll container blocks plain #hash navigation (and snap-stop can halt
   // a programmatic jump partway). Relax snap during the scroll, then restore it.
-  document.querySelectorAll('a.sum-card[href^="#"]').forEach(function (a) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var target = document.getElementById(a.getAttribute('href').slice(1));
       if (!target) return;
