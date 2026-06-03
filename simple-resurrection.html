@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#16120d">
+<title>Did Jesus really rise from the dead? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #fdfaf5;
+    --ink-muted: #e4dace;
+    --ink-soft: #b9ac9b;
+    --warm-black: #16120d;
+    --cream: #f7f1e8;
+    --clay: #7a4632;
+    --amber: #b07d3a;
+    --hairline: rgba(255,247,238,0.14);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(48px); opacity: 0.9;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.65; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 42px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    flex: 0 0 74px; line-height: 1.5; opacity: 0.62; text-transform: uppercase;
+    padding-top: 1px;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.28);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1c12;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map of the 4 E's */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: baseline; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { background: rgba(255,247,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  .sum-card:first-of-type { margin-top: 0; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 22px; font-weight: 600; line-height: 1.22; letter-spacing: -0.015em; margin-top: 22px; }
+
+  /* gradients */
+  .bg-intro { background: linear-gradient(168deg, #1a150f 0%, #251c14 38%, #5e4129 82%, #8c6238 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #181210 0%, #2c1c16 34%, #582f22 74%, #834631 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #1a1610 0%, #2d2415 34%, #6a5125 74%, #a3792f 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #161219 0%, #271d27 34%, #523c45 74%, #876861 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #1b1610 0%, #31231a 34%, #774c2b 72%, #c0844a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #16120d 0%, #221913 45%, #3a2817 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #d99a5e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #7a4632 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #c98a6a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a060 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,247,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The big one</div>
+    <h1 class="display display-lg">Did Jesus really rise from the dead?</h1>
+    <p class="tagline">It is the claim the whole thing hangs on. Here is the case the way Lee Strobel lays it out in <em>The Case for Christ</em>, walked through one honest step at a time.</p>
+
+    <div class="map">
+      <div class="map-item"><div class="map-e">1</div><div><div class="map-title">Execution</div><div class="map-sub">Was he actually dead?</div></div></div>
+      <div class="map-item"><div class="map-e">2</div><div><div class="map-title">Early testimony</div><div class="map-sub">Is it just a legend that grew over time?</div></div></div>
+      <div class="map-item"><div class="map-e">3</div><div><div class="map-title">Empty tomb</div><div class="map-sub">Was the grave really empty?</div></div></div>
+      <div class="map-item"><div class="map-e">4</div><div><div class="map-title">Eyewitnesses</div><div class="map-sub">Did people actually see him alive?</div></div></div>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- E1 EXECUTION -->
+<section class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First E / Execution</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Was he actually dead?</div>
+    <h1 class="display">You can't rise from the dead if you were never dead.</h1>
+    <p class="tagline">So the first question is simple: are we sure the Romans actually killed him? Here is why basically every historian, believer or not, says yes.</p>
+
+    <div class="row"><div class="row-icon">Flogged</div><div class="row-text">Before the cross he was scourged with a Roman whip braided with bone and metal. It shredded the back and caused massive blood loss. Plenty of people died from the flogging alone, before they ever reached a cross.</div></div>
+    <div class="row"><div class="row-icon">The cross</div><div class="row-text">Crucifixion kills by slow suffocation. To breathe out, you have to push up on the nails through your feet. Eventually exhaustion wins, you can't lift yourself, and you can't exhale. The Romans did this for a living and were very good at it.</div></div>
+    <div class="row"><div class="row-icon">The spear</div><div class="row-text">To be sure, a soldier ran a spear into his side and out came "blood and water." That is a known medical sign (fluid around the lungs and heart) that he was already dead. They did not bother breaking his legs to speed it up, because he was clearly gone.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The swoon theory:</b> the idea that Jesus didn't actually die, he just passed out, and the cool tomb revived him. The problem? A man flogged half to death, crucified, and speared, with no food, water or medical help, sealed in a tomb, does not then shove aside a massive stone, get past guards, and stroll out. Even the sceptic David Strauss admitted a half-dead man limping out would have inspired pity, not the worship of a conqueror who beat death.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: whatever you make of the rest, the death itself is about as certain as anything in ancient history. He really died.</div></div>
+  </div>
+</section>
+
+<!-- E2 EARLY TESTIMONY -->
+<section class="bg-e2">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Second E / Early testimony</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Is it just a legend that grew over time?</div>
+    <h1 class="display">The story didn't drift in centuries later.</h1>
+    <p class="tagline">The natural suspicion is that the real Jesus got slowly turned into a myth long after he was gone. The timeline kills that idea.</p>
+
+    <div class="row"><div class="row-icon">The creed</div><div class="row-text">In one of Paul's letters (1 Corinthians 15) he repeats a short, memorised summary: Christ died, was buried, rose, and appeared to Peter, then the Twelve, then a crowd of over 500. Scholars recognise it as a fixed creed Paul was handed, not something he wrote.</div></div>
+    <div class="row"><div class="row-icon">The date</div><div class="row-text">Because Paul received it before he wrote it, that creed traces back to within a couple of years of the crucifixion. Some date it to within months. That is far too fast for a legend to grow. Legends need generations; this had almost no gap at all.</div></div>
+    <div class="row"><div class="row-icon">Go check</div><div class="row-text">Paul even adds that most of those 500 witnesses "are still living," which is basically a dare: if you doubt it, go ask them yourself. You only say that when the witnesses are real and reachable.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The legend theory:</b> that the resurrection was a tall tale that snowballed over decades. But you can't snowball a story while the eyewitnesses are still alive, still in town, and the core claim is already being recited as a creed within a few years. The "myth" arrived too early to be a myth.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the claim that he rose was there from almost the very start, not invented by later generations.</div></div>
+  </div>
+</section>
+
+<!-- E3 EMPTY TOMB -->
+<section class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third E / Empty tomb</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Was the grave really empty?</div>
+    <h1 class="display">Even his enemies admitted the body was gone.</h1>
+    <p class="tagline">You don't actually need the Bible on your side for this one. The logic of the situation does most of the work.</p>
+
+    <div class="row"><div class="row-icon">In Jerusalem</div><div class="row-text">The disciples started publicly preaching the resurrection in Jerusalem, the exact city where Jesus had just been buried, only weeks later. If the body was still in the tomb, the authorities just had to walk over, produce it, and the movement was finished on day one. They never did.</div></div>
+    <div class="row"><div class="row-icon">The women</div><div class="row-text">All the accounts say women found the empty tomb first. In that culture a woman's word carried little weight in public. If you were making the story up to sound convincing, you would never cast women as your star witnesses. They're in there because that's what actually happened.</div></div>
+    <div class="row"><div class="row-icon">The cover story</div><div class="row-text">The earliest comeback from Jesus' opponents wasn't "the tomb is still full." It was "his disciples stole the body." Notice what that concedes: the tomb was empty. Both sides agreed on that. They only argued about why.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The stolen-body theory:</b> that the disciples snuck the corpse away. But these same men then suffered and died insisting they had seen him alive. People might steal a body to fake a resurrection, but nobody endures torture and execution for a stunt they know is a lie.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: friend and foe agreed the tomb was empty. The only real question left is what happened to the body.</div></div>
+  </div>
+</section>
+
+<!-- E4 EYEWITNESSES -->
+<section class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth E / Eyewitnesses</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Did people actually see him alive?</div>
+    <h1 class="display">It wasn't one person, seeing him once.</h1>
+    <p class="tagline">This is the part that is genuinely hard to explain away, because of how many people it involves and what it did to them.</p>
+
+    <div class="row"><div class="row-icon">Many</div><div class="row-text">Different people, different places, over several weeks. One on one, and in groups. Peter, the twelve, a crowd of more than 500, his brother James, and later Paul. That is a lot of separate experiences to wave away.</div></div>
+    <div class="row"><div class="row-icon">Transformed</div><div class="row-text">These were people who ran and hid when he was arrested. Within weeks they were fearlessly telling everyone he was alive, and most of them were eventually killed for not backing down. People will die for something they believe is true. They do not die for something they know they made up.</div></div>
+    <div class="row"><div class="row-icon">Even sceptics</div><div class="row-text">James thought his brother was deluded while Jesus was alive, then became a leader of the church and died for it. Paul was hunting Christians down, then completely flipped after he said he met the risen Jesus. Enemies don't usually convert to the very thing they were trying to destroy.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The hallucination theory:</b> that grief made them imagine him. The trouble is that hallucinations are private, like dreams. Two people can't share the same one, let alone a crowd of 500. And even if everyone hallucinated, the tomb would still have a body in it. It doesn't.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: too many people, too many settings, too much change in them, including former enemies. Something real happened.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-1" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, one conclusion</div>
+    <h1 class="display">So, can you be confident?</h1>
+
+    <div class="sum-card"><div class="sum-e">1 &middot; Execution</div><div class="sum-text">He <b>really died</b>. The flogging, the cross and the spear leave no serious room for doubt.</div></div>
+    <div class="sum-card"><div class="sum-e">2 &middot; Early testimony</div><div class="sum-text">The claim he rose was <b>there from the start</b>, recited as a creed within a few years, not a legend that grew later.</div></div>
+    <div class="sum-card"><div class="sum-e">3 &middot; Empty tomb</div><div class="sum-text">The grave was <b>empty</b>, and even his opponents admitted it by arguing the body was stolen.</div></div>
+    <div class="sum-card"><div class="sum-e">4 &middot; Eyewitnesses</div><div class="sum-text">Lots of people, including <b>former sceptics</b>, were convinced they saw him alive and died saying so.</div></div>
+
+    <p class="bottom-line">Any one piece might have a clever workaround. But line all four up at once, and the simplest explanation of the whole picture is the one the first witnesses gave: he rose.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

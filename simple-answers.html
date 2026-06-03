@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#16120d">
+<title>Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #fdfaf5;
+    --ink-muted: #e4dace;
+    --ink-soft: #b9ac9b;
+    --warm-black: #16120d;
+    --clay: #7a4632;
+    --amber: #b07d3a;
+    --hairline: rgba(255,247,238,0.12);
+    --card: rgba(255,247,238,0.055);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+  }
+
+  .bg-glow {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(60vh 60vh at 80% -10%, rgba(176,125,58,0.34) 0%, transparent 60%),
+      radial-gradient(55vh 55vh at -10% 105%, rgba(122,70,50,0.30) 0%, transparent 62%);
+  }
+
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 620px; margin: 0 auto;
+    padding:
+      max(env(safe-area-inset-top), 30px)
+      24px
+      max(env(safe-area-inset-bottom), 48px);
+  }
+
+  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 44px; }
+  .topbar a { color: var(--ink); text-decoration: none; font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; font-weight: 600; opacity: 0.72; }
+  .topbar .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6;
+    padding: 5px 11px; border: 0.5px solid currentColor; border-radius: 9999px;
+  }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 14px;
+  }
+  h1 { font-size: 44px; font-weight: 600; line-height: 1.04; letter-spacing: -0.024em; margin-bottom: 16px; }
+  .lede {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 18px; font-weight: 400;
+    line-height: 1.45; letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 40px; max-width: 30em;
+  }
+
+  .section-label {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px;
+  }
+
+  a.q-card {
+    display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--ink);
+    background: var(--card); border: 0.5px solid var(--hairline); border-radius: 18px;
+    padding: 20px 20px; margin-bottom: 12px; transition: background 0.18s ease, transform 0.18s ease;
+  }
+  a.q-card:hover { background: rgba(255,247,238,0.09); }
+  a.q-card:active { transform: scale(0.985); }
+  .q-num {
+    flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--clay), var(--amber));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 15px; font-weight: 700; color: #fff;
+  }
+  .q-body { flex: 1; }
+  .q-title { font-size: 19px; font-weight: 600; line-height: 1.18; letter-spacing: -0.012em; }
+  .q-sub {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13.5px; font-weight: 400;
+    color: var(--ink-soft); margin-top: 3px;
+  }
+  .chev { flex: 0 0 auto; color: var(--ink-soft); font-size: 20px; opacity: 0.7; }
+
+  .coming {
+    display: flex; align-items: center; gap: 16px;
+    border: 0.5px dashed var(--hairline); border-radius: 18px;
+    padding: 18px 20px; margin-bottom: 12px; opacity: 0.6;
+  }
+  .coming .q-num { background: rgba(255,247,238,0.08); color: var(--ink-soft); }
+  .coming .q-title { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+
+  .foot {
+    font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; line-height: 1.5;
+    color: var(--ink-soft); margin-top: 36px; padding-top: 20px; border-top: 0.5px solid var(--hairline);
+  }
+  .foot a { color: var(--amber); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="index.html">&larr; Knowledge graph</a>
+    <div class="pill">Simple Answers</div>
+  </div>
+
+  <div class="eyebrow">Simple Answers</div>
+  <h1>Straight answers to the big questions.</h1>
+  <p class="lede">No jargon, no hierarchy of logic to get lost in. Just the honest case for each question, in plain language, walked through one step at a time. Made for the phone in your pocket when someone actually asks.</p>
+
+  <div class="section-label">Questions</div>
+
+  <a class="q-card" href="simple-resurrection.html">
+    <div class="q-num">1</div>
+    <div class="q-body">
+      <div class="q-title">Did Jesus really rise from the dead?</div>
+      <div class="q-sub">The case in 4 steps, the way Lee Strobel tells it</div>
+    </div>
+    <div class="chev">&rsaquo;</div>
+  </a>
+
+  <div class="coming">
+    <div class="q-num">+</div>
+    <div class="q-body">
+      <div class="q-title">More questions on the way</div>
+    </div>
+  </div>
+
+  <p class="foot">Want the full, in-depth version with every expert, objection and gap? That lives in the <a href="index.html">main knowledge graph</a>. This is the quick, plain-language companion.</p>
+
+</div>
+</body>
+</html>
