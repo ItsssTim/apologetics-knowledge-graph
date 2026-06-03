@@ -744,16 +744,16 @@ table.qnode-index tr.built td.qid-col a {
   color: var(--accent-deep);
 }
 
-/* Mobile: drop the argument-type column and let the question use the width */
+/* Mobile: fixed layout, drop the least-essential columns, let the question wrap */
 @media (max-width: 600px) {
-  table.qnode-index { font-size: 13px; }
-  table.qnode-index th.status-col,
-  table.qnode-index td.status-col { display: none; }
-  table.qnode-index td.qid-col { width: auto; font-size: 11px; }
-  table.qnode-index th.num-col,
-  table.qnode-index td.num-col { width: auto; padding-right: 10px; }
-  table.qnode-index th,
-  table.qnode-index td { padding-right: 8px; }
+  table.qnode-index { table-layout: fixed; width: 100%; font-size: 13px; }
+  table.qnode-index th.status-col, table.qnode-index td.status-col,
+  table.qnode-index th.experts-col, table.qnode-index td.experts-col { display: none; }
+  table.qnode-index th { letter-spacing: 0.04em; }
+  table.qnode-index th, table.qnode-index td { padding: 12px 6px 12px 0; overflow-wrap: anywhere; }
+  table.qnode-index th:nth-child(1), table.qnode-index td.qid-col { width: 17%; white-space: normal; font-size: 11px; }
+  table.qnode-index th:nth-child(2), table.qnode-index td.topic-col { width: 51%; }
+  table.qnode-index th.num-col, table.qnode-index td.num-col { width: 16%; padding-right: 6px; text-align: right; }
 }
 
 /* Branch coverage table — even denser */
@@ -813,4 +813,14 @@ table.branch-coverage .bar-fill {
   height: 100%;
   background: var(--accent);
   border-radius: 999px;
+}
+/* Mobile: hide the decorative coverage-bar column so the table fits the screen */
+@media (max-width: 600px) {
+  table.branch-coverage { font-size: 12px; }
+  table.branch-coverage th, table.branch-coverage td { padding: 8px 6px; }
+  table.branch-coverage th:nth-child(4),
+  table.branch-coverage td.bar-col { display: none; }
+  table.branch-coverage td.id { width: auto; }
+  table.branch-coverage th.num, table.branch-coverage td.num { width: auto; }
+  table.branch-coverage td.label { font-size: 14px; }
 }
