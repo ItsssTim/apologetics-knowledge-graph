@@ -168,7 +168,12 @@
   }
 
   /* summary cards */
-  .sum-card { background: rgba(255,247,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(255,247,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(255,247,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
   .sum-card:first-of-type { margin-top: 0; }
   .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
   .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
@@ -225,7 +230,7 @@
 </section>
 
 <!-- E1 EXECUTION -->
-<section class="bg-e1">
+<section id="e1" class="bg-e1">
   <span class="hero hero-a blob-2"></span>
   <div class="header"><div class="counter">First E / Execution</div><div class="pill">Step 1 of 4</div></div>
   <div class="stack">
@@ -247,7 +252,7 @@
 </section>
 
 <!-- E2 EARLY TESTIMONY -->
-<section class="bg-e2">
+<section id="e2" class="bg-e2">
   <span class="hero hero-a blob-4"></span>
   <div class="header"><div class="counter">Second E / Early testimony</div><div class="pill">Step 2 of 4</div></div>
   <div class="stack">
@@ -269,7 +274,7 @@
 </section>
 
 <!-- E3 EMPTY TOMB -->
-<section class="bg-e3">
+<section id="e3" class="bg-e3">
   <span class="hero hero-a blob-3"></span>
   <div class="header"><div class="counter">Third E / Empty tomb</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
@@ -291,7 +296,7 @@
 </section>
 
 <!-- E4 EYEWITNESSES -->
-<section class="bg-e4">
+<section id="e4" class="bg-e4">
   <span class="hero hero-a blob-4"></span>
   <div class="header"><div class="counter">Fourth E / Eyewitnesses</div><div class="pill">Step 4 of 4</div></div>
   <div class="stack">
@@ -320,10 +325,10 @@
     <div class="eyebrow">Four steps, one conclusion</div>
     <h1 class="display">So, can you be confident?</h1>
 
-    <div class="sum-card"><div class="sum-e">1 &middot; Execution</div><div class="sum-text">He <b>really died</b>. The flogging, the cross and the spear leave no serious room for doubt.</div></div>
-    <div class="sum-card"><div class="sum-e">2 &middot; Early testimony</div><div class="sum-text">The claim he rose was <b>there from the start</b>, recited as a creed within a few years, not a legend that grew later.</div></div>
-    <div class="sum-card"><div class="sum-e">3 &middot; Empty tomb</div><div class="sum-text">The grave was <b>empty</b>, and even his opponents admitted it by arguing the body was stolen.</div></div>
-    <div class="sum-card"><div class="sum-e">4 &middot; Eyewitnesses</div><div class="sum-text">Lots of people, including <b>former sceptics</b>, were convinced they saw him alive and died saying so.</div></div>
+    <a class="sum-card" href="#e1"><div class="sum-body"><div class="sum-e">1 &middot; Execution</div><div class="sum-text">He <b>really died</b>. The flogging, the cross and the spear leave no serious room for doubt.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e2"><div class="sum-body"><div class="sum-e">2 &middot; Early testimony</div><div class="sum-text">The claim he rose was <b>there from the start</b>, recited as a creed within a few years, not a legend that grew later.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e3"><div class="sum-body"><div class="sum-e">3 &middot; Empty tomb</div><div class="sum-text">The grave was <b>empty</b>, and even his opponents admitted it by arguing the body was stolen.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e4"><div class="sum-body"><div class="sum-e">4 &middot; Eyewitnesses</div><div class="sum-text">Lots of people, including <b>former sceptics</b>, were convinced they saw him alive and died saying so.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
     <p class="bottom-line">Any one piece might have a clever workaround. But line all four up at once, and the simplest explanation of the whole picture is the one the first witnesses gave: he rose.</p>
   </div>
