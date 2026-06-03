@@ -20,6 +20,10 @@
   .nav-stats { font-family: var(--sans); font-size: 11px; color: var(--muted); white-space: nowrap; }
   .nav-stats b { color: var(--body); font-weight: 600; }
   .empty { font-family: var(--sans); color: var(--muted); padding: 40px 0; font-style: italic; }
+  @media (max-width: 600px) {
+    .nav-row { grid-template-columns: 56px 1fr; gap: 2px 12px; }
+    .nav-row .nav-stats { grid-column: 1 / -1; white-space: normal; margin-top: 3px; }
+  }
 </style>
 </head>
 <body>
@@ -27,7 +31,7 @@
   <header class="masthead" style="padding-bottom: 0; border-bottom: none; margin-bottom: 8px;">
     <span class="eyebrow"><a href="index.html">&larr; Overview</a> &nbsp;&middot;&nbsp; Browse all trees</span>
     <h1 class="page-title">Browse the knowledge graph</h1>
-    <p class="dek">121 built argument trees, grouped by branch. Type to filter by topic, Q-ID, or branch.</p>
+    <p class="dek">138 built argument trees, grouped by branch. Type to filter by topic, Q-ID, or branch.</p>
   </header>
 
   <div class="searchwrap">
@@ -92,7 +96,7 @@
   <a class="nav-row" href="Q-4.7.1.html" data-s="q-4.7.1 what does it mean for the bible to be inspired? §4 biblical reliability"><span class="nav-qid">Q-4.7.1</span><span class="nav-q">What does it mean for the Bible to be inspired?</span><span class="nav-stats"><b>10</b> src &middot; <b>4</b> exp &middot; <b>14</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§5 Science and Faith">
-  <h3 class="branch-h">§5 &middot; Science and Faith <span class="branch-count">12</span></h3>
+  <h3 class="branch-h">§5 &middot; Science and Faith <span class="branch-count">13</span></h3>
   <a class="nav-row" href="Q-5.1.1.html" data-s="q-5.1.1 did the universe have a beginning? §5 science and faith"><span class="nav-qid">Q-5.1.1</span><span class="nav-q">Did the universe have a beginning?</span><span class="nav-stats"><b>7</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-5.2.1.html" data-s="q-5.2.1 can life arise from non-life? §5 science and faith"><span class="nav-qid">Q-5.2.1</span><span class="nav-q">Can life arise from non-life?</span><span class="nav-stats"><b>19</b> src &middot; <b>5</b> exp &middot; <b>12</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-5.3.1.html" data-s="q-5.3.1 evolution, creation, and the meaning of “science” §5 science and faith"><span class="nav-qid">Q-5.3.1</span><span class="nav-q">Evolution, creation, and the meaning of “science”</span><span class="nav-stats"><b>10</b> src &middot; <b>4</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
@@ -100,6 +104,7 @@
   <a class="nav-row" href="Q-5.3.5.html" data-s="q-5.3.5 is theistic evolution coherent? §5 science and faith"><span class="nav-qid">Q-5.3.5</span><span class="nav-q">Is theistic evolution coherent?</span><span class="nav-stats"><b>5</b> src &middot; <b>4</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-5.3.6.html" data-s="q-5.3.6 irreducible complexity in dna replication &amp; cell division §5 science and faith"><span class="nav-qid">Q-5.3.6</span><span class="nav-q">Irreducible complexity in DNA replication &amp; cell division</span><span class="nav-stats"><b>20</b> src &middot; <b>5</b> exp &middot; <b>12</b> obj &middot; <b>7</b> gaps</span></a>
   <a class="nav-row" href="Q-5.4.1.html" data-s="q-5.4.1 does the bible give an age of the earth? §5 science and faith"><span class="nav-qid">Q-5.4.1</span><span class="nav-q">Does the Bible give an age of the Earth?</span><span class="nav-stats"><b>7</b> src &middot; <b>5</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-5.4.13.html" data-s="q-5.4.13 adam and eve — historical or literary? §5 science and faith"><span class="nav-qid">Q-5.4.13</span><span class="nav-q">Adam and Eve — historical or literary?</span><span class="nav-stats"><b>4</b> src &middot; <b>4</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-5.5.2.html" data-s="q-5.5.2 hume’s argument against miracles §5 science and faith"><span class="nav-qid">Q-5.5.2</span><span class="nav-q">Hume’s argument against miracles</span><span class="nav-stats"><b>11</b> src &middot; <b>4</b> exp &middot; <b>9</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-5.5.5.html" data-s="q-5.5.5 are science and god competing explanations? §5 science and faith"><span class="nav-qid">Q-5.5.5</span><span class="nav-q">Are science and God competing explanations?</span><span class="nav-stats"><b>13</b> src &middot; <b>1</b> exp &middot; <b>10</b> obj &middot; <b>4</b> gaps</span></a>
   <a class="nav-row" href="Q-5.6.1.html" data-s="q-5.6.1 is consciousness reducible to brain activity? §5 science and faith"><span class="nav-qid">Q-5.6.1</span><span class="nav-q">Is consciousness reducible to brain activity?</span><span class="nav-stats"><b>9</b> src &middot; <b>3</b> exp &middot; <b>10</b> obj &middot; <b>6</b> gaps</span></a>
@@ -132,12 +137,19 @@
   <a class="nav-row" href="Q-8.2.1.html" data-s="q-8.2.1 why did jesus die? §8 christology"><span class="nav-qid">Q-8.2.1</span><span class="nav-q">Why did Jesus die?</span><span class="nav-stats"><b>12</b> src &middot; <b>5</b> exp &middot; <b>10</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§9 Soteriology">
-  <h3 class="branch-h">§9 &middot; Soteriology <span class="branch-count">6</span></h3>
+  <h3 class="branch-h">§9 &middot; Soteriology <span class="branch-count">13</span></h3>
+  <a class="nav-row" href="Q-9.1.1.html" data-s="q-9.1.1 justification by faith alone (sola fide) §9 soteriology"><span class="nav-qid">Q-9.1.1</span><span class="nav-q">Justification by faith alone (sola fide)</span><span class="nav-stats"><b>8</b> src &middot; <b>3</b> exp &middot; <b>7</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.1.3.html" data-s="q-9.1.3 the new perspective on paul §9 soteriology"><span class="nav-qid">Q-9.1.3</span><span class="nav-q">The New Perspective on Paul</span><span class="nav-stats"><b>3</b> src &middot; <b>1</b> exp &middot; <b>10</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.1.4.html" data-s="q-9.1.4 imputed vs infused righteousness §9 soteriology"><span class="nav-qid">Q-9.1.4</span><span class="nav-q">Imputed vs infused righteousness</span><span class="nav-stats"><b>5</b> src &middot; <b>2</b> exp &middot; <b>7</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-9.2.1.html" data-s="q-9.2.1 union with christ: the framework of applied redemption §9 soteriology"><span class="nav-qid">Q-9.2.1</span><span class="nav-q">Union with Christ: the framework of applied redemption</span><span class="nav-stats"><b>5</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-9.3.1.html" data-s="q-9.3.1 does god choose who is saved? §9 soteriology"><span class="nav-qid">Q-9.3.1</span><span class="nav-q">Does God choose who is saved?</span><span class="nav-stats"><b>5</b> src &middot; <b>2</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-9.3.2.html" data-s="q-9.3.2 calvinism vs arminianism — the verdict and the molinist resolution §9 soteriology"><span class="nav-qid">Q-9.3.2</span><span class="nav-q">Calvinism vs Arminianism — the verdict and the Molinist resolution</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>7</b> obj &middot; <b>4</b> gaps</span></a>
   <a class="nav-row" href="Q-9.3.3.html" data-s="q-9.3.3 corporate vs individual election §9 soteriology"><span class="nav-qid">Q-9.3.3</span><span class="nav-q">Corporate vs individual election</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>4</b> obj &middot; <b>3</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.4.1.html" data-s="q-9.4.1 can a christian lose salvation? §9 soteriology"><span class="nav-qid">Q-9.4.1</span><span class="nav-q">Can a Christian lose salvation?</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.4.3.html" data-s="q-9.4.3 the apostasy warning passages (hebrews 6 and 10) §9 soteriology"><span class="nav-qid">Q-9.4.3</span><span class="nav-q">The apostasy warning passages (Hebrews 6 and 10)</span><span class="nav-stats"><b>3</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.4.4.html" data-s="q-9.4.4 how to read the apostasy warning passages §9 soteriology"><span class="nav-qid">Q-9.4.4</span><span class="nav-q">How to read the apostasy warning passages</span><span class="nav-stats"><b>3</b> src &middot; <b>1</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-9.5.1.html" data-s="q-9.5.1 the nature of saving faith §9 soteriology"><span class="nav-qid">Q-9.5.1</span><span class="nav-q">The nature of saving faith</span><span class="nav-stats"><b>9</b> src &middot; <b>5</b> exp &middot; <b>10</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-9.5.5.html" data-s="q-9.5.5 how can a believer have assurance of salvation? §9 soteriology"><span class="nav-qid">Q-9.5.5</span><span class="nav-q">How can a believer have assurance of salvation?</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>6</b> obj &middot; <b>4</b> gaps</span></a>
   <a class="nav-row" href="Q-9.6.3.html" data-s="q-9.6.3 the unevangelised — judged on the light they received? §9 soteriology"><span class="nav-qid">Q-9.6.3</span><span class="nav-q">The unevangelised — judged on the light they received?</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>9</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§10 Pneumatology">
@@ -168,8 +180,14 @@
   <a class="nav-row" href="Q-12.2.8.html" data-s="q-12.2.8 the new heavens and the new earth §12 eschatology"><span class="nav-qid">Q-12.2.8</span><span class="nav-q">The new heavens and the new earth</span><span class="nav-stats"><b>2</b> src &middot; <b>2</b> exp &middot; <b>5</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§13 Anthropology">
-  <h3 class="branch-h">§13 &middot; Anthropology <span class="branch-count">1</span></h3>
+  <h3 class="branch-h">§13 &middot; Anthropology <span class="branch-count">7</span></h3>
+  <a class="nav-row" href="Q-13.1.1.html" data-s="q-13.1.1 what does it mean to be made in the image of god? §13 anthropology"><span class="nav-qid">Q-13.1.1</span><span class="nav-q">What does it mean to be made in the image of God?</span><span class="nav-stats"><b>6</b> src &middot; <b>3</b> exp &middot; <b>7</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-13.1.3.html" data-s="q-13.1.3 does the image of god ground human worth? §13 anthropology"><span class="nav-qid">Q-13.1.3</span><span class="nav-q">Does the image of God ground human worth?</span><span class="nav-stats"><b>4</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
+  <a class="nav-row" href="Q-13.2.1.html" data-s="q-13.2.1 dichotomy or trichotomy? §13 anthropology"><span class="nav-qid">Q-13.2.1</span><span class="nav-q">Dichotomy or trichotomy?</span><span class="nav-stats"><b>2</b> src &middot; <b>2</b> exp &middot; <b>3</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-13.2.2.html" data-s="q-13.2.2 does the soul exist? §13 anthropology"><span class="nav-qid">Q-13.2.2</span><span class="nav-q">Does the soul exist?</span><span class="nav-stats"><b>4</b> src &middot; <b>3</b> exp &middot; <b>11</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-13.4.1.html" data-s="q-13.4.1 the historical adam §13 anthropology"><span class="nav-qid">Q-13.4.1</span><span class="nav-q">The historical Adam</span><span class="nav-stats"><b>6</b> src &middot; <b>2</b> exp &middot; <b>9</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-13.4.2.html" data-s="q-13.4.2 when did humans first appear? §13 anthropology"><span class="nav-qid">Q-13.4.2</span><span class="nav-q">When did humans first appear?</span><span class="nav-stats"><b>2</b> src &middot; <b>1</b> exp &middot; <b>4</b> obj &middot; <b>4</b> gaps</span></a>
+  <a class="nav-row" href="Q-13.4.6.html" data-s="q-13.4.6 were neanderthals human? §13 anthropology"><span class="nav-qid">Q-13.4.6</span><span class="nav-q">Were Neanderthals human?</span><span class="nav-stats"><b>3</b> src &middot; <b>1</b> exp &middot; <b>7</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§14 Hermeneutics">
   <h3 class="branch-h">§14 &middot; Hermeneutics <span class="branch-count">2</span></h3>
@@ -183,8 +201,9 @@
   <a class="nav-row" href="Q-15.10.1.html" data-s="q-15.10.1 is christianity “the white man’s religion”? §15 ethics"><span class="nav-qid">Q-15.10.1</span><span class="nav-q">Is Christianity “the white man’s religion”?</span><span class="nav-stats"><b>6</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>6</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§17 Worldview">
-  <h3 class="branch-h">§17 &middot; Worldview <span class="branch-count">6</span></h3>
-  <a class="nav-row" href="Q-17.1.1.html" data-s="q-17.1.1 do humans have free will? §17 worldview"><span class="nav-qid">Q-17.1.1</span><span class="nav-q">Do humans have free will?</span><span class="nav-stats"><b>9</b> src &middot; <b>4</b> exp &middot; <b>9</b> obj &middot; <b>5</b> gaps</span></a>
+  <h3 class="branch-h">§17 &middot; Worldview <span class="branch-count">7</span></h3>
+  <a class="nav-row" href="Q-17.1.1.html" data-s="q-17.1.1 do humans have free will? §17 worldview"><span class="nav-qid">Q-17.1.1</span><span class="nav-q">Do humans have free will?</span><span class="nav-stats"><b>10</b> src &middot; <b>4</b> exp &middot; <b>11</b> obj &middot; <b>6</b> gaps</span></a>
+  <a class="nav-row" href="Q-17.1.2.html" data-s="q-17.1.2 libertarian vs compatibilist §17 worldview"><span class="nav-qid">Q-17.1.2</span><span class="nav-q">Libertarian vs compatibilist</span><span class="nav-stats"><b>8</b> src &middot; <b>3</b> exp &middot; <b>11</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-17.2.1.html" data-s="q-17.2.1 the contemporary crisis of meaning §17 worldview"><span class="nav-qid">Q-17.2.1</span><span class="nav-q">The contemporary crisis of meaning</span><span class="nav-stats"><b>5</b> src &middot; <b>3</b> exp &middot; <b>8</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-17.2.2.html" data-s="q-17.2.2 can life have meaning without god? §17 worldview"><span class="nav-qid">Q-17.2.2</span><span class="nav-q">Can life have meaning without God?</span><span class="nav-stats"><b>17</b> src &middot; <b>5</b> exp &middot; <b>14</b> obj &middot; <b>6</b> gaps</span></a>
   <a class="nav-row" href="Q-17.4.html" data-s="q-17.4 objective truth &amp; relativism §17 worldview"><span class="nav-qid">Q-17.4</span><span class="nav-q">Objective truth &amp; relativism</span><span class="nav-stats"><b>13</b> src &middot; <b>5</b> exp &middot; <b>13</b> obj &middot; <b>6</b> gaps</span></a>
@@ -214,8 +233,10 @@
   <a class="nav-row" href="Q-21.11.2.html" data-s="q-21.11.2 the anatomy of “not enough evidence” §21 practice of apologetics"><span class="nav-qid">Q-21.11.2</span><span class="nav-q">The anatomy of “not enough evidence”</span><span class="nav-stats"><b>8</b> src &middot; <b>5</b> exp &middot; <b>9</b> obj &middot; <b>5</b> gaps</span></a>
 </div>
 <div class="branch-block" data-branch="§22 Angelology">
-  <h3 class="branch-h">§22 &middot; Angelology <span class="branch-count">1</span></h3>
+  <h3 class="branch-h">§22 &middot; Angelology <span class="branch-count">3</span></h3>
+  <a class="nav-row" href="Q-22.1.1.html" data-s="q-22.1.1 the existence, nature, and work of angels §22 angelology"><span class="nav-qid">Q-22.1.1</span><span class="nav-q">The existence, nature, and work of angels</span><span class="nav-stats"><b>4</b> src &middot; <b>2</b> exp &middot; <b>6</b> obj &middot; <b>5</b> gaps</span></a>
   <a class="nav-row" href="Q-22.2.7.html" data-s="q-22.2.7 the origin of satan &amp; the fall of the angels §22 angelology"><span class="nav-qid">Q-22.2.7</span><span class="nav-q">The origin of Satan &amp; the fall of the angels</span><span class="nav-stats"><b>7</b> src &middot; <b>1</b> exp &middot; <b>7</b> obj &middot; <b>2</b> gaps</span></a>
+  <a class="nav-row" href="Q-22.4.1.html" data-s="q-22.4.1 demons: nature, work, and the question of possession §22 angelology"><span class="nav-qid">Q-22.4.1</span><span class="nav-q">Demons: nature, work, and the question of possession</span><span class="nav-stats"><b>5</b> src &middot; <b>1</b> exp &middot; <b>10</b> obj &middot; <b>7</b> gaps</span></a>
 </div>
   </div>
   <div class="empty" id="noresults" style="display:none;">No trees match that search.</div>

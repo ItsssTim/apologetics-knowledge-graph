@@ -64,7 +64,10 @@ body {
 .container {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 64px 48px 120px;
+  padding: 40px 20px 80px;          /* mobile: small side padding so content uses the width */
+}
+@media (min-width: 720px) {
+  .container { padding: 64px 48px 120px; }
 }
 
 /* Optional: text-heavy section narrows for readability (60-72ch). */
@@ -126,21 +129,20 @@ h1.page-title {
 
 /* Masthead stats row — editorial figures, not "stat cards" */
 .figures {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 0;                 /* row-gap so wrapped figures don't collide */
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* mobile: clean 2-up grid, every figure left-aligned */
+  gap: 28px 16px;
   margin-top: 40px;
   border-top: 1px solid var(--hairline);
   padding-top: 24px;
 }
-.figure {
-  flex: 1 1 0;                 /* equal-width columns instead of content-sized */
-  min-width: 150px;
-  padding: 0 24px;
-  border-right: 1px solid var(--hairline);
+.figure { padding: 0; }
+@media (min-width: 720px) {
+  .figures { grid-template-columns: repeat(4, 1fr); gap: 0; }   /* desktop: editorial 4-up with dividers */
+  .figure { padding: 0 24px; border-right: 1px solid var(--hairline); }
+  .figure:first-child { padding-left: 0; }
+  .figure:last-child { border-right: none; }
 }
-.figure:first-child { padding-left: 0; }
-.figure:last-child { border-right: none; }
 .figure .num {
   font-family: var(--serif);
   font-weight: 400;
@@ -740,6 +742,18 @@ table.qnode-index tr.built td.status-col {
 }
 table.qnode-index tr.built td.qid-col a {
   color: var(--accent-deep);
+}
+
+/* Mobile: drop the argument-type column and let the question use the width */
+@media (max-width: 600px) {
+  table.qnode-index { font-size: 13px; }
+  table.qnode-index th.status-col,
+  table.qnode-index td.status-col { display: none; }
+  table.qnode-index td.qid-col { width: auto; font-size: 11px; }
+  table.qnode-index th.num-col,
+  table.qnode-index td.num-col { width: auto; padding-right: 10px; }
+  table.qnode-index th,
+  table.qnode-index td { padding-right: 8px; }
 }
 
 /* Branch coverage table — even denser */

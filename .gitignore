@@ -1,4 +1,5 @@
 .DS_Store
 
-# Internal red-team review — kept locally, never published
+# Internal QA docs — kept locally, never published
 RED_TEAM.md
+errata.html
