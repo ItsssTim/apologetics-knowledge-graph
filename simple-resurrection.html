@@ -350,6 +350,24 @@
     });
   }, { threshold: [0.55] });
   sections.forEach(s => observer.observe(s));
+
+  // Summary topics jump to their section. Handled in JS because CSS scroll-snap
+  // on the scroll container blocks plain #hash navigation (and snap-stop can halt
+  // a programmatic jump partway). Relax snap during the scroll, then restore it.
+  document.querySelectorAll('a.sum-card[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
 </script>
 
 </body>
