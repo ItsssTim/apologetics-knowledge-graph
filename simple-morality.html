@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c120c">
+<title>Where does morality come from? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f7f0;
+    --ink-muted: #dce5d4;
+    --ink-soft: #9aab92;
+    --warm-black: #0c120c;
+    --cream: #f1f1e7;
+    --clay: #3f6a34;
+    --amber: #d4b052;
+    --hairline: rgba(225,240,222,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.52; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 41px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #1c2a16;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(225,240,222,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(225,240,222,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep moss-forest green to warm gold */
+  .bg-intro { background: linear-gradient(168deg, #0c120c 0%, #131e13 38%, #2a4a26 82%, #3c6634 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c120c 0%, #121c12 34%, #284626 74%, #386030 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b110b 0%, #131e13 34%, #2c4a28 74%, #3e6634 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c120c 0%, #141f13 34%, #3a4a26 74%, #5e6a34 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0c120c 0%, #15200f 30%, #4a4c28 64%, #b89240 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c120c 0%, #131e13 45%, #2e4a28 80%, #6a5a32 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4f9a48 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1f4420 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7a8a3a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(225,240,222,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The moral argument</div>
+    <h1 class="display display-lg">Where does morality come from?</h1>
+    <p class="tagline">You don't need to believe in God to be a good person, and the answer here never says you do. The real question is deeper and stranger: when we say something is genuinely right or wrong, what on earth is that based on? Follow it and it leads somewhere surprising.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Do objective morals exist?</div><div class="map-sub">Some things really are wrong</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Can you ground them without God?</div><div class="map-sub">Where could they come from?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">So where do they come from?</div><div class="map-sub">A law points to a lawgiver</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">But atheists can be good!</div><div class="map-sub">Yes, and that was never the question</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 DO THEY EXIST -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Do they exist?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Some things really are wrong</div>
+    <h1 class="display">Some things are wrong, whatever anyone thinks.</h1>
+    <p class="tagline">Start with what almost everyone, believer or atheist, actually believes deep down: that some things are not just frowned upon, but genuinely, objectively wrong.</p>
+
+    <div class="row"><div class="row-icon">Really wrong</div><div class="row-text">Torturing a child for fun. The Holocaust. Slavery. We do not think these are merely unfashionable, or wrong only for people who happen to dislike them. We think they are wrong, full stop, and would still be wrong even if every society on earth had approved of them. That conviction is the starting point, and you already hold it.</div></div>
+    <div class="row"><div class="row-icon">Not taste</div><div class="row-text">This is different in kind from I prefer tea or that music is dull. Those are about you. But the wrongness of the Holocaust is not a report on your feelings; it is a claim about reality. As the truth card put it, the person who insists it is all just opinion never actually lives that way, and on this, least of all.</div></div>
+    <div class="row"><div class="row-icon">Above culture</div><div class="row-text">And we sense that morality sits above culture, not under it. When Martin Luther King wrote from a Birmingham jail that there is a law above the law of Alabama, everyone felt the force of it. The Nuremberg trials only made sense because the Nazis had broken a law higher than their own. If morality were merely culture, there would have been nothing left to judge.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Morality is just what helps a society function, so it's relative to the culture.</b> But you do not believe that, and neither does anyone. If morality were only the rules a society makes, then a society that endorsed genocide would not be wrong, only different, and we know that is false. The very fact that we can judge an entire culture proves there is a standard standing above all of them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: objective moral values exist, some things are really wrong regardless of opinion or culture, and almost everyone, the atheist included, knows it. That is the agreed starting point. The question is what it all rests on.</div></div>
+  </div>
+</section>
+
+<!-- B2 WITHOUT GOD -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Without God?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where could they come from?</div>
+    <h1 class="display">A godless universe explains behaviour, not obligation.</h1>
+    <p class="tagline">Grant that real right and wrong exist. The next question is what they could possibly be grounded in if there is no God. The usual answers all run into the same wall.</p>
+
+    <div class="row"><div class="row-icon">Evolution</div><div class="row-text">The popular answer is evolution: morality is just instincts that helped our ancestors survive. That may explain why we feel certain things are wrong, but feeling something is wrong is not the same as it being wrong. Evolution could as easily have wired us to feel differently. It tells you what helped us survive; it never tells you what you actually ought to do.</div></div>
+    <div class="row"><div class="row-icon">Culture</div><div class="row-text">The next answer is society: morality is whatever the group agrees on. But then the reformer is always wrong by definition. King was breaking his society's rules; the abolitionists were the deviants. If culture is the source, no culture can ever be judged, and the Holocaust was simply Germany's preference at the time. Nobody can actually live with where that leads.</div></div>
+    <div class="row"><div class="row-icon">Is and ought</div><div class="row-text">Underneath both lies a gap philosophers have known about for centuries: you cannot get an ought from an is. Science can tell you what burns and what heals, that an act causes suffering or flourishing, but no fact about the world can tell you that you ought to care. The leap from how things are to how they should be needs something science alone cannot supply.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Morality is simply about the well-being of conscious creatures, no God required.</b> It is the best secular attempt, but it quietly smuggles in the very thing it needs to prove. Why ought I care about anyone's well-being beyond my own? Call well-being good and you have assumed a value, not discovered one. Science can describe what promotes flourishing; it cannot tell you that you are obligated to want it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: evolution and culture can explain why we have moral feelings and customs, but not why anything is genuinely binding. A purely physical universe gives you what is, never what you ought to do.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHERE FROM -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Where from?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A law points to a lawgiver</div>
+    <h1 class="display">A moral law points to a mind behind it.</h1>
+    <p class="tagline">If objective morals are real, and matter cannot produce them, then they point beyond the physical to their actual source.</p>
+
+    <div class="row"><div class="row-icon">Like a law</div><div class="row-text">Notice what morality is actually like. It does not behave like a fact of physics; it behaves like a law, binding, authoritative, making demands of you whether you like them or not. And a command is the kind of thing that comes from a mind. Knechtle's question is blunt: does anyone really think a wall, or any lump of matter, understands the difference between right and wrong?</div></div>
+    <div class="row"><div class="row-icon">A lawgiver</div><div class="row-text">A law above every human law, King's law above Alabama, can only exist if there is a mind above every human mind to ground it. Real, binding moral obligations are best explained not by particles, but by a personal, good God whose own character is the standard. That is where the ought finally comes from: not from stuff, but from someone.</div></div>
+    <div class="row"><div class="row-icon">Real value</div><div class="row-text">It also explains why people matter. If we are just rearranged atoms, our worth is a comforting story we tell ourselves. But if every person is made in the image of God, then human dignity is a fact, and that is exactly why degrading anyone is objectively wrong. The deepest ground of human rights is not the state; it is the Maker.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Why does a moral law need a lawgiver, why can't it just exist on its own?</b> Because obligations are owed to someone, and commands come from a will, not from thin air. A duty floating in an empty universe, binding on no one in particular, is a strange and rootless thing. The moment morality genuinely obligates a person, it points to a person behind it. Laws do not write themselves.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: real moral obligation behaves like a law, and a law implies a lawgiver. The best explanation of binding, universal morality is a personal God whose character grounds it, and in whose image people have real worth.</div></div>
+  </div>
+</section>
+
+<!-- B4 BUT ATHEISTS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / But atheists?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Yes, and that was never the question</div>
+    <h1 class="display">Of course atheists can be good. That was never the question.</h1>
+    <p class="tagline">This is where the argument is most often misheard, so be clear: it is not a claim that atheists are bad people. It is a claim about where goodness itself comes from.</p>
+
+    <div class="row"><div class="row-icon">Of course</div><div class="row-text">Atheists can be deeply good, kind, honest, often more so than many Christians. Nobody is saying you must believe in God to behave well or to tell right from wrong. You can read beautifully without ever having studied the rules of grammar. The point was never about your behaviour, or your sincerity, at all.</div></div>
+    <div class="row"><div class="row-icon">Two questions</div><div class="row-text">The trick is to separate two questions that constantly get jumbled together. Can a person be good without believing in God? Easily, yes. But what makes anything good or evil in the first place? That is the real question, and it is not answered by pointing to kind atheists. How you behave and what grounds morality are simply not the same issue.</div></div>
+    <div class="row"><div class="row-icon">Borrowed</div><div class="row-text">So the honest picture is this: the moral atheist is living on borrowed capital. They hold tightly to human dignity, real justice, objective wrong, all of which make fine sense if there is a God and very little if there is not. They are, in the best possible way, living better than their own worldview can account for. That quiet gap is itself a kind of pointer.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So you're saying I need religion to be a moral person.</b> Not at all, and it would be insulting to say so. You already know right from wrong; that has never been in question. What is in question is what that knowledge rests on. The claim is not that atheists lack morals, but that morality itself lacks a foundation without God, and that the goodness you live by fits a world he made.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the moral argument never says atheists cannot be good. It says goodness itself needs a foundation, and a personal God supplies the very one that the moral life everyone already lives quietly requires.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, where does morality come from?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Do they exist</div><div class="sum-text">Yes. Some things (the Holocaust, torturing a child) are <b>really wrong</b>, above any culture or opinion. Even atheists know it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Without God</div><div class="sum-text">Evolution explains feelings, culture explains customs, but neither makes anything binding. You <b>can't get an ought from an is</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Where from</div><div class="sum-text">A moral law behaves like a command, and commands come from a mind. Binding morality points to a <b>personal Lawgiver</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; But atheists?</div><div class="sum-text">Of course they can be good. The question was never their behaviour, but <b>what grounds good and evil</b> at all.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So where does morality come from? Not from matter, which knows nothing of right and wrong, and not from culture, which we judge by a higher standard all the time. The objective good we all live by behaves exactly like a law, and a law points to a lawgiver. Atheists can be wonderfully moral; what they cannot easily do is explain, on their own terms, why anything is truly right or wrong at all. That pointer has a name.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
