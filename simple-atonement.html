@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#160a09">
+<title>Why did Jesus have to die? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #faf3f1;
+    --ink-muted: #e8d6d2;
+    --ink-soft: #b59a95;
+    --warm-black: #160a09;
+    --cream: #f5ede2;
+    --clay: #9a3a2e;
+    --amber: #d8b257;
+    --hairline: rgba(245,228,224,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.32);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a140f;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(245,228,224,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(245,228,224,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: the deep crimson of the cross, to the gold of love */
+  .bg-intro { background: linear-gradient(168deg, #160a09 0%, #2a1010 38%, #6e201c 82%, #9a2c24 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #160a09 0%, #25100e 34%, #66201c 74%, #902a22 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #150908 0%, #260f0e 34%, #6e201c 74%, #9c2e24 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #160a09 0%, #271010 34%, #6e3220 74%, #a85a30 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #160a09 0%, #281410 30%, #6e4a26 64%, #cf9a3a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #160a09 0%, #2a1010 45%, #6e2a20 80%, #9a6a34 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #c8483a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #6a1814 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #b06a3a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.42); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,228,224,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The heart of the gospel</div>
+    <h1 class="display display-lg">Why did Jesus have to die? Why not just forgive?</h1>
+    <p class="tagline">It is a fair question, asked by sceptics and seekers alike. If God is all-powerful and all-loving, why the cross, the blood, the death? Why not simply forgive and move on? The answer is the most important thing Christianity has to say, and it turns on what forgiveness actually is.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Why not just forgive?</div><div class="map-sub">The hidden assumption</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Love and justice</div><div class="map-sub">A good God can't shrug at evil</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">So God paid it himself</div><div class="map-sub">Judge and rescuer in one</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Isn't that barbaric?</div><div class="map-sub">The cosmic-child-abuse charge</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHY NOT JUST FORGIVE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Why not just forgive?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The hidden assumption</div>
+    <h1 class="display">The question assumes forgiveness is free. It never is.</h1>
+    <p class="tagline">The objection sounds obvious: an all-powerful God could just wave sin away. It stays obvious right up until you ask what forgiveness actually costs.</p>
+
+    <div class="row"><div class="row-icon">The snap</div><div class="row-text">The sharp version, as one debater put it, is that an all-powerful God could simply Thanos our sins away, so the whole crucifixion looks unnecessary, even irrational. If he can do anything, why not just snap his fingers and forgive? Hold that thought, because the answer is hiding inside the word forgive.</div></div>
+    <div class="row"><div class="row-icon">Never free</div><div class="row-text">Here is what nobody notices: forgiveness is never free. When someone wrongs you, you can make them pay, or you can forgive, which means you absorb the cost yourself. As Knechtle puts it, to forgive is to take the hit you did not deserve. Cancel a debt and the money does not vanish into thin air; you eat the loss. Forgiveness always lands on somebody.</div></div>
+    <div class="row"><div class="row-icon">The debt</div><div class="row-text">So if I smash your window, forgiving me does not mean the window magically un-breaks. It means either you pay for it or I do. Sin is a real debt, a real wrong done to God and to people, not a clerical error to be quietly deleted. The question is never whether it gets paid, only who pays it. That single shift reframes the whole thing.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>An all-powerful God could just forgive by decree, no cross required.</b> But raw power does not dissolve the problem, because forgiveness is not a power problem, it is a cost problem. Even God, in forgiving, must do what forgiveness always does: absorb the wrong rather than pretend it never happened. To simply wave evil away is not forgiveness at all. It is calling evil nothing.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the real question is not why didn't God just forgive, but how does anyone forgive. The answer is always the same, someone absorbs the cost. Keep that in view.</div></div>
+  </div>
+</section>
+
+<!-- B2 LOVE AND JUSTICE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Love and justice</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A good God can't shrug at evil</div>
+    <h1 class="display">A God who just ignored evil wouldn't be good.</h1>
+    <p class="tagline">Behind why not just forgive sits a picture of God as nothing but indulgent. But a God who simply overlooked evil would not be loving. He would be unjust.</p>
+
+    <div class="row"><div class="row-icon">Not just kind</div><div class="row-text">God is love, but he is also just and holy, and those are not in competition; both belong to being good. A father who laughed off his child's cruelty would not be more loving, he would be less. Love that never takes a wrong seriously is not love at all. It is indifference dressed up as niceness.</div></div>
+    <div class="row"><div class="row-icon">The judge</div><div class="row-text">Picture a judge who let every criminal walk free because he was just so loving. You would not call him good; you would call him corrupt. We actually want a God who takes the abuser, the tyrant, the genocide seriously, who refuses to file the world's evil under no harm done. A God who simply forgave everything would be morally asleep.</div></div>
+    <div class="row"><div class="row-icon">The dilemma</div><div class="row-text">So here is the real tension, and it is a beautiful one. God is perfectly just, so evil cannot just be waved away; and he is perfectly merciful, so he longs to forgive. How can he be both at once, the judge who must not ignore the wrong, and the Father who wants to pardon the wrongdoer? The cross is the answer to exactly that question.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If God is so loving, justice shouldn't matter to him.</b> But strip justice out of love and you are left with sentimentality, a God who shrugs at the Holocaust. The people most wounded by evil are the last to want a God who lets it slide. Real love and real justice both refuse to call evil acceptable. The cross is where they stop pulling apart and finally meet.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a God who merely overlooked evil would be neither good nor just, and we would not want him. The problem the cross solves is how God can be both perfectly just and freely merciful.</div></div>
+  </div>
+</section>
+
+<!-- B3 GOD PAID IT -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / The cross</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Judge and rescuer in one</div>
+    <h1 class="display">So God paid it himself, as both judge and rescuer.</h1>
+    <p class="tagline">Here is the resolution. God does not ignore the debt, and he does not make us carry it. He pays it himself. That is what the cross actually is.</p>
+
+    <div class="row"><div class="row-icon">Both roles</div><div class="row-text">Knechtle frames it perfectly: God is the judge, so the penalty must be paid; but he is also the justifier, gracious and merciful. So he becomes a man in Christ, lives a sinless life, and on the cross absorbs the penalty himself. Justice is fully satisfied, the wrong really is paid for, and mercy is fully extended, you go free. Both at once, in a single act.</div></div>
+    <div class="row"><div class="row-icon">Steps down</div><div class="row-text">Imagine a judge who hands down the rightful fine, then steps off the bench, takes off the robe, and pays it out of his own pocket for the guilty defendant. Justice is not cheated, the penalty is real and met, but the debtor walks free. That is the strange arithmetic of the cross: God upholding the law and rescuing the lawbreaker in the very same motion.</div></div>
+    <div class="row"><div class="row-icon">In person</div><div class="row-text">And this is the crucial part: God does it himself, he does not make someone else suffer. Christ is not a hapless third party dragged in; he is God in person, stepping into our place. The one who sets the penalty is the very one who pays it. That detail matters enormously for the objection in the next step.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>How can one person's death pay for everyone, or for an infinite wrong?</b> Because of who is paying. The worth of a payment tracks the worth of the one who makes it; an apology from a stranger and from your dearest friend are not equal in weight. This is not a finite man dying, it is God himself, of infinite worth, which is exactly why one act can cover what no amount of our own effort ever could.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the cross is God as both judge and justifier, upholding justice by paying the penalty himself. Not evil ignored, not us crushed, but God absorbing the debt in person.</div></div>
+  </div>
+</section>
+
+<!-- B4 BARBARIC -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Barbaric?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The cosmic-child-abuse charge</div>
+    <h1 class="display">It's not barbarism. It's the costliest love there is.</h1>
+    <p class="tagline">The modern ear hears blood sacrifice and recoils: barbaric, primitive, even cosmic child abuse. But every piece of that reaction gets the cross backwards.</p>
+
+    <div class="row"><div class="row-icon">Not child abuse</div><div class="row-text">The cruellest version calls it divine child abuse, an angry Father punishing an innocent Son. But that misses the very heart of it: the Son is God. This is not God taking it out on a third party; it is God taking it onto himself. Self-sacrifice, not scapegoating. Once you see that the Son is God in person, the abuse charge simply dissolves.</div></div>
+    <div class="row"><div class="row-icon">Not barbaric</div><div class="row-text">And the blood is not God needing gore to calm down. It is the honest measure of what evil actually costs. As Knechtle notes, every age before ours grasped that grave wrong is grave; it is the modern West, having trivialised sin, that finds the price shocking. The cross is not too violent for our wrongs. We have simply stopped taking them seriously.</div></div>
+    <div class="row"><div class="row-icon">Costliest love</div><div class="row-text">So far from barbaric, it is the deepest love imaginable. God could have ignored evil, and stopped being good; or made us pay, and lost us forever; instead he absorbed it himself. That is what love does at full stretch: it pays. The cross is not a stain on God's character. It is God's heart, laid utterly bare.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Why couldn't God just forgive the way we do, with no cross at all?</b> But this is exactly how we forgive, only on a tiny scale: we absorb the hurt instead of passing it on. The cross is that same move, made by God, for the whole weight of human evil. Some faiths have God forgive by sheer decree, but that leaves justice unmet. Only here do perfect justice and perfect mercy both come out whole.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: it is not barbaric and not child abuse; it is God himself absorbing what we owed, holding justice and mercy together at infinite cost. The cross is the measure of the love, not a stain on it.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, why couldn't God just forgive?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The assumption</div><div class="sum-text">Just forgive assumes forgiveness is free. It never is; <b>someone always absorbs the cost</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Love and justice</div><div class="sum-text">A God who shrugged at evil <b>wouldn't be good</b>. The puzzle is how he's both perfectly just and freely merciful.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The cross</div><div class="sum-text">God is <b>judge and justifier</b>: he pays the penalty himself, in person. Justice met, mercy given.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Barbaric?</div><div class="sum-text">The Son is God, so it's <b>self-sacrifice, not child abuse</b>, not gore God needs, but the costliest love there is.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So why couldn't God just forgive? Because real forgiveness is never free, and a good God cannot simply wink at evil. The cross is the one place where justice is fully done and mercy is fully given, because God himself pays the debt we owed. It is not the barbarity people imagine. It is love that refused both to ignore us and to lose us, and absorbed the cost in person.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
