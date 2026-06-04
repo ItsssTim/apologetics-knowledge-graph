@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#11151c">
+<title>Isn't faith just believing without evidence? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f4f6;
+    --ink-muted: #dde2e6;
+    --ink-soft: #99a4ad;
+    --warm-black: #11151c;
+    --cream: #f1ece2;
+    --clay: #7a5a26;
+    --amber: #dca850;
+    --hairline: rgba(230,236,240,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(230,236,240,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(230,236,240,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: steel-blue reason resolving to warm honey-gold (a step into the light) */
+  .bg-intro { background: linear-gradient(168deg, #11151c 0%, #1c2330 38%, #3e4252 78%, #6e5a38 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #11151c 0%, #181f2a 34%, #2c3340 74%, #3a4150 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #10141a 0%, #1a212c 34%, #353a44 74%, #4e4840 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #11151c 0%, #1c232e 34%, #3e3e40 74%, #5e5236 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #11151c 0%, #1e2530 30%, #4a4232 64%, #dca850 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #11151c 0%, #1c2330 45%, #4e4636 80%, #d2a046 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #34405a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1a212c 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7e6230 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #dca850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(230,236,240,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Faith, reason, and evidence</div>
+    <h1 class="display display-lg">Isn't faith just believing without evidence?</h1>
+    <p class="tagline">It is the cleanest jab the New Atheists ever landed: you believe on faith, I believe on evidence, and faith is just the word people use when they have run out of reasons. If that were what faith meant, it would deserve the scorn. But it is a redefinition, and once you see that, the whole charge comes apart.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">That's not what faith means</div><div class="map-sub">Trust with reasons, not make-believe</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Everyone already lives by faith</div><div class="map-sub">The pharmacist, the pilot, the driver</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The slogan refutes itself</div><div class="map-sub">And science runs on faith too</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">A step in the light, not the dark</div><div class="map-sub">Trust in a track record</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT FAITH MEANS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What faith means</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What the word actually means</div>
+    <h1 class="display">That's not what faith means.</h1>
+    <p class="tagline">The objection works by quietly redefining the word, then attacking the redefinition. So start with what faith has actually meant to the people who use it.</p>
+
+    <div class="row"><div class="row-icon">A redefinition</div><div class="row-text">The popular line, that faith is believing without evidence, or as one atheist put it, pretending to know what you do not know, is a definition some sceptics prefer. It is not the one Christians use, and it is not the one the Bible uses. The Bible's own picture of faith is far closer to assurance and well-grounded conviction than to a guess in the dark.</div></div>
+    <div class="row"><div class="row-icon">It has an object</div><div class="row-text">Real faith always has an object and a reason. You do not have faith in the abstract; you have faith in something or someone, and the sensible question is always whether that object is trustworthy. As Knechtle puts it, I believe because I believe is not faith at all. It is intellectual naivety, and Scripture never once commends it.</div></div>
+    <div class="row"><div class="row-icon">Reasoned trust</div><div class="row-text">So faith, properly understood, is two things held together: evidence of reliability, plus a commitment of the will. You weigh whether something is trustworthy, and then you actually entrust yourself to it. That is not the opposite of reason. It is simply what reasonable people do every day with anything, and anyone, worth trusting.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Faith is just pretending to know what you don't know.</b> That is a definition some atheists prefer, but it is not the one believers use, nor the one the Bible uses. Biblical faith always has an object and a reason: it is trusting a God taken to be reliable, the way you trust a friend with a track record. Defining faith as make-believe and then attacking make-believe is just arguing with yourself.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: faith is not believing without evidence. It is reasoned trust in a reliable object, evidence of trustworthiness plus the commitment to act on it. The make-believe version is a redefinition the sceptic supplies, not the faith anyone actually practises.</div></div>
+  </div>
+</section>
+
+<!-- B2 EVERYONE HAS IT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Everyone has it</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who actually lives by faith?</div>
+    <h1 class="display">Everyone already lives by faith.</h1>
+    <p class="tagline">Once you define faith as reasonable trust under less than total proof, something becomes obvious. It is not a strange religious habit. It is how every single person gets through the day.</p>
+
+    <div class="row"><div class="row-icon">The pharmacist</div><div class="row-text">You do not take a chemistry kit to the pharmacy to test the bottle; you trust the pharmacist. Heading through a green light, you trust the driver at the red one to stop. You board the plane trusting that the engineers and the metal will hold. None of that is proven to you in the moment. All of it is reasonable trust, and you would be paralysed without it.</div></div>
+    <div class="row"><div class="row-icon">Not certainty</div><div class="row-text">Notice what these have in common. None of them is certainty, and none of them is blind. They are commitments made on good evidence, with the remaining gaps covered by trust. If you waited for total proof before acting, you would never cross a road, see a doctor, or rely on another human being for anything at all.</div></div>
+    <div class="row"><div class="row-icon">Everyone</div><div class="row-text">So the real line is not between people of faith and people of evidence. Everyone runs on both. The student who commits years and a fortune to a university, trusting it will grant the degree, is doing exactly this. The only real question is not whether you live by faith, but whether the things you are trusting actually deserve it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But I don't take anything on faith; I only believe what's proven.</b> Almost nothing in a human life is proven in that strict sense. You cannot prove the sun will rise tomorrow, that other people have minds, that your memory is reliable, or that the driver beside you is sober. You trust, on good evidence, and get on with living. That reasonable trust under uncertainty is exactly what a Christian means by faith.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: faith, as trust on good evidence under less than total proof, is universal. The pharmacist, the oncoming driver, the aircraft, the diploma, all of it runs on it. The question was never faith versus evidence, but whether what you trust deserves it.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE SLOGAN BACKFIRES -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / The slogan backfires</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Turning the slogan over</div>
+    <h1 class="display">And the slogan refutes itself.</h1>
+    <p class="tagline">The claim that faith means believing without evidence has two problems, and both of them are fatal to the claim rather than to faith.</p>
+
+    <div class="row"><div class="row-icon">The boomerang</div><div class="row-text">First, ask the obvious question: what is the evidence that faith means believing without evidence? There is none; it is simply asserted. So, as Lennox enjoys pointing out, by its own definition the statement is itself an act of blind faith. The slogan fails its own test in the very act of being spoken.</div></div>
+    <div class="row"><div class="row-icon">Science too</div><div class="row-text">Second, science itself rests on commitments it cannot prove: that the universe is rationally intelligible, that our minds track truth, that the future will resemble the past. None of these can be demonstrated without already assuming them. The scientist trusts them because they work. That is faith doing its ordinary, respectable job, right at the foundation of reason.</div></div>
+    <div class="row"><div class="row-icon">Same thing, new label</div><div class="row-text">Some will grant all this and say, fine, I call the evidence-based kind trust, and reserve faith for the evidence-free kind. That is allowed, but notice the result. The thing Christians actually do, evidence-based trust plus commitment, is precisely what you are now calling trust. We agree about the thing. We are only arguing about the label.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Faith is believing without evidence; trust is what you have with evidence.</b> A tidy distinction in words, but watch what it does. The claim that faith means believing-without-evidence is itself offered without evidence, so by its own rule it is blind faith. And the thing Christians actually practise, reasoned trust plus commitment, is exactly what you are calling trust. We are not disagreeing about reality, only fighting over a word.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the slogan is self-refuting, since no evidence is ever given for it, and it ignores that science itself runs on unprovable commitments. Faith and reason are not enemies; reason itself rests on a foundation of trust.</div></div>
+  </div>
+</section>
+
+<!-- B4 FAITH IN A PERSON -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Faith in a person</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What Christian faith rests on</div>
+    <h1 class="display">A step in the light, not the dark.</h1>
+    <p class="tagline">So Christian faith is not a leap into the dark, hoping something is out there. It is a step taken in the light, once the reasons are in.</p>
+
+    <div class="row"><div class="row-icon">A track record</div><div class="row-text">You do not trust a stranger; you trust someone who has shown they are reliable. Christian faith works the same way. It rests on reasons: a universe that looks designed, a moral law that points beyond us, and above all a man who claimed to be God, said he would die and rise, and, on the evidence, did exactly that. Faith follows the track record.</div></div>
+    <div class="row"><div class="row-icon">A step in light</div><div class="row-text">That is why faith is not the opposite of evidence; it is what you do once the evidence has carried you to the edge. Reason can bring you to the conclusion that someone is trustworthy. Only trust actually steps out and relies on them. Every deep human relationship works this way. You weigh, and then, at some point, you commit.</div></div>
+    <div class="row"><div class="row-icon">Doubt welcome</div><div class="row-text">Which is also why honest doubt and hard questions are welcome here, not feared. A faith built on reasons can be examined, tested and pressed without falling apart, the way a sound bridge can take the weight. The opposite of this faith is not doubt, and it is not reason. It is the make-believe the sceptic accused it of, and never actually finds.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Even so, you can't prove God the way I can prove a fact in a lab.</b> True, and Christianity has never claimed proof of that kind. But notice that almost nothing that matters most to you comes with lab-proof: that someone loves you, that your life has worth, that cruelty is wrong. The claim is humbler and more human. There are good reasons to find God trustworthy, and faith is the step you take once they are in.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christian faith is trust in a person with a track record, the God who entered history in Christ. It is a step taken in the light of the evidence, not a leap into the dark, which is exactly why it can welcome the hardest questions instead of fearing them.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">A step in the light.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Not what faith means</div><div class="sum-text">Faith isn't believing without evidence; it's <b>reasoned trust in a reliable object</b>, plus commitment. The make-believe version is a redefinition.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Everyone has it</div><div class="sum-text">The pharmacist, the oncoming driver, the plane, the diploma. <b>Trust on good evidence under less than total proof is universal.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The slogan backfires</div><div class="sum-text">Faith-is-believing-without-evidence is itself <b>asserted without evidence</b>, and science runs on unprovable commitments too.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; A step in the light</div><div class="sum-text">Christian faith trusts a <b>person with a track record</b>. Reasons bring you to the edge; trust takes the step. Doubt is welcome.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is faith just believing without evidence? Only if you redefine the word to mean that, at which point no one, the Christian included, actually holds the faith you are attacking. Real faith is what everyone already lives by: reasonable trust, on good evidence, in something or someone worth it. The slogan that pits faith against reason cannot even pass its own test, and science itself runs on trust at the root. Christian faith is simply that ordinary thing pointed at a particular person, who said he would die and rise and, the evidence says, did. It is not a leap into the dark. It is a step taken in the light.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
