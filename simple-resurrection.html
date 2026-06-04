@@ -107,9 +107,8 @@
   .row:first-of-type { border-top: none; }
   .row-icon {
     font-family: 'SF Pro Text', system-ui, sans-serif;
-    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
-    flex: 0 0 74px; line-height: 1.5; opacity: 0.62; text-transform: uppercase;
-    padding-top: 1px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
   }
   .row-text {
     font-family: 'SF Pro Text', system-ui, sans-serif;
@@ -152,11 +151,11 @@
   /* intro map of the 4 E's */
   .map { margin-top: 6px; }
   .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
   a.map-item { text-decoration: none; color: inherit; }
   a.map-item:active { opacity: 0.65; }
   .map-body { flex: 1; }
   .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
-  .map-item:first-of-type { border-top: none; }
   .map-e {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 13px; font-weight: 700; color: var(--ink);
@@ -178,7 +177,6 @@
   a.sum-card:active { transform: scale(0.99); }
   .sum-body { flex: 1; }
   .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
-  .sum-card:first-of-type { margin-top: 0; }
   .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
   .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
   .sum-text b { color: var(--ink); font-weight: 600; }
@@ -220,7 +218,7 @@
   <div class="stack">
     <div class="eyebrow">The big one</div>
     <h1 class="display display-lg">Did Jesus really rise from the dead?</h1>
-    <p class="tagline">It is the claim the whole thing hangs on. Here is the case the way Lee Strobel lays it out in <em>The Case for Christ</em>, walked through one honest step at a time.</p>
+    <p class="tagline">It is the claim the whole faith stands or falls on. Here is the case the way Lee Strobel builds it in <em>The Case for Christ</em>, walked through one honest step at a time.</p>
 
     <div class="map">
       <a class="map-item" href="#e1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Execution</div><div class="map-sub">Was he actually dead?</div></div><span class="map-go">&rsaquo;</span></a>
@@ -240,18 +238,18 @@
   <div class="stack">
     <div class="eyebrow">Was he actually dead?</div>
     <h1 class="display">You can't rise from the dead if you were never dead.</h1>
-    <p class="tagline">So the first question is simple: are we sure the Romans actually killed him? Here is why basically every historian, believer or not, says yes.</p>
+    <p class="tagline">Everything else hangs on this. When Lee Strobel put the question to a medical doctor and asked what crucifixion actually does to a body, the answer left almost no room to wonder whether Jesus survived it.</p>
 
-    <div class="row"><div class="row-icon">Flogged</div><div class="row-text">Before the cross he was scourged with a Roman whip braided with bone and metal. It shredded the back and caused massive blood loss. Plenty of people died from the flogging alone, before they ever reached a cross.</div></div>
-    <div class="row"><div class="row-icon">The cross</div><div class="row-text">Crucifixion kills by slow suffocation. To breathe out, you have to push up on the nails through your feet. Eventually exhaustion wins, you can't lift yourself, and you can't exhale. The Romans did this for a living and were very good at it.</div></div>
-    <div class="row"><div class="row-icon">The spear</div><div class="row-text">To be sure, a soldier ran a spear into his side and out came "blood and water." That is a known medical sign (fluid around the lungs and heart) that he was already dead. They did not bother breaking his legs to speed it up, because he was clearly gone.</div></div>
+    <div class="row"><div class="row-icon">Flogged</div><div class="row-text">It started before the cross. Roman flogging used a flagrum, a short whip braided with jagged bone and balls of lead, swung again and again across the back. It did not bruise, it tore. Skin and the muscle beneath it were ripped away in strips until the back was an open wound, sometimes deep enough to expose the spine. The physician Strobel interviewed explained that victims routinely slid into hypovolemic shock from the blood loss alone, and that a good number of men died right there at the post, before a cross was ever in the picture.</div></div>
+    <div class="row"><div class="row-icon">The cross</div><div class="row-text">Crucifixion itself kills slowly, by suffocation. Hanging by the arms pins the chest, so to breathe out at all you have to push your whole weight up on the iron nail through your feet. You spend hours dragging yourself up for every breath until you simply cannot anymore. And this was run by professional execution squads who did it constantly and were held personally answerable for the result. A Roman soldier who let a condemned man come down alive could be put to death in his place, so they did not leave the job half finished.</div></div>
+    <div class="row"><div class="row-icon">The spear</div><div class="row-text">To hurry a death along, soldiers would shatter the victim's legs with an iron bar, so he could no longer push up to breathe and suffocated within minutes. They did this to the two men crucified beside Jesus. When they came to Jesus they saw he was already dead and left his legs alone. To be certain Jesus was gone, a soldier instead drove a spear up into his side, and out came a flow of blood followed by a clear watery fluid, a sign the blood had already begun settling and separating after the heart stopped. The spear did not kill him. It confirmed a death that had already happened.</div></div>
 
     <div class="objection">
       <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>The swoon theory:</b> the idea that Jesus didn't actually die, he just passed out, and the cool tomb revived him. The problem? A man flogged half to death, crucified, and speared, with no food, water or medical help, sealed in a tomb, does not then shove aside a massive stone, get past guards, and stroll out. Even the sceptic David Strauss admitted a half-dead man limping out would have inspired pity, not the worship of a conqueror who beat death.</div>
+      <div class="otext"><b>The swoon theory:</b> the idea that Jesus never actually died, he only fainted, and the cool air of the tomb later revived him. The problem is the state he would have been in. A man whose back was flayed open, who hung nailed up for hours, was run through with a spear, given no food, water or medical care, and then sealed behind a boulder, does not quietly come round, shove the stone aside, slip past a guard and walk away. Even the sceptic David Strauss admitted that a half-dead man crawling out of a tomb would have struck his followers as someone in desperate need of a doctor, not as the risen Lord who had beaten death.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: whatever you make of the rest, the death itself is about as certain as anything in ancient history. He really died.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: whatever you make of the rest, the death itself is about as certain as anything in ancient history. He really did die.</div></div>
   </div>
 </section>
 
@@ -262,18 +260,18 @@
   <div class="stack">
     <div class="eyebrow">Is it just a legend that grew over time?</div>
     <h1 class="display">The story didn't drift in centuries later.</h1>
-    <p class="tagline">The natural suspicion is that the real Jesus got slowly turned into a myth long after he was gone. The timeline kills that idea.</p>
+    <p class="tagline">The natural suspicion is that an ordinary man was slowly turned into a miracle long after he died, the way legends usually form. The timeline makes that nearly impossible.</p>
 
-    <div class="row"><div class="row-icon">The creed</div><div class="row-text">In one of Paul's letters (1 Corinthians 15) he repeats a short, memorised summary: Christ died, was buried, rose, and appeared to Peter, then the Twelve, then a crowd of over 500. Scholars recognise it as a fixed creed Paul was handed, not something he wrote.</div></div>
-    <div class="row"><div class="row-icon">The date</div><div class="row-text">Because Paul received it before he wrote it, that creed traces back to within a couple of years of the crucifixion. Some date it to within months. That is far too fast for a legend to grow. Legends need generations; this had almost no gap at all.</div></div>
-    <div class="row"><div class="row-icon">Go check</div><div class="row-text">Paul even adds that most of those 500 witnesses "are still living," which is basically a dare: if you doubt it, go ask them yourself. You only say that when the witnesses are real and reachable.</div></div>
+    <div class="row"><div class="row-icon">The creed</div><div class="row-text">In 1 Corinthians 15, Paul writes out a short, rhythmic summary: that Christ died for our sins, was buried, was raised on the third day, and then appeared to Peter, to the twelve disciples, and to a crowd of more than five hundred people at once. Scholars across the board, believing and sceptical, recognise it as an early creed that Paul was handed and passed on, not a line he composed himself.</div></div>
+    <div class="row"><div class="row-icon">The date</div><div class="row-text">Because Paul received that creed before he ever wrote the letter, historians trace it back to within a few years of the crucifixion, and many date its core to within months of it. That is nowhere near enough time for a legend to form. Legends need generations and distance from the event. This had almost neither.</div></div>
+    <div class="row"><div class="row-icon">Go and ask</div><div class="row-text">Paul also points out that most of those five hundred witnesses were still alive as he was writing. That is effectively a challenge to any doubter: the people who saw this are walking around right now, go and ask them yourselves. You only write something like that when the witnesses are real and within reach.</div></div>
 
     <div class="objection">
       <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>The legend theory:</b> that the resurrection was a tall tale that snowballed over decades. But you can't snowball a story while the eyewitnesses are still alive, still in town, and the core claim is already being recited as a creed within a few years. The "myth" arrived too early to be a myth.</div>
+      <div class="otext"><b>The legend theory:</b> that the resurrection was a tall tale that snowballed across the decades into something miraculous. But a story cannot snowball while the original eyewitnesses are still alive, still reachable, and the central claim is already locked into a fixed creed within a few years of the event. The legend explanation arrives far too early to be a legend.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the claim that he rose was there from almost the very start, not invented by later generations.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the claim that he rose was in circulation almost immediately, not invented by a later generation.</div></div>
   </div>
 </section>
 
@@ -283,19 +281,19 @@
   <div class="header"><div class="counter">Third E / Empty tomb</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
     <div class="eyebrow">Was the grave really empty?</div>
-    <h1 class="display">Even his enemies admitted the body was gone.</h1>
-    <p class="tagline">You don't actually need the Bible on your side for this one. The logic of the situation does most of the work.</p>
+    <h1 class="display">Even his opponents admitted the body was gone.</h1>
+    <p class="tagline">You do not actually have to take the Gospels on faith for this one. The situation itself does most of the arguing.</p>
 
-    <div class="row"><div class="row-icon">In Jerusalem</div><div class="row-text">The disciples started publicly preaching the resurrection in Jerusalem, the exact city where Jesus had just been buried, only weeks later. If the body was still in the tomb, the authorities just had to walk over, produce it, and the movement was finished on day one. They never did.</div></div>
-    <div class="row"><div class="row-icon">The women</div><div class="row-text">All the accounts say women found the empty tomb first. In that culture a woman's word carried little weight in public. If you were making the story up to sound convincing, you would never cast women as your star witnesses. They're in there because that's what actually happened.</div></div>
-    <div class="row"><div class="row-icon">The cover story</div><div class="row-text">The earliest comeback from Jesus' opponents wasn't "the tomb is still full." It was "his disciples stole the body." Notice what that concedes: the tomb was empty. Both sides agreed on that. They only argued about why.</div></div>
+    <div class="row"><div class="row-icon">In Jerusalem</div><div class="row-text">The disciples began openly preaching the resurrection in Jerusalem, the very city where Jesus had just been buried, only weeks after it happened. If the body was still in the tomb, the authorities had the simplest possible way to shut them down: walk to the grave, carry out the corpse, and the movement is finished on day one. They never did, which is hard to explain if the body was still there to be produced.</div></div>
+    <div class="row"><div class="row-icon">The women</div><div class="row-text">Every account has women finding the empty tomb first. In first-century Jewish culture a woman's testimony carried little weight and was not even admissible in a court. If you were inventing a story to win people over, women are the last witnesses you would choose to build it on. They are in the account for one likely reason: that is simply how it happened.</div></div>
+    <div class="row"><div class="row-icon">The cover story</div><div class="row-text">Look at how the Jewish authorities responded. They did not say the tomb still held a body. They said the disciples had come by night and stolen it. But to accuse someone of stealing the body is to admit the body was missing. Both sides agreed on the basic fact. They only argued about where it had gone.</div></div>
 
     <div class="objection">
       <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>The stolen-body theory:</b> that the disciples snuck the corpse away. But these same men then suffered and died insisting they had seen him alive. People might steal a body to fake a resurrection, but nobody endures torture and execution for a stunt they know is a lie.</div>
+      <div class="otext"><b>The stolen-body theory:</b> that the disciples themselves took the corpse and staged the whole thing. But those same men then spent the rest of their lives being beaten, jailed and executed for insisting they had seen Jesus alive. People will sometimes die for a lie they have been talked into believing. Almost nobody dies for a lie they personally cooked up and know for a fact is false.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: friend and foe agreed the tomb was empty. The only real question left is what happened to the body.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: his own followers and the authorities who wanted him forgotten agreed the tomb was empty. The only real question left is what happened to the body.</div></div>
   </div>
 </section>
 
@@ -306,18 +304,18 @@
   <div class="stack">
     <div class="eyebrow">Did people actually see him alive?</div>
     <h1 class="display">It wasn't one person, seeing him once.</h1>
-    <p class="tagline">This is the part that is genuinely hard to explain away, because of how many people it involves and what it did to them.</p>
+    <p class="tagline">This is the part that is genuinely hard to wave away, because of how many people were involved and what it turned them into.</p>
 
-    <div class="row"><div class="row-icon">Many</div><div class="row-text">Different people, different places, over several weeks. One on one, and in groups. Peter, the twelve, a crowd of more than 500, his brother James, and later Paul. That is a lot of separate experiences to wave away.</div></div>
-    <div class="row"><div class="row-icon">Transformed</div><div class="row-text">These were people who ran and hid when he was arrested. Within weeks they were fearlessly telling everyone he was alive, and most of them were eventually killed for not backing down. People will die for something they believe is true. They do not die for something they know they made up.</div></div>
-    <div class="row"><div class="row-icon">Even sceptics</div><div class="row-text">James thought his brother was deluded while Jesus was alive, then became a leader of the church and died for it. Paul was hunting Christians down, then completely flipped after he said he met the risen Jesus. Enemies don't usually convert to the very thing they were trying to destroy.</div></div>
+    <div class="row"><div class="row-icon">Many</div><div class="row-text">The early creed in 1 Corinthians 15 lists the sightings in waves: Jesus appeared to Peter, then to the twelve disciples together, then to a crowd of more than five hundred at one time, then to his brother James, and last of all to Paul. Different people, different places, sometimes one on one and sometimes in large groups, spread across several weeks. That is a great many separate sightings to dismiss all at once.</div></div>
+    <div class="row"><div class="row-icon">Transformed</div><div class="row-text">These were people who had scattered and gone into hiding the moment Jesus was arrested. Within weeks that same frightened group was standing up in public declaring he was alive, and most of them were eventually tortured and killed for refusing to take it back. People will die for something they sincerely believe is true. They do not die for something they know they made up, and these men were in a position to know exactly which it was.</div></div>
+    <div class="row"><div class="row-icon">Even sceptics</div><div class="row-text">Two of the witnesses started out against him. James, Jesus' own brother, did not believe in him during his lifetime, yet he became a leader of the Jerusalem church and was later killed for it. Paul was actively arresting and imprisoning Christians until, by his own testimony, he met the risen Jesus and changed sides entirely. People do not usually convert to the very movement they are trying to destroy.</div></div>
 
     <div class="objection">
       <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>The hallucination theory:</b> that grief made them imagine him. The trouble is that hallucinations are private, like dreams. Two people can't share the same one, let alone a crowd of 500. And even if everyone hallucinated, the tomb would still have a body in it. It doesn't.</div>
+      <div class="otext"><b>The hallucination theory:</b> that grief and longing made the disciples imagine him. Two things sink it. First, a hallucination is a private event inside one person's own mind, much like a dream. Two people cannot share the same one, and a crowd of five hundred all having the identical vision is not something that occurs. Second, and this is the decisive part, a hallucination only ever happens in the head. It does nothing to a body. So even if every disciple had somehow imagined him, the corpse would still have been lying in the tomb, and the authorities could have ended the whole thing in an afternoon by carrying it out for everyone to see. There was no body to carry out.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: too many people, too many settings, too much change in them, including former enemies. Something real happened.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: too many witnesses, too many settings, too deep a change in them, including former enemies. Something real stood behind it.</div></div>
   </div>
 </section>
 
@@ -329,12 +327,12 @@
     <div class="eyebrow">Four steps, one conclusion</div>
     <h1 class="display">So, can you be confident?</h1>
 
-    <a class="sum-card" href="#e1"><div class="sum-body"><div class="sum-e">1 &middot; Execution</div><div class="sum-text">He <b>really died</b>. The flogging, the cross and the spear leave no serious room for doubt.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#e2"><div class="sum-body"><div class="sum-e">2 &middot; Early testimony</div><div class="sum-text">The claim he rose was <b>there from the start</b>, recited as a creed within a few years, not a legend that grew later.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#e3"><div class="sum-body"><div class="sum-e">3 &middot; Empty tomb</div><div class="sum-text">The grave was <b>empty</b>, and even his opponents admitted it by arguing the body was stolen.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#e4"><div class="sum-body"><div class="sum-e">4 &middot; Eyewitnesses</div><div class="sum-text">Lots of people, including <b>former sceptics</b>, were convinced they saw him alive and died saying so.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e1"><div class="sum-body"><div class="sum-e">1 &middot; Execution</div><div class="sum-text">He <b>really died</b>. The flogging, the cross and the spear leave no realistic room for doubt.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e2"><div class="sum-body"><div class="sum-e">2 &middot; Early testimony</div><div class="sum-text">The claim he rose was <b>circulating within a few years</b>, recited as a creed, not a legend that grew up later.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e3"><div class="sum-body"><div class="sum-e">3 &middot; Empty tomb</div><div class="sum-text">The grave was <b>empty</b>, and even the authorities conceded it by claiming the body had been stolen.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#e4"><div class="sum-body"><div class="sum-e">4 &middot; Eyewitnesses</div><div class="sum-text">Many people, including <b>former opponents like James and Paul</b>, were convinced they saw him alive and died saying so.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
-    <p class="bottom-line">Any one piece might have a clever workaround. But line all four up at once, and the simplest explanation of the whole picture is the one the first witnesses gave: he rose.</p>
+    <p class="bottom-line">Take any one piece on its own and a clever sceptic might find a workaround. Line all four up at once, the death, the early creed, the empty tomb and the eyewitnesses, and the explanation that accounts for everything at the same time is the one the first witnesses gave. He rose.</p>
   </div>
 </section>
 
@@ -355,9 +353,9 @@
   }, { threshold: [0.55] });
   sections.forEach(s => observer.observe(s));
 
-  // Summary topics jump to their section. Handled in JS because CSS scroll-snap
-  // on the scroll container blocks plain #hash navigation (and snap-stop can halt
-  // a programmatic jump partway). Relax snap during the scroll, then restore it.
+  // Summary and top-map topics jump to their section. Handled in JS because CSS
+  // scroll-snap on the scroll container blocks plain #hash navigation (and snap-stop
+  // can halt a programmatic jump partway). Relax snap during the scroll, then restore it.
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var target = document.getElementById(a.getAttribute('href').slice(1));
