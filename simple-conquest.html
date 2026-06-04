@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#11120c">
+<title>Did God command genocide? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f5f4ec;
+    --ink-muted: #ddddc9;
+    --ink-soft: #a0a288;
+    --warm-black: #11120c;
+    --cream: #f2efe2;
+    --clay: #7a6a2e;
+    --amber: #c0a44e;
+    --hairline: rgba(235,235,215,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.78;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.5; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 36px; font-weight: 600; line-height: 1.07;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 38px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #28260f;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(235,235,215,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(235,235,215,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: desert and judgment, to muted dawn */
+  .bg-intro { background: linear-gradient(168deg, #11120c 0%, #1a1d12 38%, #3a3c1f 82%, #56532a 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #11120c 0%, #181b11 34%, #353720 74%, #50502a 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #11120b 0%, #191b10 34%, #3b3a1e 74%, #5a5428 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #121109 0%, #1c1810 34%, #423520 74%, #66502c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #12110b 0%, #1e1b11 30%, #4e4424 66%, #a8853c 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #11120c 0%, #1a1d12 45%, #423e22 82%, #645230 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #b8a04e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #4a4824 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a7634 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cdaa50 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(235,235,215,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The hardest Old Testament question</div>
+    <h1 class="display display-lg">Did God command genocide in the Old Testament?</h1>
+    <p class="tagline">The conquest of Canaan in Joshua, where Israel is told to clear the land, is the passage sceptics reach for first, and not without reason. It is genuinely confronting. So rather than soften it, here is what it actually was, why it happened, and the part that stays hard.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What the command actually was</div><div class="map-sub">Drive out, or wipe out?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Why judgment fell at all</div><div class="map-sub">A horrific culture, centuries of patience</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">But what about the children?</div><div class="map-sub">The part that stays hard</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Stepping back</div><div class="map-sub">A one-off, and the outrage itself</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT IT WAS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What it was</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Drive out, or wipe out?</div>
+    <h1 class="display">The command was to drive them out, not wipe them out.</h1>
+    <p class="tagline">Start with what the texts actually say, because the popular picture, a divine order to exterminate a race, is not quite what sits on the page.</p>
+
+    <div class="row"><div class="row-icon">Drive out</div><div class="row-text">As William Lane Craig stresses, the core command was to drive the Canaanite peoples out of the land, not to hunt down a race. Those who fled the advancing army were spared; the fighting fell on those who stayed to resist. The judgment was on these clans as nations holding the land, and the aim was that none remain in the land, not that a bloodline be erased.</div></div>
+    <div class="row"><div class="row-icon">Survivors</div><div class="row-text">And the texts themselves show it was not a literal extermination. Canaanites keep turning up later in the very same story, after they have supposedly been wiped out. You cannot annihilate a people and then keep running into them a few chapters on. The total-destruction reading does not even fit the book it comes from.</div></div>
+    <div class="row"><div class="row-icon">The language</div><div class="row-text">That is partly because phrases like destroy everything that breathes were standard war rhetoric across the ancient world. Scholars like Paul Copan point out that kings of the day routinely boasted of totally annihilating enemies who plainly lived on. It was the hyperbole of the battlefield, the ancient version of we crushed them, not a literal head count.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But the text literally says leave nothing alive that breathes.</b> It does, and that is exactly the sweeping war language the ancient world traded in, the way a coach today says we destroyed them with nobody dead. The proof is in the text itself: the people supposedly left with nothing breathing are alive and active later in the same story. The wording is fierce. The reality was expulsion, and the defeat of armies that stood and fought.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the command was to dispossess and drive out, not to exterminate a race. The survivors in the text, and the war rhetoric of the age, both rule out the literal-genocide reading.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHY JUDGMENT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Why judgment?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A horrific culture, centuries of patience</div>
+    <h1 class="display">It was judgment on a monstrous culture, not a land grab.</h1>
+    <p class="tagline">Even as a bounded judgment, why this at all? The answer the Bible gives is that this fell on entrenched, horrific evil, and only after extraordinary patience.</p>
+
+    <div class="row"><div class="row-icon">The wickedness</div><div class="row-text">These were not peaceful villagers. Canaanite religion practised child sacrifice, burning their own children to death in worship, alongside temple prostitution and bestiality. This is not only the Bible's claim. Ancient documents from the region, studied by scholars like Clay Jones, describe practices so grim the Bible does not even spell them out. It is judged, as Craig frames it, much as the world of Noah's flood was judged.</div></div>
+    <div class="row"><div class="row-icon">400 years</div><div class="row-text">And God did not act on a hair trigger. Genesis says he held back for around four hundred years, because, in the text's own words, the wickedness was not yet complete. That is not bloodlust; it is four centuries of room to change course, the very same long patience he would later show, and eventually run out of, with Israel itself.</div></div>
+    <div class="row"><div class="row-icon">No favourites</div><div class="row-text">Which is the other half of it. Israel got no free pass. When Israel later sank into the same evils, God swept them into exile at the hands of Assyria and Babylon. As Knechtle puts it, do not imagine the Israelites were God's pets. The standard was identical for everyone. This is judgment on conduct, not favouritism for a race.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>That's just the winners smearing the people they wiped out.</b> It would be, if the Bible were the only source. But the depravity turns up in the Canaanites' own surviving literature, dug up by archaeologists, not written by Israel. And the giveaway that this is about behaviour, not bloodline, is that the very same God turned the very same judgment on his own chosen people the moment they did the same things.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: this was judgment on a genuinely monstrous culture, corroborated from outside the Bible, after four centuries of patience, and applied even-handedly to Israel itself.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE CHILDREN -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">Third / The children</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The part that stays hard</div>
+    <h1 class="display">The hardest part is the children. It deserves honesty.</h1>
+    <p class="tagline">Even granting all of that, the genuinely hard piece remains: children would have died. No serious answer waves that away, so here are the two things Christianity actually says, slowly.</p>
+
+    <div class="row"><div class="row-icon">The hard part</div><div class="row-text">This is where even careful defenders stop and concede the difficulty. Among the adults, the corrupt could flee and the innocent did not have to die. The children are the real weight of the objection, and pretending otherwise would be dishonest. Hold the difficulty here; do not let anyone, on either side, rush you past it.</div></div>
+    <div class="row"><div class="row-icon">Whose life</div><div class="row-text">The first thing Christianity says is about who God is. If he is the author and giver of every life, he is not a peer murdering his equal; he is the one from whom all life comes and to whom it returns. When a human takes life, it is theft of what was never theirs. The giver of life is simply not in that same position, however uncomfortable that is to sit with.</div></div>
+    <div class="row"><div class="row-icon">Not the end</div><div class="row-text">The second thing is that, on the Christian view, death is not annihilation. Children who die before they could be morally accountable are received by God, not erased. That does not make their death small, but it changes what it means. Under atheism a dead child is simply gone. On the Christian account, that child is safe, and the story is not over for them.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Nothing could ever justify a God who lets children die.</b> And yet children die in every flood, famine and disease, on anyone's worldview; the agony of innocent death is not unique to this story, it is the whole problem of suffering. What is unique to Christianity is the claim that those children are not lost, that the God who allows the death is also the one who gathers them in, and who later steps into innocent suffering himself.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the children are the genuinely hard part, and it is not dodged. The Christian answer is that the giver of life holds rights we do not, and that for those children death was not the end.</div></div>
+  </div>
+</section>
+
+<!-- B4 STEPPING BACK -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Stepping back</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A one-off, and the outrage itself</div>
+    <h1 class="display">It was a one-off, and the outrage proves a point.</h1>
+    <p class="tagline">Finally, two things that change how the whole question sits: one about the event, and one about the person asking it.</p>
+
+    <div class="row"><div class="row-icon">Not a blueprint</div><div class="row-text">This was a unique, bounded moment, a specific judgment on a specific culture at one point in history. It is reported, not commanded for all time. Nowhere does it license anyone today to take up a sword in God's name, and the New Testament pointedly does the opposite. Anyone who uses these texts to justify violence now is abusing them, and Christians should say so loudly.</div></div>
+    <div class="row"><div class="row-icon">Your standard</div><div class="row-text">And notice what the objection quietly assumes. To be genuinely outraged that this was evil, you have to believe there is a real, objective right and wrong, binding even on God. But that universal moral law is exactly what points back to God in the first place. The depth of the outrage you feel is borrowing the very thing the objection is trying to argue away.</div></div>
+    <div class="row"><div class="row-icon">The cross</div><div class="row-text">Last, the same God who judges does not stay safely above the suffering. The Bible's whole storyline runs to a cross, where God takes the judgment onto himself rather than dealing it out. Fyodor Dostoevsky wrestled bitterly with exactly these Old Testament passages, and what finally answered him was not a neat argument but the sight of God crucified.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>This is just damage control for an embarrassing text.</b> It is the opposite of a cover-up. Christianity does not hide these chapters; it prints them and hands them to you to wrestle with. What it asks is that you read them as what they are, a bounded judgment on a monstrous culture, not a charter for cruelty, and that you notice where the same God ends up: not on the throne of a war camp, but on a cross.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the conquest was a one-time judgment, never a standing command, and the moral outrage it stirs quietly assumes the very God it questions. The story ends not in conquest, but at the cross.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, did God command genocide?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What it was</div><div class="sum-text">A command to <b>drive out, not erase a race</b>. Survivors in the text and ancient war-rhetoric rule out literal genocide.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Why</div><div class="sum-text">Judgment on a <b>child-sacrificing culture</b>, corroborated outside the Bible, after 400 years of patience, applied to Israel too.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The children</div><div class="sum-text">The genuinely hard part, faced honestly: the <b>giver of life holds rights we don't</b>, and for those children death wasn't the end.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Stepping back</div><div class="sum-text">A <b>one-off, never a standing command</b>, and the outrage itself assumes the objective morality that points back to God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So no, not the ethnic-cleansing cartoon people picture. A bounded, deserved judgment on a horrific culture, after extraordinary patience, with the hardest part, the children, faced honestly rather than dodged. And the God who judges here is the same God who, in the end, steps under the judgment himself. It is a heavy passage. It is not the knockout blow it is sold as.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
