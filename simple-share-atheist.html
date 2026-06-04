@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0e1217">
+<title>Sharing the gospel with an atheist &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f6fa;
+    --ink-muted: #dde2ec;
+    --ink-soft: #9aa6b8;
+    --warm-black: #0e1217;
+    --cream: #f4efe5;
+    --clay: #b07d3a;
+    --amber: #d6b15c;
+    --hairline: rgba(225,232,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(225,232,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(225,232,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: the cool light of reason, warming to relationship */
+  .bg-intro { background: linear-gradient(168deg, #0e1217 0%, #161e2a 38%, #2a3a52 82%, #3a4e6e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0e1217 0%, #141c26 34%, #283648 74%, #384c66 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0d1116 0%, #151d28 34%, #2c3a4e 74%, #3c5070 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0e1217 0%, #171f28 34%, #38414a 74%, #5e5a4e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0e1217 0%, #181d22 30%, #4a4434 64%, #b0843e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0e1217 0%, #161e2a 45%, #34405a 78%, #6a5a40 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5a7aa6 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #2a3a54 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a8366 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4a850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(225,232,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with an atheist?</h1>
+    <p class="tagline">The instinct is to win the argument. The better aim is to win a hearing, and then a person. Here is how to talk about Jesus with someone who does not believe in God, in a way that respects them and actually opens the door.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Who you're actually talking to</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">Where to actually begin</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">Arguments aren't the destination</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">How to carry the whole thing</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who you're actually talking to</div>
+    <h1 class="display">Start by understanding what they actually reject.</h1>
+    <p class="tagline">Before a single argument, find out who is in front of you. An atheist is not one thing, and assuming the wrong one is how most conversations die in the first minute.</p>
+
+    <div class="row"><div class="row-icon">Not one type</div><div class="row-text">Some atheists are angry at the church, some are quietly indifferent, some have read more theology than most Christians. Ask before you assume. Your first job is to learn what THIS person believes and why, not to argue with the cardboard cut-out in your head. A good question shows more respect than a rehearsed answer.</div></div>
+    <div class="row"><div class="row-icon">Head and heart</div><div class="row-text">Most people do not reason their way out of God on a whiteboard. As John Lennox observes, the resistance is often emotional underneath: an unanswered prayer, a hypocrite who wounded them, a suffering they could not square with a good God. The intellectual objection is real, but it frequently sits on top of a story. Listen for the story.</div></div>
+    <div class="row"><div class="row-icon">Common ground</div><div class="row-text">Most atheists prize reason and evidence, and that is shared ground, not a threat. Christianity is not afraid of evidence; it invites it. So you can meet them exactly where they stand, as someone who also wants to believe what is actually true and is willing to follow the evidence wherever it goes.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Assuming they secretly know God and are just rebelling.</b> It is a popular line, and it is usually both untrue and insulting. Plenty of atheists are sincere, thoughtful, and genuinely persuaded, and many were pushed there by real pain. Treat them as a fool or a rebel and the conversation is over before it starts. Treat them as an honest person worth listening to, and it can actually begin.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: you are talking to a person with a story, not a position to be defeated. Find out what they actually believe before you say a word in reply.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Where to begin</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where to actually begin</div>
+    <h1 class="display">Begin with the questions their worldview can't answer.</h1>
+    <p class="tagline">You do not have to prove everything at once. A few honest questions, gently asked, do far more than a wall of arguments fired all at once.</p>
+
+    <div class="row"><div class="row-icon">Three questions</div><div class="row-text">Three questions carry a lot, asked, not preached. Why is there something rather than nothing? Why is the universe so finely tuned for life? And where does real right and wrong come from, if we are only atoms? Those are the cause, design and morality arguments in plain clothes, the heart of the science and morality cards.</div></div>
+    <div class="row"><div class="row-icon">Morality</div><div class="row-text">The moral one usually lands hardest. Most atheists are deeply moral people who believe some things are genuinely wrong, not just unfashionable. Gently asking where that objective right and wrong comes from, if there is no God, opens a real conversation, because their own worldview struggles to ground the very morality they live by every day.</div></div>
+    <div class="row"><div class="row-icon">Resurrection</div><div class="row-text">And you have a historical event to point at, not only philosophy. The resurrection is a claim you can investigate, exactly the kind of evidence an atheist says they want. It shifts things from abstract God-talk to a specific, checkable question: what actually explains the empty tomb and the transformed disciples?</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Leading with the Bible says, or firing every argument at once.</b> To someone who does not accept the Bible's authority, quoting it as proof just sounds circular, so save it for later. And a barrage of arguments feels like an ambush. As Preston Perry models, ask one good question and then truly listen. A question invites someone to think; a lecture invites them to defend.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: you are not proving God like a sum. You are opening the door with the questions a godless world leaves hanging, and letting them walk through it themselves.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Arguments aren't the destination</div>
+    <h1 class="display">Arguments clear the path. Jesus is the point.</h1>
+    <p class="tagline">The arguments can get someone to maybe there is a God. They cannot get someone to Jesus. So do not get stuck forever in the foothills of God's existence; move toward the person of Christ.</p>
+
+    <div class="row"><div class="row-icon">Not just God</div><div class="row-text">Once the door is open even a crack, steer toward Jesus himself: who he claimed to be, how he lived, how he died, and the evidence he rose. Endlessly debating whether some vague God exists can become a way of never reaching the actual question, which is what you do with Christ.</div></div>
+    <div class="row"><div class="row-icon">Your story</div><div class="row-text">You are not only an arguer; you are a witness. What has Jesus actually done in your life? A changed life is hard to argue away, because it is not a syllogism, it is you, in front of them. Lennox's line is that when you watch two and two make four thousands of times, you start to believe it really does.</div></div>
+    <div class="row"><div class="row-icon">Grace</div><div class="row-text">And when you reach the gospel itself, lead with the thing no other worldview offers: grace. Not be good enough to earn your way up to God, but a God who came down because you never could. To someone who assumes religion is just rules and guilt, grace is genuinely surprising, and genuinely good, news.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Winning the argument and losing the person.</b> You can be completely right and still drive someone away by being smug about being right. The goal was never to make them feel stupid; it was to make Jesus worth a second look. Hold your points lightly and the person carefully. Nobody was ever argued into the kingdom by being humiliated at the door.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: the aim is not a defeated atheist, it is a person who has met Jesus. Arguments open the door; only Christ is worth walking through it for.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How to carry the whole thing</div>
+    <h1 class="display">Play the long game, with love and patience.</h1>
+    <p class="tagline">How you say it matters as much as what you say. The Bible's own instruction is to give your reasons with gentleness and respect, not to win at any cost.</p>
+
+    <div class="row"><div class="row-icon">Listen first</div><div class="row-text">The old line holds: people do not care what you know until they know that you care. Lennox makes a point of befriending the people he debates, sharing a meal, getting to know them as people first. Ask more than you tell. A real friendship where someone feels genuinely heard will do more than a dozen clever comebacks.</div></div>
+    <div class="row"><div class="row-icon">I don't know</div><div class="row-text">You will not have every answer, and that is fine. I do not know, let me look into that is far more credible than a slick non-answer, and faking it loses trust on the spot. Honesty about the hard questions, including the ones you yourself still wrestle with, is what earns you the right to be heard.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">Finally, relax. You are not the Holy Spirit. Your job is to love, to live it, to give a reason and to plant seeds; changing a heart was never on your shoulders. That frees you to be patient and kind and unworried, and to stay someone's friend whether they believe this year, in ten years, or never.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Treating it as a single debate to win today.</b> Most people come to faith slowly, through a relationship, not one knockout conversation, and pushing for a verdict on the spot usually backfires. Be the friend who is still there long after the argument has cooled, still praying, still living something they cannot quite explain away.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: love them, listen, give your reasons honestly, and leave the rest to God. You plant the seed; he is the one who makes it grow.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">Find out what THIS atheist actually believes and why. There is usually <b>a story under the argument</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Find the bridge</div><div class="sum-text">Begin with the <b>questions a godless world can't answer</b> (cause, fine-tuning, morality) and a resurrection they can investigate.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">Arguments only reach a vague maybe. Move on to <b>Christ, your changed life, and grace</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>Listen more than you talk</b>, admit what you don't know, play the long game, leave the heart to God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So you are not out to crush an atheist in a debate. You are out to love a person, take their questions seriously, point past the arguments to Jesus himself, and trust God with the timing. Win the person, not the point.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
