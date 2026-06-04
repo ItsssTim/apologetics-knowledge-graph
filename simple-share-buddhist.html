@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#14110a">
+<title>Sharing the gospel with a Buddhist &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f8f5ee;
+    --ink-muted: #e7ddc9;
+    --ink-soft: #b0a487;
+    --warm-black: #14110a;
+    --cream: #f4efe2;
+    --clay: #b07d3a;
+    --amber: #d8b15c;
+    --hairline: rgba(240,232,210,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.78;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.5; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a2110;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,210,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,210,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: serene saffron to warm gold */
+  .bg-intro { background: linear-gradient(168deg, #14110a 0%, #221a0e 38%, #5a3f16 82%, #86621f 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #14110a 0%, #1f180d 34%, #523a16 74%, #7e5c1f 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #13110a 0%, #201a0e 34%, #5a4016 74%, #8a661f 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #14110a 0%, #221b0e 34%, #5e4818 74%, #946e26 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #14110a 0%, #241c0e 30%, #6a521c 64%, #c89438 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #14110a 0%, #221a0e 45%, #5a4218 80%, #8a6a2a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #d8ad52 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #5a3f16 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #b08a3a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,210,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with a Buddhist?</h1>
+    <p class="tagline">Buddhism and Christianity begin in the same place, the honest recognition that the world is full of suffering, and then travel in very different directions. That shared starting point is your way in. Here is how to walk it.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Where they're coming from</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">Same problem, different cure</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">A God who enters the suffering</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">Gentle, patient, quietly different</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where they're coming from</div>
+    <h1 class="display">Most Buddhists aren't looking for a God at all.</h1>
+    <p class="tagline">Before you say a word about God, realise that for many Buddhists that is not even the question. Their concern is more practical, and you need to understand it first.</p>
+
+    <div class="row"><div class="row-icon">No creator</div><div class="row-text">Most forms of Buddhism are not really about a God; the Buddha was a teacher who pointed to a path, not a deity to be worshipped. So do not assume the conversation starts with does God exist. For many Buddhists that question barely registers. What grips them is something more urgent: how do I escape suffering?</div></div>
+    <div class="row"><div class="row-icon">Suffering</div><div class="row-text">That is the heart of it. Buddhism teaches that life is shot through with suffering, that the cause is craving and attachment, and that the way out is to let go of desire and so be released from the endless cycle of rebirth. It is a serious, disciplined attempt to deal with the pain of existence, and it deserves to be taken seriously, not waved off.</div></div>
+    <div class="row"><div class="row-icon">The self</div><div class="row-text">One more thing to grasp: many Buddhists believe the individual self is finally an illusion to see through, not a soul to be saved. The goal is not to be made whole as a person, but in a sense to be released from being a separate person at all. That is a very different hope from the Christian one, and worth understanding before you speak.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Coming in loud, combative, or triumphant.</b> Buddhists tend to value calm, humility and gentleness, so a forceful, debating manner does not merely fail to persuade, it actively repels. Match the quietness. A soft, respectful conversation will carry far more here than a clever, forceful one ever could.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: most Buddhists are not asking about God; they are trying to deal with suffering. Understand that honest concern before you offer anything in reply.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Where to begin</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Same problem, different cure</div>
+    <h1 class="display">You agree on the problem. You differ on the cure.</h1>
+    <p class="tagline">Start on ground you genuinely share, the reality of suffering, then gently show how Christianity diagnoses and answers it differently.</p>
+
+    <div class="row"><div class="row-icon">Shared start</div><div class="row-text">Begin by agreeing. Buddhism's first great truth is that life involves real suffering, and Christianity says exactly the same: the world is broken and aching, not as it should be. You are not arguing that suffering is unreal; you are agreeing it is the central human problem. That honest common ground is a warm and natural place to start.</div></div>
+    <div class="row"><div class="row-icon">Different cure</div><div class="row-text">But the cures part sharply. Buddhism locates the problem in desire itself and prescribes letting go, even of the self, to escape. Christianity locates it in a broken relationship with God, and offers not the extinguishing of desire but its healing, and a God who steps into the suffering rather than teaching us to rise above it. One path empties the self; the other redeems it.</div></div>
+    <div class="row"><div class="row-icon">You matter</div><div class="row-text">And gently raise the self. Where Buddhism often treats your individuality as an illusion to dissolve, Christianity says you are a real person, made and loved by God, and you will still be you, restored, on the far side. For many that is quietly good news: you are not a problem to be erased, but a person to be saved.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Dismissing the genuine wisdom in what they believe.</b> The Buddhist diagnosis, that craving causes much of our suffering, is genuinely insightful, and Jesus says searching things about desire too. Honour the truth they have already seen. Then show that the answer they are reaching for is found not in a technique, but in a Person.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: agree on the problem of suffering, then show the difference, not escaping desire and the self, but a God who enters the suffering and saves the person.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A God who enters the suffering</div>
+    <h1 class="display">A God who enters the pain, not a path away from it.</h1>
+    <p class="tagline">Where Buddhism offers a path to rise above suffering, Christianity offers something stranger and warmer: a God who came down into it.</p>
+
+    <div class="row"><div class="row-icon">God suffers</div><div class="row-text">This is the heart of it for a Buddhist. Christianity does not say detach yourself from pain until it can no longer touch you. It says God himself entered the pain, on a cross, and suffered alongside us out of love. The deepest answer to suffering turns out to be not a technique for escaping it, but a Person who has already been through it with you.</div></div>
+    <div class="row"><div class="row-icon">Real hope</div><div class="row-text">And the Christian hope is not endless rebirth, nor dissolving into nothing, but resurrection: the self healed and made new, in a restored world with no more suffering at all. Not release from being you, but you, finally whole. For someone weary of the wheel of rebirth, that is a profoundly different kind of rest.</div></div>
+    <div class="row"><div class="row-icon">Grace</div><div class="row-text">And here is the relief. You do not have to climb the long path to release by your own discipline and striving. In the gospel the rescue comes down to you, as a gift you could never earn. Grace is the great surprise: peace not as the distant prize of enormous effort, but as a present from a God who came looking for you.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Selling Jesus as just a better technique.</b> Christianity is not one more self-improvement method to bolt on; it is a relationship with a Person who saves. Reduce it to a calmer, more effective path and you have missed the whole point, and a thoughtful Buddhist will notice. Offer the Person, not a programme.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: offer what no path can, a God who entered the suffering himself, the hope of being made whole rather than dissolved, and peace as a gift of grace rather than the reward of striving.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Gentle, patient, quietly different</div>
+    <h1 class="display">Gentle, patient, and quietly different.</h1>
+    <p class="tagline">With a Buddhist, the manner is part of the message. A calm, respectful presence opens far more than any argument.</p>
+
+    <div class="row"><div class="row-icon">Stay gentle</div><div class="row-text">Match their peace. A Buddhist is unlikely to respond to pressure or heat, but a genuinely calm, kind, listening presence speaks their language. Ask about their own experience of suffering and of seeking peace. Often the most powerful thing you bring is simply a different kind of peace they can actually see in you.</div></div>
+    <div class="row"><div class="row-icon">Not all one</div><div class="row-text">Many Buddhists assume all religions are really saying the same thing, so they may happily file Jesus alongside the Buddha. Gently and kindly, that is worth questioning: the two offer genuinely different diagnoses and different cures, and they cannot both be the final truth. Jesus does not fit neatly as one more wise teacher among many.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">And rest in this: you are not responsible for the outcome. Your part is to live a visibly different peace, to love, to point gently to Jesus, and to pray. The Spirit can reach someone in ways no argument ever could. Be patient; this is usually a long, quiet road, not a single dramatic turn.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Letting Jesus be absorbed as one more enlightened teacher.</b> The pluralist instinct will quietly tuck him into the pantheon, where he changes nothing. Lovingly resist that. His claim was not to be one more guide up the mountain, but to be the way down that God himself made. That difference is the whole conversation.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: stay gentle and unhurried, let your peace be the first thing they notice, kindly resist filing Jesus among the teachers, and leave the outcome to God.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">Not seeking a God, but <b>escape from suffering</b>; the self seen as an illusion to dissolve.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Find the bridge</div><div class="sum-text"><b>Agree on the problem</b> (suffering is real), then show the different cure: a God who enters it, and a self worth saving.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">A God who <b>suffers with you</b>, the hope of being made whole, and peace as grace, not the reward of striving.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>Gentle and calm</b>, kindly resist absorbing Jesus into the pantheon, and leave the rest to God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with a Buddhist you begin as a fellow honest witness to the world's suffering, not as an opponent. Honour the wisdom they have seen, then offer what no path can give: a God who came down into the pain himself, the hope of being made whole rather than erased, and a peace that arrives as a gift.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
