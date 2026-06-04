@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#081a18">
+<title>Could life have arisen by chance? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #eef4f1;
+    --ink-muted: #d6e2dd;
+    --ink-soft: #8fa8a0;
+    --warm-black: #081a18;
+    --cream: #f1ece0;
+    --clay: #1f6e54;
+    --amber: #d8b056;
+    --hairline: rgba(228,240,234,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #10261c;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,240,234,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,240,234,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep jewel-emerald (life) resolving to warm gold (the designing mind) */
+  .bg-intro { background: linear-gradient(168deg, #081a18 0%, #0e2620 40%, #1f4438 80%, #3a5a3e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #081a18 0%, #0c221e 34%, #163a32 74%, #1f4a3e 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #071816 0%, #0d221e 34%, #18382e 74%, #24463a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #081a18 0%, #0e2620 34%, #25463a 74%, #4a5638 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #081a18 0%, #102a22 30%, #2e4e38 64%, #d8b056 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #081a18 0%, #0e2620 45%, #2e4e3a 80%, #cea84e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #1f5e4a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #0d221e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6a6230 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8b056 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,240,234,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The origin of life</div>
+    <h1 class="display display-lg">Could life have arisen by chance?</h1>
+    <p class="tagline">Even if the universe was set up for life, you still have to get life started, and the usual story is that, given a warm pond and enough time, chemistry simply stumbled into the first living thing. It is a confident tale. It also runs into a wall that has only grown higher the more we learn about what a living cell actually is.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">It's not chemicals, it's code</div><div class="map-sub">The first cell runs on information</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Chance can't write the code</div><div class="map-sub">The monkeys never finish the line</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Information points to a mind</div><div class="map-sub">DNA is a real language</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">A positive inference, not a gap</div><div class="map-sub">And it isn't evolution's job</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 NOT JUST CHEMICALS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / It's code, not chemicals</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What actually has to be explained</div>
+    <h1 class="display">It's not chemicals. It's code.</h1>
+    <p class="tagline">The first surprise is that the famous warm pond was never the hard part. The real problem is of a completely different kind.</p>
+
+    <div class="row"><div class="row-icon">Not just chemicals</div><div class="row-text">Getting some basic building blocks, amino acids and the like, to form is relatively easy, and experiments have managed it. But that is like making ink and paper. It is nowhere near making a sentence. The leap from a soup of chemicals to a living cell is not a leap in quantity. It is a leap into a different category altogether.</div></div>
+    <div class="row"><div class="row-icon">A living code</div><div class="row-text">Because at the heart of every living cell sits something nobody expected: a digital code. DNA stores instructions in a four-letter chemical alphabet, which the cell reads, copies and translates to build the machinery of life. The simplest cell that can reproduce itself is a miniature information-processing factory of staggering, tightly integrated complexity.</div></div>
+    <div class="row"><div class="row-icon">The real question</div><div class="row-text">So the real origin-of-life question was never just where the chemicals came from. It is where the information came from, the coded instructions that turn lifeless molecules into a living, self-copying machine. And information is a very particular kind of thing, with a very particular kind of source.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Life started as simple chemicals in a warm pond, and complexity came later.</b> The warm-pond picture is a relic. The simplest cell that can reproduce is already breathtakingly complex, running on coded information. Coaxing a few amino acids to form was never the hard part. The hard part is the origin of the coded instructions that organise them into a living machine, and no pond writes those on its own.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the origin of life is not mainly a problem of chemistry but of information. At the centre of even the simplest cell is a digital code, and the real question is not where the molecules came from but where the coded instructions did.</div></div>
+  </div>
+</section>
+
+<!-- B2 CHANCE CAN'T -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Chance can't write it</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Couldn't chance manage it?</div>
+    <h1 class="display">Chance can't write the code.</h1>
+    <p class="tagline">The instinctive reply is that, given enough time, even wildly unlikely things will eventually happen. It is a comforting thought. The numbers are merciless with it.</p>
+
+    <div class="row"><div class="row-icon">The monkeys</div><div class="row-text">The popular version is the monkeys at typewriters: hammer away long enough and you will eventually get the works of Shakespeare. It feels plausible until you actually try it. In real experiments and calculations, random typing never produces even a single line. It generates an ocean of gibberish and stalls there, because meaningful sequences are unimaginably rare among meaningless ones.</div></div>
+    <div class="row"><div class="row-icon">The numbers</div><div class="row-text">And the numbers for life are far worse than for a line of Shakespeare. The odds of assembling even one functional protein by chance, let alone the hundreds a minimal cell needs all working together, are so vanishingly small that the whole age of the universe and every atom in it fall short by an astronomical margin. There has simply not been enough time, or enough matter, by orders and orders of magnitude.</div></div>
+    <div class="row"><div class="row-icon">Not enough time</div><div class="row-text">This is the quiet flaw in time plus chance will do it. Time is not a creative force; it is just duration, and the resources of the actual universe are finite. For specified, functional information, the probabilistic well runs dry long before you arrive anywhere. Chance is not a small part of the answer here. It is a non-starter.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Given enough time, even very unlikely things happen; the monkeys eventually type Shakespeare.</b> Only in a universe with limitless time and matter, and ours has neither. Run the actual numbers for assembling even one functional protein by chance and the odds are so steep that the entire age and material of the cosmos falls short by a colossal margin. The monkeys never finish the first line. Time is not a magic wand for specified information.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the odds against chance assembling the functional information in even the simplest cell are so vast that the whole universe, in age and matter, comes nowhere near enough. Time plus chance is not a creative force; for coded information it is a non-starter.</div></div>
+  </div>
+</section>
+
+<!-- B3 INFO NEEDS A MIND -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Information needs a mind</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where information comes from</div>
+    <h1 class="display">Information points to a mind.</h1>
+    <p class="tagline">If chance is ruled out, the question becomes simple and pointed: what is the one thing we actually know of that produces this kind of information?</p>
+
+    <div class="row"><div class="row-icon">What makes info</div><div class="row-text">Think of every other case where we can trace functional information to its source: a book, a piece of software, a recipe, a message scratched into a wall. In every single one, the source is a mind. We have never once observed unguided matter, left to itself, write a code or compose an instruction. Information of this kind has exactly one known cause: intelligence.</div></div>
+    <div class="row"><div class="row-icon">A real language</div><div class="row-text">And the information in DNA is not a loose metaphor. It is a genuine code, with an alphabet, with rules for stringing the letters together, and with a translation system in the cell that reads it and builds accordingly. Scientists do not just compare it to language for poetry's sake; they use the actual mathematics of information to study it, because that is what it is.</div></div>
+    <div class="row"><div class="row-icon">The inference</div><div class="row-text">So the reasonable conclusion, as Stephen Meyer argues, is an inference to the best explanation. We know what writes code: minds do. We have never seen anything else manage it. Faced with the densest information storage known to science, sitting inside every living thing, the explanation that actually fits the evidence is that it too came from a mind.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Calling it design is just god-of-the-gaps, plugging God into what we can't yet explain.</b> No; it is the opposite of a gap argument. It is a positive inference from what we do know: in every other case where we can trace the source of functional information, it comes from a mind, never from unguided matter. Inferring a mind here is the same reasoning that lets an archaeologist tell a carved tool from a plain rock.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: in every case where we can trace functional information to its source, it comes from a mind, never from unguided matter. DNA is a real code, and the best explanation for it is the same as for every other code we know of: an intelligence behind it.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSITIVE INFERENCE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / A positive inference</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Two things this is not</div>
+    <h1 class="display">It's a positive inference, not a gap.</h1>
+    <p class="tagline">Two objections come fast here, and both miss what is actually being claimed. Clearing them up is the difference between a strong argument and a caricature of it.</p>
+
+    <div class="row"><div class="row-icon">Not a gap</div><div class="row-text">First, this is not we cannot explain it, therefore God. That would be a gap argument, and a weak one. The claim is the reverse: we positively know what produces coded information, namely intelligence, and we positively know what does not, namely chance and physical law on their own. The design inference rests on what we have learned, not on what we have yet to learn.</div></div>
+    <div class="row"><div class="row-icon">Like an archaeologist</div><div class="row-text">It is the everyday logic of detecting a mind at work. When an archaeologist finds a flint shaped into an arrowhead, she does not invoke a gap; she infers a toolmaker, because she knows the difference between what nature does and what minds do. Reading design in the cell is the very same reasoning, applied to the most sophisticated information system ever found.</div></div>
+    <div class="row"><div class="row-icon">Before evolution</div><div class="row-text">Second, this is not a problem that evolution solves. Natural selection can only act on things that already reproduce, and reproduction already requires the coded information in question. So evolution cannot have produced the first information; it presupposes it. The origin of life is a separate, and harder, question than the evolution of life, and it is the one this is about.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Evolution explains how all this complexity gradually built up.</b> It would, if there were already life to evolve, but that is precisely the thing in question. Natural selection cannot even begin until you already have a self-copying cell rich in information, so it cannot be what produced that information in the first place. The origin of life is a different and prior question from the evolution of life, and it is the harder one.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the design inference is positive, not a gap, the same reasoning that distinguishes a tool from a rock. And it concerns the origin of life, not its later evolution, since natural selection cannot begin until the coded information already exists.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Behind a message, a mind.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; It's code, not chemicals</div><div class="sum-text">The first cell runs on a <b>digital code</b>. The real question isn't the molecules, but where the information came from.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Chance can't write it</div><div class="sum-text">The odds against assembling functional information <b>dwarf the whole universe's</b> time and matter. The monkeys never finish the line.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Information needs a mind</div><div class="sum-text">Every code we can trace comes from <b>intelligence</b>. DNA is a real language. Best explanation: a mind.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; A positive inference</div><div class="sum-text">Not god-of-the-gaps but the <b>archaeologist's logic</b>. And it's the origin of life, not evolution, which presupposes the information.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So could life have arisen by chance? On the evidence, no, and the reason is not a gap in our knowledge but something we have positively learned. Life runs on a code, codes carry information, and in all of human experience information has one known source: a mind. Chance has nowhere near the time or the resources to write it, and evolution cannot be the answer, because it cannot start until the information is already there. The deeper we have looked into the living cell, the less it resembles a lucky accident, and the more it reads like what it is: a message. And behind every message there is a mind.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
