@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c1014">
+<title>Does the Bible support slavery? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f5f8;
+    --ink-muted: #d6dde6;
+    --ink-soft: #94a1b0;
+    --warm-black: #0c1014;
+    --cream: #f3efe6;
+    --clay: #3f6076;
+    --amber: #d4a94e;
+    --hairline: rgba(220,232,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #16202c;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,232,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,232,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: iron and chains, to the gold of freedom */
+  .bg-intro { background: linear-gradient(168deg, #0c1014 0%, #141d24 38%, #284251 82%, #375d72 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c1014 0%, #131a20 34%, #26404e 74%, #345868 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b0f13 0%, #131b22 34%, #284351 74%, #375e72 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c1014 0%, #151d25 34%, #2c4858 74%, #3d6478 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0c1014 0%, #162026 30%, #4c5043 64%, #b89240 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c1014 0%, #141d24 45%, #2c4351 78%, #5c5640 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4a82a0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #28424e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #3f6e84 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,232,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">A question with a trap in it</div>
+    <h1 class="display display-lg">Does the Bible support slavery?</h1>
+    <p class="tagline">This one is genuinely complex, and both quick answers fail. A flat yes makes God a monster. A flat no ignores what is plainly on the page. To answer it honestly you have to read these texts in their own world, and first ask what slavery even meant.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">You can't just say yes or no</div><div class="map-sub">Both quick answers fail</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">What slavery actually meant</div><div class="map-sub">Occupation, not oppression</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The Bible reins it in</div><div class="map-sub">Regulated, and the trade condemned</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">It pointed to the end of slavery</div><div class="map-sub">The seeds that abolished it</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 YES OR NO -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Yes or no?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Both quick answers fail</div>
+    <h1 class="display">You can't honestly answer this with a flat yes or no.</h1>
+    <p class="tagline">Both reflexes are wrong, and admitting that is exactly where an honest answer has to start.</p>
+
+    <div class="row"><div class="row-icon">Not just no</div><div class="row-text">You cannot just say no. The Old Testament is full of laws regulating slavery, and the New Testament has passages telling slaves to obey their masters, in Ephesians 6 and Colossians 3. Pretending those texts are not there is not honesty, it is avoidance.</div></div>
+    <div class="row"><div class="row-icon">Not just yes</div><div class="row-text">But you cannot just say yes either, because the instant you do, the next step lands: then God endorsed slavery, so God is evil. And if the Bible blessed slavery as we know it, that would be a fair conclusion. So everything hangs on what kind of slavery these texts are actually describing.</div></div>
+    <div class="row"><div class="row-icon">In context</div><div class="row-text">Here is the rule that settles it. To read any ancient text honestly, you have to read it in the world of the people it was written for. Drop an 1800s cotton plantation on top of an ancient Israelite law and you misread both at once. So the first job is to find out what the word meant to them, not what it means to us.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You're just dodging by quietly redefining the word.</b> Fair challenge, so the test is whether the reframe is honest history or special pleading. As the next step shows, the gulf between ancient bonded servitude and race-based plantation slavery is not a Christian invention; it is what historians of the ancient world describe. The reframe earns its place; it is not smuggled in.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the honest answer is neither a flat yes nor a flat no. It all turns on what slavery actually meant to the people these texts were written for.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHAT IT MEANT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / What it meant</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Occupation, not oppression</div>
+    <h1 class="display">Mostly it was debt-servitude, not plantation slavery.</h1>
+    <p class="tagline">When we hear slavery we picture the transatlantic trade: people kidnapped by race, owned as property for life. The common form in the Bible was, for the most part, a different thing entirely.</p>
+
+    <div class="row"><div class="row-icon">Why you entered</div><div class="row-text">For an Israelite it was usually about debt, not capture. If famine hit and you could not feed your family, you could sell your labour to a household and get shelter, food, protection and a place in that family in return. It was a safety net in a brutal world, closer to taking a live-in job to clear a debt than to becoming someone's possession.</div></div>
+    <div class="row"><div class="row-icon">An exit</div><div class="row-text">And it was not for life. The law in Exodus 21 releases a Hebrew servant in the seventh year, the debt wiped, and a master who refused was breaking the law. Built right into the system was a way out. That is the very opposite of chattel slavery, where you and your children were owned forever with no release in sight.</div></div>
+    <div class="row"><div class="row-icon">Like family</div><div class="row-text">In both the Israelite and the later Roman settings, a servant could be folded into the household, sharing its life and protection. That is part of why the New Testament can address both sides directly: they lived under the same roof. It was an economic arrangement of its time, not the racial horror the word now drags behind it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Slavery is slavery, you're just sugar-coating it.</b> Not sugar-coating, distinguishing. Nobody is calling ancient servitude gentle; it could be hard, the ancient world was harsh, and some of its laws are harder than others. But there is a real, historically recognised difference between time-limited debt-servitude with legal protections and an exit, and human beings kidnapped by race and owned as disposable property for life. Collapsing those two is the actual distortion.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the common form was debt-servitude, often voluntary, time-limited, with food, shelter and protection. Far closer to indentured labour than to race-based chattel slavery.</div></div>
+  </div>
+</section>
+
+<!-- B3 REINS IT IN -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Reined in</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Regulated, and the trade condemned</div>
+    <h1 class="display">It reins slavery in, and outlaws the slave trade outright.</h1>
+    <p class="tagline">The texts do not merely describe slavery. They fence it, humanise it, and in one striking law condemn the very thing modern slavery was built on.</p>
+
+    <div class="row"><div class="row-icon">Both sides</div><div class="row-text">Look again at those obey your masters verses. They never stop there. The same passages turn straight to the masters: stop threatening them in Ephesians 6, treat them justly and fairly in Colossians 4. In a world where a master could do as he liked, telling masters that they too answer to God for how they treat their servants was radical, and it quietly erodes the idea that a servant is mere property.</div></div>
+    <div class="row"><div class="row-icon">Man-stealing</div><div class="row-text">And here is the detail that matters most. The transatlantic trade was built on man-stealing, kidnapping people to sell them. The Old Testament makes that a capital crime: anyone who steals a person is to be put to death (Exodus 21:16). The Bible does not merely fail to bless race-based slavery; it prescribes the death penalty for the very thing that created it.</div></div>
+    <div class="row"><div class="row-icon">Not the ideal</div><div class="row-text">It helps to see what the Bible is doing. As with its laws on divorce, it is regulating an institution that already saturated the ancient world, fencing it with limits, not holding it up as God's dream for humanity. Meeting people inside a broken world and curbing the harm is not the same as endorsing it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If God really opposed it, he'd have simply banned it outright.</b> He arguably did the more durable thing. A flat ban on an institution the entire ancient economy ran on would have been ignored, or torn the society apart. Instead the Bible plants principles, human dignity, masters accountable to God, man-stealing treated as murder, that grow until slavery cannot survive them. Which is precisely what happened next.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Bible regulates and humanises servitude, makes the slave trade's foundation a capital crime, and treats slavery as a fallen reality to limit, never an ideal to praise.</div></div>
+  </div>
+</section>
+
+<!-- B4 THE END OF IT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The end of it</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The seeds that abolished it</div>
+    <h1 class="display">Its own logic is what eventually ended slavery.</h1>
+    <p class="tagline">The clincher is the direction the Bible travels. Far from propping slavery up, it plants the ideas that made it impossible, and then Christians went and did exactly that.</p>
+
+    <div class="row"><div class="row-icon">Brothers now</div><div class="row-text">Paul devotes a whole short letter, Philemon, to a runaway slave, and tells the owner to take him back not as a slave but as a beloved brother. Elsewhere he writes that in Christ there is no slave nor free, that all are equal. Once you genuinely believe the person serving you is your equal before God and your brother, owning them becomes unthinkable.</div></div>
+    <div class="row"><div class="row-icon">Who ended it</div><div class="row-text">And that is not just theory. The people who led the fight to abolish the slave trade, William Wilberforce and the British abolitionists, were driven by exactly this Bible. Even Tom Holland, a historian who is not himself a believer, argues that the very conviction that slavery is wrong is an inheritance from Christianity. Slavery was not ended in spite of the faith; it was largely ended because of it.</div></div>
+    <div class="row"><div class="row-icon">So, yes but</div><div class="row-text">So does the Bible support slavery? The honest answer is yes, but not in the way you first assume. It regulated a form of bonded service utterly unlike the horror that word now carries, condemned the trade that built modern slavery, and set loose the very ideas that destroyed it. The whole arc bends hard toward freedom.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But Christians owned slaves and quoted the Bible to defend it.</b> Some shamefully did, twisting Scripture to do it, which is the hypocrisy question all over again. But notice both sides quoted the Bible, and the abolitionists had the better of the argument precisely because the book's whole trajectory, equality, dignity, brothers in Christ, was on their side. The slaveholders had to ignore most of it to make their case stand.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Bible's own logic, human equality and brotherhood in Christ, is what dismantled slavery, and Christians led abolition. A heavily qualified yes, pointing the whole way toward freedom.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, does the Bible support slavery?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Yes or no</div><div class="sum-text">A flat answer fails either way. You have to read the texts <b>in their own world</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; What it meant</div><div class="sum-text">Mostly <b>debt-servitude</b>: often voluntary, time-limited, with protections and an exit. Not race-based chattel slavery.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Reined in</div><div class="sum-text">It humanises servitude, holds masters accountable, and makes <b>man-stealing a capital crime</b>, the slave trade's very basis.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The end of it</div><div class="sum-text">Equal and <b>brothers in Christ</b>. The abolitionists ran on this Bible, and even secular historians credit it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So yes, but not in the way the question wants you to assume. The Bible meets a world soaked in slavery, fences it with limits, condemns the kidnapping that built the modern trade, and plants the equality that finally killed it. Read in its own world, it is not slavery's defender. In the long run, it is slavery's undoing.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
