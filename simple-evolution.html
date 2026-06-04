@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#08120f">
+<title>Doesn't evolution disprove Genesis? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f0f6f6;
+    --ink-muted: #d4e3e2;
+    --ink-soft: #92a8a6;
+    --warm-black: #08120f;
+    --cream: #f3efe3;
+    --clay: #1f6a66;
+    --amber: #d8b257;
+    --hairline: rgba(218,238,236,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.52; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 40px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #142624;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(218,238,236,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(218,238,236,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: the formless deep to the dawn of light */
+  .bg-intro { background: linear-gradient(168deg, #08120f 0%, #0e2024 38%, #1a3e52 82%, #245a6e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #08120f 0%, #0d1d20 34%, #183a4a 74%, #225264 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #071110 0%, #0e2024 34%, #1a3e52 74%, #245a6e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #08120f 0%, #0f2120 34%, #2a4448 74%, #4a6a5e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #08120f 0%, #102220 30%, #4a4a32 64%, #c89a3e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #08120f 0%, #0e2024 45%, #1f4654 80%, #7a6238 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3f9aa0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #163a44 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6a9a6a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(218,238,236,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Science and Genesis</div>
+    <h1 class="display display-lg">Doesn't evolution disprove Genesis?</h1>
+    <p class="tagline">It feels like a clean knockout: science says evolution, the Bible says creation, so one of them has to go. But the supposed war rests on two assumptions, and once you examine them, it shrinks to almost nothing. Christians, by the way, hold a real range of views here.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Two questions in one</div><div class="map-sub">The conflict is narrower than it sounds</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">What Genesis is actually for</div><div class="map-sub">Who and why, not the mechanism</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Evolution isn't atheism</div><div class="map-sub">How, not whether</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">What evolution can't reach</div><div class="map-sub">The questions it was never about</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 TWO QUESTIONS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Two questions</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The conflict is narrower than it sounds</div>
+    <h1 class="display">It only clashes with one way of reading Genesis.</h1>
+    <p class="tagline">Does evolution disprove Genesis quietly smuggles in two big assumptions: that evolution is settled fact, and that Genesis must be read as a literal scientific account. Pull them apart and the war shrinks fast.</p>
+
+    <div class="row"><div class="row-icon">Two claims</div><div class="row-text">The objection bundles two separate things: that the science is beyond all question, and that Genesis is a modern science report. Even granting the first, the second is the real issue. Evolution, at most, would clash with one particular reading of Genesis, not with Genesis as a whole, and certainly not with God.</div></div>
+    <div class="row"><div class="row-icon">Which Genesis</div><div class="row-text">Because the clash, if there is one, is only with a strict literal six-days reading. Take Genesis as making theological claims rather than handing out a mechanism, which is step two, and there is simply nothing left for evolution to contradict. The fight is not Genesis against science; it is one interpretation against science.</div></div>
+    <div class="row"><div class="row-icon">The views</div><div class="row-text">And Christians genuinely differ. Some hold a young earth, some an old earth, some that the living cell shows design science cannot explain, and many, like Francis Collins who led the Human Genome Project, that evolution is simply the process God used. As Stephen Meyer argues, the idea of a flat war between science and faith is largely a myth.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Evolution is just a fact now, so Genesis is finished.</b> Even granting evolution as solid biology, notice what it would and would not touch. It might describe how living things developed; it says nothing about whether there is a God, or about what Genesis was written to say. A fact about biological change cannot, all on its own, retire the question of a Creator. That is a different category of question.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: evolution, even taken as settled science, collides only with one reading of Genesis, not with Genesis as a whole, and not with God. The war is far smaller than advertised.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHAT GENESIS IS -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / What Genesis is</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who and why, not the mechanism</div>
+    <h1 class="display">Genesis answers who and why, not the how.</h1>
+    <p class="tagline">Genesis 1 is ancient Hebrew literature making theological claims, not a laboratory paper on biological mechanism. Read it as what it actually is, and the supposed conflict largely evaporates.</p>
+
+    <div class="row"><div class="row-icon">Not a textbook</div><div class="row-text">Genesis is telling you that one God, not a crowd of warring gods, made everything; that it is good; and that human beings uniquely bear his image. Those are its claims. Asking it for the scientific mechanism is like asking a love poem for the chemistry of the heart. As Knechtle puts it, in the beginning God, and the Bible simply does not describe the process he used.</div></div>
+    <div class="row"><div class="row-icon">The days</div><div class="row-text">Even the famous six days invite care. The Hebrew word can mean an age or an epoch, not only a 24-hour day, and tellingly the sun is not made until day four, so the text is plainly not pressing a literal solar clock. The author is structuring a careful theological poem, not running a stopwatch over the history of the planet.</div></div>
+    <div class="row"><div class="row-icon">Before Darwin</div><div class="row-text">And this is not some panicked modern rewrite to dodge Darwin. Christians were reading Genesis non-literally long before evolution was ever proposed; Augustine was warning against wooden literalism back in the fourth century. So treating the days as more than calendar days is ancient and honest, not a convenient retreat invented when the science got awkward.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>That's a cop-out, you just reinterpret Genesis whenever science embarrasses it.</b> But the non-literal reading predates Darwin by well over a thousand years, so it was plainly not invented to escape him. The text itself signals it, with light and days appearing before there is even a sun. Reading ancient literature as the kind of thing it actually is, is not a dodge. It is basic honesty about the text.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Genesis makes theological claims, one Creator, a good world, humans in his image, not scientific ones. Read as what it is, it was never even in the business that evolution is in.</div></div>
+  </div>
+</section>
+
+<!-- B3 NOT ATHEISM -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Not atheism</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How, not whether</div>
+    <h1 class="display">Evolution might tell you how, not whether there's a God.</h1>
+    <p class="tagline">Now take evolution at full strength. It would describe a process; it could never, by itself, show there is no mind behind that process. That extra step is philosophy wearing a lab coat.</p>
+
+    <div class="row"><div class="row-icon">A process</div><div class="row-text">Evolution, as biology, describes how living things change over time, and plenty of serious Christians accept it as exactly that. Knechtle's framing is that an intelligent mind used a process the Bible does not spell out: in the beginning God, not in the beginning hydrogen. The process, if real, is simply the how. It is not a rival to the who.</div></div>
+    <div class="row"><div class="row-icon">Not a creed</div><div class="row-text">The leap from evolution happened to therefore there is no God is not a scientific finding; it is a worldview bolted on top. As Knechtle says, to argue there is no God because of evolution is a philosophical argument, not a scientific one. Science can study the mechanism all day; it cannot pronounce that there is no mind behind it.</div></div>
+    <div class="row"><div class="row-icon">How not who</div><div class="row-text">It is the very point of the science card. Explaining how a baby grows in the womb does not show it had no parents; explaining how an engine runs does not abolish the engineer. A mechanism is not a maker. Describing the process by which life unfolded leaves the question of a Creator standing entirely untouched.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Evolution shows life needs no designer, so there is no God.</b> That is the philosophy talking, not the biology. At most evolution removes the need for God to step in at each separate stage; it cannot remove the need for God at all, any more than understanding the water cycle removes the One who set it running. Even granting every fossil, you have explained a process, not explained it away.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: evolution, even if entirely true, describes a process, not the absence of God. The jump to atheism is a philosophical add-on, and God could simply have used the process as his means.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHAT IT CAN'T REACH -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / What it can't reach</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The questions it was never about</div>
+    <h1 class="display">Even full evolution leaves the biggest questions open.</h1>
+    <p class="tagline">Finally, see how much evolution does not even attempt. It assumes a great deal it cannot itself explain, and the deepest questions sit entirely outside its reach.</p>
+
+    <div class="row"><div class="row-icon">Why anything</div><div class="row-text">Evolution presupposes a universe that already exists, and one fine-tuned for life at that, as the science card laid out. It cannot tell you why there is something rather than nothing, or why the dials are set so precisely for life. It picks up the story well after the most astonishing chapters have already been written.</div></div>
+    <div class="row"><div class="row-icon">Why life</div><div class="row-text">And evolution explains change in living things, not the arrival of life itself. How you get the first living, self-copying cell out of non-living chemistry, complete with its vast coded information, is a separate and still-unsolved problem. As Stephen Meyer presses, that information looks far more like the work of a mind than of blind chance.</div></div>
+    <div class="row"><div class="row-icon">Why mind</div><div class="row-text">And it cannot reach consciousness, reason or morality. In fact, if your mind is only the accidental by-product of survival, why trust its conclusions at all, including its conclusions about evolution? The very rationality you rely on to do science is strangely hard to ground in a purely accidental story.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Science will eventually explain the origin of life and the mind too.</b> Perhaps it will describe more mechanisms, and that would be wonderful. But no mechanism, however detailed, can answer why there is a universe at all, why it is fine-tuned, or why there is a mind here to ask the question. Those are not gaps science is steadily closing; they are a different kind of question, and evolution was never even asking them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: evolution, at its very biggest, is a process inside an already-existing, fine-tuned, life-bearing universe. It cannot reach why there is anything, why there is life, or why there is mind.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, does evolution disprove Genesis?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Two questions</div><div class="sum-text">Evolution clashes only with <b>one reading of Genesis</b>, not Genesis itself, and Christians genuinely differ.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; What Genesis is</div><div class="sum-text"><b>Theology</b> (one Creator, a good world, humans in his image), not a mechanism. The non-literal reading predates Darwin.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Not atheism</div><div class="sum-text">Evolution describes <b>how, not whether</b>; the jump to no God is philosophy, not science. God could use the process.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; What it can't reach</div><div class="sum-text">Why there's <b>anything, life, or mind</b> all sit outside it. The real clash is atheism versus theism.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So no, evolution does not disprove Genesis. It collides at most with one way of reading it, while Genesis itself is answering a different question, who made the world and why, than the one evolution asks, how living things change. And even taken whole, evolution is a process inside a fine-tuned, life-bearing universe it cannot explain. The headline war is not between evolution and God. It is between two worldviews, with science wrongly conscripted to one side.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
