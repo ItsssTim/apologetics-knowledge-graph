@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0e0e16">
+<title>Without God, does life have meaning? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f5f1f0;
+    --ink-muted: #e4dcdb;
+    --ink-soft: #a39ca6;
+    --warm-black: #0e0e16;
+    --cream: #f3ece6;
+    --clay: #9a4e44;
+    --amber: #e0926e;
+    --hairline: rgba(240,232,230,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2c1612;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,230,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,230,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cold cosmic void resolving to a warm hearth-glow (insignificance to being known) */
+  .bg-intro { background: linear-gradient(168deg, #0e0e16 0%, #18162a 38%, #45304a 78%, #7e4a48 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0e0e16 0%, #14141f 34%, #222232 74%, #2e2e42 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0d0d14 0%, #16142a 34%, #3a2a44 74%, #543a4a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0e0e16 0%, #1a1628 34%, #46304a 74%, #7a4a48 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0e0e16 0%, #1e1828 30%, #5e3a42 64%, #e0926e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0e0e16 0%, #18162a 45%, #543a48 80%, #d8886a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #2e2c4e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #161422 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a4a44 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0926e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,230,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Meaning, purpose, and God</div>
+    <h1 class="display display-lg">Without God, does life have any meaning?</h1>
+    <p class="tagline">It is the question hiding under all the others. Suppose there is no God, and death is simply the end. Then does anything you do finally matter? Or is it all, in the long run, pointless? William Lane Craig puts this question first for a reason: before you ask whether God exists, it helps to see what is actually at stake in the answer.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Take the no-God world seriously</div><div class="map-sub">Even atheists saw where it leads</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">But nobody can live there</div><div class="map-sub">We all act like things matter</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The hunger points somewhere</div><div class="map-sub">The hole nothing finite fills</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">What changes if he's real</div><div class="map-sub">Meaning, worth, and a future</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 TAKE IT SERIOUSLY -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Take it seriously</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Take the no-God world seriously</div>
+    <h1 class="display">First, face the logic squarely.</h1>
+    <p class="tagline">It is tempting to wave the question away, but it deserves an honest look. If there is no God and no life beyond the grave, follow that all the way down, and see where it lands.</p>
+
+    <div class="row"><div class="row-icon">Face it</div><div class="row-text">On this picture, the universe began by accident, will end in cold and darkness, and every trace of us will eventually be gone. Your birth was an accident, your death is an accident, and the stretch in between is one more accident. Whatever you build, the final score for the cosmos is the same: nothing remembered, nothing kept.</div></div>
+    <div class="row"><div class="row-icon">They saw it</div><div class="row-text">This is not a Christian caricature. The most serious atheist thinkers said it plainly. Camus opened his most famous essay by asking why, in a meaningless universe, anyone should go on at all. Sartre, Nietzsche and Bertrand Russell drew the same bleak conclusion. Shakespeare had put it centuries earlier, calling life a tale told by an idiot, full of sound and fury, signifying nothing.</div></div>
+    <div class="row"><div class="row-icon">The cold end</div><div class="row-text">So the honest version of a world without God is not a cosy one. If matter and energy are all there is, then love is chemistry, justice is preference, and the suffering child who dies is simply gone, case closed. That may, in the end, still be true. But we should at least be clear-eyed that this is what the view is actually offering.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Plenty of atheists live happy, meaningful lives, so this is just fearmongering.</b> True, and the point is not that atheists are miserable. Many live with great purpose and warmth. The claim is narrower: the meaning they enjoy is real to them, but on their own account it is not ultimate, and it does not survive them. Living a happy life and having an ultimately meaningful one are two different claims, and only the second is in question here.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a universe with no God and no life beyond death is, by the atheist's own honest reckoning, one where nothing we do ultimately lasts or finally matters. The serious thinkers admitted it. That is worth facing before going on.</div></div>
+  </div>
+</section>
+
+<!-- B2 NOBODY LIVES IT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Nobody lives it</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">But can anyone live there?</div>
+    <h1 class="display">Almost nobody lives as if it's true.</h1>
+    <p class="tagline">Here is the strange thing. Having reasoned their way to a meaningless universe, virtually no one then lives in one. The daily life of the convinced atheist quietly contradicts the conclusion.</p>
+
+    <div class="row"><div class="row-icon">Nobody lives it</div><div class="row-text">We grieve at funerals as though a real loss has happened, not a rearrangement of atoms. We burn at cruelty as though it is genuinely wrong, not merely unfashionable. We pour ourselves into people and causes as though they truly count. Knechtle's challenge is simply that you cannot actually live out the meaninglessness that atheism reasons its way towards.</div></div>
+    <div class="row"><div class="row-icon">You still care</div><div class="row-text">Press it gently and the gap shows. Almost everyone treats the difference between a Mother Teresa and a tyrant as a real difference, not a matter of taste. Almost everyone treats love as something more than a chemical accident. Those instincts are not what you would expect from a cosmic accident drifting towards oblivion. They are what you would expect from a person who actually matters.</div></div>
+    <div class="row"><div class="row-icon">Borrowed</div><div class="row-text">When a thoroughgoing atheist still speaks of human dignity, of justice, of things that ought to be, they are spending meaning their own worldview cannot mint. There is nothing dishonourable in that. But it is worth noticing that the meaning is being borrowed, and asking where the account it is drawn on really sits.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You don't need cosmic meaning; ordinary human meaning is plenty.</b> It may well be plenty to get through a good day, and that is not nothing. But notice that you still speak as though cruelty is really wrong and love really matters, not merely that you happen to prefer them. That is meaning treated as something discovered, not invented. The behaviour quietly outruns the worldview.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the gap between what atheism implies, that nothing ultimately matters, and how nearly everyone actually lives, as though things matter enormously, is itself a clue. People do not live like accidents, because deep down they do not believe they are.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE HUNGER -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / The hunger</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The thing nothing fills</div>
+    <h1 class="display">And the hunger points somewhere.</h1>
+    <p class="tagline">There is a restlessness in people that success never quite settles. Follow it, and it turns out to be one of the most interesting facts about being human.</p>
+
+    <div class="row"><div class="row-icon">The empty hole</div><div class="row-text">People reach the thing they were certain would satisfy them, the trophy, the wealth, the fame, and a quiet voice asks whether this was really all there is. Champions at the very top of their sport have said exactly that. As the novelist David Foster Wallace warned, anything finite that you build your life upon will eventually eat you alive. There seems to be a hole in us that no finite thing quite fits.</div></div>
+    <div class="row"><div class="row-icon">Is this it</div><div class="row-text">That ache is oddly universal. It turns up in the rich and the poor, the famous and the unknown, across every culture and century. People keep reaching for a meaning, a love, a permanence that the world never fully delivers. It is the most consistent report of the human heart, and a strictly material accident is a strange thing to have such a longing wired into it.</div></div>
+    <div class="row"><div class="row-icon">A signpost</div><div class="row-text">A hunger like that does not prove the food exists. But it is a signpost worth following. As C.S. Lewis observed, if you find in yourself a desire that nothing in this world can satisfy, the likeliest explanation is not that the desire is a mistake, but that you were made for more than this world. The hunger fits a universe with a God in it, and sits oddly in one without.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A hunger doesn't prove the food is real.</b> Quite right, it does not prove it. A desire is a signpost, not a receipt. But a deep, universal hunger that no finite thing ever fills is at least a clue worth taking seriously, and as Lewis pointed out, the natural explanation of a longing nothing here can satisfy is that we were made for something beyond here. It is not a proof. It is a fit.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the restless sense that there must be more, the hole that no achievement fills, is exactly what you would expect if we were made by someone, for something. It is not a proof of God, but it is a signpost, and it points the way Christianity claims.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHAT CHANGES -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / What changes</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What difference it makes</div>
+    <h1 class="display">If he's real, three things change.</h1>
+    <p class="tagline">So come back to the question Craig puts first. What difference does it actually make if God exists? If he does, and death is not the end, then everything the no-God world could not provide is suddenly on the table.</p>
+
+    <div class="row"><div class="row-icon">Meaning</div><div class="row-text">First, your life has meaning. You are not an accident between two accidents, briefly flickering before the dark closes back in. You are here on purpose, known and intended by the one who made everything. The story you are in is going somewhere, and your part in it is real. That is a different universe to wake up in.</div></div>
+    <div class="row"><div class="row-icon">You matter</div><div class="row-text">Second, you genuinely matter. Your worth is not something you have to manufacture and then defend, and it does not evaporate when your usefulness does. It rests on being loved by God, which means the frail, the failing and the forgotten matter every bit as much as the celebrated. Worth you are given is far steadier than worth you invent.</div></div>
+    <div class="row"><div class="row-icon">A future</div><div class="row-text">And third, there is a future. Love is not finally swallowed by the grave, and justice is not forever denied to those who never saw it here. Because Jesus rose, the things that matter most are not quietly on their way to nothing. They last. That is the difference God's existence makes, and it is hard to imagine a larger one.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Wishing it were true doesn't make it true. This is just wishful thinking.</b> Correct, and Christianity does not rest its case here. Whether God exists is settled by argument and evidence, which have cards of their own. This card answers a different question, not is it true, but does it matter. And the honest answer is that few things matter more, which is exactly why it is worth examining the evidence rather than looking away.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: if God exists, your life has real meaning, your worth is secure, and the things you love are not destined for nothing. That is what is at stake in the question of God. It is not an abstract debate; it is whether anything finally counts.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">It is whether anything counts.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Take it seriously</div><div class="sum-text">A world with no God and no afterlife is, by atheists' own honest reckoning, one where <b>nothing ultimately lasts</b>. Camus and Russell said so.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Nobody lives it</div><div class="sum-text">Almost no one lives as if life is meaningless. We grieve, love and fight injustice <b>as though things really matter</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The hunger</div><div class="sum-text">The hole no achievement fills is what you'd expect if we were <b>made by someone, for something</b>. A signpost, not a proof.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; What changes</div><div class="sum-text">If God is real, life has meaning, your worth is secure, and <b>love isn't swallowed by the grave</b>. That's the difference.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So does life have any meaning without God? You can certainly build a meaning for yourself, and many do. But on a strictly godless account it is a meaning you invent, that will not outlast you, and that almost nobody can actually live by. The deep human hunger for something more is not a proof, but it is a clue, and it points somewhere. And if God is real, the difference is total: you are not an accident but someone known and loved, your worth does not hang on your usefulness, and the things you love are not heading for nothing. That is what is at stake, and it is worth following all the way to the question of whether it is true.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
