@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0f1a">
+<title>Did Constantine make the Bible? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f6fb;
+    --ink-muted: #d6deec;
+    --ink-soft: #93a0bc;
+    --warm-black: #0b0f1a;
+    --cream: #f3efe4;
+    --clay: #c08a32;
+    --amber: #d8b15a;
+    --hairline: rgba(220,230,250,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.32);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #1c2236;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,230,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,230,250,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: imperial sapphire, with antique gold */
+  .bg-intro { background: linear-gradient(168deg, #0b0f1a 0%, #121b32 38%, #1f3566 82%, #2c4a8e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0b0f1a 0%, #111a30 34%, #1d3260 74%, #294584 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0a0e18 0%, #101a2e 34%, #1e3464 74%, #2b4a8e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0b0f1a 0%, #121c34 34%, #21396e 74%, #30529a 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0b0f1a 0%, #141d36 30%, #3a416a 66%, #b08a40 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0b0f1a 0%, #121b32 45%, #243f70 80%, #5a5240 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4a72c8 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1e3a78 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #5a7fd0 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cba84e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.42); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,230,250,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The conspiracy question</div>
+    <h1 class="display display-lg">Did Constantine or Nicaea decide the Bible?</h1>
+    <p class="tagline">You have heard the story: a Roman emperor and a council in the year 325 sat down, voted on which books got into the New Testament, edited the rest, and even invented the divinity of Jesus. It is a great story. Almost every piece of it is false, and you can check why.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What Nicaea was actually about</div><div class="map-sub">It never touched the list of books</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Where the myth even came from</div><div class="map-sub">A garbled legend, then a thriller</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">How the books were really chosen</div><div class="map-sub">Recognised, not imposed</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Could Constantine even have?</div><div class="map-sub">The text was already everywhere</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT NICAEA WAS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What Nicaea was</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">It never touched the list of books</div>
+    <h1 class="display">Nicaea wasn't even about the Bible.</h1>
+    <p class="tagline">Start with the simplest fact, because it quietly demolishes the whole story. The canon, meaning the official list of books, was never on the table at Nicaea at all.</p>
+
+    <div class="row"><div class="row-icon">No vote</div><div class="row-text">As Wes Huff puts it bluntly, there was no vote; the Council of Nicaea had nothing to do with the books of the Bible. No show of hands on Matthew, no rejecting of rival gospels. If you went looking in the records of Nicaea for the moment they picked the New Testament, you would find nothing, because it never happened.</div></div>
+    <div class="row"><div class="row-icon">The real fight</div><div class="row-text">What Nicaea in 325 actually argued about was one question: was Jesus truly God, or the first and greatest created being? That was the dispute with a priest named Arius. The council was a room full of bishops hammering out how to state what Christians already believed about Christ, not a committee assembling a book.</div></div>
+    <div class="row"><div class="row-icon">The creed</div><div class="row-text">What it produced was the Nicene Creed, the statement about Father, Son and Spirit still recited in churches today. It was clarifying a belief, not inventing one. Two completely separate things, who Jesus is and which books are scripture, get fused into one in the myth. Pull them apart and the story collapses.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But Nicaea is where they decided Jesus was God and which books to keep.</b> Two myths bolted together. Nicaea did affirm the divinity of Christ, but affirming is not inventing; it was defending what was already taught against Arius, who denied it. And it said precisely nothing about the books. The popular story takes one real council, gives it a job it never did, and adds a vote that never took place.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Nicaea was about the divinity of Christ, not the contents of the Bible. There was no vote on the books, full stop. That single fact unravels most of the myth.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHERE THE MYTH CAME FROM -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Where it began</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A garbled legend, then a thriller</div>
+    <h1 class="display">You can actually trace where the story came from.</h1>
+    <p class="tagline">This is the satisfying part. The Constantine-made-the-Bible idea is not ancient history, it is traceable folklore, and you can follow the trail to its source.</p>
+
+    <div class="row"><div class="row-icon">The legend</div><div class="row-text">It goes back partly to a late, garbled legend, written centuries after Nicaea, in which the disputed books were piled under a table and the genuine ones miraculously jumped on top. It is the kind of pious tall tale that grows up around famous events. Wes Huff has done a lot of the work tracing this lineage. It is legend, not record.</div></div>
+    <div class="row"><div class="row-icon">Dan Brown</div><div class="row-text">The modern blockbuster version is <em>The Da Vinci Code</em>, which sold the idea to millions that there were dozens of suppressed gospels and that Nicaea took a vote. It is a novel. But it leaned on an older academic theory (associated with Walter Bauer) that the winners simply branded everyone else heretics, and dressed it up as page-turning fact.</div></div>
+    <div class="row"><div class="row-icon">Still repeated</div><div class="row-text">And it keeps getting repeated, from blockbuster podcasts to respectable magazines that should know better. Huff points to a piece in <em>The Atlantic</em> casually stating that after Constantine, church leaders started canonising a small selection of texts and branding the rest heretical. It sounds authoritative. It is simply the same myth in a nicer suit.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Plenty of serious historians and articles say Constantine shaped the Bible, so it can't just be a novel.</b> The popular repetition is real, but trace any version back and it rests on Dan Brown and the Bauer thesis, not on the primary records. When you read what Nicaea actually recorded, and when the book lists actually appear, the journalistic version has nothing underneath it. Repetition is not evidence.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the story is traceable folklore, a late legend supercharged by a novel and kept alive by lazy repetition. Its pedigree is fiction, not the historical record.</div></div>
+  </div>
+</section>
+
+<!-- B3 HOW THE BOOKS WERE CHOSEN -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / How the canon formed</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Recognised, not imposed</div>
+    <h1 class="display">The books were recognised, not voted in.</h1>
+    <p class="tagline">So if no emperor and no council imposed it, where did the New Testament come from? The honest answer is less dramatic and far better evidenced: it was recognised over time by the wider church.</p>
+
+    <div class="row"><div class="row-icon">Recognised</div><div class="row-text">The books that became the New Testament earned their place by being used: read, copied and quoted as scripture by churches scattered across the empire. The tests were things like whether a book went back to the apostles and lined up with what was already received. It was less a committee deciding and more a community recognising a genuine signature.</div></div>
+    <div class="row"><div class="row-icon">Before him</div><div class="row-text">And the bulk of it was settled long before Constantine was born. The early church leaders were already quoting the Gospels and Paul as scripture in the second century. Irenaeus, writing around 180, says flatly that the gospels cannot be more or fewer than the four we have. The Muratorian Fragment, an early list, names most of the New Testament generations before Nicaea.</div></div>
+    <div class="row"><div class="row-icon">The lists</div><div class="row-text">When the formal lists do appear, they confirm what was already in use rather than creating anything. Athanasius lists the familiar twenty-seven books in a letter in 367, and later councils simply ratified that. By then the question was mostly settled. Nobody handed the church a Bible; the church recognised the books it had been living on for centuries.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Fine, not Nicaea, but some council still sat down and imposed it later.</b> No council on record created the canon either. The councils that mention it, like Carthage near the end of the fourth century, are confirming the books already in widespread use, not inventing a list. There is no founding moment where authorities forced a Bible on the church. It grew by recognition, slowly, from the bottom up.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the canon formed by recognition, not decree. Most of it was functioning as scripture in the second century, and the later lists confirmed what the churches already used.</div></div>
+  </div>
+</section>
+
+<!-- B4 COULD CONSTANTINE EVEN -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Could he even?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The text was already everywhere</div>
+    <h1 class="display">Even if he'd wanted to, he couldn't have.</h1>
+    <p class="tagline">Here is the final nail. Set aside that he didn't, and ask whether Constantine even could have controlled the New Testament. The physical facts say no.</p>
+
+    <div class="row"><div class="row-icon">Tenacity</div><div class="row-text">By Constantine's day the New Testament writings had already spread, copied by hand, across Europe, Asia and North Africa. Scholars call this tenacity: the text went everywhere, fast, into thousands of independent copies. That means no single person and no single council was ever in a position to round them all up and rewrite them. The horse had bolted two centuries earlier.</div></div>
+    <div class="row"><div class="row-icon">Predate him</div><div class="row-text">We can check this directly. We have manuscripts dug out of the sands of Egypt dating to the early second century, copies Constantine never knew existed and could never have touched, and they already affirm the divinity of Jesus. So the claim that Nicaea invented his divinity is not just unproven, it is contradicted by documents far older than Constantine himself.</div></div>
+    <div class="row"><div class="row-icon">The fifty</div><div class="row-text">What did Constantine actually do? He once asked for around fifty copies of the scriptures to be produced for churches in his new capital. But having copies made of an existing text is not choosing it or editing it, any more than a print run rewrites a book. He commissioned photocopies, in effect, of a New Testament the church already had.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>He had fifty Bibles produced, so he obviously controlled the contents.</b> Producing copies and controlling contents are completely different acts. He could no more change what those scriptures said than a king could rewrite a song already sung in every village. The text was decentralised beyond any one ruler's reach, and the oldest surviving copies, the ones he never saw, already say what the myth claims he inserted.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Constantine could not have controlled a text already scattered in thousands of copies across three continents. The oldest manuscripts predate him and already affirm what the myth says he invented.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, did they make the Bible?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What Nicaea was</div><div class="sum-text">It debated the <b>divinity of Christ</b>, not the books. There was no vote on the canon at all.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Where it began</div><div class="sum-text">A <b>late legend</b>, supercharged by The Da Vinci Code and kept alive by lazy repetition.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; How it formed</div><div class="sum-text"><b>Recognised, not imposed</b>. Most of it was scripture in the second century; the lists only confirmed it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Could he even</div><div class="sum-text">The text was <b>already everywhere</b>. The oldest copies predate him and already affirm Christ's divinity.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So no, Constantine did not write the Bible and Nicaea did not vote it into being. The council argued about who Jesus was; the books were recognised by the wider church over centuries; and the text was already too widely scattered for any emperor to control. It is a brilliant conspiracy theory. It just happens to be one you can check, and it does not survive the checking.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
