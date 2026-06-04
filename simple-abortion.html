@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#18101a">
+<title>Isn't abortion just a clump of cells? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f0f0;
+    --ink-muted: #e8dcdc;
+    --ink-soft: #ad9ca0;
+    --warm-black: #18101a;
+    --cream: #f4ece4;
+    --clay: #9a4a52;
+    --amber: #e0a268;
+    --hairline: rgba(240,230,230,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 35px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2c1414;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,230,230,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,230,230,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: tender wine-rose resolving to a soft peach-gold dawn (life, tenderness, grace) */
+  .bg-intro { background: linear-gradient(168deg, #18101a 0%, #2a1622 38%, #5e2e40 80%, #8a4a44 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #18101a 0%, #241420 34%, #482638 74%, #5e3242 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #17101a 0%, #261624 34%, #503040 74%, #6e4040 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #18101a 0%, #281626 34%, #5a3040 74%, #82443e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #18101a 0%, #2a1824 30%, #6e3a40 64%, #e0a268 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #18101a 0%, #2a1622 45%, #6e3a44 80%, #d89860 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5a2e44 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #241420 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a4a4a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a268 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,230,230,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">When life begins, and who counts</div>
+    <h1 class="display display-lg">Isn't abortion just a clump of cells?</h1>
+    <p class="tagline">Two things usually get said in the same breath: it is only a clump of cells, and anyway, don't you care about women? Both deserve an honest answer, and neither is quite what it first seems. This is a heavy subject, and a painful one for many, so it is worth slowing down and taking it a step at a time.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">It's not just a clump of cells</div><div class="map-sub">Biology already answered this</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The person line is drawn, not found</div><div class="map-sub">Every cutoff turns out arbitrary</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Worth you're given, not earned</div><div class="map-sub">Made in the image of God</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">But don't you care about women?</div><div class="map-sub">It was never women against babies</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 A NEW LIFE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What it actually is</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What it actually is</div>
+    <h1 class="display">Biology already answered this one.</h1>
+    <p class="tagline">Start with the part that is not really in dispute among the people who study it for a living. When does a human life begin? That is a biological question, and biology has a clear answer.</p>
+
+    <div class="row"><div class="row-icon">A new life</div><div class="row-text">At fertilisation you do not have a part of the mother's body, like a skin cell or an organ. You have a new, living, whole human organism, with its own unique genetic code, already directing its own development. It is not a potential life. It is a human life at its earliest stage, the very stage each one of us once passed through.</div></div>
+    <div class="row"><div class="row-icon">The 95%</div><div class="row-text">This is not a religious claim smuggled in. When thousands of biologists were surveyed on when a human life begins, around 95% gave the same answer: fertilisation. And when ordinary people were asked who is best placed to settle it, theologians, philosophers or biologists, they chose the biologists. So, as it happens, did the biologists.</div></div>
+    <div class="row"><div class="row-icon">Known in the womb</div><div class="row-text">Scripture says much the same in its own register. Long before anyone understood fertilisation, the Psalms speak of God knitting a person together in the womb and knowing them before they were formed. The Bible even uses its word for an unformed substance and still says God knew that person. From the very start, this is a someone, not a something.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Early on it's just a clump of cells, no different from a skin cell.</b> A skin cell is human tissue; an embryo is a distinct human organism, already organising its own growth into a child. That is not a difference of size but of kind. As the biologists overwhelmingly affirm, what begins at fertilisation is not a piece of someone else's body but a new someone, at the very beginning of the only life they will ever get.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: when a human life begins is a biological question, and around 95% of biologists give the same answer: fertilisation. The unborn is not a clump of tissue but a whole human organism at its earliest stage, the stage we all once passed through.</div></div>
+  </div>
+</section>
+
+<!-- B2 THE REAL DEBATE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The personhood move</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The move that's really being made</div>
+    <h1 class="display">The person line is drawn, not found.</h1>
+    <p class="tagline">Once it is clear the unborn is biologically human, the argument quietly shifts. The new claim is that it is not yet a person, not yet one of us with a right to live. But look closely at where that line gets drawn.</p>
+
+    <div class="row"><div class="row-icon">The real debate</div><div class="row-text">Almost everyone grants the biology and moves to personhood. Fair enough, except that every proposed cutoff, a certain size, a stage of development, being outside the womb, being able to survive alone, marks a change in how the being looks or where it is, never a change in what it fundamentally is. A line drawn there tells you the outcome someone wanted, not a truth they found.</div></div>
+    <div class="row"><div class="row-icon">No real line</div><div class="row-text">Test each line against people we already protect. A newborn cannot survive on its own either. A sleeping adult is not currently thinking. Someone in a coma has lost, for now, the very abilities the cutoff demands. We do not conclude that any of them has stopped being a person. The traits keep failing as a place to hang the right to exist.</div></div>
+    <div class="row"><div class="row-icon">When unsure</div><div class="row-text">And if someone insists we simply cannot know when personhood begins, that cuts the other way. William Lane Craig puts it plainly: if your child asks can I kill it, and you do not know whether they mean a cockroach or their baby sister, you do not say yes. Where there is real doubt about whether a being is a person, the only safe and humane course is to assume that it is.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>An unborn baby isn't a person yet; it can't think or feel or survive on its own.</b> But measure that test against a newborn, who also cannot survive alone, or a sleeping adult, who is not thinking, or someone in a coma. We do not say they have lost their personhood. Tying the right to live to your current abilities does not only exclude the unborn. It quietly endangers everyone whose abilities are small, or paused, or fading.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: everyone grants the unborn is human, then draws a personhood line at size, development, location or dependence, none of which changes what the being is. The same lines would exclude newborns and the unconscious. Where we cannot be sure, caution protects life.</div></div>
+  </div>
+</section>
+
+<!-- B3 WORTH -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Where worth comes from</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where human worth comes from</div>
+    <h1 class="display">Worth you're given, not worth you earn.</h1>
+    <p class="tagline">Underneath the whole debate is a question about where human value comes from in the first place. And here the two answers lead to very different places.</p>
+
+    <div class="row"><div class="row-icon">Not abilities</div><div class="row-text">The secular instinct is to tie worth to what you can do, to think, to feel, to want and to be wanted. But notice the cost. If worth depends on ability, then the unborn fall outside, and so, by the same logic, do the newborn, the severely disabled, the demented, the dying. Some philosophers have followed that logic all the way to defending infanticide, precisely because it is consistent.</div></div>
+    <div class="row"><div class="row-icon">The image</div><div class="row-text">Christianity grounds worth somewhere far steadier: in what you are, not what you can do. Every human being bears the image of God, and so has worth that is equal, full, and impossible to earn or to lose. As Lennox puts it, if life ultimately comes from God, the question is not whether this life is useful enough yet, but what right we have to end it.</div></div>
+    <div class="row"><div class="row-icon">Who counts</div><div class="row-text">And that turns out to be the more humane view, not the harsh one. A worth based on ability always leaves someone outside the circle, usually the smallest and weakest. A worth based on simply being human leaves no one out at all. It is the very same principle that grounds every claim about human rights: that people matter because of what they are.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>This is just your religion imposing itself; keep it out of the law.</b> But the claim that every human has equal worth, regardless of ability, is not a quirk of one religion. It is the foundation under human rights itself. Take away the idea that worth is intrinsic and you are left grounding it in usefulness, which is a far more dangerous place to stand. Who counts as one of us is everyone's question, not only the believer's.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: tie human worth to ability and you endanger everyone whose abilities are small or failing, not just the unborn. Christianity grounds worth in being made in God's image, equal and unearnable, the most inclusive foundation there is, and the surest protection for the weakest.</div></div>
+  </div>
+</section>
+
+<!-- B4 WOMEN -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / And the woman?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">But what about the woman?</div>
+    <h1 class="display">It was never women against babies.</h1>
+    <p class="tagline">Which brings us to the second half of the question, the part that matters most to the person actually facing it. Don't you care about women? The honest answer is yes, and refusing to pit the two against each other is the whole point.</p>
+
+    <div class="row"><div class="row-icon">Both at once</div><div class="row-text">Caring about the unborn and caring about the woman are not opposites, and the best pro-life conviction refuses to choose between them. It wants both to be safe, both to be loved, both to have a future. Any version that cares about the baby and not about the mother has lost the plot, and is not worth defending.</div></div>
+    <div class="row"><div class="row-icon">The conditions</div><div class="row-text">And it has to be honest about why women reach this point. As Preston Perry says, many feel they have no real choice, pushed there by abandonment, poverty, fear, or a man who walked away, conditions they did not create. The genuinely pro-life response is to attack those conditions, with support, presence and provision, not merely to forbid the exit while changing nothing.</div></div>
+    <div class="row"><div class="row-icon">Grace</div><div class="row-text">The church has often failed here, loud in condemnation and quiet in help, and that is a real wrong, not a misunderstanding. And to anyone carrying pain or guilt from an abortion, the Christian message is not a verdict but grace. There is no special tier of sin here, and no one is beyond the reach of a God who forgives. The door is the same for everyone.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You only care about the baby, not the woman who has to carry it.</b> A fair challenge, and the church has too often earned it. But the honest position is not the baby instead of the woman; it is both, and it should be judged by how it supports her, not only by what it forbids. Where a woman feels cornered into abortion, the loving answer is to change what cornered her, and to meet her, whatever she has done, with grace rather than a sentence.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: caring for the unborn and caring for women are not a trade-off; the honest position holds both. It attacks the conditions that push women towards abortion rather than only the choice, owns the church's failures, and offers anyone who has had an abortion grace, never condemnation.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Love them both.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Not just a clump of cells</div><div class="sum-text">Biology is clear: at fertilisation it's a <b>whole human organism</b>. Around 95% of biologists agree. A someone, not a something.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; The person line is drawn</div><div class="sum-text">Every personhood cutoff (size, development, location, dependence) would also exclude <b>newborns and the unconscious</b>. When unsure, protect life.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Worth you're given</div><div class="sum-text">Tie worth to ability and the weakest fall outside. Christianity grounds it in the <b>image of God</b>: equal, unearnable, inclusive.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Love them both</div><div class="sum-text">It was never women vs babies. Attack the <b>conditions</b> that corner women, own the church's failures, and offer grace, not a verdict.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is it just a clump of cells? Biology says no: from the start it is a whole human life, the stage each of us once was. The talk of personhood turns out to be a line drawn to fit a conclusion, and a worth based on ability quietly endangers all of us, not only the unborn. Christianity's answer is that you matter because of what you are, made in the image of God, which is the most protective thing anyone has ever said about the weak. And caring about that was never the opposite of caring about women. The whole point is to love them both, to change what corners them, and to offer anyone who has been there grace rather than a verdict.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
