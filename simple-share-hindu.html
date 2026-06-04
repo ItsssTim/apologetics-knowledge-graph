@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#160d12">
+<title>Sharing the gospel with a Hindu &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f9f3f5;
+    --ink-muted: #e8d8de;
+    --ink-soft: #b596a0;
+    --warm-black: #160d12;
+    --cream: #f4ede4;
+    --clay: #b07d3a;
+    --amber: #d8a84e;
+    --hairline: rgba(245,225,233,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1518;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(245,225,233,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(245,225,233,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: vibrant magenta-rose to marigold gold */
+  .bg-intro { background: linear-gradient(168deg, #160d12 0%, #2a1320 38%, #6a2440 82%, #983a52 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #160d12 0%, #25121d 34%, #642238 74%, #8e364c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #150c11 0%, #261320 34%, #6e2640 74%, #9c3a56 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #160d12 0%, #281420 34%, #6e3a3a 74%, #a85a48 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #160d12 0%, #281520 30%, #6e4a2a 64%, #cf9838 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #160d12 0%, #2a1320 45%, #6a3040 80%, #9a5a3a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #d05a82 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #6a2038 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #c8704a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a84a 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,225,233,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with a Hindu?</h1>
+    <p class="tagline">Hinduism is vast and welcoming, so welcoming that it will happily make room for Jesus as one more god. So the gentle work is not adding Jesus to the shelf; it is showing why he will not fit there. Here is how.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Where they're coming from</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">The debt of karma, the longing for a person</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">A personal God, the debt paid</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">Warm, respectful, lovingly clear</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where they're coming from</div>
+    <h1 class="display">It's less one religion than a whole world of them.</h1>
+    <p class="tagline">Hinduism is not a single creed but an enormous, ancient family of beliefs. So step one is simply to find out what your particular friend actually holds.</p>
+
+    <div class="row"><div class="row-icon">Many or one</div><div class="row-text">Hinduism has many gods, who are often understood as faces of one ultimate reality. For many Hindus that reality is impersonal, more a force than a Father. So when you say God, they may hear something quite unlike the personal God you mean. Ask, and listen, before assuming you are even talking about the same thing.</div></div>
+    <div class="row"><div class="row-icon">Karma</div><div class="row-text">At the centre sit karma and rebirth: your deeds in this life shape the next, and the soul cycles through life after life. The goal is release from that endless wheel. It is a deeply moral vision, you really do reap what you sow, but it is also a heavy one, because the debt of karma is never quite paid off.</div></div>
+    <div class="row"><div class="row-icon">Very open</div><div class="row-text">And Hindus are typically warm and inclusive. They will often gladly accept that Jesus was holy, even divine, and simply add him to the many they already honour. That openness is genuinely lovely, but it is also the main challenge: they can say yes to Jesus while changing nothing, because they have filed him as one more option among many.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Disrespecting their devotion or their images of God.</b> Mocking idols or treating their worship as primitive slams the door and wounds someone who is often sincerely seeking God. Honour the real devotion and the real longing for the divine that is there. You are not introducing them to spirituality; you are introducing them to a Person.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: Hinduism is a whole world of belief, usually warm and open. The challenge is not hostility; it is that they will happily add Jesus to the shelf rather than follow him alone.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Where to begin</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The debt of karma, the longing for a person</div>
+    <h1 class="display">Start with the debt of karma and the longing for release.</h1>
+    <p class="tagline">Two deep things in Hindu belief are open doorways: the weight of a karmic debt no one can fully pay, and the heart's reach for a God who is personal.</p>
+
+    <div class="row"><div class="row-icon">The debt</div><div class="row-text">Begin with karma, which they already feel keenly: every wrong has to be paid for, life after life. Gently ask the honest question it raises, how could anyone ever finish paying? The wheel turns on and on precisely because the debt is never settled. That ache, a moral debt you can never clear, is exactly where the gospel speaks.</div></div>
+    <div class="row"><div class="row-icon">A person</div><div class="row-text">Many Hindus already pour out deep devotion to a personal deity, and that instinct, the longing to be loved by a God who knows your name, is a profound bridge. Behind the impersonal force, the heart keeps reaching for a personal God. Christianity says that God is real, is personal, and has come looking for you in particular.</div></div>
+    <div class="row"><div class="row-icon">One life</div><div class="row-text">And gently raise the wheel itself. Christianity offers not endless rebirth but one life, and then a hope: a debt finally paid, a self finally restored, off the wheel for good. For someone quietly weary at the thought of cycling through life after life, that is a startling and genuinely welcome alternative.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Letting them quietly absorb Jesus as one more avatar.</b> This is the single most common outcome, and it changes nothing. Lovingly and gently, the conversation has to reach the point where Jesus cannot simply be added. He claimed to be not one path among many, but the one way that God himself opened. That uniqueness is the hinge of the whole thing.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: build on the unpayable debt of karma and the longing for a personal God, then gently press the one thing that matters, Jesus cannot just be added to the others.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A personal God, the debt paid</div>
+    <h1 class="display">A personal God, the debt paid, and you kept whole.</h1>
+    <p class="tagline">The gospel answers the very longings Hinduism stirs, but in ways it cannot itself offer: a personal God, grace instead of karma, and a self that is saved rather than dissolved.</p>
+
+    <div class="row"><div class="row-icon">Grace not karma</div><div class="row-text">This is the great relief. Karma says you must pay your own moral debt, life after life, and never quite manage it. The gospel says the debt has already been paid for you, in full, by God himself on the cross. You do not climb off the wheel by endless effort; you are lifted off it by grace. For someone carrying lifetimes of debt, that is overwhelming news.</div></div>
+    <div class="row"><div class="row-icon">Known, loved</div><div class="row-text">And the God of the gospel is not an impersonal force to be absorbed into, but a Person who knows you by name and loves you as you are. The devotion many Hindus already pour out finds its true home here, in a God who is personal all the way down, and who loved you first, before you ever reached for him.</div></div>
+    <div class="row"><div class="row-icon">You restored</div><div class="row-text">And you are not an illusion to be dissolved back into the One. Christianity says your self is real and precious, and God's plan is not to erase you but to raise you, healed and whole, in a restored world. Not absorption, but resurrection. You get to be you, at last as you were always meant to be.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Presenting Jesus as simply the best of the gods.</b> Best-of-the-gods still leaves him on the shelf with all the others. The claim is stronger and stranger: the one true God, personal and loving, come in person to do for you what no amount of karma ever could. He is not the finest option on the shelf; he is the one who takes the shelf apart.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: offer what Hinduism longs for but cannot give, a personal God who loves you, a debt paid by grace not worked off by karma, and a self restored rather than dissolved.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Warm, respectful, lovingly clear</div>
+    <h1 class="display">Warm, respectful, and lovingly clear.</h1>
+    <p class="tagline">Hindus are often the warmest people you will ever share with. Match the warmth, and hold the one hard point with love rather than force.</p>
+
+    <div class="row"><div class="row-icon">Honour them</div><div class="row-text">Meet warmth with warmth. Hospitality, friendship and genuine respect for their devotion open the way; contempt closes it on the spot. Many Hindus are sincerely seeking the divine, and you are not there to sneer at that search, but to point it gently toward the One it was always quietly reaching for.</div></div>
+    <div class="row"><div class="row-icon">Lovingly clear</div><div class="row-text">The hard part is also the loving part: gently, without a trace of arrogance, helping them see that Jesus will not fit as one more god. That clarity can feel almost impolite in such an open culture, so it has to come wrapped in real affection, more an invitation than a correction. But it cannot be skipped, or nothing actually changes.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">And rest in this: you cannot argue anyone off the wheel. Your part is to love, to live a life that shows a personal God at work, to point gently to Jesus, and to pray. The Spirit reaches hearts in ways you never could. Be patient; this is a road that is usually walked slowly, over a long friendship.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Mistaking their friendly yes for real faith.</b> A Hindu may warmly agree that Jesus is wonderful and mean only that he is one more wonderful god. Do not mistake politeness for surrender. Keep gently, lovingly returning to the one question that matters: not is Jesus good, but is Jesus Lord, alone.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: match their warmth, honour their devotion, hold the uniqueness of Jesus with love rather than force, and leave the changing of hearts to God.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">A vast, warm, open world; the real challenge is they will <b>add Jesus to the shelf</b> rather than follow him alone.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Find the bridge</div><div class="sum-text">The <b>unpayable debt of karma</b> and the longing for a personal God; then gently, Jesus cannot just be added.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">A <b>personal God who loves you</b>, the debt paid by grace not karma, and a self restored rather than dissolved.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>Warm and respectful</b>, lovingly clear about the uniqueness of Jesus, and trusting God with the rest.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with a Hindu the danger is not rejection but easy acceptance, a Jesus politely added to the many. Honour their warmth and their longing, offer the personal God and the grace that karma can never give, and lovingly hold the one point that changes everything: Jesus did not come to join the shelf, but to be Lord.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
