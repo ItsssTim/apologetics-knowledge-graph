@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#14110b">
+<title>How do we know it matches the original? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f7f3ea;
+    --ink-muted: #e3d9c6;
+    --ink-soft: #ab9f88;
+    --warm-black: #14110b;
+    --cream: #f4eedd;
+    --clay: #8a6a30;
+    --amber: #c8a85a;
+    --hairline: rgba(240,232,215,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 38px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a2010;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,215,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,215,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: aged ink, warming to parchment gold */
+  .bg-intro { background: linear-gradient(168deg, #13110c 0%, #201a13 38%, #443721 82%, #695231 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #13110c 0%, #1d1710 34%, #3f331f 74%, #604c2c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #13110b 0%, #1e1810 34%, #46371f 74%, #6a542e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #14110c 0%, #201a12 34%, #4c3c22 74%, #765c30 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #14120c 0%, #241c12 30%, #5a4724 66%, #ad883e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #13110c 0%, #201a13 45%, #4a3a22 82%, #6c5530 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #c9a85a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #5a4528 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a7d3e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8b45e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,215,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 tests</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">What textual criticism shows</div>
+    <h1 class="display display-lg">How do we know it matches the original?</h1>
+    <p class="tagline">We do not have the original copy of any ancient book, not Plato, not Caesar, not the New Testament. So how do scholars work out what was first written? The method is called textual criticism, and it runs the same four tests on every ancient text. Here is the New Testament put through them.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Sources</div><div class="map-sub">Where did the information come from?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Early writing</div><div class="map-sub">How soon was it written down?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The copies</div><div class="map-sub">How many manuscripts survived?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The variants</div><div class="map-sub">What about the differences between them?</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 SOURCES -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Sources</div><div class="pill">Test 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where did the information come from?</div>
+    <h1 class="display">It traces back to people who were there.</h1>
+    <p class="tagline">The first test of any ancient account is its sources. For the New Testament, the trail leads straight back to eyewitnesses, and it is backed up from outside the faith.</p>
+
+    <div class="row"><div class="row-icon">Who saw it</div><div class="row-text">The Gospel writers drew on people who had seen Jesus teach, be executed, and be encountered alive again. In a world where almost nobody could read and parchment was expensive, you only bothered to write down what mattered enormously, and you hired trained scribes to do it. Paul dictated to a scribe named Tertius; Peter used one named Silas. These were deliberate records, not campfire rumours.</div></div>
+    <div class="row"><div class="row-icon">Outside too</div><div class="row-text">And it is not only Christian sources. Three non-Christian writers from completely different backgrounds confirm the core: Josephus, a Jewish historian; Tacitus, a Roman statesman; and Pliny the Younger, a Roman official. Between them they attest that Jesus lived, was executed under Pontius Pilate, that his movement exploded after his death, and that his followers were worshipping him as God remarkably early.</div></div>
+    <div class="row"><div class="row-icon">Not telephone</div><div class="row-text">Critics like Bart Ehrman say it became a game of telephone, garbled over decades. But the scholar Darrell Bock points out this was a culture of memory: people routinely memorised long, complex texts. And unlike telephone, where the whole point is to get it hilariously wrong, these were life-altering events that eyewitnesses were fiercely motivated to retell accurately, to other eyewitnesses who would correct any slip.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>It's still just the Bible quoting the Bible.</b> Except it is not. The existence of Jesus, his execution by Rome, and the sudden explosive growth of his movement are not seriously disputed by historians, Christian or otherwise. You would struggle to find a professor of ancient history at any secular university who claims Jesus never existed. The sources reach well beyond the church.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the New Testament traces back to eyewitnesses, corroborated by neutral and hostile outside writers. By any historian's standard, the events are well-sourced.</div></div>
+  </div>
+</section>
+
+<!-- B2 EARLY -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Early</div><div class="pill">Test 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How soon was it written down?</div>
+    <h1 class="display">Too early for legend to take over.</h1>
+    <p class="tagline">The second test is timing. The shorter the gap between an event and the writing about it, the less room there is for myth to creep in. By that test the New Testament is almost freakishly good.</p>
+
+    <div class="row"><div class="row-icon">The gap</div><div class="row-text">All 27 books of the New Testament were written in the first century, within one or two generations of the events, while eyewitnesses were still alive to push back. That is nowhere near enough time for a legend to quietly replace the facts. The people who had been there were still in the room when it was written.</div></div>
+    <div class="row"><div class="row-icon">Vs Alexander</div><div class="row-text">Compare any other ancient figure. The earliest surviving biographies of Alexander the Great were written by Arrian and Plutarch around four hundred years after he died, and no historian throws those out. A gap of mere decades, like the New Testament's, is almost unheard of in the ancient world. It is the gold standard, not the weak link.</div></div>
+    <div class="row"><div class="row-icon">Earliest there is</div><div class="row-text">These are also the earliest Christian writings in existence. There is no older, competing version of the story sitting underneath that the New Testament supposedly buried. What we have are the first accounts, not a later rewrite. The trail goes cold exactly where you would want it to: right back at the beginning.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Decades is still long enough for the story to drift.</b> Only if it drifted by slow rumour, which the first test already answered. Within those decades the eyewitnesses were alive, the events were seismic, and the earliest summaries (like the creed Paul quotes in 1 Corinthians 15) trace back to within a few years of the events themselves. The window for legend to overwrite fact was never really open.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: written within living memory, in a world where a four-century gap is normal. The New Testament is early enough to be reporting, not legend.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE COPIES -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / The copies</div><div class="pill">Test 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How many manuscripts survived?</div>
+    <h1 class="display">We have more copies than of anything else, by miles.</h1>
+    <p class="tagline">Here is the heart of the method. Since the originals are long gone, scholars reconstruct the wording by comparing the surviving handwritten copies, called manuscripts. The more copies, the better, and the New Testament has an embarrassment of them.</p>
+
+    <div class="row"><div class="row-icon">The count</div><div class="row-text">There are somewhere between 5,400 and 5,600 Greek manuscripts of the New Testament, plus more than 8,000 in Latin and thousands more in other ancient languages. Every one was written and copied by hand, and an astonishing number have survived the centuries.</div></div>
+    <div class="row"><div class="row-icon">Vs the rest</div><div class="row-text">Set that next to the rest of the ancient world. Most classical works survive on a handful of copies, anywhere from one to twenty. The next best-attested ancient book, Homer's Iliad, has around 650. The New Testament has nearly five thousand more manuscripts than any other document from antiquity. It is not in the same league. It is in a league of its own.</div></div>
+    <div class="row"><div class="row-icon">Why it helps</div><div class="row-text">And here is the part people get backwards: more copies makes the text more secure, not less. Because the manuscripts come down through many independent lines, scholars can lay them side by side and recover the original wording, spotting precisely where any single scribe slipped. It is the opposite of one fragile chain that no one can check.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But they're copies of copies of copies, so the errors just pile up.</b> They would, if it were a single chain. It is not. With thousands of independent copies from different regions, a mistake in one shows up instantly against all the others that lack it. Having so many witnesses is exactly what lets scholars filter errors out rather than bake them in, which is the fourth test.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: with over five thousand Greek copies and thousands more besides, the New Testament is the best-attested text of the ancient world by a vast margin.</div></div>
+  </div>
+</section>
+
+<!-- B4 THE VARIANTS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The variants</div><div class="pill">Test 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What about the differences between them?</div>
+    <h1 class="display">Yes, there are differences. No, they don't matter.</h1>
+    <p class="tagline">This is where textual criticism actually lives: the differences between the copies, called variants. The number sounds alarming, right up until you see what they actually are.</p>
+
+    <div class="row"><div class="row-icon">The number</div><div class="row-text">Sceptics like to point out that there are more variants across the manuscripts than there are words in the New Testament, around two and a half times as many. It sounds devastating. But that figure is huge only because the number of manuscripts is huge. More copies inevitably means more tiny differences to count up.</div></div>
+    <div class="row"><div class="row-icon">What they are</div><div class="row-text">Sort them and the alarm drains away. Around 90 percent are spelling slips and quirks of Greek grammar, the ancient equivalent of a typo. Another 9.5 percent make no real difference to the meaning. That leaves roughly 0.5 percent that are both meaningful and genuinely in question, and not one of those puts a single core Christian belief in doubt.</div></div>
+    <div class="row"><div class="row-icon">The agreement</div><div class="row-text">With so many copies, quotations and translations to cross-check, the level of agreement between them is remarkable. The handful of real question marks are not hidden; they are debated in the open and printed in the footnotes of your own Bible. The original wording is recoverable to a very high degree of confidence.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>This is the case Bart Ehrman built a career on: the text has been changed.</b> But here is the part even Ehrman concedes: the differences are overwhelmingly trivial, and no central Christian teaching hangs on a disputed verse. The variants exist precisely because we have so much to compare, and that abundance is what lets scholars reconstruct the original, not lose it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the variants are real, public and overwhelmingly trivial. None threaten a core doctrine, and the sheer volume of copies is exactly what makes the original recoverable.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four tests, taken together</div>
+    <h1 class="display">So, does it match the original?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Sources</div><div class="sum-text">Eyewitnesses, backed by non-Christian writers (Josephus, Tacitus, Pliny). The events are <b>well-sourced</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Early</div><div class="sum-text">Written within a generation, against Alexander's 400-year gap. <b>Too soon for legend</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The copies</div><div class="sum-text">5,600+ Greek manuscripts vs Homer's 650. The <b>best-attested text</b> of antiquity.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The variants</div><div class="sum-text">2.5&times; more than the words, but ~90% typos and ~0.5% meaningful, <b>none touching doctrine</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So put it through the very same method scholars use on every ancient document, and the New Testament passes on all four fronts: solid sources, written early, copied more than anything else in history, and with differences that turn out to be trivial. The words you read today match the originals to a degree no other ancient text can claim.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
