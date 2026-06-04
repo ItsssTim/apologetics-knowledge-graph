@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0e1114">
+<title>Why are Christians hypocrites? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f6f8;
+    --ink-muted: #d8dee4;
+    --ink-soft: #98a3ad;
+    --warm-black: #0e1114;
+    --cream: #f1efe9;
+    --clay: #b07a3e;
+    --amber: #cf9a52;
+    --hairline: rgba(225,232,238,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 40px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a2418;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(225,232,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(225,232,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 22px; }
+
+  /* gradients: pewter mask, warming to honest light */
+  .bg-intro { background: linear-gradient(168deg, #0e1114 0%, #181d22 38%, #313b44 82%, #44525d 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0e1114 0%, #161b20 34%, #2c353d 74%, #3e4a54 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0d1013 0%, #151b20 34%, #2a343d 74%, #3b4954 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0f1113 0%, #191c1f 34%, #34373a 74%, #4d4b48 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0f1113 0%, #1e1d1c 34%, #4a3f30 70%, #9a7038 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0e1114 0%, #181d22 45%, #3c3a33 82%, #574733 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #6a8298 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #33414c 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #547186 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cf9a52 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(225,232,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The everyday objection</div>
+    <h1 class="display display-lg">Why are so many Christians hypocrites?</h1>
+    <p class="tagline">It is one of the most common reasons people keep their distance, and often it comes from real experience, not point-scoring. The honest reply does not start by defending Christians. It starts by agreeing, and then asking what that failure actually proves.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Owning it</div><div class="map-sub">Yes, and the hurt is real</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">What does it actually prove?</div><div class="map-sub">A failed follower vs the message</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Christianity saw it coming</div><div class="map-sub">It predicts flawed people</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">What it's really claiming</div><div class="map-sub">Not good, just forgiven</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 OWN IT -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Owning it</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Yes, and the hurt is real</div>
+    <h1 class="display">You're right. A lot of us are.</h1>
+    <p class="tagline">The worst thing a Christian can do with this question is get defensive, because the honest answer is to agree. Christians are often hypocrites, and the damage they cause is real.</p>
+
+    <div class="row"><div class="row-icon">It's true</div><div class="row-text">There is no point pretending otherwise. Plenty of people who carry the name Christian have been petty, cruel, judgmental, greedy or worse, sometimes spectacularly and publicly. A real answer has to begin by admitting that squarely, not explaining it away or changing the subject.</div></div>
+    <div class="row"><div class="row-icon">The wound</div><div class="row-text">And for a lot of people this is not an abstract debating point, it is a scar. They were let down by a church, a leader, a parent who said one thing on Sunday and lived another way at home. That pain is real and it deserves to be heard, not argued with. If that is you, none of what follows is meant to talk you out of it.</div></div>
+    <div class="row"><div class="row-icon">No excuses</div><div class="row-text">So nothing here is a defence of hypocrites. It is closer to the opposite. The only question worth asking is what their failure actually proves, and it turns out to prove far less about Christianity than it first looks, and something rather surprising about the standard they fell short of.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The whole thing is just a club of phonies, so why would I join it?</b> Some are phonies, certainly. But you will also find quietly faithful people who never make the news, the ones forgiving, serving and giving without a camera in sight. Either way, the headline cases do not settle the real question, which is not are some Christians frauds, but is any of it true. That is what the next steps are for.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the honest move is to agree, not deny. Christians are often hypocrites, the hurt is real, and nobody should pretend the church's record is clean.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHAT IT PROVES -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / What it proves</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A failed follower vs the message</div>
+    <h1 class="display">Failing a standard isn't the standard being wrong.</h1>
+    <p class="tagline">Here is the move most people miss. The word hypocrite only means anything because there is a real standard being broken. Lean on that and the objection quietly turns inside out.</p>
+
+    <div class="row"><div class="row-icon">The standard</div><div class="row-text">Knechtle puts it sharply. If a man says he follows Christ and then treats people with contempt, even a non-believer knows the word for him: hypocrite. But that word only works because everyone already knows Jesus told his followers to love. Calling a Christian a hypocrite is actually a compliment to the Christian standard. You are measuring him against Jesus and finding him short, which is not evidence against Jesus at all.</div></div>
+    <div class="row"><div class="row-icon">The doctor</div><div class="row-text">It is the simple difference between a teaching and the people who fail it. A doctor who smokes does not make smoking healthy. An overweight personal trainer does not disprove the workout. You judge an idea by whether it is true, and by its founder, not by its laziest spokesperson. The teaching of Jesus is not refuted by people who plainly ignore it.</div></div>
+    <div class="row"><div class="row-icon">Every camp</div><div class="row-text">And hypocrisy is hardly a Christian speciality. Every movement on earth has members who do not live up to its ideals, the political ones, the secular ones, the causes you admire. Singling out Christians for a completely universal human failing is not really an argument. It is a way of avoiding the actual question.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If the faith were real it would actually change people, and it obviously doesn't.</b> But notice the genuine Christian never claimed to have arrived. As Knechtle says of his own faults, do I still struggle, yes, but the operative word is struggle. A hypocrite pretends he has it sorted; a real believer admits he does not and keeps fighting. That ongoing struggle is not the faith failing. It is the faith actually at work.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a follower breaking the standard does not break the standard. The very word hypocrite is borrowed from the teaching it is being used to attack.</div></div>
+  </div>
+</section>
+
+<!-- B3 PREDICTED -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Saw it coming</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">It predicts flawed people</div>
+    <h1 class="display">Of all things, Christianity expects this.</h1>
+    <p class="tagline">Here is the twist that catches people off guard. Hypocrites in the church are not an awkward surprise that quietly sinks the claim. They are very nearly the thing the claim predicts you will find.</p>
+
+    <div class="row"><div class="row-icon">Predicted</div><div class="row-text">Christianity's whole starting point is that every human being is flawed and falls short, and that emphatically includes Christians. So a church full of imperfect, struggling, sometimes failing people does not contradict the message. In a sense it is the message. A church full of people who had it all together would be the genuine surprise, and a contradiction of the whole idea.</div></div>
+    <div class="row"><div class="row-icon">Hospital</div><div class="row-text">The old line is that the church is a hospital for sinners, not a museum for saints. You do not walk into a hospital, see sick people everywhere, and conclude medicine is a fraud. Sick people are exactly who it is for. A church is meant to be full of people who know they are not well and are looking for help, not people displaying how healthy they are.</div></div>
+    <div class="row"><div class="row-icon">Even Jesus</div><div class="row-text">And the fiercest critic of religious hypocrites in history was not an atheist, it was Jesus. He saved his hardest words for the respectable, religious leaders of his day, calling them play-actors and whitewashed tombs, polished on the outside and rotten within. So when you despise hypocrisy, you are not disagreeing with Jesus. You are echoing him.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>How convenient, you have rigged it so nothing can ever count against you.</b> Not quite. Christianity does not excuse the hypocrite, it indicts him, harder than the critic does. It says he has betrayed the very thing he claims to stand for. What it refuses to do is pretend that a patient relapsing proves the medicine is fake. The diagnosis always said there would be sick people here. It also says there is a cure.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: flawed people in the pews confirm Christianity's diagnosis rather than refuting its claim. The church was always meant to be sinners in recovery, not saints on display.</div></div>
+  </div>
+</section>
+
+<!-- B4 NOT GOOD, FORGIVEN -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The real claim</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Not good, just forgiven</div>
+    <h1 class="display">Christians aren't claiming to be good. Just forgiven.</h1>
+    <p class="tagline">This is where the whole thing comes into focus. The objection assumes Christians are saying we are better than you. That is the one thing the message at its core never says.</p>
+
+    <div class="row"><div class="row-icon">Not perfect</div><div class="row-text">A Christian, properly understood, is not someone claiming to have it all together. They are someone admitting they do not, and leaning on mercy rather than their own track record. Not perfect, just forgiven. Which means a struggling, failing Christian is not a walking disproof of the faith. They are very nearly the whole point of it: a person who needed grace and knows it.</div></div>
+    <div class="row"><div class="row-icon">Look higher</div><div class="row-text">So the real test was never the followers, it was the founder. Knechtle's line is to measure Christianity not by the Christians but by Christ. The people limping along after him will let you down sooner or later. He does not. If you want to know whether it is true, look hard at him, his life, his teaching, his death, not at the worst person who ever quoted him at you.</div></div>
+    <div class="row"><div class="row-icon">Your call</div><div class="row-text">And here is the gentle sting. Other people's hypocrisy is a strangely convenient reason to stop looking. But their failure does not actually answer the question you might be dodging: is it true, and what will you do with him? On the Christian view you do not answer one day for the fraud in the next pew. You answer for you.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Fine, I'll take the moral high ground and stay well out of it, then.</b> Fair enough, but notice that high ground is borrowed. The standard you are using to judge the hypocrite, that people ought to be loving, humble and sincere, is largely the one Jesus taught. You are not rejecting his ethic, you are holding people to it. So the honest next step is not to walk away from him because of them. It is to go and meet him for yourself.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christianity is not a claim to be good, it is a claim to be forgiven. Judge it by Christ, not by the people stumbling after him, and do not let someone else's failure make your decision for you.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, why so many hypocrites?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Own it</div><div class="sum-text">Yes, plenty are, and the hurt is real. The honest answer <b>starts by agreeing</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; What it proves</div><div class="sum-text">Failing a standard isn't the standard being wrong. The word <b>hypocrite is borrowed</b> from Jesus' own teaching.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Saw it coming</div><div class="sum-text">A church of flawed people is <b>exactly what Christianity predicts</b>. Even Jesus attacked hypocrisy hardest.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The real claim</div><div class="sum-text">Christians aren't claiming to be good, just <b>forgiven</b>. Measure it by Christ, not by them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So the hypocrites are real, and they are not the disproof they look like. Every one of them is a person failing a standard so high that its own founder is the only one who ever fully kept it. Christianity never promised you impressive Christians. It pointed you to Christ and asked you to look at him. The failures in the pew are not the reason to stay away. They are just more people who needed exactly what is on offer.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
