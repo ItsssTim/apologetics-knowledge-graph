@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#14100b">
+<title>Did Jesus even exist? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f8f4ec;
+    --ink-muted: #e6dac6;
+    --ink-soft: #aa9c80;
+    --warm-black: #14100b;
+    --cream: #f4efe2;
+    --clay: #8a5a2e;
+    --amber: #d8b257;
+    --hairline: rgba(240,232,212,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 42px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a2010;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,212,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,212,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: the dust of the record, to the light of fact */
+  .bg-intro { background: linear-gradient(168deg, #14100b 0%, #211910 38%, #4e3a20 82%, #74542c 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #14100b 0%, #1e170f 34%, #483620 74%, #6c4e2a 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #13100a 0%, #1f180f 34%, #4e3a20 74%, #74542c 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #14100b 0%, #201910 34%, #52401f 74%, #7c5e2e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #14100b 0%, #221a10 30%, #5e4c22 64%, #c0913c 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #14100b 0%, #211910 45%, #4e3c20 80%, #7a5e30 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #b0823a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #4a3418 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a7038 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,212,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The most basic question</div>
+    <h1 class="display display-lg">Did Jesus even exist?</h1>
+    <p class="tagline">It surfaces all over the internet: maybe Jesus was never a real person at all, just a legend stitched together from older myths. It sounds bold and sceptical. It is also a view almost no actual historian holds, and it is not hard to see why.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What historians say</div><div class="map-sub">It's barely even a debate</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Outside the Bible</div><div class="map-sub">Non-Christian writers mention him</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Not a recycled myth</div><div class="map-sub">A real Jew, not a pagan god</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">A movement needs a founder</div><div class="map-sub">You can't get this from a phantom</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THE VERDICT -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The verdict</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What historians actually say</div>
+    <h1 class="display">Almost no historian doubts he existed.</h1>
+    <p class="tagline">This is the rare apologetics question where the academy has already done the work, and the answer is not close.</p>
+
+    <div class="row"><div class="row-icon">Not a debate</div><div class="row-text">This is not a finely balanced fifty-fifty question. The idea that Jesus never existed, called mythicism, is a fringe position rejected by essentially every professional historian of the ancient world, Christian, Jewish and atheist alike. You would struggle to find a single professor of ancient history at a secular university who denies that a man named Jesus lived in first-century Palestine.</div></div>
+    <div class="row"><div class="row-icon">Even Ehrman</div><div class="row-text">The clincher is who says so. Bart Ehrman, perhaps the most famous sceptical New Testament scholar alive, an agnostic and no friend of the church, wrote a whole book, Did Jesus Exist, taking mythicism apart and calling it a view no serious scholar holds. When the leading critic of Christianity is the one defending Jesus's existence, the argument is largely over.</div></div>
+    <div class="row"><div class="row-icon">The burden</div><div class="row-text">So the burden of proof sits with the denier, not the believer. Affirming that Jesus existed is not a leap of faith; it is simply where the historical evidence settled long ago. The genuinely interesting questions are about who he was and what happened, not whether he was there at all.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Of course historians say he existed, most of them are Christians.</b> But the consensus is not a Christian club. It includes Jewish and atheist scholars who reject everything supernatural about him and still affirm the man. Ehrman is the obvious case. This is ordinary ancient history doing its job, not a statement of faith smuggled into a footnote.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: that Jesus existed is about as settled as ancient history gets. Mythicism is fringe, rejected even by Christianity's sharpest scholarly critics. The real questions lie elsewhere.</div></div>
+  </div>
+</section>
+
+<!-- B2 OUTSIDE THE BIBLE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Outside the Bible</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Even setting the Bible aside</div>
+    <h1 class="display">Non-Christian writers mention him too.</h1>
+    <p class="tagline">A common move is to wave away the Gospels as biased. Fine. Set the New Testament aside entirely, and Jesus still turns up in the records of people who had no reason to flatter him.</p>
+
+    <div class="row"><div class="row-icon">Non-Christian</div><div class="row-text">Jesus appears in hostile and neutral sources. The Roman historian Tacitus records that Christ was executed under Pontius Pilate. Pliny the Younger describes early Christians worshipping Christ as a god. These are not believers; they are Roman officials with no motive to do Christianity any favours, mentioning him as a plain matter of fact.</div></div>
+    <div class="row"><div class="row-icon">Josephus</div><div class="row-text">The Jewish historian Josephus mentions Jesus twice. One passage is disputed and may have been embellished by later scribes, and honest scholars like Richard Bauckham simply set it aside. But the other, a passing reference to James, the brother of Jesus, is so incidental and so embedded in verifiable history that it is accepted as genuine. You do not invent a brother in an offhand aside.</div></div>
+    <div class="row"><div class="row-icon">The standard</div><div class="row-text">Put it together and Jesus is better attested than most figures of the ancient world. We cheerfully accept the existence of all sorts of ancient people on far thinner evidence than this. To single Jesus out for special doubt is not historical caution; it is a double standard wearing a lab coat.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Those sources are decades later and secondhand.</b> Most ancient sources are; that is simply the nature of the period. The earliest surviving biographies of Alexander the Great come centuries after him. A cluster of independent, non-Christian references within a century, from writers hostile or indifferent to the movement, is strong attestation by the standards of ancient history, not weak.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: even with the Bible removed, Roman and Jewish writers place Jesus in real history, executed under Pilate. He is better evidenced than most people we never think to doubt.</div></div>
+  </div>
+</section>
+
+<!-- B3 NOT A MYTH -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Not a myth</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A real Jew, not a recycled god</div>
+    <h1 class="display">He isn't a pagan myth in a new costume.</h1>
+    <p class="tagline">The fallback claim is that even if some teacher existed, the Jesus of the Gospels is just an old myth recycled. It is a popular idea with almost no scholarly support.</p>
+
+    <div class="row"><div class="row-icon">Not recycled</div><div class="row-text">The popular line is that Jesus is just Horus or Mithras recycled, a dying-and-rising god lifted from older myths. Scholars do not buy it. The supposed parallels are exaggerated, distorted, or actually postdate Christianity, and the whole idea was popularised by a film, not by research. Strip away the embellishment and the resemblances mostly evaporate.</div></div>
+    <div class="row"><div class="row-icon">A real Jew</div><div class="row-text">And Jesus does not read like a timeless Mediterranean myth. He reads like a specific first-century Palestinian Jew, anchored to real places, datable rulers and the exact texture of the time, right down to the local frequency of personal names. The earliest Christians were fiercely monotheistic Jews who would have recoiled from dressing up a pagan deity.</div></div>
+    <div class="row"><div class="row-icon">Early record</div><div class="row-text">The records are also early, not the slow build-up of legend. Paul is already quoting a fixed creed about Jesus's death and resurrection within about twenty years of the events, and the Gospels carry the fingerprints of eyewitness testimony, naming minor figures the way real reports do. This is reporting about a man, not mythology about a symbol.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The dying-and-rising god parallels are too close to be coincidence.</b> Look closely and they are not close at all. Many of the alleged parallels were read back into the myths after Christianity, or never said what the meme claims in the first place. Even the leading academic sceptic of Jesus's existence does not lean on the crude copycat version. It survives on the internet, not in the scholarship.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Jesus is a datable Jewish man rooted in real first-century Palestine, recorded early, not a pagan myth in disguise. The copycat theory lives online, not in the academy.</div></div>
+  </div>
+</section>
+
+<!-- B4 THE MOVEMENT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The movement</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A movement needs a founder</div>
+    <h1 class="display">You can't get all this from a phantom.</h1>
+    <p class="tagline">Step back from the documents and look at the sheer fact of Christianity itself. A real effect needs a real cause, and the cause here has a name.</p>
+
+    <div class="row"><div class="row-icon">His brother</div><div class="row-text">The simplest killer of the invented-Jesus idea is one person: James, the brother of Jesus, who led the church in Jerusalem. The apostle Paul writes of meeting him, and Peter, within just a few years of the events. You cannot quietly invent a man whose own brother and closest friends you are working alongside and answering to.</div></div>
+    <div class="row"><div class="row-icon">Witnesses</div><div class="row-text">And those eyewitnesses were not vague background figures; they were named, locatable people, many of whom went to their deaths insisting they had seen him. Paul, Peter, James and the rest were in agreement that Jesus really lived, really died, and was really seen again. A fabrication does not produce a circle of people willing to die for the details.</div></div>
+    <div class="row"><div class="row-icon">The explosion</div><div class="row-text">Finally, something lit the fuse. A movement this large, spreading this fast, centred on a crucified Galilean of all unlikely heroes, demands a real person at its origin. Phantoms do not start worldwide movements within a single generation. The most ordinary historical explanation is also the obvious one: he was actually there.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Maybe Paul invented the whole thing.</b> Paul is the worst possible candidate, because Paul personally knew the people who had known Jesus, including Jesus's own brother, and was accountable to them. He is not the inventor of the story; he is a latecomer checking his message against the eyewitnesses. You do not get to invent a man whose family you are having dinner with.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Jesus had a brother the first Christians knew by name, eyewitnesses who died for what they saw, and a movement that exploded from a real root. Invented men do not leave footprints like these.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, did Jesus exist?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The verdict</div><div class="sum-text">Mythicism is fringe; virtually all historians, <b>even the agnostic Bart Ehrman</b>, affirm Jesus existed.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Outside the Bible</div><div class="sum-text">Tacitus, Pliny and Josephus place him in <b>real history</b>, executed under Pilate. Better attested than most of antiquity.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Not a myth</div><div class="sum-text">A <b>datable first-century Jew</b>, recorded early, not a recycled pagan god. The copycat theory is internet, not scholarship.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The movement</div><div class="sum-text">Paul knew Jesus's <b>brother James</b>; eyewitnesses died for it; a real movement needs a real founder.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So did Jesus exist? On the historical evidence, almost certainly yes, and almost no historian thinks otherwise. He is named by hostile outsiders, rooted in real time and place, known to people with a brother and friends who would not stay quiet, and the cause of a movement that swept the world. You can argue about who he was. That he was is not really in question.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
