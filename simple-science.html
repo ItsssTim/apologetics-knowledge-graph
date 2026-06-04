@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b1014">
+<title>Hasn't science disproved God? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f8fa;
+    --ink-muted: #d4e0e6;
+    --ink-soft: #94a6b0;
+    --warm-black: #0b1014;
+    --cream: #eef3f3;
+    --clay: #1f7a82;
+    --amber: #4fd0d8;
+    --hairline: rgba(210,235,240,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(48px); opacity: 0.85;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.6; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 42px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #10242a;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(210,235,240,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(210,235,240,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 21px; font-weight: 600; line-height: 1.24; letter-spacing: -0.015em; margin-top: 22px; }
+
+  /* gradients: deep cosmos to clear sky */
+  .bg-intro { background: linear-gradient(168deg, #0b1014 0%, #0f1c22 38%, #173a40 82%, #1f5a60 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0b1014 0%, #101a20 34%, #18353c 74%, #205057 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0a0f15 0%, #0e1a26 34%, #163445 74%, #1d5066 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0a1316 0%, #102a2c 34%, #1a4f4e 74%, #2a7e76 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0b1217 0%, #112a30 34%, #1c545c 72%, #2f8f96 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0b1014 0%, #0f2026 45%, #1a464c 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4fd0d8 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1a6f78 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #3fae9e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #5bb8d6 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(210,235,240,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The modern objection</div>
+    <h1 class="display display-lg">Hasn't science disproved God?</h1>
+    <p class="tagline">For a lot of people this is the one that settles it: we have science now, so we have outgrown God. But look closely and the two are not even answering the same question, and some of what science has actually found points the other way.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What is science, actually?</div><div class="map-sub">What it can and cannot reach</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Where did everything come from?</div><div class="map-sub">A cause, and the nothing trick</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Why is the universe fine-tuned?</div><div class="map-sub">The dials look deliberately set</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Are faith and reason enemies?</div><div class="map-sub">The war that never really was</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT IS SCIENCE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What is science?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What it can and cannot reach</div>
+    <h1 class="display">Science answers how, not whether there is a mind.</h1>
+    <p class="tagline">Start with what science even is, because the objection quietly assumes it can answer every question. It is a spectacular tool, but it has a lane.</p>
+
+    <div class="row"><div class="row-icon">The method</div><div class="row-text">The scientific method is, roughly, this: observe something, guess at an explanation (a hypothesis), use that guess to predict what you should see next, then test it with experiments anyone else can repeat. Its real power comes from sticking to what is measurable, physical and repeatable.</div></div>
+    <div class="row"><div class="row-icon">Its range</div><div class="row-text">That same strength is also its boundary. Questions like why is there a universe at all, is there a mind behind it, or what makes a thing right or wrong, are not measurable or repeatable, so science is simply silent on them. As Lennox puts it, knowing how a car engine works tells you nothing about whether Henry Ford, the man behind it, ever existed. The mechanism and the mind are two different kinds of explanation, not rivals. Saying the engine runs on combustion does not abolish the engineer.</div></div>
+    <div class="row"><div class="row-icon">Scientism</div><div class="row-text">The claim really hiding inside has science disproved God is usually scientism, the belief that science is the only road to truth. But that belief quietly defeats itself. The statement only what science can prove is real cannot itself be proven by science, so by its own rule it does not count as real. And you already trust plenty of things this way. You cannot run an experiment to prove a friend loves you, yet believing it is hardly irrational.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If you cannot test it in a lab, it is not knowledge, it is just faith.</b> But almost nothing you actually live by passes that test. History, mathematics, whether a person can be trusted, none of it is settled by experiment, and you would not call them all blind guesses. Lennox's point is that science is a wonderful tool with a limited reach, and pretending it answers questions it was never built for is not science, it is philosophy wearing a lab coat.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: science explains the mechanism of the world brilliantly. Whether there is a mind behind the mechanism is a real question, just not a scientific one. So it could not have disproved God; that was never in its lane.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHERE DID IT COME FROM -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Second / Where from?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A cause, and the nothing trick</div>
+    <h1 class="display">Whatever begins to exist has a cause.</h1>
+    <p class="tagline">Here is where science actually helps the believer. The evidence says the universe had a beginning, and beginnings are exactly the kind of thing that need a cause.</p>
+
+    <div class="row"><div class="row-icon">The rule</div><div class="row-text">Two plain steps. First, whatever begins to exist has a cause; things do not just pop into being out of nowhere. Second, the universe began to exist; on the standard Big Bang picture it is not eternal, it had a starting point. Put those together and the universe has a cause, something beyond it that brought it into being.</div></div>
+    <div class="row"><div class="row-icon">From nothing</div><div class="row-text">The popular escape is that the universe came from nothing, so no cause is needed. But watch that word. When physicists say nothing here, they usually mean a quantum vacuum, fields, the law of gravity, something with properties and potential. That is not nothing, it is a very busy something. Real nothing has no laws, no energy, no power to do anything at all. Lennox is blunt: to say nothing produced the universe and then quietly hand that nothing the power to create is just wordplay. Nonsense does not stop being nonsense because a brilliant physicist says it.</div></div>
+    <div class="row"><div class="row-icon">Who made God</div><div class="row-text">The obvious comeback is, well then, what caused God? But notice the rule was not everything has a cause, it was everything that begins to exist has a cause. The whole point is that the chain has to stop at something that never began, something uncaused and eternal. A first cause beyond time, space and matter is not a cheat, it is exactly what the argument was driving at, and it is a fair description of God.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Maybe the universe is simply eternal, so it never began and needs no cause.</b> It is a fair move, and for a long time most scientists believed it. But the science itself cut the other way. The evidence for a beginning, an expanding universe that traces back to a single starting point, is the very reason the eternal-universe idea was abandoned. An eternal universe would dodge the need for a cause. The trouble is that is not the universe we appear to live in.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the universe looks like it began, and beginnings need causes. The cleanest explanation is a cause beyond the physical that did not itself begin. Far from burying God, the cosmology fits the idea.</div></div>
+  </div>
+</section>
+
+<!-- B3 FINE-TUNING -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Why fine-tuned?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The dials look deliberately set</div>
+    <h1 class="display">The universe is balanced on a knife edge for life.</h1>
+    <p class="tagline">It is not just that the universe exists, it is that its settings are absurdly precise. Move them a hair and there is no life, often no universe at all. This is what people mean by the fine-tuning of the universe.</p>
+
+    <div class="row"><div class="row-icon">The dials</div><div class="row-text">Physics is full of fixed numbers: the strength of gravity, the energy of empty space, and many more. Some are tuned with eerie precision. One of them, the cosmological constant, is balanced to roughly one part in ten with a hundred and twenty zeros after it, a figure too large to picture. Nudge several of these even slightly and you get no stars, no chemistry, no us.</div></div>
+    <div class="row"><div class="row-icon">The code</div><div class="row-text">And it goes deeper than physics. Inside a single one of your cells sits more information than thirty volumes of an encyclopaedia, written in the four-letter chemical code of DNA. Knechtle puts it well: walking on a beach, you put ripples in the sand down to the waves, but the words John loves Mary you do not, because dense, meaningful information points to a mind, not to chance. DNA is exactly that, only far denser.</div></div>
+    <div class="row"><div class="row-icon">Not luck</div><div class="row-text">The usual reply is that we should not be surprised, since if things were not fine-tuned we would not be here to notice. But picture facing a firing squad of fifty trained marksmen, and every one misses. Saying well, if they had not missed I would not be here to wonder is no answer at all. You would rightly suspect the whole thing was rigged. Wildly improbable life-permitting settings call for an explanation, they do not get to wave one away.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Maybe there are countless other universes, and we just happen to live in the one that works (the multiverse).</b> Maybe. But notice the cost. To avoid one designer you have to posit an infinity of unseen, untestable universes, which is a colossal act of faith with no direct evidence, and arguably a bigger leap than a single mind. Even Stephen Hawking admitted the universe looks designed. The multiverse is one attempt to explain that appearance away, not a discovery that removes it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the universe and the life in it sit on settings of staggering precision. A mind behind it is at the very least a serious, rational explanation, not a fairy tale that science has ruled out.</div></div>
+  </div>
+</section>
+
+<!-- B4 FAITH AND REASON -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Fourth / Faith vs reason</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The war that never really was</div>
+    <h1 class="display">Faith and science were never the real enemies.</h1>
+    <p class="tagline">Underneath the whole objection sits a story we have all absorbed: religion and science at war, faith forced to retreat as science advances. The history does not actually support that story.</p>
+
+    <div class="row"><div class="row-icon">The myth</div><div class="row-text">The picture of a long war between science and religion is largely a Victorian invention, pushed by a couple of popular books and repeated ever since. The deeper clash is not science against faith, it is one worldview against another, theism against atheism. Science itself sits on neither side, because it is a method, not a belief about whether God exists.</div></div>
+    <div class="row"><div class="row-icon">The founders</div><div class="row-text">Modern science was very largely built by believers: Newton, Kepler, Galileo, Faraday, Maxwell. Lennox makes the sharp point that they did science because of their faith, not in spite of it. They expected the universe to be orderly and intelligible precisely because they believed a rational God had made it that way. The confidence that nature runs on discoverable laws grew in that soil.</div></div>
+    <div class="row"><div class="row-icon">Real faith</div><div class="row-text">And faith is not the opposite of evidence. Blind belief is not what the word means in Christianity. Faith is trust grounded in reason, the same evidence-plus-trust you already place in a friend or a surgeon. Plenty of working scientists today are also Christians and feel no strain, because running the experiment and thanking the one who made an experiment-friendly universe are not in competition.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Sure, but real scientists today are atheists; belief is for people who do not understand the science.</b> It simply is not true. There are eminent scientists in every field who are religious believers, including some at the very top of their disciplines. The disagreement between them and their atheist colleagues is not about the data, it is about how to interpret it, and that is a philosophical question, not a scientific one. Intelligence is not the dividing line. Worldview is.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the war between science and faith is more slogan than history. Science largely grew out of belief, many of its best practitioners still hold it, and faith at root means trust grounded in reason, not the absence of it.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-1" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, has science disproved God?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What science is</div><div class="sum-text">It explains <b>how the mechanism works</b>, not whether a mind is behind it. Disproving God was never in its lane.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Where it came from</div><div class="sum-text">The universe <b>began</b>, and beginnings need a cause. Nothing cannot produce something, however you dress the word up.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Why so fine-tuned</div><div class="sum-text">The settings of the universe and the code in DNA are <b>precise beyond luck</b>. A mind is a serious explanation.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Faith vs reason</div><div class="sum-text">The war is mostly a <b>myth</b>. Science grew out of belief, and faith means trust grounded in reason.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">Put it together and the honest answer is no, science has not buried God, and in places it has done the opposite. The deeper you look at the beginning of the universe and the fine-tuning of its laws, the more there is to explain, not less. Science can tell you the universe is staggering. It cannot tell you there is no one to thank for it.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
