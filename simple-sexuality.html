@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#161010">
+<title>If God is love, why is it sin? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f8f4f2;
+    --ink-muted: #e7dcd6;
+    --ink-soft: #b3a298;
+    --warm-black: #161010;
+    --cream: #f5efe6;
+    --clay: #a8505a;
+    --amber: #d99a6a;
+    --hairline: rgba(245,235,230,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 38px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1818;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(245,235,230,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(245,235,230,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: warm rosewood, blooming to peach */
+  .bg-intro { background: linear-gradient(168deg, #161010 0%, #241618 38%, #5a3238 82%, #855058 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #161010 0%, #221517 34%, #542f34 74%, #804a50 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #15100f 0%, #231518 34%, #573138 74%, #864c56 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #161011 0%, #241619 34%, #5c3540 74%, #8f5564 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #16100e 0%, #261a15 30%, #6e4a36 66%, #c0895a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #161010 0%, #241618 45%, #5a3a3e 82%, #7e5a50 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #d98a96 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #7a3a44 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #b86878 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #dba06e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,235,230,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The fairness question</div>
+    <h1 class="display display-lg">If God is love, why is homosexuality a sin?</h1>
+    <p class="tagline">It is one of the sharpest tensions people feel: 1 John says God is love, yet an old verse calls this an abomination. Before the real answer, two things have to be faced honestly, that loaded word, and the fact that the church has often handled this worse than almost anything else.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Start with that word</div><div class="map-sub">What the word abomination really means</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Whose rule is it, really?</div><div class="map-sub">One ethic, not a rule for some</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Why would love say no?</div><div class="map-sub">Love is not the same as yes</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Is God still love?</div><div class="map-sub">The same door for everyone</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THAT WORD -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / That word</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What the word abomination really means</div>
+    <h1 class="display">That word doesn't mean what it sounds like.</h1>
+    <p class="tagline">So much of the sting is in the word abomination. It lands like God finds you personally revolting. That is a mistranslation of the tone, not just the term.</p>
+
+    <div class="row"><div class="row-icon">The word</div><div class="row-text">The Hebrew behind it, <em>to'evah</em>, is broad: it means taboo or detestable, the language of an ancient holiness code. The very same label falls on things like dishonest scales and certain foods. It is not a special word reserved to say that you, personally, are uniquely disgusting to God. Read that way, it is being misheard.</div></div>
+    <div class="row"><div class="row-icon">Deeper case</div><div class="row-text">And the serious Christian view does not even stand on that one shock-verse from a holiness code. It rests on a positive vision of what marriage is built for, which is step two. Leading with abomination is exactly how this argument gets turned into a caricature, by its defenders and its critics alike.</div></div>
+    <div class="row"><div class="row-icon">Owning it</div><div class="row-text">And the most honest thing first: the church has often made this the headline sin, singled it out above all others, and treated gay people with a contempt you will not find anywhere in Jesus. By some accounts it is now the single biggest reason people leave the faith. That cruelty is a real wrong, and pretending it away would be its own dishonesty.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Calling it an abomination is just old hatred with a Bible verse stapled on.</b> In practice it has sometimes been exactly that, and that deserves to be named and refused. But the considered Christian view is not the placard at the protest. It is quieter and more careful, and as the next steps show, it asks every bit as much of straight people as of anyone else.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the shock-word is a poor place to start, and the church's cruelty here is real. The actual teaching is more careful, and far more even-handed, than the caricature.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHOSE RULE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Whose rule is it?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">One ethic, not a rule for some</div>
+    <h1 class="display">The standard falls on everyone, not just some.</h1>
+    <p class="tagline">The assumption underneath is that Christianity has a rule aimed at gay people. It does not. It has one vision of sex that asks a great deal of nearly everybody.</p>
+
+    <div class="row"><div class="row-icon">One standard</div><div class="row-text">The Christian view is that sex belongs inside marriage, understood as a lifelong covenant between a man and a woman. That single standard asks exactly as much of an unmarried straight person, a divorced person, anyone single for life. A celibate gay believer and a celibate straight believer are in precisely the same position. It is not a rule for them, it is one vision for everyone.</div></div>
+    <div class="row"><div class="row-icon">On the list</div><div class="row-text">And it is never singled out the way the church has singled it out. The New Testament lists same-sex activity right alongside greed, gossip, pride, drunkenness and straight immorality, the respectable sins most people commit without a second thought. As one apologist puts it, you do not go to hell for being gay any more than you go to heaven for being straight. That was never the dividing line.</div></div>
+    <div class="row"><div class="row-icon">Want vs act</div><div class="row-text">It is also worth being precise. The historic view is about what a person does, not about the experience of attraction, which almost nobody thinks anyone simply chooses. Every one of us carries desires we did not pick and are still asked to steward. Being told that about one desire, when it is true of all of them, is not quite the singling-out it can feel like.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You can't choose who you're attracted to, so how can acting on it be wrong? I was born this way.</b> Likely true that nobody chooses the attraction, and the careful view agrees. But unchosen does not automatically mean act on it. We all carry strong, unchosen pulls, sexual and otherwise, that we decide not to act on for the sake of something we value more. The claim is only that this is one of them, asked of everyone, not a unique cruelty pointed at one group.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: it is one demanding sexual ethic for everybody, not a rule for gay people. The same line is drawn for the single, the divorced and the straight.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHY WOULD LOVE SAY NO -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / Why would love say no?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Love is not the same as yes</div>
+    <h1 class="display">Love isn't the same as saying yes to everything.</h1>
+    <p class="tagline">Underneath is the real engine of the question: if God loves us, why deny anyone something they want so deeply? Two answers, and they fall on all of us.</p>
+
+    <div class="row"><div class="row-icon">The design</div><div class="row-text">The Christian no rests on a bigger yes. Marriage, on this view, is not only companionship; it is built to picture something, the faithful covenant love between Christ and his people, which is why its shape is written into the man-and-woman pattern from the start. The claim is not that same-sex affection is uniquely wicked. It is that this particular thing was designed for a particular purpose.</div></div>
+    <div class="row"><div class="row-icon">Love is honest</div><div class="row-text">And love is not the same as approval. The people who love you most are sometimes the ones who tell you the hard thing. Knechtle uses parenting: caring whether someone is truly flourishing is not less love, it can be more, and he is quick to add that some of his own closest friends are gay. A God who simply said yes to everything we wanted would not be more loving. He would just be more absent.</div></div>
+    <div class="row"><div class="row-icon">More than this</div><div class="row-text">And the deepest claim is that you are not your sexuality. The culture says your romantic and sexual desires are the truest, deepest thing about you. Christianity says, to gay and straight alike, that they are not, that your real identity and worth sit in being made and loved by God, far underneath any attraction. That is meant as a relief, not an insult.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Telling a gay person they must be celibate for life is simply cruel.</b> This is the hardest form of the question, and it deserves honesty rather than a slick reply. It is a genuinely heavy calling, and Christianity does not pretend it is light. But it asks something costly of many people, the lifelong single, the unhappily married, and it insists the deepest human need was never sex but love and belonging, which it says are open to everyone in friendship, family and God. Hard, yes. Crueller than the alternative on offer? That is the real question.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the no flows from a design and from a love honest enough to tell the truth, not from disgust. And it lands on everyone's desires, because none of us is only what we want.</div></div>
+  </div>
+</section>
+
+<!-- B4 IS GOD STILL LOVE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Is God still love?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The same door for everyone</div>
+    <h1 class="display">God is love, and the door is the same for all.</h1>
+    <p class="tagline">Back to where the question began: 1 John, God is love. That is true, and it turns out not to be in tension with any of this, once you see what the love is actually holding out.</p>
+
+    <div class="row"><div class="row-icon">Honest love</div><div class="row-text">A love that only ever affirmed would be flattery, not love. The God of 1 John loves people enough to tell them the truth and then to do something about it, at his own cost on a cross. That is a deeper thing than approval, and it is held out to every single person without exception.</div></div>
+    <div class="row"><div class="row-icon">No tiers</div><div class="row-text">There is no special tier of sinner here. Everyone, gay and straight, falls short of the design, the straight world spectacularly so. Nobody walks up to God as the acceptable one looking down on the rest. Everyone comes on identical terms: not as the person who got it right, but as someone loved and forgiven who did not.</div></div>
+    <div class="row"><div class="row-icon">Welcome</div><div class="row-text">Which means a gay person is made in God's image, loved by God, and welcomed on exactly the terms everyone else is. Whatever the church has too often communicated, the message itself was never stay away. It is come, like everyone else, and discover that you were always worth far more than your desires told you.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So gay people are sinners headed for hell.</b> No, and that was the first thing to fall. You do not go to hell for being gay any more than for being straight; the question is the one every person faces, what you do with God himself. Gay people are not a category of the damned. They are people, loved, and invited in on the same footing as the rest of us, all of whom needed grace and none of whom earned it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God is love, and real love is honest, not merely permissive. The same grace, the same welcome and the same worth are held out to everyone, with no one a second-class case.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So how does a God of love call it sin?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; That word</div><div class="sum-text"><b>Abomination is broad taboo language</b>, not a verdict that someone is uniquely vile, and the church has often been cruel here, which is a real wrong.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Whose rule</div><div class="sum-text">Not aimed at gay people; the same <b>sex-within-marriage standard</b> asks as much of the single and straight. Never the line for hell.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Why the no</div><div class="sum-text">Love isn't affirming every desire; it flows from a <b>design and tells the truth</b>, and you are more than your sexuality.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Still love</div><div class="sum-text">God is love, and the <b>same honest welcome, grace and worth</b> are offered to everyone. No second-class sinners.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So the tension eases once you stop reading it as a God repulsed by certain people. The actual claim is stranger and gentler: one demanding vision of sex that humbles everyone, a love too honest to merely flatter us, and a door held open to gay and straight on identical terms. You were never being told you are an abomination. You were being told, with all of us, that you are loved, and that you are far more than what you want.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
