@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a1311">
+<title>Sharing the gospel with a Muslim &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f7f4;
+    --ink-muted: #d6e4dc;
+    --ink-soft: #94aaa0;
+    --warm-black: #0a1311;
+    --cream: #f3efe6;
+    --clay: #b07d3a;
+    --amber: #d6b15c;
+    --hairline: rgba(220,240,230,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,240,230,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,240,230,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep teal-green to warm gold */
+  .bg-intro { background: linear-gradient(168deg, #0a1311 0%, #0f211d 38%, #1a4a3e 82%, #246a56 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0a1311 0%, #0f1f1b 34%, #1a463a 74%, #246050 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #091210 0%, #0f201c 34%, #1c4a3e 74%, #266a56 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0a1311 0%, #102019 34%, #34442e 74%, #5e6440 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0a1311 0%, #11201a 30%, #4a4830 64%, #b08a3e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0a1311 0%, #0f211d 45%, #1f4c40 78%, #6a5a40 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3fae90 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #155244 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a8a5a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4a850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,240,230,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with a Muslim?</h1>
+    <p class="tagline">You start with more in common than with almost anyone: one God, deep reverence for scripture, and real honour for Jesus. The whole conversation turns on one question, who Jesus actually is. Here is how to get there with respect.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Where they're coming from</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">All you share, then: who is Jesus?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">More than a prophet, and grace</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">Hospitality, patience, respect</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where they're coming from</div>
+    <h1 class="display">They already honour Jesus, just not as God.</h1>
+    <p class="tagline">A Muslim is not a sceptic to be argued down; they are someone who already takes God with deep seriousness. Start by understanding what they actually believe.</p>
+
+    <div class="row"><div class="row-icon">Their faith</div><div class="row-text">Islam holds to one God, the Quran as his literal word, and five pillars of practice, with paradise weighed on the scales of your deeds and God's mercy. Above all it guards the oneness of God; to make anything equal to God, which they call shirk, is the gravest sin there is. That is the lens through which a Muslim hears every word you say.</div></div>
+    <div class="row"><div class="row-icon">Jesus already</div><div class="row-text">Here is the surprising part: Muslims already revere Jesus, whom they call Isa. They believe he was born of a virgin, lived a sinless life, worked miracles, was the Messiah, and will return. What they deny is that he is the Son of God or God in the flesh, and that he was crucified. So you are not starting from nothing; you are starting from a high view of Jesus that does not go quite far enough.</div></div>
+    <div class="row"><div class="row-icon">The cost</div><div class="row-text">And understand what faith may cost them. For many Muslims, following Jesus can mean losing family, community, sometimes safety itself. This is not a casual change of opinion; it can cost a person everything they have. That alone should make you patient, gentle, and deeply respectful of just how much you are actually asking.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Attacking the Quran or insulting Muhammad.</b> Mockery ends the conversation instantly and confirms every suspicion they already hold. You can disagree profoundly without being disrespectful. Honour their seriousness about God, and you earn the right to talk about the one place where you genuinely differ, which is Jesus.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: a Muslim already honours one God and reveres Jesus as a sinless prophet. You are not arguing from scratch; you are inviting them one crucial step further.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Where to begin</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">All you share, then: who is Jesus?</div>
+    <h1 class="display">Start with all you share, then ask who Jesus is.</h1>
+    <p class="tagline">Begin on the enormous common ground, then move gently to the hinge of the whole thing: the identity of Jesus, and the one place where Islam parts ways with history.</p>
+
+    <div class="row"><div class="row-icon">Common ground</div><div class="row-text">Lead with what you share: one God, a reverence for scripture, prayer, fasting, a serious moral life, the dignity of submitting to God. A Muslim is no materialist; they take God utterly seriously, and so do you. That shared seriousness is the warm, honest place to begin, two people who both believe God is real, not opponents squaring up.</div></div>
+    <div class="row"><div class="row-icon">Who is Jesus</div><div class="row-text">Then the hinge. Since you already believe Jesus was sinless and the Messiah, ask gently: where did he come from, and what did he claim about himself? Weigh the earliest eyewitness records of what Jesus said, written within a generation, against the Quran, written some six hundred years later and far from the events. Which is closer to what actually happened?</div></div>
+    <div class="row"><div class="row-icon">The crucifixion</div><div class="row-text">And here is the one point where Islam stands against history itself. The Quran says Jesus was not crucified, in Surah 4:157, yet his execution under Pontius Pilate is one of the best-attested facts of the ancient world, affirmed even by non-Christian writers of the time. A Muslim willing to follow the evidence has a real tension to sit with here.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Leading with the cross before you have honoured the common ground.</b> Open with shirk or the crucifixion and you trip their deepest defences before any trust has been built. Start where you agree, one God and a revered Jesus, then walk together toward the harder questions. With a Muslim, the order you raise things in matters almost as much as the content.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: build on the huge common ground first, then turn to the hinge, who Jesus really is, and the crucifixion that history affirms but the Quran denies.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">More than a prophet, and grace</div>
+    <h1 class="display">More than a prophet, and grace instead of the scales.</h1>
+    <p class="tagline">There are two gifts the gospel offers a Muslim that Islam does not: a Jesus who is God with us, and an assurance the scales can never give.</p>
+
+    <div class="row"><div class="row-icon">God with us</div><div class="row-text">The Christian claim is not that Jesus is a second, rival god, which would indeed be shirk, but that the one God came among us in person, as his Word made flesh, to be known and to rescue. That is not a denial of God's oneness; it is the astonishing length the one God went to out of love. Help them see the claim is bigger than they feared, not smaller.</div></div>
+    <div class="row"><div class="row-icon">The point</div><div class="row-text">Far from being a defeat that God would never let a prophet suffer, the cross was the very point: God himself bearing what we owed, so that forgiveness becomes possible. What looks like the failure of Jesus is actually the love of God stretched to its furthest. The crucifixion the Quran denies turns out to be the centre of the good news.</div></div>
+    <div class="row"><div class="row-icon">Grace not scales</div><div class="row-text">And here is the deepest gift. Under the scales you can never quite know whether your good has outweighed your bad; you can hope, but you cannot be sure. The gospel offers what Islam cannot: assurance. Not a debt you anxiously try to pay down, but a debt paid in full for you. For someone carrying the weight of those scales, that is staggering news.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Treating it as a debate to win rather than good news to offer.</b> The aim is not to defeat Islam point by point; it is to introduce a person to the Jesus they already half-revere, and to the grace they have never once been offered. Lead with the gift, not the scorecard. Nobody is loved into the kingdom by being out-argued.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: offer the two things Islam cannot, the one God come among us in love, and the assurance of a debt already paid, in place of scales you can never be sure of.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Hospitality, patience, respect</div>
+    <h1 class="display">Hospitality, patience, and unshakeable respect.</h1>
+    <p class="tagline">With a Muslim, relationship and respect are not optional niceties around the message; they are the medium the message travels in.</p>
+
+    <div class="row"><div class="row-icon">Hospitality</div><div class="row-text">In Muslim culture, hospitality and friendship carry enormous weight. Share meals. Welcome them into your home and your life. A great deal of the gospel is communicated long before a word of theology, in whether you treat them as a project to close or a friend to keep. Real, costly friendship is the soil everything else grows in.</div></div>
+    <div class="row"><div class="row-icon">Patience</div><div class="row-text">Remember the cost. You may be asking someone to risk their family and community, so do not rush them, and do not treat a hard no as failure. Coming to Christ from Islam often takes years and many conversations. Be the steady, loving presence still there long after the first talk, praying rather than pressuring.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">And lean on God. A striking number of Muslims today describe coming to Christ through dreams and quiet experiences as much as through arguments; the Spirit is at work in ways you cannot engineer. Your job is to love, to live it, to give your reasons gently, and to pray. The outcome was always his to carry, not yours.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Forgetting how much you are actually asking.</b> It is easy to treat conversion as simply changing one's mind; for a Muslim it can mean losing everything and everyone they love. Honour that weight. Be the kind of friend worth that cost, walk with them through it, and never let them feel like a notch on your belt.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: lead with hospitality and friendship, respect their reverence for God, be patient with the enormous cost, and trust the Spirit to do what your arguments cannot.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">One God, the Quran, the scales, and a Jesus <b>already revered as a sinless prophet</b>, just not as God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Find the bridge</div><div class="sum-text">Start on the <b>huge common ground</b>, then ask who Jesus is, and face the crucifixion history affirms but the Quran denies.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">The one God <b>come among us in love</b>, and grace, a debt paid, instead of scales you can never be sure of.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>Hospitality and deep respect</b>, patience with the real cost, and trust in the Spirit to do the rest.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with a Muslim you begin as someone who shares their seriousness about God, not as an opponent. Honour what they already believe, walk gently to the question of who Jesus is, offer the grace the scales can never give, and love them enough to be patient with all that following Jesus may cost.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
