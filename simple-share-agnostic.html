@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#121316">
+<title>Sharing the gospel with an agnostic &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f5f6f7;
+    --ink-muted: #dfe2e6;
+    --ink-soft: #a3a8b0;
+    --warm-black: #121316;
+    --cream: #f3efe6;
+    --clay: #b07d3a;
+    --amber: #d6b15c;
+    --hairline: rgba(230,233,238,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.78;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.52; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(230,233,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(230,233,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: fog of not-knowing, clearing to warm light */
+  .bg-intro { background: linear-gradient(168deg, #121316 0%, #1d2026 38%, #3a4049 82%, #525a64 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #121316 0%, #1b1e24 34%, #363c45 74%, #4c545e 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #111215 0%, #1c1f25 34%, #3a4049 74%, #525a64 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #121316 0%, #1e2027 34%, #44423a 74%, #6c604c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #121316 0%, #1f2026 30%, #4a4232 64%, #b0843e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #121316 0%, #1d2026 45%, #3e424a 78%, #6a5a40 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #6a7280 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #2e333b 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a8366 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4a850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(230,233,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with an agnostic?</h1>
+    <p class="tagline">An agnostic is not an atheist. They are not saying there is no God; they are saying I do not know, or no one can know. That is a very different door, and you open it differently. Here is how.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Who you're actually talking to</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">Reopen the question they shelved</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">Give them something concrete</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">How to carry the whole thing</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who you're actually talking to</div>
+    <h1 class="display">They're not denying God. They're on the fence.</h1>
+    <p class="tagline">The agnostic's honest position is not no, it is not sure. That changes everything about how you approach them, so start by getting the posture right.</p>
+
+    <div class="row"><div class="row-icon">Not sure</div><div class="row-text">Their position is uncertainty: maybe there is a God, maybe not, and I cannot tell. That is more open than atheism, and worth respecting. Do not argue with them as though they have declared war on God; they have not. Many of them would genuinely like to know, if knowing turned out to be possible.</div></div>
+    <div class="row"><div class="row-icon">Two kinds</div><div class="row-text">There are roughly two. The honest seeker, who has looked and not yet landed, and the comfortable fence-sitter, for whom I do not know really means I would rather not think about it. Both are worth your time, but they need different things: one needs evidence, the other needs a gentle nudge off the fence.</div></div>
+    <div class="row"><div class="row-icon">Why they're here</div><div class="row-text">For most people, agnosticism is the default setting of a busy life, not the conclusion of a long search. They have never really investigated; they have just quietly shelved the question. So the gift you can offer is less an argument and more a reason to take the question back down off the shelf and actually look at it.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Treating them like an atheist and coming in swinging.</b> They have not denied God, so arguing as if they have feels like an attack on a position they do not even hold, and it just makes them defensive. Meet the openness that is actually there. The agnostic's door is already ajar; your job is to ease it open, not kick it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: an agnostic has not closed the door, only left the question unanswered. Respect the honesty of I do not know, and help them want to find out.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Reopen it</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Reopen the question they shelved</div>
+    <h1 class="display">Gently test the idea that no one can know.</h1>
+    <p class="tagline">The agnostic's comfort rests on one quiet assumption: that the question cannot be answered, so it can be safely parked. That assumption is exactly where you begin, kindly.</p>
+
+    <div class="row"><div class="row-icon">Is that a claim</div><div class="row-text">When someone says no one can know whether God exists, ask, gently, how do you know that? It is itself a confident claim about what can and cannot be known. Most agnostics have never examined it; they simply inherited it. Just noticing it out loud can quietly reopen a question they assumed was settled.</div></div>
+    <div class="row"><div class="row-icon">Have you looked</div><div class="row-text">The kindest question is often: have you actually investigated, or just assumed it could never be settled? There is real evidence to weigh, the beginning of the universe, its fine-tuning, the moral law, and above all a historical event, the resurrection, that you can look straight into. Knowing is more possible than they have been told.</div></div>
+    <div class="row"><div class="row-icon">It matters</div><div class="row-text">And gently raise the stakes. If there is no God, the question is mildly interesting. If there is, it is the single most important thing there is. A question that large is worth more than a permanent shrug. The agnostic's real danger is not getting the answer wrong; it is never getting around to looking.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Letting I do not know quietly turn into I will never check.</b> Agnosticism can be an honest pause or a comfortable hiding place. Do not bully, but do not collude with the fence-sitting either. The loving move is to make the question interesting and answerable again, so that not knowing becomes let me actually find out.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: the wall is the assumption that the question cannot be answered. Test that kindly, show there is real evidence to weigh, and turn I do not know into let me look.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Give them something concrete</div>
+    <h1 class="display">Move from is there a God to a man in history.</h1>
+    <p class="tagline">Abstract God-talk can drift on forever, which suits a fence-sitter just fine. The way down off the fence is something concrete, and Christianity has exactly that.</p>
+
+    <div class="row"><div class="row-icon">A real person</div><div class="row-text">Do not leave them debating a vague higher power. Point them to Jesus, a specific person in datable history, whose life, death and resurrection you can actually investigate. It turns is there something out there into a question with an address: what do I make of this man, and the evidence that he rose?</div></div>
+    <div class="row"><div class="row-icon">Not certainty</div><div class="row-text">Reassure them that they do not need total proof to take a step; nobody has that about anything that matters. As Knechtle puts it, you commit to a marriage on good evidence plus trust, not a mathematical certificate. Faith is not the absence of all doubt; it is trusting enough, on good grounds, to look closer.</div></div>
+    <div class="row"><div class="row-icon">Seek and find</div><div class="row-text">And there is a promise worth handing them: the Bible says those who genuinely seek, find. The agnostic does not have to manufacture certainty in advance; they only have to be honestly willing to look. God has a way of meeting the person who actually starts walking toward the question rather than around it.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Staying forever stuck on does God exist.</b> You can debate a generic deity until you both lose interest, which is precisely what a comfortable agnostic is happy to do. Get to Jesus sooner rather than later, because he is concrete, investigable, and the actual point. A vague God changes nothing; a risen Christ changes everything.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: do not let it stay abstract. Hand them a real person in real history to look into, tell them faith is trust on good evidence not certainty, and remind them that honest seekers are the ones who find.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How to carry the whole thing</div>
+    <h1 class="display">Be the friend who makes the question safe to ask.</h1>
+    <p class="tagline">A fence-sitter who feels pushed will simply sit more firmly. How you hold the conversation matters as much as what you say in it.</p>
+
+    <div class="row"><div class="row-icon">No pressure</div><div class="row-text">Take the pressure off. You are not demanding a decision today; you are offering to be a companion for the search. People explore far more honestly when they do not feel cornered into a verdict, so make it clear you are happy to wonder alongside them rather than waiting to pounce on a conclusion.</div></div>
+    <div class="row"><div class="row-icon">Live it</div><div class="row-text">Often the strongest argument an agnostic ever meets is a life. A faith that visibly makes you more loving, peaceful and hopeful is a piece of evidence they cannot wave away as theory. Sometimes the question moves from interesting to urgent simply because they watched it work in someone they actually trust.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">And relax. You cannot argue anyone across the line, and you were never meant to. Your part is to love, to live it, to keep the question inviting, and to pray; the finding itself is God's work. That frees you to be patient with someone who may take years to climb down off the fence in their own time.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Pushing for a decision before they are ready.</b> Agnostics move slowly by nature, and demanding a yes or no on the spot usually just entrenches the maybe. Be the unhurried, unanxious friend who keeps the door open, keeps quietly living it, and keeps praying. Most people climb off the fence gradually, not in a single dramatic moment.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: take the pressure off, let your life make the case, keep the question safe and inviting, and trust God with the timing. Help them look; do not force them to land.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">Not an atheist, a <b>fence-sitter</b>. Respect the openness; most have simply shelved the question.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Reopen it</div><div class="sum-text">Gently test the idea that <b>no one can know</b>, show there's real evidence, and make the question matter again.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">Move from a vague God to a <b>real man in history</b> they can investigate; faith is trust on good evidence, not certainty.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>No pressure</b>, live it out, keep the question safe, and leave the timing to God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with an agnostic you are not demolishing a position; you are reopening a question they quietly closed. Respect the I do not know, show that knowing is more possible than they assumed, point them to the man at the centre of it all, and walk alongside them while God does the finding.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
