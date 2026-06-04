@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0f17">
+<title>Why is there suffering? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f7f8fc;
+    --ink-muted: #dce0ee;
+    --ink-soft: #99a1bd;
+    --warm-black: #0d0f17;
+    --cream: #f4f1ea;
+    --clay: #4a57a0;
+    --amber: #c79a5a;
+    --hairline: rgba(225,230,255,0.14);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(48px); opacity: 0.9;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.65; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 41px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.28);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #221a2e;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(225,230,255,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(225,230,255,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 21px; font-weight: 600; line-height: 1.24; letter-spacing: -0.015em; margin-top: 22px; }
+
+  /* gradients: night to dawn */
+  .bg-intro { background: linear-gradient(168deg, #0e1018 0%, #161a2e 38%, #2e2c54 82%, #45406f 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0d0f18 0%, #14182c 34%, #232950 74%, #34396b 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0e1019 0%, #181a30 34%, #2c2f5e 74%, #474a8a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0f0e1a 0%, #1c1830 34%, #3a2c5a 74%, #5b4684 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #11101c 0%, #241d34 30%, #6b4a55 68%, #c08a5a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0d0f17 0%, #181a2c 45%, #3a3152 80%, #5e4a52 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #6f78c8 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #3a3f7a 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7a5fae 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d9a45e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(225,230,255,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The hardest question</div>
+    <h1 class="display display-lg">If God is good, why is there so much suffering?</h1>
+    <p class="tagline">This is the big one, and it deserves honesty, not a neat bow. There is no glib answer to real pain. But there is a way through it, four moves that, taken together, hold up better than the alternative. John Lennox calls this the hardest question Christians face, harder than anything about science.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Which question are you asking?</div><div class="map-sub">The argument, or the ache?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Why would God allow it?</div><div class="map-sub">Free will, and what love costs</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Does it disprove God?</div><div class="map-sub">The hidden leap in the objection</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">What does Christianity offer?</div><div class="map-sub">A God who steps into it</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 TWO QUESTIONS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Two questions</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The argument, or the ache?</div>
+    <h1 class="display">There are two questions here, not one.</h1>
+    <p class="tagline">Before any answer, notice that why suffering is really two different questions wearing the same words. One is a puzzle to think about. The other is a wound. Answer the wrong one and you make things worse.</p>
+
+    <div class="row"><div class="row-icon">The puzzle</div><div class="row-text">One version is philosophical: how can a good, all-powerful God and a world full of evil both be true at once? That is a question for the head, and it does have answers. The next two steps are those answers.</div></div>
+    <div class="row"><div class="row-icon">The ache</div><div class="row-text">The other is the cry of someone in the middle of it. My child is dying, where is God? That is not a debate, it is grief, and the first thing it needs is presence, not a lecture. Lennox, who nearly died himself and later lost his young niece to a brain tumour, is blunt about it: if he has nothing to say to his grieving sister, he had better stay quiet about what he believes.</div></div>
+    <div class="row"><div class="row-icon">Why it matters</div><div class="row-text">Most arguments about suffering go wrong by answering the puzzle when someone is living the ache, or by waving the puzzle away because the ache feels more real. Keep them apart. Here we will take the thinking seriously, without ever pretending it is the whole of it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>That the sheer existence of suffering settles it: there is obviously no good God.</b> But that is the puzzle dressed up as the ache. The feeling that something is deeply wrong with the world is real and worth taking seriously. Whether that feeling actually proves there is no God is a separate claim, and a far bigger one than it first looks. We get to it in step three.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the honest first move is to separate the argument from the grief. We are not going to pretend either one away.</div></div>
+  </div>
+</section>
+
+<!-- B2 FREE WILL -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Why allow it?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Free will, and what love costs</div>
+    <h1 class="display">Real love needs a world where it can be refused.</h1>
+    <p class="tagline">Start with the suffering people cause each other: the cruelty, the betrayal, the violence. Why would God permit that? The classic answer is about what love actually requires to exist at all.</p>
+
+    <div class="row"><div class="row-icon">The choice</div><div class="row-text">Picture, as Lennox does, a robotic partner with a button on the wall marked kiss. Press it and you get a kiss, every time, on demand. That is not love, it is a vending machine. Love that means anything has to be freely given, which means it has to be genuinely refusable. Philosophers call this the free will defence, but you do not need the label to feel its force.</div></div>
+    <div class="row"><div class="row-icon">The cost</div><div class="row-text">A world where people can genuinely choose to love is, by that very same freedom, a world where they can choose to wound. You cannot have one without the other. As Knechtle puts it, if it is not free, it is not love. The capacity that lets a person love their child is the same capacity that lets another person harm one.</div></div>
+    <div class="row"><div class="row-icon">The limit</div><div class="row-text">This is not a dent in God's power, it is just what the words mean. God can do anything, but a square circle is not a thing, it is a contradiction with a label stuck on it. A creature that freely loves yet could never possibly choose otherwise is the same kind of nonsense. Making us free and making us incapable of harm were never two items on a menu he could pick between.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Then God should simply have made us unable to do harm.</b> Run that tape forward, though. A world where you are incapable of hurting anyone is a world where you cannot choose not to, where every kind word is as forced as that button on the wall. Lennox says that holding his firstborn, he realised this tiny child could one day grow up to reject him, and that the risk is the price of any real relationship. The Christian claim is that God judged a world of genuine love worth the terrible risk it carries.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a huge share of the world's suffering is what free creatures do with real freedom. Remove the freedom and you remove love itself. That is a steep price for a painless world.</div></div>
+  </div>
+</section>
+
+<!-- B3 DOES IT DISPROVE GOD -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Does it disprove God?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The hidden leap in the objection</div>
+    <h1 class="display">The knockout argument has a missing piece.</h1>
+    <p class="tagline">Free choice explains cruelty, but not a child's cancer or an earthquake. So here is the sharper objection: maybe the sheer scale of undeserved suffering shows there cannot be a good God. It feels airtight. It is not.</p>
+
+    <div class="row"><div class="row-icon">The leap</div><div class="row-text">The argument runs like this. A good God would prevent any suffering he had no good reason to allow; this much suffering looks pointless; so there is no good God. The weak link is in the middle. It only works if you also assume that if you cannot see a good reason, there is not one. Say that out loud and it is a staggering claim about your own point of view.</div></div>
+    <div class="row"><div class="row-icon">Our vantage</div><div class="row-text">A small child screams at a needle because, from where she sits, it is simply an adult hurting her. She cannot see the immunisation, the years of health it is buying. She is not stupid, she is just not positioned to see the reason. The gap between what God might see and what we can see is at least that wide. Not seeing a reason is a long way from there being none.</div></div>
+    <div class="row"><div class="row-icon">What pain makes</div><div class="row-text">And some of the things we admire most could not exist in a painless world. Courage needs danger to be courage. Compassion needs someone hurting. Patience and perseverance need hardship to push against. A world child-proofed against every ache would also be stripped of the very depths that make us human. That does not justify any single agony, but it cracks the claim that suffering is just obviously pointless.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Fine, but at least atheism faces reality: there is just no one to blame.</b> Except that removes not one ounce of the suffering, only the hope. And it quietly removes something else. Richard Dawkins says a universe with no God has, at the bottom of it, no good, no evil, just DNA, and we dance to its music. But then where did you get the problem of evil? If there is no real good and evil, the cruelty you are protesting is not actually wrong, it simply is. You cannot use the reality of evil to disprove God and deny that evil is real in the same breath.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: suffering makes the question urgent, but it does not close it. The jump from I see no reason to there is no reason is the weak point, and the alternative cannot even call the pain evil.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHAT CHRISTIANITY OFFERS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / What Christianity offers</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A God who steps into it</div>
+    <h1 class="display">God did not stay on the far side of the pain.</h1>
+    <p class="tagline">Here is where Christianity says something no other answer does. Lennox, a mathematician, makes a mathematician's move: if a question will not solve, change it. Stop asking only could God have prevented this, and start asking is there any evidence of a God you could actually trust with it.</p>
+
+    <div class="row"><div class="row-icon">The cross</div><div class="row-text">His answer is a strange one. Look at the man on the cross. The claim is that this is God himself, and he is being tortured to death. Whatever else that means, it means God has not watched human agony from a safe distance. He has been inside it. What, Lennox asks, is God doing on a cross? At the very least, suffering alongside us rather than above us.</div></div>
+    <div class="row"><div class="row-icon">Resurrection</div><div class="row-text">And the story does not end at the grave. If Jesus rose, then the cross was not the last word, and neither is your suffering. The first Christians preached the resurrection partly as a guarantee that justice will finally be done, that the accounts will be balanced, that innocent suffering will be answered rather than shrugged off and forgotten.</div></div>
+    <div class="row"><div class="row-icon">The difference</div><div class="row-text">Stand by a dying child with an atheist friend, Knechtle says, and you can both hold a hand, but his worldview can only offer tough luck. Christianity offers a God who has held that same hand from the inside, and a promise that this is not how the story ends. C.S. Lewis wrote coolly about the problem of pain, then rawly about his own grief when his wife died, and never stopped needing exactly that.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>That is just emotional comfort, not an answer.</b> But it is the opposite of a dodge. The thinking in the last three steps is what keeps the comfort honest, it shows the objection does not actually disprove God. What the cross adds is the one thing pure philosophy cannot: not an explanation that makes the pain make sense, but a God who refuses to stay outside it. Lennox is honest that in a lifetime he has never found a window into this that bypasses the cross.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: no argument makes suffering stop hurting. But Christianity alone answers it with a God who entered the suffering himself and promises to settle every account. That is more than an explanation, it is a presence.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four moves, taken together</div>
+    <h1 class="display">So where does that leave us?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Two questions</div><div class="sum-text">The argument and the ache are <b>different things</b>. Take the thinking seriously without using it to dodge the grief.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Why allow it</div><div class="sum-text">Real love has to be <b>refusable</b>, so a world built for love can also be misused for harm.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Does it disprove God</div><div class="sum-text">Only if you assume <b>you would see every reason</b> God could have. You would not, and atheism cannot even call the pain evil.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; What Christianity offers</div><div class="sum-text">A God who <b>entered the suffering</b> on the cross and, by rising, promises the accounts will be settled.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">Put together, these do not make the pain stop, and they were never meant to. What they show is that suffering does not disprove a good God, and that the God in question is not watching from a distance. He has been in it, and he promises it will not have the last word.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
