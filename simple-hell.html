@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#100e0c">
+<title>A loving God and hell? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f5f3f0;
+    --ink-muted: #ddd6cd;
+    --ink-soft: #a39a8d;
+    --warm-black: #100e0c;
+    --cream: #f2ede4;
+    --clay: #8a4a2e;
+    --amber: #c98a4e;
+    --hairline: rgba(245,240,232,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.32);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1c12;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(245,240,232,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(245,240,232,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 21px; font-weight: 600; line-height: 1.24; letter-spacing: -0.015em; margin-top: 22px; }
+
+  /* gradients: charcoal to a low ember */
+  .bg-intro { background: linear-gradient(168deg, #100e0c 0%, #1c1613 38%, #3a2519 82%, #5a3320 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0f0d0b 0%, #191310 34%, #34211a 74%, #4e2e20 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #100d0b 0%, #1d1512 34%, #3d251c 74%, #5e3623 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0e0d0c 0%, #1a1411 34%, #382017 74%, #5a301d 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #100e0b 0%, #1f1611 34%, #45291b 72%, #7a4828 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #100e0c 0%, #1c1613 45%, #3a2418 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #c06a38 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #7a3a1e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a5a30 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cf9152 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.42); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,240,232,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The justice question</div>
+    <h1 class="display display-lg">Why would a loving God send people to hell?</h1>
+    <p class="tagline">It sounds like the deepest contradiction in Christianity: a God of love who runs an eternal torture chamber. But almost every word in that sentence is worth slowing down on, starting with what hell even is, because Christians themselves do not all picture it the same way.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What is hell, actually?</div><div class="map-sub">And which view are we even discussing?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Does God send people, or do they choose?</div><div class="map-sub">Locked from the inside</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Infinite punishment for finite sin?</div><div class="map-sub">The proportion problem</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">What about those who never heard?</div><div class="map-sub">The accident-of-birth problem</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT IS HELL -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What is hell?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">And which view are we even discussing?</div>
+    <h1 class="display">Even Christians do not all picture it the same way.</h1>
+    <p class="tagline">Before defending hell, it is only honest to admit that Christians hold a few different views on what it actually is. The lurid cartoon is not the main one, and may not even be biblical.</p>
+
+    <div class="row"><div class="row-icon">Not Dante</div><div class="row-text">First, clear away the medieval picture: red devils, pitchforks, a cosmic torture chamber. Much of that traces to Dante's poem, not the Bible. Jesus described hell with images that cannot all be literal at once, fire, and also outer darkness, a strong hint he was speaking in metaphor, the way he called himself a door and a vine. As Knechtle says, be wary of anyone who hands you a photograph of hell.</div></div>
+    <div class="row"><div class="row-icon">The views</div><div class="row-text">Among Christians who take the Bible seriously there are three broad views. One, eternal conscious separation, the traditional and majority view (held, for instance, by William Lane Craig): the lost continue to exist, aware, cut off from God. Two, conditionalism, also called annihilationism: the lost are not kept alive forever but finally cease to exist. Three, universalism: a minority and much-disputed view that everyone is ultimately reconciled. Sincere believers land in different places.</div></div>
+    <div class="row"><div class="row-icon">The core</div><div class="row-text">Underneath the disagreement is a shared centre: hell is fundamentally separation from God. And since every good thing flows from God, to be cut off from him is to be cut off from all of it. The recurring biblical image is Gehenna, the rubbish dump outside Jerusalem, discarded and gone. Whatever its exact form, that is the heart of it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>That the church just invented a torture chamber to scare people into the pews.</b> But the actual teaching is far more restrained, and far less cartoonish, than fire and pitchforks, so much so that serious Christians openly debate its very nature. The strongest version is not a sadistic God running a dungeon. It is the sober idea of a person finally and fully getting the separation from God they spent a life insisting on.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: there is real room for humility here. The Bible is deliberately not specific, and good Christians differ. What they share is hell as separation from God, not a divine torture chamber.</div></div>
+  </div>
+</section>
+
+<!-- B2 SENT OR CHOSEN -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Sent or chosen?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Locked from the inside</div>
+    <h1 class="display">Nobody is dragged to hell who wanted God.</h1>
+    <p class="tagline">The word send does a lot of unfair work in the objection. On the Christian picture, hell is less a sentence God imposes and more a choice God finally respects.</p>
+
+    <div class="row"><div class="row-icon">The choice</div><div class="row-text">Knechtle puts it starkly: the reason a person ends up apart from God is that they chose, across a whole life, to live without him. God does not haul anyone into heaven by the scruff of the neck. Hell, he says, is God's great compliment to the reality of human freedom. He takes our no seriously enough to honour it.</div></div>
+    <div class="row"><div class="row-icon">From inside</div><div class="row-text">C.S. Lewis caught it in a line: the doors of hell are locked on the inside. The same free will that makes love real, the point from the suffering question, means God will not override someone who spends a life saying leave me alone. Forced love is not love, and a heaven full of people who did not want to be there would not be heaven.</div></div>
+    <div class="row"><div class="row-icon">Not doubt</div><div class="row-text">And this is not about failing to hold the correct beliefs. The honest objection is fair: you cannot just decide to believe something by willing it. But the Christian claim is that hell is not the destiny of the sincere doubter or the honest questioner. It is the settled direction of a heart that wants nothing to do with God. Nobody is condemned for an honest mistake.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>I did not choose not to believe, I just concluded it, so the choice language is unfair.</b> It is a sharp point, and worth conceding: belief is not a switch you flip at will. But the deeper question Christianity asks is not did you tick the right box, it is what did you do with what you were given, the conscience, the longing, the evidence in front of you. The door is the direction of the heart, not the certainty of the intellect.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: on the Christian view God does not zap reluctant people into torment. Hell is the honouring of a freely chosen, lifelong no. The doors really are locked from the inside.</div></div>
+  </div>
+</section>
+
+<!-- B3 INFINITE FOR FINITE -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">Third / Infinite for finite?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The proportion problem</div>
+    <h1 class="display">It depends what you think the wrong really is.</h1>
+    <p class="tagline">Here is the pointed philosophical version: even a wicked life is finite, so how could any just God hand down an infinite penalty? Two things take the force out of it.</p>
+
+    <div class="row"><div class="row-icon">The weight</div><div class="row-text">Knechtle's answer: the seriousness of a wrong is not measured only by the act, but by whom it is against. Shove a stranger and it is rude; shove a head of state and it is a national scandal, the same motion, very different weight. A wrong done against an infinite God, on this view, is not a small or finite thing. You may not buy it, but it is a point about dignity and proportion, not arbitrary cruelty.</div></div>
+    <div class="row"><div class="row-icon">Not forever</div><div class="row-text">And recall the different views from step one. The infinite-torment objection only bites against one of them. The conditionalist says the lost are not tormented forever at all, they finally cease to exist, so there is simply no never-ending punishment to object to. How much weight your objection carries depends entirely on which Christian view you are actually arguing against.</div></div>
+    <div class="row"><div class="row-icon">Ongoing</div><div class="row-text">There is also this: hell may not be one finite sin endlessly over-punished, but a separation that continues because the rejection continues. It is not God topping up a sentence forever. It is a person who, even there, still refuses the only source of life. The state lasts because the choice does.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>No decent human judge would torture someone forever for the sins of one short life.</b> Fair, and most Christians would agree that an endless, sadistic torture would be monstrous. That is exactly why so few of them actually hold that picture. Between the dignity-of-the-offended argument, the conditionalist view, and hell as a chosen separation that simply endures, the positions people genuinely hold are a long way from the cartoon the objection attacks.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the unfairness charge mostly lands on a version of hell many Christians do not even hold. On the live views the outcome is either proportionate, or not eternal, or a chosen separation that endures.</div></div>
+  </div>
+</section>
+
+<!-- B4 NEVER HEARD -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Those who never heard</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The accident-of-birth problem</div>
+    <h1 class="display">No one is damned for the postcode they were born in.</h1>
+    <p class="tagline">The most stinging version: what about the person who never heard of Jesus, or who lived a kind life inside another faith entirely? It would be grotesque to punish someone for missing news they were never handed. Christianity agrees.</p>
+
+    <div class="row"><div class="row-icon">Judged fairly</div><div class="row-text">The consistent claim is that God judges justly, on what a person actually had, not on what they never received. No one is condemned for honest ignorance, Knechtle says, no one for an honest mistake. The person who never heard the message is judged on their response to the light they did have: their conscience, and the goodness they either chased or ignored.</div></div>
+    <div class="row"><div class="row-icon">The light</div><div class="row-text">Paul writes that people who never had the law still have its echo written on their conscience, and are measured by that. So the question is never were you lucky enough to be born in the right place. It is what did you do with the truth and the conscience you were genuinely given. That applies to a remote villager and a city professor alike.</div></div>
+    <div class="row"><div class="row-icon">A fair judge</div><div class="row-text">At bottom this rests on trusting that the judge is good. Abraham's ancient question, will the judge of all the earth not do right, is the anchor here. Whatever the hard cases, the promise is that God will not be unfair to a single person, and will not condemn anyone on a technicality of timing or geography.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So you must be a card-carrying Christian or you burn, which damns billions on a technicality.</b> But that is not what the careful versions teach. The sincere seeker, the one who never heard, the honest doubter, none of them are written off for missing information. They are met by a God described as more just and more merciful than we are, not less. The hard cases are real, but they are handed to a judge you can trust, not to a bureaucrat with a checklist.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: nobody is condemned for where they were born or for news they never heard. The promise is a perfectly just and merciful judge who holds people only to the light they actually had.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-1" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how can a loving God have a hell?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What hell is</div><div class="sum-text">Not Dante's torture chamber. Christians differ (eternal separation, conditionalism, universalism) but <b>share hell as separation from God</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Sent or chosen</div><div class="sum-text">God <b>honours a lifelong no</b> rather than forcing a yes. The doors are locked from the inside.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Infinite for finite</div><div class="sum-text">The objection only bites one view, and even there it is about the <b>dignity of the one wronged</b>, or a separation that simply continues.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Never heard</div><div class="sum-text">No one is damned on a technicality. People are <b>judged justly, on the light they actually had</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">Put together, hell stops looking like a vengeful God who enjoys torture and starts looking like the sober, awful possibility of getting what you spend a whole life insisting on: an existence with God finally left out. Christians do not all agree on its furniture. They agree it is a grief, not a glee, and that the way out has already been thrown open.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
