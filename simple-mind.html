@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#131228">
+<title>Aren't we just atoms and neurons? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f1f2f8;
+    --ink-muted: #dcdeea;
+    --ink-soft: #9b9cb8;
+    --warm-black: #131228;
+    --cream: #eef0ee;
+    --clay: #2f6f74;
+    --amber: #58c4c2;
+    --hairline: rgba(226,228,244,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 35px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #0e2a2a;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(226,228,244,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(226,228,244,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cerebral indigo-violet resolving to a luminous aqua-teal (the lit, reasoning mind) */
+  .bg-intro { background: linear-gradient(168deg, #131228 0%, #1c1a3a 38%, #243e52 80%, #2e6066 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #131228 0%, #181634 34%, #22244e 74%, #2a2e5a 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #121026 0%, #1a1838 34%, #20304e 74%, #285058 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #131228 0%, #1a1a3a 34%, #224652 74%, #2e7070 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #131228 0%, #1c1c3c 30%, #28565c 64%, #58c4c2 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #131228 0%, #1c1a3a 45%, #2a5a60 80%, #52bcba 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #34306a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1a1838 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #2e6a70 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #58c4c2 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(226,228,244,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Mind, matter, and reason</div>
+    <h1 class="display display-lg">If I'm just atoms, can I trust my own mind?</h1>
+    <p class="tagline">It is the modern creed in a sentence: you are your brain, your thoughts are chemistry, and the self is a story the neurons tell. It can sound hard-headed and scientific. But follow it all the way down and it turns on itself, because if your mind is only physics, the case for that very claim collapses along with everything else.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The claim: you're just atoms</div><div class="map-sub">Thoughts as mere brain chemistry</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">It saws off its own branch</div><div class="map-sub">If my mind is blind physics, why trust it?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Reason is at home with God</div><div class="map-sub">A stranger in a mindless universe</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">You're more than your parts</div><div class="map-sub">The ink is not the message</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THE CLAIM -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Just atoms?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What is being claimed</div>
+    <h1 class="display">You are nothing but atoms. Supposedly.</h1>
+    <p class="tagline">Start by stating the view fairly, because it is genuinely the default assumption of a great many clever people. It just turns out to be far less stable than it looks.</p>
+
+    <div class="row"><div class="row-icon">Nothing but</div><div class="row-text">On the strict naturalist picture, a human being is nothing but matter in motion. Your thoughts are brain states, your choices are chemistry, and your sense of being a self is a useful trick the neurons play. There is no you over and above the wiring. There is just the wiring, firing.</div></div>
+    <div class="row"><div class="row-icon">The claim</div><div class="row-text">It is a tidy, confident story, and it wears the lab coat of science. Mind is reduced to brain, brain to chemistry, chemistry to physics, and physics to particles bumping in the dark. Reason itself becomes one more chemical reaction, no more about truth than a kettle coming to the boil is about truth.</div></div>
+    <div class="row"><div class="row-icon">No you?</div><div class="row-text">And that is the quiet cost. If you really are nothing but atoms obeying physics, then love is a chemical state, your decisions were never truly yours, and the person you call yourself is a kind of afterglow thrown off by the machinery. Almost no one who says they believe this actually manages to live as though it were true.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Neuroscience shows thoughts are just brain chemistry; the self is an illusion.</b> Brain activity accompanies every thought, and no Christian denies it. But that a thought has a physical side does not show it is nothing but its physical side, any more than the message of a letter is nothing but ink. And notice: the self is an illusion is itself a thought. If no thought can be trusted, that one cannot be either.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the reductionist claim is that a human being is nothing but atoms and chemistry, with mind, reason and the self as mere by-products. It sounds scientific, but as the next step shows, it cannot account for the reasoning used to reach it.</div></div>
+  </div>
+</section>
+
+<!-- B2 SELF-DEFEATER -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The self-defeater</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The branch it's sitting on</div>
+    <h1 class="display">It saws off its own branch.</h1>
+    <p class="tagline">Here is the problem the view rarely notices about itself. If your reasoning is just blind physics, then so is the reasoning that led you to this view, and that turns out to be fatal.</p>
+
+    <div class="row"><div class="row-icon">Wired to survive</div><div class="row-text">On naturalism, your brain was shaped by evolution, and evolution does not select for true beliefs. It selects for beliefs and behaviours that help you survive and reproduce. The trouble is that useful and true are not the same thing; plenty of false beliefs would keep you alive perfectly well. So blind evolution gives you no guarantee that your mind tracks reality at all.</div></div>
+    <div class="row"><div class="row-icon">Darwin's doubt</div><div class="row-text">Darwin himself felt the chill of this. He confessed a horrid doubt: whether the convictions of a mind developed from the lower animals could be trusted when it ventured into the deepest questions. If our thinking is just the residue of survival, why believe it delivers truth about anything grand, including the truth of evolution itself?</div></div>
+    <div class="row"><div class="row-icon">The branch</div><div class="row-text">The geneticist Haldane drew the conclusion cleanly. If his mental processes were wholly the motion of atoms in his brain, he had no reason to suppose his beliefs were true, and therefore no reason to suppose his brain was made of atoms. The view destroys itself. Used consistently, it removes the very trust in reason you need in order to argue for it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But evolution wired our brains, and they obviously work; we survive.</b> They work for surviving, which is exactly the point. Evolution rewards beliefs that keep you alive, not beliefs that are true, and the two regularly come apart. A belief can be useful and false. So natural selection offers no guarantee that your reasoning tracks reality, which is why a worldview betting everything on reason cannot afford to make reason a blind accident.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: if the mind is only physics shaped by survival, there is no reason to trust that it delivers truth, including the truth of naturalism itself. As Darwin worried and Haldane spelt out, the view undercuts the very reasoning used to reach it.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHERE REASON FITS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Where reason fits</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where reason is actually at home</div>
+    <h1 class="display">Reason is at home with God.</h1>
+    <p class="tagline">Turn it around. The strange thing is not that a believer trusts reason. It is that the naturalist does, while having no account of why it should work.</p>
+
+    <div class="row"><div class="row-icon">Science assumes it</div><div class="row-text">Science itself runs on two unprovable gifts: that the universe is rationally intelligible, and that the human mind is fit to read it. Lennox makes the point often. The scientist has to assume both before running a single experiment, yet naturalism can explain neither. They are simply taken on trust, because without them nothing works at all.</div></div>
+    <div class="row"><div class="row-icon">Mind from mind</div><div class="row-text">But those two gifts are exactly what you would expect if a rational Mind made the universe, and made us in his image. On that view our minds track truth because they were designed by truth, to know a world that was designed to be known. Reason coming from Reason makes sense. Reason as a fluke of mindless matter does not.</div></div>
+    <div class="row"><div class="row-icon">Where reason fits</div><div class="row-text">So the very act of reasoning, following an argument, grasping a proof, knowing that you have understood, fits a universe with Mind at the bottom and sits homeless in a universe with only matter at the bottom. Far from belief being the unreasonable option, it is naturalism that has to borrow a confidence in reason its own story can never pay for.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You're just inventing a God to explain the mind.</b> It is the other way around. Naturalism has to assume the very things it cannot explain: that the universe is rationally intelligible and that our minds can be trusted to read it. Theism does not assume them; it explains them. A rational world and a truth-seeking mind are precisely what you would expect if a rational God made both.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: science assumes a rational universe and a reliable mind, and naturalism can ground neither. Both are exactly what theism predicts: minds made by a rational God to know a world he made knowable. Reason is at home with God, a stranger in a mindless cosmos.</div></div>
+  </div>
+</section>
+
+<!-- B4 MORE THAN PARTS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / More than parts</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The category mistake</div>
+    <h1 class="display">The ink is not the message.</h1>
+    <p class="tagline">Underneath it all is a simple error of logic, hidden in the little phrase nothing but. Spot it, and the whole reduction loses its grip.</p>
+
+    <div class="row"><div class="row-icon">The love letter</div><div class="row-text">Take a love letter. You could give a complete physical account of it: the chemistry of the ink, the wavelengths of light off the page, the trees the paper came from. Every word of that account would be true, and it would miss the entire point. The message is real, and it is found nowhere in the chemistry. The chemistry carries the message; it does not explain it.</div></div>
+    <div class="row"><div class="row-icon">Category mistake</div><div class="row-text">That is the mistake buried in nothing but. Describing the parts of a thing is not the same as exhausting it. A symphony is not nothing but vibrating air, and a person is not nothing but firing neurons. You can give a full account of the mechanism and still have said precisely nothing about the meaning, the mind, or the truth being grasped.</div></div>
+    <div class="row"><div class="row-icon">The more</div><div class="row-text">And that more, the mind that means things, reasons, loves and knows, is the very thing crying out to be explained. It does not look like an accident thrown off by particles. It looks like what the Christian says it is: the mark of a Maker who is himself Mind, in whose image we can think and know at all. You are not less than your atoms. You are gloriously more.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Isn't the claim that you're more than atoms just wishful thinking with no evidence?</b> The evidence is the thing you are doing this very moment: weighing an argument, grasping a meaning, caring whether it is true. None of that is the sort of thing atoms, left to themselves, do. And to explain it away as nothing but chemistry, you have to use the very reasoning your explanation says you cannot trust. The wishful thinking runs the other way.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: nothing but is a category mistake; describing a thing's parts never exhausts it, just as the ink never explains the message. Mind, meaning and reason are real and point beyond mere matter to a Maker who is Mind. You are more than your atoms, not less.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">A mind, made by Mind.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Just atoms?</div><div class="sum-text">Naturalism says you're <b>nothing but matter</b>, thoughts as chemistry, the self a trick of the neurons.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; It saws off its branch</div><div class="sum-text">If the mind is blind physics wired for survival, you can't trust it, including the belief in naturalism. <b>Darwin's doubt, Haldane.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Reason fits with God</div><div class="sum-text">Science assumes a rational universe and reliable minds; naturalism can't ground either, but <b>a rational Maker explains both</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; More than your parts</div><div class="sum-text">Nothing but is a category mistake. <b>The ink isn't the message.</b> Mind and reason point to a Maker who is Mind.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So if you are just atoms, can you trust your own mind? On naturalism, not really, and that is the quiet disaster at the heart of it. A mind that is only blind physics, wired by survival rather than by truth, gives you no reason to trust a single conclusion it reaches, including the conclusion that you are only atoms. The very fact that you can follow this argument, and care whether it is true, is the thing crying out for explanation, and it fits a universe made by a rational God far better than one made by no one at all. You are not nothing but matter. You are a mind, made by Mind, and that is exactly why your reason can be trusted in the first place.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
