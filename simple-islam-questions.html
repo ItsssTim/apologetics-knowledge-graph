@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#181510">
+<title>What can I lovingly ask a Muslim friend? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f1ea;
+    --ink-muted: #e6ddd0;
+    --ink-soft: #a89e8c;
+    --warm-black: #181510;
+    --cream: #f2ece0;
+    --clay: #6a7a4a;
+    --amber: #d8b45a;
+    --hairline: rgba(238,232,222,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #221c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,232,222,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,232,222,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: calm warm taupe with an olive-branch accent resolving to gold (peace to light) */
+  .bg-intro { background: linear-gradient(168deg, #181510 0%, #24201a 38%, #3e4230 78%, #6e6234 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #181510 0%, #221e18 34%, #34382a 74%, #44462e 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #171410 0%, #221e18 34%, #3a3826 74%, #56502c 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #181510 0%, #24201a 34%, #3e3a28 74%, #645830 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #181510 0%, #26221a 30%, #4a442a 64%, #d8b45a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #181510 0%, #24201a 45%, #4e4630 80%, #cea84e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4a5230 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #221e18 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6a6234 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8b45a 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,232,222,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Talking with Muslim friends</div>
+    <h1 class="display display-lg">What can I lovingly ask a Muslim friend?</h1>
+    <p class="tagline">Nabeel Qureshi, a devout Muslim, came to Jesus not because anyone hammered him with facts, but because a Christian friend loved him for years and was willing to weigh the evidence with him, honestly, both ways. That is the model. The point of these questions is never to win or to wound, but to seek the truth together, as friends.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Start in love, not ammunition</div><div class="map-sub">Common ground, and your own faith on the table</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">A question about the Quran</div><div class="map-sub">Examined as honestly as you'd want for the Bible</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">A question about Muhammad</div><div class="map-sub">Read the earliest Muslim sources together</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Peace, and the real point</div><div class="map-sub">It was never about winning</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 START IN LOVE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Start in love</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The posture that matters most</div>
+    <h1 class="display">Start in love, not with ammunition.</h1>
+    <p class="tagline">Before a single question, the heart behind it decides everything. Get this wrong and the best argument in the world will only build a wall.</p>
+
+    <div class="row"><div class="row-icon">Common ground</div><div class="row-text">Begin with how much you share. Muslims worship one God, honour Jesus as a great prophet, and take prayer, fasting and morality with a seriousness that often puts Christians to shame. Your Muslim friend is not a target. They are someone sincerely seeking God, and the conversation should start by honouring that, warmly and without pretence.</div></div>
+    <div class="row"><div class="row-icon">Not to win</div><div class="row-text">The goal is never to defeat your friend, or to prove their faith worthless. That approach wins arguments and loses people. The aim is the one Qureshi's friend held: to walk alongside someone towards the truth, trusting that if Christianity is true, it has nothing to fear from honest questions, and everything to gain from a real friendship.</div></div>
+    <div class="row"><div class="row-icon">Be questioned too</div><div class="row-text">And it has to run both ways. You are not the prosecutor; you are a fellow seeker who is also willing to have your own faith examined with the same honesty. Qureshi tested Islam and Christianity by the very same standards. Invite your friend to question your beliefs as hard as you question theirs. That mutual courage is what makes the questions an act of love rather than an attack.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Isn't questioning someone's religion just disrespectful?</b> Not if it is done in love, and you hold your own faith to the very same fire. The most respectful thing you can do is take a person's beliefs seriously enough to ask honest questions, and to let them ask yours. Disrespect is treating a friend as a project to be won. Respect is wrestling towards the truth together, willing to follow it wherever it leads.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the aim is never to win or to wound, but to seek the truth together as friends, holding your own faith to the same honest scrutiny. Asked in love, with your beliefs on the table too, hard questions are a gift, not an assault.</div></div>
+  </div>
+</section>
+
+<!-- B2 QURAN -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / A question about the Quran</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A question about the Quran</div>
+    <h1 class="display">Could we look at the Quran's claims together?</h1>
+    <p class="tagline">Islam rests a great deal on the Quran being a perfect, preserved, even scientifically miraculous book. These are claims worth exploring gently, with the same honesty a Muslim would rightly want applied to the Bible.</p>
+
+    <div class="row"><div class="row-icon">The claims</div><div class="row-text">Three claims are often made: that the Quran is a literary miracle beyond any human author, that it has been perfectly preserved word for word, and that it holds scientific knowledge centuries ahead of its time. Each is sincerely held, and each can be examined kindly, the way you would want your own holy book examined rather than mocked.</div></div>
+    <div class="row"><div class="row-icon">Preserved?</div><div class="row-text">Take preservation. A gentle question is how the perfect-preservation claim fits with Islam's own earliest records, which describe companions reciting the Quran differently, and the caliph Uthman later standardising one version and having the others burned. That is an honest historical puzzle worth thinking through together, not a gotcha, and Muslim scholars have wrestled with it for centuries.</div></div>
+    <div class="row"><div class="row-icon">Science in it?</div><div class="row-text">Or the science claim. Reading modern discoveries back into old poetic verses is a method that, applied evenly, can find hidden science in many ancient texts, including ones nobody believes are divine. So a fair question is whether the verses really predicted the science, or whether the science was read into them afterward. Asked with a smile rather than a sneer, it rewards honest thought.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The Quran is perfectly preserved and scientifically miraculous, unlike the Bible.</b> These are claims worth examining with exactly the honesty a Muslim would want applied to the Bible. Islam's own earliest records describe variant recitations, and a caliph standardising the text and burning the rest, which is worth weighing against perfect preservation. And reading modern science into old verses is a method that, applied evenly, finds science in many old books. Good questions to explore together, not weapons.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Quran's claims to perfect preservation and to scientific miracle are worth examining with the same honesty a Muslim would want for the Bible. Islam's own sources raise real questions here, best explored together as friends rather than hurled as accusations.</div></div>
+  </div>
+</section>
+
+<!-- B3 MUHAMMAD -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / A question about Muhammad</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">A question about Muhammad</div>
+    <h1 class="display">Shall we read the earliest sources together?</h1>
+    <p class="tagline">The character of Muhammad matters enormously in Islam, since he is held up as the model Muslim. The loving way to explore it is not a hostile caricature, but the earliest Muslim records themselves.</p>
+
+    <div class="row"><div class="row-icon">Earliest sources</div><div class="row-text">Much of what people think they know about Muhammad, on every side, is folklore. The honest place to look is the earliest Muslim sources, the hadith collections and the traditional biographies that Muslims themselves regard as foundational. Going to those, rather than to either an idealised picture or a hostile one, is the fairest possible approach.</div></div>
+    <div class="row"><div class="row-icon">Read together</div><div class="row-text">Within those traditional sources are episodes that raise genuine moral and historical questions, the kind a thoughtful Muslim has often quietly wondered about too. The gentle invitation is simply this: shall we read these accounts together, carefully and in context, and ask honestly what they show? Honouring a prophet surely means being willing to look at the record of his life.</div></div>
+    <div class="row"><div class="row-icon">Fairly</div><div class="row-text">And fairness has to cut both ways here as well. The Bible too has hard passages, and Christians should be ready to face their own with the same honesty, as other cards in this set do. The point is not to score a hit on Muhammad, but to invite a friend to examine the foundations of their faith as carefully as you are willing to examine yours.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Criticising Muhammad is just bigotry against Muslims.</b> It need not be either bigotry or an attack. The honest path is not a hostile caricature but the earliest Muslim sources themselves, the hadith and the traditional biographies. Reading them carefully and asking what they show is simply how anyone weighs a historical figure. Loving a friend means being willing to look at the evidence together, and to be looked at in return.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the fair way to explore Muhammad's life is through Islam's own earliest sources, read carefully and in context, with a Christian equally willing to face the Bible's hard passages. The aim is honest mutual examination, never a hostile caricature.</div></div>
+  </div>
+</section>
+
+<!-- B4 PEACE + REAL POINT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Peace, and the real point</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Peace, and the real point</div>
+    <h1 class="display">It was never about winning.</h1>
+    <p class="tagline">The question people most want to raise, whether Islam is a religion of peace, has to be handled with special care, because it is so easily turned into a slur. And it leads to the thing that matters most of all.</p>
+
+    <div class="row"><div class="row-icon">Not the people</div><div class="row-text">First, be clear and be fair: the vast majority of Muslims are peaceable people who long for peace, love their families, and want the same safe and good world you do. Any suggestion that Muslims are violent by nature is false, and unkind, and a Christian should say so plainly. The question, if it is raised at all, is never about the people.</div></div>
+    <div class="row"><div class="row-icon">Text, not people</div><div class="row-text">The honest and much narrower question is about the texts and the example: the passages in the Quran and the traditions that speak of violence, alongside those that speak of peace, and how they fit together. This is something Muslims themselves discuss and disagree about. It is a question to explore with humility, never a charge to level, and never a stick to beat a friend with.</div></div>
+    <div class="row"><div class="row-icon">The real point</div><div class="row-text">And here is the heart of it. The aim of every one of these questions was never to win a debate or to dismantle someone's world. It was to clear a little space to introduce a friend to Jesus, to his grace, and to a God who came near. Many Muslims, Qureshi among them, first met that Jesus not in an argument at all, but in a dream. The questions only ever served the invitation.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So you're saying Islam is a religion of violence.</b> No. Most Muslims are peaceable people who long for peace, and saying otherwise would be both untrue and unkind. The honest question is narrower, about texts and example rather than people, and it is one Muslims themselves debate. And in the end the point was never to win that argument. It was to introduce a friend to Jesus.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: most Muslims are peaceable people, and saying otherwise is false and unloving. The honest question is about texts and example, not people, and it is debated within Islam itself. But the real goal was never winning. It was to point a friend to Jesus and his grace.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Questions in service of the invitation.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Start in love</div><div class="sum-text">Common ground first; the goal is <b>truth together, not victory</b>, with your own faith open to the same questions.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; The Quran</div><div class="sum-text">Examine its claims (preservation, science) with the <b>honesty you'd want for the Bible</b>. Islam's own sources raise real questions.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Muhammad</div><div class="sum-text">Explore his life through Islam's <b>earliest sources</b>, read fairly and in context, never a hostile caricature.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Peace, and the real point</div><div class="sum-text">Most Muslims are peaceable; the question is about texts, not people. And the aim was always to <b>point to Jesus</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So what can you lovingly ask a Muslim friend? Real questions, the kind that honour them by taking their faith seriously: about the Quran's claims, about the earliest records of Muhammad, about peace, each one explored together with evidence and humility, and with your own beliefs just as open to challenge. But never as ammunition. Nabeel Qureshi did not leave Islam because a Christian crushed him in a debate. He came to Jesus because a friend loved him, walked with him, and was unafraid of the truth. The questions are only ever in service of the invitation: come and meet him.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>

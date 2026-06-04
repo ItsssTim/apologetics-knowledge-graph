@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#190e14">
+<title>Did Paul invent Christianity? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f5f0f1;
+    --ink-muted: #e6dcdf;
+    --ink-soft: #a89aa0;
+    --warm-black: #190e14;
+    --cream: #f3ece2;
+    --clay: #8a4030;
+    --amber: #dca850;
+    --hairline: rgba(238,230,232,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241410;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,230,232,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,230,232,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep wine-burgundy (ink, testimony) resolving to warm gold (the eyewitness dawn) */
+  .bg-intro { background: linear-gradient(168deg, #190e14 0%, #281420 38%, #5a2e2e 80%, #7e5230 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #190e14 0%, #22121c 34%, #3e2024 74%, #52302c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #180d13 0%, #241320 34%, #4a2628 74%, #663a2c 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #190e14 0%, #261420 34%, #50282a 74%, #7a4e30 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #190e14 0%, #2a1622 30%, #5e3630 64%, #dca850 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #190e14 0%, #281420 45%, #5e342e 80%, #d2a048 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4a2440 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #241320 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a4e2e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #dca850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,230,232,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Jesus, Paul, and the faith</div>
+    <h1 class="display display-lg">Did Paul invent Christianity?</h1>
+    <p class="tagline">It is a popular claim, made by Muslim and secular sceptics alike: that Jesus taught a simple ethical message, and it was really Paul, who never met him, who turned him into a dying and rising God and founded the religion we call Christianity. If it were true, it would change everything. The dates and the documents make it very hard to hold.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The Jesus-vs-Paul theory</div><div class="map-sub">Did Paul hijack a simple message?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">He's too early to have invented it</div><div class="map-sub">He received it; he didn't make it</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The eyewitnesses vetted him</div><div class="map-sub">Peter and James signed off</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">There's no hidden, simpler Jesus</div><div class="map-sub">And Paul gained nothing but a grave</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THE THEORY -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The Jesus-vs-Paul theory</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What is actually being claimed</div>
+    <h1 class="display">The idea of two rival founders.</h1>
+    <p class="tagline">The theory has a tidy shape, which is part of its appeal. It splits the faith in two, and lays the second half at the feet of one man.</p>
+
+    <div class="row"><div class="row-icon">The theory</div><div class="row-text">The claim runs like this. There was the real Jesus, a Jewish teacher with a simple message about God and how to live, who never claimed to be divine. And then there was Paul, a latecomer who never walked with him, who bolted on the cross, the resurrection, the divinity and the whole machinery of salvation, and so invented a new religion in Jesus's name.</div></div>
+    <div class="row"><div class="row-icon">Jesus vs Paul</div><div class="row-text">It is sometimes put as a slogan: Christianity is really Paulianity. On this view Paul is the genius, or the villain, who hijacked a Galilean preacher and built an empire of doctrine the man himself would never have recognised. It is a serious charge, and it deserves a serious look rather than a brush-off.</div></div>
+    <div class="row"><div class="row-icon">Two Jesuses?</div><div class="row-text">But the whole theory rests on one assumption: that beneath Paul there was a simpler, merely human Jesus, later painted over. So the real question is whether that earlier, plainer Jesus actually exists in the evidence, or whether he is something the theory has to invent in order to work. The dates decide it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Jesus preached a simple ethic; Paul turned him into a dying-and-rising God.</b> But the dying-and-rising core is not Paul's invention. He quotes it as a creed he received from those before him, datable to within a few years of the crucifixion, and the Gospels, written independently, present the same Jesus. There is no earlier, simpler Jesus hiding beneath Paul. The crucified and risen Jesus is there from the very start.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the theory claims a simple, human Jesus was overwritten by Paul's invented, divine Christ. Everything turns on whether that plainer Jesus is actually in the evidence, and the timeline leaves no room for him.</div></div>
+  </div>
+</section>
+
+<!-- B2 TOO EARLY -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Too early to invent</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The problem of the dates</div>
+    <h1 class="display">Paul is too early to have invented it.</h1>
+    <p class="tagline">The first thing that sinks the theory is simply the calendar. Paul is not a late embellisher. He is the earliest Christian writer we have, and even he is passing on something older still.</p>
+
+    <div class="row"><div class="row-icon">The early source</div><div class="row-text">Paul's letters, written in the 50s, are the oldest Christian documents in existence, earlier than the Gospels. If anything he stands closer to the events than the writers usually accused of adding legend. So he cannot be the late layer that quietly transformed a simple Jesus, because there is no earlier Christian voice for him to have transformed.</div></div>
+    <div class="row"><div class="row-icon">He received it</div><div class="row-text">And Paul is explicit that he is not the source. He tells the Corinthians that he passed on to them what he himself first received: that Christ died for our sins, was buried, rose, and appeared to Peter and the rest. Scholars across the spectrum date that creed to within a few years of the crucifixion. So the death, the resurrection and the worship of Jesus predate Paul. He inherited the gospel; he did not manufacture it.</div></div>
+    <div class="row"><div class="row-icon">Too early</div><div class="row-text">This is fatal to the legend version. Legends need generations to grow, and the core of Christianity is already fixed in a formula older than the earliest letter we possess, traceable to the first handful of years. There was no quiet century in which a human teacher slowly swelled into a divine saviour. The high view of Jesus is in the foundations, not in later paint.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The Gospels came decades after Paul, so the legend had plenty of time to grow.</b> Run the dates the other way. Paul is the early source, and even he is handing on something older still, the creed he received. The resurrection and the worship of Jesus are not late additions anyone bolted on; they sit in the earliest material we have, traceable to within a few years of the cross, far too early for legend to do its work.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Paul is the earliest Christian writer, and he explicitly passes on a creed older than himself, dated to within a few years of the crucifixion. The death, resurrection and worship of Jesus predate Paul, so he cannot be the man who invented them.</div></div>
+  </div>
+</section>
+
+<!-- B3 EYEWITNESSES -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / The eyewitnesses vetted him</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who checked his work</div>
+    <h1 class="display">The eyewitnesses vetted him.</h1>
+    <p class="tagline">If Paul had been spinning a new religion, there were people perfectly placed to expose him: the men who had actually known Jesus. So what did they do?</p>
+
+    <div class="row"><div class="row-icon">He met them</div><div class="row-text">Paul did not operate in isolation from them. In his letter to the Galatians he describes going up to Jerusalem, staying with Peter for over two weeks, and meeting James. These were not strangers; they were the inner circle, the men who had walked the roads of Galilee with Jesus. Paul sat with them, at length, comparing notes.</div></div>
+    <div class="row"><div class="row-icon">They signed off</div><div class="row-text">And the outcome was endorsement, not exposure. Paul says the leading apostles, having examined his gospel, added nothing to it and gave him the right hand of fellowship. Had he been preaching a Jesus they did not recognise, this is exactly where it would have blown up. Instead, the eyewitnesses shook his hand. You could not ask for a tougher fact-check, or a clearer result.</div></div>
+    <div class="row"><div class="row-icon">James the brother</div><div class="row-text">Most striking of all, one of those who affirmed him was James, the brother of Jesus, who grew up in the same house. A man does not endorse a stranger's fairy tale about his own brother. That James, a sceptic during Jesus's lifetime, ended up leading the Jerusalem church and backing Paul's message is among the hardest facts for the invention theory to swallow.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Paul never even met Jesus; he just made up his own version.</b> He never walked with the earthly Jesus, that is true. But he went to Jerusalem and spent time with the men who did, Peter and Jesus's own brother James, and they affirmed his gospel rather than denouncing it. An inventor of a rival religion does not get the blessing of the dead man's brother.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Paul met, and was vetted by, the eyewitnesses, Peter and James the brother of Jesus, who endorsed his gospel rather than exposing it. An invented religion does not survive inspection by the very people who knew Jesus, including his own family.</div></div>
+  </div>
+</section>
+
+<!-- B4 COLLAPSES -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The theory collapses</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where the theory falls apart</div>
+    <h1 class="display">There's no hidden, simpler Jesus.</h1>
+    <p class="tagline">Put the pieces together and the Jesus-versus-Paul theory has nothing left to stand on. The simpler Jesus it needs never turns up, and the inventor it imagines makes no sense.</p>
+
+    <div class="row"><div class="row-icon">No hidden Jesus</div><div class="row-text">The whole idea requires a plainer, merely human Jesus underneath, later overwritten. But peel back Paul and you do not find him. You find a creed, older than Paul, that already proclaims the death, resurrection and lordship of Christ. The simple ethical teacher is not the earliest layer waiting to be uncovered. He is a figure the theory has to imagine into existence.</div></div>
+    <div class="row"><div class="row-icon">Gospels agree</div><div class="row-text">And the Gospels are not Paul's puppets. They are independent accounts, and they show the same Jesus he does: one who forgives sins, claims divine authority, predicts his death, and rises. The divinity is not a Pauline import. It runs through sources Paul did not write and could not control, as the cards on Jesus's claims and the resurrection set out.</div></div>
+    <div class="row"><div class="row-icon">Nothing to gain</div><div class="row-text">Finally, look at Paul himself. He began as a violent enemy of the church, then threw away status, safety and finally his life for the message, beaten, imprisoned and executed for it. People invent religions for power, money or comfort. Paul got the opposite of all three. That is not the behaviour of a con man. It is the behaviour of a man convinced he had met someone real.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Paul, not Jesus, is the real founder of Christianity.</b> Then he founded it on a message that predates him, with the blessing of the eyewitnesses, matching Gospels he did not write, and he did it knowing it would cost him beatings, prison and execution. That is not the profile of an inventor. It is the profile of a man who believed, with good reason, that he had met the risen Jesus.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: there is no simpler Jesus beneath Paul; the earliest creed is already high and Christ-centred, the independent Gospels agree, and Paul suffered and died for a message he received rather than invented. The founder of Christianity is Jesus, not Paul.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">The founder was Jesus.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The theory</div><div class="sum-text">Jesus taught a simple ethic; Paul invented the divine, crucified, risen Christ. It all hinges on a <b>hidden, plainer Jesus</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Too early</div><div class="sum-text">Paul is the earliest writer, and he passes on a creed <b>older still</b>, within a few years of the cross. No time for a teacher to become divine.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The eyewitnesses vetted him</div><div class="sum-text">Paul met Peter and <b>James, Jesus's brother</b>, in Jerusalem; they endorsed his gospel rather than exposing it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; No hidden Jesus</div><div class="sum-text">The earliest layer is already high Christology; the independent Gospels agree; and Paul gained only <b>beatings and a grave</b>. Not an inventor.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So did Paul invent Christianity? The dates say no. Paul is the earliest voice we have, and even he is handing on a creed older than himself, one that already worships a crucified and risen Lord within a few years of the events. The men who actually knew Jesus, including his own brother, checked Paul's message and put their names to it. The Gospels he did not write tell the same story. And Paul himself traded power for a prison cell and a martyr's death. There is no simpler Jesus hiding underneath it all. There is only the one the first Christians, Paul included, were willing to die for.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
