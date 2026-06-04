@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c161a">
+<title>Doesn't science disprove Noah's flood? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #eef3f3;
+    --ink-muted: #d8e2e0;
+    --ink-soft: #93a6a4;
+    --warm-black: #0c161a;
+    --cream: #eef0e6;
+    --clay: #1f6260;
+    --amber: #d8a24e;
+    --hairline: rgba(230,240,238,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #10302e;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(230,240,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(230,240,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep storm water resolving to a warm covenant gold (deluge to rainbow) */
+  .bg-intro { background: linear-gradient(168deg, #0c161a 0%, #112630 40%, #1d4448 80%, #3a5848 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c161a 0%, #0f2028 34%, #163a40 74%, #1f4e50 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b151a 0%, #112430 34%, #1f4248 74%, #3a5450 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c161a 0%, #122830 34%, #244a48 74%, #4a5e40 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0c161a 0%, #132a30 30%, #3a5640 64%, #b5923e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c161a 0%, #112630 45%, #2e524a 80%, #b58a3e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #1f5060 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #112430 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a6a2e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8a24e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(230,240,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Noah, the ark, and the science</div>
+    <h1 class="display display-lg">Doesn't science make Noah's flood impossible?</h1>
+    <p class="tagline">A flood that drowns the whole planet, covers the highest mountains, and fits two of every animal on one wooden boat does run into serious scientific trouble. Many people walk away from the God of the Bible right here. But before you do, it is worth asking which flood you are rejecting, and whether the whole faith was ever resting on it.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Which flood are you arguing?</div><div class="map-sub">Christians hold a real range</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">What all the earth meant</div><div class="map-sub">Their whole world, not the globe</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">A real flood, remembered</div><div class="map-sub">Plausible, and echoed everywhere</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The faith doesn't float on the ark</div><div class="map-sub">The hinge is the resurrection</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHICH FLOOD -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Which flood?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Which flood are you arguing against?</div>
+    <h1 class="display">There isn't only one Christian reading.</h1>
+    <p class="tagline">The objection assumes every Christian is committed to a young earth and a planet-covering deluge a few thousand years ago. A great many are not, and never have been.</p>
+
+    <div class="row"><div class="row-icon">The range</div><div class="row-text">Believers who take Scripture with complete seriousness still land in different places on the flood. Some hold to a global flood and a young earth. Many read it as a real but regional catastrophe, told in the sweeping language of the people who lived through it. Others read the opening chapters of Genesis as a distinct kind of ancient writing, theological history rather than a modern news report. As Lennox notes, sincere Christians who fully trust the Bible genuinely differ here.</div></div>
+    <div class="row"><div class="row-icon">Not the hinge</div><div class="row-text">And crucially, the faith was never built on flood geology. William Lane Craig tells of a young man who nearly refused to follow Christ because he thought he first had to sign up to a young earth. He did not, and neither do you. No creed, ancient or modern, makes the size of Noah's flood a test of being a Christian.</div></div>
+    <div class="row"><div class="row-icon">Over-aimed</div><div class="row-text">So even if the hardest version, a literal global flood, turned out to be scientifically unworkable, the arrow would still miss most of the target. It would land on one reading among several, and not the one the broad Christian tradition treats as essential. The God of the Bible does not stand or fall on the water level.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But most Christians through history believed in a literal worldwide flood.</b> Many did, in ages when the local-versus-global question had not been pressed, and when the words all the earth naturally meant the known world anyway. But popularity is not the point. The question is what the text actually requires, and serious believing readers have long held that it does not require a globe under water. The faith has never been defined by flood geology.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christians who fully trust Scripture hold a real range of views on the flood, and none of the historic creeds make a global deluge a condition of faith. The objection, even at its strongest, defeats only one reading among several.</div></div>
+  </div>
+</section>
+
+<!-- B2 ALL THE EARTH -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / All the earth</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What the words meant to them</div>
+    <h1 class="display">All the earth didn't mean the whole globe.</h1>
+    <p class="tagline">A huge amount of the problem comes from reading an ancient text with a modern, global sense of the world. The original words carry a smaller, and very natural, meaning.</p>
+
+    <div class="row"><div class="row-icon">The word</div><div class="row-text">The Hebrew word translated earth also simply means land, or ground, or country. When the text says the waters covered all the earth, it can mean all the land in view, the whole region, just as easily as the entire planet. Nothing in the words themselves forces the global reading onto you.</div></div>
+    <div class="row"><div class="row-icon">Their world</div><div class="row-text">This is ordinary ancient speech, and the Bible uses it elsewhere without any confusion. Luke says a decree went out that all the world should be taxed, and everyone understands that to mean the Roman world, not Australia and the Americas. A flood that destroyed the whole world of the people it concerned fits the language exactly, without a drop of water needed over Everest.</div></div>
+    <div class="row"><div class="row-icon">Not the globe</div><div class="row-text">Reading all the earth as the literal planet is the modern imposition, not the ancient meaning. And here Lennox sounds a warning the church has heard before: there is a real danger of protecting Scripture by overkill, of insisting it claims something it never actually said.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Reinterpreting the flood as merely local is just a way to dodge the science.</b> It can look that way, but the same lesson was learned long ago. For centuries the church read the verses about the earth being fixed as a flat denial of a moving planet, until Galileo. They did not abandon the Bible; they realised it had never claimed what they assumed. Letting a text mean what its author meant is not a dodge. It is just careful reading.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the words all the earth meant all the known land to their first hearers, exactly as all the world means the Roman empire elsewhere in Scripture. A regional flood, told in sweeping language, is the natural reading, not a modern escape hatch.</div></div>
+  </div>
+</section>
+
+<!-- B3 A REAL FLOOD -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / A real flood</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Plausible, and remembered</div>
+    <h1 class="display">A real flood is not impossible at all.</h1>
+    <p class="tagline">Once you are no longer required to drown the whole planet, the impossibility largely evaporates. And there is a striking trail of evidence pointing back to a real flood.</p>
+
+    <div class="row"><div class="row-icon">Not impossible</div><div class="row-text">A vast, civilisation-ending flood across the low-lying plains of ancient Mesopotamia, the very cradle where this story is set, is entirely possible and geologically unremarkable. Great rivers do flood catastrophically. To the people whose entire world was that floodplain, such an event would indeed have felt, and been described, as the end of everything.</div></div>
+    <div class="row"><div class="row-icon">Everyone remembers</div><div class="row-text">And here is the remarkable part. Dozens of cultures all over the world, many with no contact with one another, carry an ancient memory of a great flood that once destroyed almost everyone. The Babylonian story of Gilgamesh is only the most famous of them. That shared memory is exactly what you would expect if a genuine, world-shaking flood really did happen near the dawn of civilisation.</div></div>
+    <div class="row"><div class="row-icon">A real event</div><div class="row-text">So the flood traditions, so often waved about as proof the Bible is making things up, actually cut the other way. They are evidence that something enormous and unforgettable occurred, lodged in the memory of many peoples, and that the Genesis account is one telling of a real event rather than a tale invented from nothing.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Flood stories everywhere just show that humans invent the same myths.</b> Perhaps, but that reading is a choice, not a finding. Dozens of separated cultures preserving the memory of a single great flood is at least as easily explained by a real flood that they all remembered. At the very least, the worldwide flood traditions are evidence for an actual event, not the knockdown case against the Bible the objection assumes them to be.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a catastrophic regional flood in ancient Mesopotamia is wholly plausible, and the flood is remembered across dozens of unconnected cultures. Far from disproving the account, that shared memory points back towards a real and unforgettable event.</div></div>
+  </div>
+</section>
+
+<!-- B4 THE FOUNDATION -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The real foundation</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where the faith actually rests</div>
+    <h1 class="display">The faith doesn't float on the ark.</h1>
+    <p class="tagline">Step back and notice what has happened. A debated text near the start of the Old Testament has been made the hinge on which the existence of God supposedly turns. But that was never where the weight sat.</p>
+
+    <div class="row"><div class="row-icon">The wrong hinge</div><div class="row-text">Christianity does not rest on the dimensions of Noah's boat. It rests on a single, public, datable claim: that Jesus of Nazareth was crucified and rose from the dead. That is the foundation the New Testament itself nominates, and it openly invites you to test it. If the flood account turns out to be theological history rather than modern geology, not one brick of that foundation moves.</div></div>
+    <div class="row"><div class="row-icon">The empty tomb</div><div class="row-text">So the real question was never about water levels in the days of Noah. It is about an empty tomb outside Jerusalem, and whether the best explanation of the evidence is that Jesus rose. That has a card of its own. It is the claim on which the whole thing genuinely stands or falls, and it has nothing to do with the ark.</div></div>
+    <div class="row"><div class="row-icon">Test that</div><div class="row-text">Lennox calls it the saddest thing when Christians fight one another over the flood and bring the gospel into disrepute, and he has a point that reaches further than he meant it. Do not let a dispute over the genre of Genesis chapter seven decide a question that the resurrection decides. Reject the God of the Bible if the tomb was not empty. Do not reject him over the rainfall.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If Genesis gets the flood wrong, the whole Bible is unreliable.</b> That assumes every line of a vast ancient library has to be modern scientific reporting, or the whole collection collapses. But a poem is not failed history, and an ancient theological narrative is not failed science. The faith stands or falls on one event you can investigate: the resurrection. A question about the genre of Genesis seven does not touch the evidence for the empty tomb.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christianity rests on the resurrection of Jesus, a public claim open to investigation, not on the scale of Noah's flood. Settle the empty tomb first. The flood is a question about how to read an ancient text, not the foundation of the faith.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">It rests on a tomb, not an ark.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Which flood?</div><div class="sum-text">Christians hold a real range; <b>no creed makes a global flood a test of faith</b>. The charge hits one reading among several.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; All the earth</div><div class="sum-text">To its first hearers that meant all the known land, like all the world meant Rome. <b>A regional flood fits the words.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; A real flood</div><div class="sum-text">A catastrophic Mesopotamian flood is plausible, and dozens of cultures remember one. <b>The shared memory points to a real event.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Not the foundation</div><div class="sum-text">The faith rests on the <b>resurrection</b>, not the ark. Test the empty tomb, not the rainfall.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So how does a Christian reconcile the flood with science? First, by noticing the faith never required a planet under water; believers hold several readings, and the broad tradition treats none of them as the test of being a Christian. Second, by reading all the earth the way its first hearers did, as their whole known world. Third, by seeing that a real, regional, civilisation-ending flood is not only possible but remembered across the globe. And fourth, by putting the weight back where it belongs. Christianity does not float on Noah's ark. It rests on an empty tomb. Reject it if Jesus stayed dead. Not over the rainfall.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
