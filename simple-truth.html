@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c1016">
+<title>Is truth objective, or just true for you? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f6fb;
+    --ink-muted: #d9e0ec;
+    --ink-soft: #96a2b8;
+    --warm-black: #0c1016;
+    --cream: #f3f1ea;
+    --clay: #3f5f86;
+    --amber: #cdb56a;
+    --hairline: rgba(220,230,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #161e2c;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,230,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,230,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep slate-blue to luminous clarity */
+  .bg-intro { background: linear-gradient(168deg, #0c1016 0%, #141c2a 38%, #2a3e5e 82%, #3c5a82 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c1016 0%, #131a26 34%, #28395a 74%, #38567c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b0f15 0%, #131b28 34%, #2a3e60 74%, #3c5a84 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c1016 0%, #141d2a 34%, #34466a 74%, #56708e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0c1016 0%, #151e2a 30%, #46566a 64%, #c8b070 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c1016 0%, #141c2a 45%, #324a6e 78%, #7a6e4a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5a82c0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #243a64 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7088a8 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8c178 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,230,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The foundation under everything</div>
+    <h1 class="display display-lg">Isn't truth just relative, true for you but not me?</h1>
+    <p class="tagline">It is the line that ends a thousand conversations: that is true for you, but not for me. It sounds humble and tolerant. But it quietly muddles three very different things, and once you separate them the idea falls apart. Let us untangle subjective, relative and objective truth.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Three meanings of true</div><div class="map-sub">Objective, subjective, relative</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">What's really subjective</div><div class="map-sub">Some things, but not everything</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Does relativism hold up?</div><div class="map-sub">Two ways it collapses</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Why it matters</div><div class="map-sub">And the escape hatch that fails</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THREE MEANINGS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Three meanings</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Objective, subjective, relative</div>
+    <h1 class="display">Truth comes in three very different kinds.</h1>
+    <p class="tagline">Most of the confusion clears the moment you separate three things people lump together under the one word true.</p>
+
+    <div class="row"><div class="row-icon">Objective</div><div class="row-text">Objective truth is true no matter what anyone thinks, because it matches reality. As Lennox puts it, objective means person-independent, unbiased by anyone's feelings or opinions. Water is made of hydrogen and oxygen whether you like it or not; the earth orbits the sun even if everyone believed otherwise. It is simply true, for everyone.</div></div>
+    <div class="row"><div class="row-icon">Subjective</div><div class="row-text">Subjective truth is the opposite: person-dependent, genuinely about you. Chocolate is delicious, that song is beautiful, I feel cold. These are real, but they are reports about the subject, not claims about the world. There is no point arguing whether mint ice cream is objectively the best; by its nature, it is a matter of taste.</div></div>
+    <div class="row"><div class="row-icon">Relativism</div><div class="row-text">Then there is the contested one: relativism, the claim that all truth, even about God, history and right and wrong, is only ever subjective, true for you but not for me. This is the move people reach for to quietly retire the hard questions. And it is the one that does not survive a second look.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>This is just splitting hairs over words.</b> It is the opposite of hair-splitting. It is the difference between I prefer tea and arsenic is poison. One is about you; the other is about the world and will kill you whatever your opinion. Blur that line and you can dodge any uncomfortable claim by relabelling it a preference. The distinction is the whole game.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: three different things hide under the word true. Objective (matches reality, true for all), subjective (genuinely about you), and the relativist claim that everything is the second. Keep them apart.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHAT'S SUBJECTIVE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Really subjective?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Some things, but not everything</div>
+    <h1 class="display">Yes, some things are subjective. Not everything is.</h1>
+    <p class="tagline">The relativist is half right, which is exactly why the idea feels true. Some things really are a matter of you. The mistake is stretching that over everything.</p>
+
+    <div class="row"><div class="row-icon">Some, yes</div><div class="row-text">Plenty of things genuinely are subjective: taste, preference, what you find beautiful or funny. Nobody should argue those as if they were facts about the universe. So when someone says that is true for you, they are sometimes exactly right, and you can happily agree. The trouble only starts when they apply it where it does not belong.</div></div>
+    <div class="row"><div class="row-icon">Reality</div><div class="row-text">Because most of the big questions are not about taste at all. Whether a dose is poison, whether an event in history happened, whether God exists, whether Jesus rose, these are claims about reality, and reality does not bend to opinion. They are either objectively true or objectively false. There is no true for me about whether a bridge will hold your weight.</div></div>
+    <div class="row"><div class="row-icon">The mix-up</div><div class="row-text">That is the category mistake at the heart of relativism: treating a claim about reality as if it were a claim about taste. Did Jesus rise from the dead is simply not the same kind of question as do you like jazz. One has an answer that is true for everyone or no one. Filing it in the taste box is how people avoid ever facing it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But everyone sees reality through their own lens, so isn't it all just perspective?</b> Our perspectives certainly differ; the facts underneath them do not. Two witnesses describe a crash differently, yet only one car actually ran the red light. Where you were born shapes what you believe, it does not shape what is true. Perspective is real. It is just not the same thing as truth.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: some things really are subjective, and that is fine. But reality-claims, about God, history, right and wrong, are not matters of taste. Treating them as if they were is the basic error.</div></div>
+  </div>
+</section>
+
+<!-- B3 DOES IT HOLD -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Does it hold?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Two ways it collapses</div>
+    <h1 class="display">Relativism collapses the moment you test it.</h1>
+    <p class="tagline">Set aside whether relativism is appealing and simply ask whether it can stand up. It cannot, on two counts: it refutes itself, and nobody actually lives by it.</p>
+
+    <div class="row"><div class="row-icon">It eats itself</div><div class="row-text">Here is the fatal problem. The statement there is no objective truth is itself put forward as an objective truth. The claim all truth is relative must, by its own rule, be only relatively true, in which case you are free to reject it. As Lennox says, it refutes itself, so we can simply discard it. Relativism cannot even be stated without breaking its own rule.</div></div>
+    <div class="row"><div class="row-icon">The courtroom</div><div class="row-text">And nobody truly lives it. Lennox's picture: imagine you are on trial for a crime you did not commit, and the judge announces there is no objective truth, so he will decide by his own prejudices. You would be outraged, and you would protest in the name of truth and fairness. The instant it costs you, you believe in objective truth absolutely.</div></div>
+    <div class="row"><div class="row-icon">No one lives it</div><div class="row-text">People tend to be relativists only about things they think do not matter much, like values, Lennox observes. But press even there. Has anyone ever genuinely believed that torturing children for fun is wrong only as a matter of personal taste? Of course not. That is an objective wrong, and we all know it. The relativist is bluffing, including to themselves.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Well, all truth is relative isn't meant as an absolute, it's just how I see it.</b> Then it carries no weight at all. If it is only your private perspective, I am perfectly free to set it aside and keep looking for what is actually true. Either it is an objective claim, in which case it sinks itself, or it is a mere preference, in which case it cannot tell anyone else what to think. It dies whichever way you take it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: relativism cannot be stated without assuming the objective truth it denies, and no one lives as though cruelty were just a matter of taste. As a theory, it eats itself.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHY IT MATTERS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Why it matters</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">And the escape hatch that fails</div>
+    <h1 class="display">Why it matters, and the escape hatch that fails.</h1>
+    <p class="tagline">This is not a word-game for philosophers. What you believe about truth decides whether the most important question of all is even allowed to be asked.</p>
+
+    <div class="row"><div class="row-icon">The real question</div><div class="row-text">Relativism sounds gracious, but it is really a way of never having to ask is it true. If every belief is just your-truth and my-truth, then God, the resurrection, the meaning of your life, all get quietly filed under personal taste and never actually examined. That is not open-mindedness; it is a polite refusal to look. The honest question is always whether a thing is really so.</div></div>
+    <div class="row"><div class="row-icon">Not your truth</div><div class="row-text">Which is why the gospel is never offered as my truth. The claim that Jesus rose from the dead is either objectively true, for everyone, or objectively false, for everyone. It cannot be true for you and false for me, any more than the earth can orbit the sun for some people only. Saying so is not arrogance; it is just honesty about what kind of claim it is.</div></div>
+    <div class="row"><div class="row-icon">Enough to act</div><div class="row-text">But you might protest that you cannot be one hundred percent certain. True, and you do not need to be. Outside pure mathematics, Lennox notes, nobody has absolute proof of anything; you still trust the surgeon and board the plane on strong evidence, not certainty. Faith works the same way: not believing without evidence, but trusting on enough of it to act.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Since you can't prove it beyond all doubt, you can't claim it's true.</b> By that standard you could claim almost nothing: not that the sun will rise, not that your memories are real, not that your friends exist. We act on excellent evidence rather than mathematical proof in every part of life. Demanding total certainty of God alone, while happily accepting good evidence everywhere else, is a double standard, not a high one.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: how you treat truth decides whether the real question gets asked at all. The gospel is a public claim, true or false for everyone, and you can weigh it on the same solid-enough evidence you trust your life to daily.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, is truth just relative?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Three meanings</div><div class="sum-text"><b>Objective</b> (matches reality, true for all), <b>subjective</b> (genuinely about you), and relativism (the claim that all of it is only the second).</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; What's subjective</div><div class="sum-text">Taste and preference really are. <b>Reality-claims</b> (God, history, right and wrong) are not, and treating them as taste is the basic mistake.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Does it hold</div><div class="sum-text">No: the claim <b>refutes itself</b> (it is its own truth claim), and nobody lives as if cruelty were just a preference.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Why it matters</div><div class="sum-text">Relativism quietly <b>bans the only question that counts</b>; the gospel is true or false for everyone, weighable on enough evidence to act.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So no, truth is not simply true for you and me. Some things are genuinely subjective, but the questions that matter most, God, morality, the resurrection, are about reality, and reality does not take a vote. Relativism cannot even state itself without cheating, and nobody truly lives by it. Which leaves the one question it is trying to avoid: is it true?</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
