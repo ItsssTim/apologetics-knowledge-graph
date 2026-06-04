@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#16120d">
+<title>Can you trust the Bible? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #fdfaf5;
+    --ink-muted: #e4dace;
+    --ink-soft: #b9ac9b;
+    --warm-black: #16120d;
+    --cream: #f7f1e8;
+    --clay: #7a4632;
+    --amber: #b07d3a;
+    --hairline: rgba(255,247,238,0.14);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(48px); opacity: 0.9;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.65; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 42px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.28);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1c12;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(255,247,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(255,247,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 22px; font-weight: 600; line-height: 1.22; letter-spacing: -0.015em; margin-top: 22px; }
+
+  /* gradients */
+  .bg-intro { background: linear-gradient(168deg, #1a150f 0%, #251c14 38%, #5e4129 82%, #8c6238 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #181210 0%, #2c1c16 34%, #582f22 74%, #834631 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #1a1610 0%, #2d2415 34%, #6a5125 74%, #a3792f 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #161219 0%, #271d27 34%, #523c45 74%, #876861 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #1b1610 0%, #31231a 34%, #774c2b 72%, #c0844a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #16120d 0%, #221913 45%, #3a2817 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #d99a5e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #7a4632 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #c98a6a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a060 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,247,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">A fair question</div>
+    <h1 class="display display-lg">Can you actually trust the Bible?</h1>
+    <p class="tagline">When people say they can't, they usually mean one of four things. Here is each one, and what the evidence actually shows. This focuses on the New Testament, which is where most of the challenge lands.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Were the writers there?</div><div class="map-sub">Or was it written centuries later?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Has it survived intact?</div><div class="map-sub">Or is it a game of telephone?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">What about contradictions?</div><div class="map-sub">Aren't there thousands of errors?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Didn't the church decide it?</div><div class="map-sub">Didn't Constantine pick the books?</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WERE THEY THERE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Were they there?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Or was it written centuries later?</div>
+    <h1 class="display">The writers were close enough to know.</h1>
+    <p class="tagline">The first worry is that the Gospels were written so long after Jesus, by people so far removed, that they are basically rumour passed down the centuries. The dates do not allow for that.</p>
+
+    <div class="row"><div class="row-icon">When</div><div class="row-text">All four Gospels were written inside the first century, within the lifetime of people who had actually been there. The earliest summary of the resurrection, the creed Paul quotes in 1 Corinthians 15, traces back to within a few years of the events, not generations later.</div></div>
+    <div class="row"><div class="row-icon">Eyewitness</div><div class="row-text">They read like first-century reporting, not legend. The New Testament scholar Richard Bauckham points out that the Gospels get the incidental things right that a later outsider could never have faked, down to the exact frequency of Jewish personal names in that specific time and place. That is the fingerprint of people who knew the world they were describing.</div></div>
+    <div class="row"><div class="row-icon">In use</div><div class="row-text">By the end of the first century the earliest church leaders, men like Clement of Rome and Ignatius of Antioch, were already quoting the Gospels in their own letters. You could nearly rebuild the Gospels from their quotations alone. The material was in circulation and being used almost immediately, with no quiet gap for a legend to grow in.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The anonymous-legend theory:</b> that the Gospels were written by unknown people generations later and just attached to famous names. But anonymous does not mean unknown, and the content itself, the names, places, customs and offhand details, fits first-century Palestine with a precision a distant later writer could not have reverse-engineered. And the timeline is simply too tight, since the church was already quoting these texts within a single generation.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Gospels sit close to the events, inside living memory, with eyewitness detail all through them. This is not centuries-later rumour.</div></div>
+  </div>
+</section>
+
+<!-- B2 SURVIVED INTACT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Second / Survived intact?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Or is it a game of telephone?</div>
+    <h1 class="display">It isn't a game of telephone.</h1>
+    <p class="tagline">This is the big one. Surely after centuries of copying and translating, the original wording is long gone. It is the most common objection, and it is also the one the evidence answers most decisively.</p>
+
+    <div class="row"><div class="row-icon">The myth</div><div class="row-text">People picture a single chain: a copy of a copy of a translation of a translation, drifting further from the original at every step, like a message whispered around a room. That is not how it worked. Modern Bibles are translated straight from the earliest Greek manuscripts, not from a long line of English passed hand to hand.</div></div>
+    <div class="row"><div class="row-icon">The numbers</div><div class="row-text">There are more than five thousand Greek manuscripts of the New Testament, plus many thousands more in other ancient languages, with the earliest fragments landing within about a century of the originals. Nothing else from the ancient world comes remotely close. Richard Bauckham notes that a play by Sophocles may survive on a single copy made over a thousand years later, and no one doubts we can read Sophocles.</div></div>
+    <div class="row"><div class="row-icon">Cross-check</div><div class="row-text">Having so many copies is a strength, not a weakness. Because the manuscripts come down through many independent lines, scholars can lay them side by side and spot exactly where a scribe slipped, the way you would catch one person's typo by comparing everyone else's copy. Mistakes get filtered out rather than baked in.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The corruption theory:</b> that the text has been changed so many times we cannot know what it first said. This is the case Bart Ehrman is best known for. But here is the part even he concedes: the differences between manuscripts are overwhelmingly trivial, things like spelling and word order, and no central Christian teaching depends on any disputed passage. We can reconstruct the original wording to a very high degree precisely because we have so much to compare.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the New Testament is the best-preserved text from the ancient world by a wide margin. What you read today is, to a remarkable degree, what was first written down.</div></div>
+  </div>
+</section>
+
+<!-- B3 CONTRADICTIONS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Contradictions?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Aren't there thousands of errors?</div>
+    <h1 class="display">Most contradictions dissolve on a closer look.</h1>
+    <p class="tagline">Two separate worries get bundled together here: differences between the manuscripts, and apparent clashes between the four accounts. They have different answers, and neither does the damage people assume.</p>
+
+    <div class="row"><div class="row-icon">The variants</div><div class="row-text">Critics love the figure of hundreds of thousands of variants across the manuscripts. But that number is only so large because the manuscripts are so many. Sort them and the overwhelming majority are spelling slips and word order. The tiny handful that genuinely affect meaning change no central teaching of the faith.</div></div>
+    <div class="row"><div class="row-icon">Perspective</div><div class="row-text">When the Gospels seem to clash, it is usually four witnesses describing one event from different angles, not four stories that cannot both be true. Two people at the same accident report different details. That is the mark of independent witnesses, not invention. Where one writer mentions a single angel at the tomb and another mentions two, both can be true. One simply focused on the one who spoke.</div></div>
+    <div class="row"><div class="row-icon">Too tidy</div><div class="row-text">Here is the twist. If all four accounts matched word for word, that would be the real warning sign, the fingerprint of people who got together and agreed on a story. The small, surface-level differences are exactly what honest, independent testimony looks like.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The riddled-with-errors theory:</b> that because there are discrepancies, the whole thing collapses. Watch the move, though. A difference in a minor detail is treated as if it sinks everything, a standard no historian applies to any other ancient source. And the alleged contradictions sit in peripheral details, never in the core the accounts all agree on: that Jesus lived, was executed, and was reported alive again.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the variants are mostly trivial and touch no doctrine, and the apparent contradictions are the normal texture of real, independent eyewitness reports.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHO DECIDED -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Who decided?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Didn't Constantine pick and change the books?</div>
+    <h1 class="display">Nobody voted the Bible into existence.</h1>
+    <p class="tagline">The popular version, made famous by <em>The Da Vinci Code</em>, is that the Emperor Constantine and the Council of Nicaea chose which books got in and edited out the rest. Almost none of that survives contact with the history.</p>
+
+    <div class="row"><div class="row-icon">Nicaea</div><div class="row-text">The Council of Nicaea in 325 met to settle a fierce dispute about who Jesus was. It did not draw up the list of biblical books, and the canon was not even on its agenda. The claim that Nicaea voted the Bible together is a modern story you can trace back through a chain of garbled and even forged sources, not through any historical record.</div></div>
+    <div class="row"><div class="row-icon">Recognised</div><div class="row-text">The books that became the New Testament were already being read and circulated by churches across the empire long before any council weighed in. The later lists were confirming what was already in widespread use, the way you recognise a genuine signature rather than inventing it by decree. Recognition, not imposition.</div></div>
+    <div class="row"><div class="row-icon">Couldn't</div><div class="row-text">Even if Constantine had wanted to rewrite it, he could not have. By his day copies were already scattered across thousands of locations in several languages. There was no single master copy to edit. The earliest fragments we hold predate him by roughly two centuries, and they match.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The suppressed-gospels theory:</b> that the church buried other gospels, like Thomas, Judas and Mary, that told a rival story. But those Gnostic texts were written much later, often a century or more after the eyewitnesses had died, and they read nothing like the first-century accounts. They were not so much banned as never recognised, because everyone could see they had arrived far too late to come from anyone who knew Jesus.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Bible was recognised over time by the wider church, not handed down by an emperor or a single council. Constantine did not write it, and could not have rewritten it.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-1" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four challenges, four answers</div>
+    <h1 class="display">So, can you trust it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Were they there?</div><div class="sum-text">Written <b>within living memory</b>, with eyewitness detail no later outsider could fake.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Survived intact?</div><div class="sum-text">The <b>best-preserved text</b> of the ancient world. Not a telephone chain, a cross-checkable family of thousands of copies.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Contradictions?</div><div class="sum-text">The variants are <b>trivial and doctrine-neutral</b>, and the differences are the mark of real independent witnesses.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Who decided?</div><div class="sum-text">The books were <b>recognised, not invented</b>. Constantine neither wrote nor could rewrite them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">Almost no ancient document gets this much scrutiny, and very few survive it this well. You are not trusting a rumour that drifted down the centuries. You are reading something that reaches back, remarkably intact, to the people who were actually there.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
