@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#12141a">
+<title>Am I God's hostage? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f3f0;
+    --ink-muted: #e2ddd4;
+    --ink-soft: #a7a39c;
+    --warm-black: #12141a;
+    --cream: #f1ece1;
+    --clay: #8a5a22;
+    --amber: #d4a24e;
+    --hairline: rgba(236,232,224,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 39px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1e0c;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(236,232,224,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(236,232,224,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: gunmetal iron resolving to a warm, liberating amber-gold */
+  .bg-intro { background: linear-gradient(168deg, #12141a 0%, #1e2029 38%, #4a3a26 82%, #6e5430 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #12141a 0%, #1a1c24 34%, #2c2f3c 74%, #3a3d4c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #111319 0%, #1c1d26 34%, #3a3526 74%, #564326 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #12141a 0%, #20202a 34%, #463826 74%, #6e5430 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #12141a 0%, #221d20 30%, #5e4626 64%, #c99238 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #12141a 0%, #1e2029 45%, #4e3c26 80%, #b5823a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a3f52 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #22252f 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a6e2e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4a24e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(236,232,224,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">God, hell, and coercion</div>
+    <h1 class="display display-lg">If it's God or hell, am I his hostage?</h1>
+    <p class="tagline">It is one of the sharpest charges you can put to Christianity. If a good God offers you a relationship, but the price of saying no is hell, then the offer starts to sound less like love and more like a gun to the head. Love me, or burn. So are you really free, or are you a hostage? The honest answer turns on what hell actually is, and on who is doing the threatening.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The mugger analogy</div><div class="map-sub">Why the gunman picture breaks</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">A warning, not a gun</div><div class="map-sub">Telling the truth isn't coercion</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">He takes no for an answer</div><div class="map-sub">The proof you're not a hostage</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Is the love even real?</div><div class="map-sub">Fear, stakes, and coming home</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THE MUGGER ANALOGY -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The mugger analogy</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Putting the charge at its strongest</div>
+    <h1 class="display">Your wallet, or your life.</h1>
+    <p class="tagline">The objection has a famous form. The atheist philosopher Keith Parsons once put it to William Lane Craig like this: God gives you the same kind of choice a mugger gives you in an alley. Love me, or I send you to hell. Stated that way it is genuinely disturbing. So look closely at where the comparison cracks.</p>
+
+    <div class="row"><div class="row-icon">The analogy</div><div class="row-text">A mugger holds a pistol to your head and says hand over your wallet or I pull the trigger. The threat, the bullet, has nothing to do with the thing he wants, your money. He has manufactured a danger out of thin air and is using it to extort you. That is what makes him a criminal rather than a salesman, and it is the picture the objection paints of God.</div></div>
+    <div class="row"><div class="row-icon">No bullet</div><div class="row-text">But God is not importing a separate weapon. There is no extra bullet held to your head from the outside. On the best Christian understanding, hell is not a torture chamber that God builds in order to frighten you into compliance. It is simply the name for a life lived apart from God, followed all the way to its end.</div></div>
+    <div class="row"><div class="row-icon">The absence</div><div class="row-text">And here is what dissolves the analogy. If God is the source of every good thing, of love and joy and beauty and life itself, then a life that finally refuses him is not left sitting in a neutral room with the lights still on. As Cliffe Knechtle puts it, every good gift at the party comes from God, so to be cut off from God is to be cut off from all of it. The darkness is not an added punishment. It is the shape of the absence you asked for.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Love me or burn is exactly what a protection racket sounds like.</b> But a protection racket threatens damage it would never otherwise cause: pay up, or we smash the shop we have no other reason to touch. Remove the racketeer and your shop is perfectly fine. Remove God, the source of all good, and there is no fine left to return to. The racket adds a threat from outside; refusing God simply leaves you with the inside of your own no.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the mugger threatens a harm that has nothing to do with what he wants. Hell is not a harm imported from outside; it is what is left when you turn from the source of every good. No separate gun is being held to your head.</div></div>
+  </div>
+</section>
+
+<!-- B2 A WARNING NOT A GUN -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Warning, not threat</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Warning or threat?</div>
+    <h1 class="display">Telling the truth isn't a threat.</h1>
+    <p class="tagline">Even granting all that, you might still feel got at. Why mention hell at all, if not to scare me? Because there is a world of difference between a threat and a warning, and the whole weight of the objection rests on quietly confusing the two.</p>
+
+    <div class="row"><div class="row-icon">Warn or threat</div><div class="row-text">A threat is made by someone who would otherwise leave you alone, and who chooses to harm you to get his way. A warning describes a danger that is there whether or not anyone says a word about it. The mugger threatens. The lifeguard who shouts that there is a rip current warns. One is coercion. The other is care.</div></div>
+    <div class="row"><div class="row-icon">The doctor</div><div class="row-text">Knechtle uses the example of a dermatologist who tells you the mark on your skin is a melanoma and needs to come out. Is he manipulating you? Of course not. He is telling you the truth about a real danger because he wants to save your life. To stay silent and let you wander on would be the cruelty. Warning someone is the opposite of holding them hostage.</div></div>
+    <div class="row"><div class="row-icon">Invitation</div><div class="row-text">And notice how this God actually comes to people. As Lennox observes, he does not blast in with overwhelming, Star Wars style power and laser guns. He comes quietly enough that an ordinary person can either invite him in or turn him away over a cup of tea. A hostage-taker kicks the door down. This one knocks.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Warning someone of eternal torment is still a threat, just dressed up.</b> Whether it is a threat or a warning depends on whether the danger is real and self-incurred, or invented to control you. The hell the New Testament describes is not a pit God shoves the unwilling into; it is the far end of a road a person insists on walking. He describes the destination precisely so you can change direction. What hell actually is, and is not, has a card of its own.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a threat invents a danger to control you; a warning names a real one so you can avoid it. Jesus warning about hell is the doctor naming the melanoma, not the mugger naming his price.</div></div>
+  </div>
+</section>
+
+<!-- B3 HE TAKES NO FOR AN ANSWER -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / He lets you go</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The decisive difference</div>
+    <h1 class="display">A hostage-taker never lets you walk away.</h1>
+    <p class="tagline">Here is the point that turns the whole objection on its head. The one thing every hostage-taker has in common is that he will not take no for an answer. And no is exactly what this God does take.</p>
+
+    <div class="row"><div class="row-icon">He lets go</div><div class="row-text">God does not drag anyone into heaven by the collar. Knechtle calls hell God's great compliment to human freedom: if you genuinely want to live your life apart from him, he will not haul you into his presence against your will. Lennox sets out the alternative starkly. If you say to God, get out of my universe, should he honour that, or reverse it? To reverse it would make him a despot trampling on your choice.</div></div>
+    <div class="row"><div class="row-icon">The real tyrant</div><div class="row-text">So turn the picture around. The genuine cosmic tyrant, the real heavenly dictator, would be a God who forced everyone to love him and allowed no exit at all. That is the celestial dictatorship the sceptic rightly fears, and it is the precise opposite of what is on offer. As C.S. Lewis pictured it, the doors of hell are locked on the inside. The thing that looks like a hostage situation is in fact God refusing to take anyone hostage.</div></div>
+    <div class="row"><div class="row-icon">He paid it</div><div class="row-text">And the ransom language runs the other way too. In this story God is not the kidnapper demanding payment. He is the one who pays it himself, at the cost of his own son, which is the whole point of the cross. A hostage-taker takes. This God gives himself, and then still lets you decide. That has a card of its own as well.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A God who must be worshipped or else is just an insecure dictator.</b> But an insecure dictator enforces the worship and punishes the escape; this God permits the escape, which is the only reason hell exists at all. And the call to love him is not him feeding an ego. It is him pointing you towards the one thing that can finally fill you. A doctor who urges the cure is not on a power trip; he is telling you where health is found.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the surest sign you are not a hostage is that God takes no for an answer. Hell is the honouring of that no, not its punishment. The God who forced your love would be the tyrant; the one who lets you leave is not.</div></div>
+  </div>
+</section>
+
+<!-- B4 IS THE LOVE EVEN REAL -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Is the love real?</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">But could the love be genuine?</div>
+    <h1 class="display">Fear isn't what he's after.</h1>
+    <p class="tagline">There is one more edge to the objection, and it is the sharpest. Even if I choose God, am I not choosing under threat, so that my love is really just fear, a kind of spiritual Stockholm syndrome? It is a fair worry, and the Christian answer is surprisingly direct.</p>
+
+    <div class="row"><div class="row-icon">Fear isn't it</div><div class="row-text">The faith does not aim at terrified compliance. The New Testament itself says that perfect love drives out fear. Fear might get your attention, the way a smoke alarm does, and Lewis noted that God will even accept someone who comes at first just wanting to escape the flames. But he does not leave them there. Fear is the doorway, not the room. What he is finally after is love, and love is the one thing fear can never manufacture.</div></div>
+    <div class="row"><div class="row-icon">Stakes</div><div class="row-text">And having something at stake is not the same as being coerced. Every choice that truly matters carries a cost on the other side. Marrying one person means not marrying another, yet the downside does not turn the yes into a hostage situation. What made the mugger coercive was that his threat was arbitrary and invented. These stakes are not invented. They are just what it means for a real relationship, with the source of life, to be genuinely refusable.</div></div>
+    <div class="row"><div class="row-icon">Coming home</div><div class="row-text">In the end the word hostage only works if God is a stranger with a gun. But if he is what Christianity claims, the source of your being and the very good your heart was made for, then turning to him is not capture. It is coming home. As Augustine put it, the human heart stays restless until it rests in God. You are not the sun's hostage simply because you need its light.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Choosing God to avoid hell is Stockholm syndrome, not love.</b> Stockholm syndrome is bonding with a captor who means you harm. But this captor, if he were one, lays down his own life for you, then unlocks the door and lets you leave. That is the opposite of a kidnapper. Coming to love someone who would die for you, and who refuses to force your hand, is not a syndrome. It is the most reasonable response there is.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God is not fishing for frightened compliance; the New Testament says love casts out fear. Stakes are not coercion, and turning to the source of all good is not capture. It is coming home to what you were made for.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Not a captor. A father.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The mugger analogy</div><div class="sum-text">A mugger threatens a <b>separate</b> harm to extort you. Hell isn't an imported threat; it's life apart from the source of all good.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; A warning, not a gun</div><div class="sum-text">Naming a real danger is care, not coercion. The <b>doctor naming the melanoma</b>, not the mugger naming his price.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; He takes no for an answer</div><div class="sum-text">A hostage-taker never lets you walk away. Hell exists <b>because</b> God won't force your love. The forcing God would be the tyrant.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Is the love real?</div><div class="sum-text">Perfect love casts out fear; fear isn't the goal. Stakes aren't coercion, and <b>turning home isn't capture</b>.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So are you God's hostage? A hostage is held by force and never allowed to leave. This God warns you of a real danger instead of inventing one, comes as an invitation instead of a gun, pays the ransom himself instead of demanding it, and then honours your no even when it costs him dearly. The one thing he will not do is force you to love him, because forced love is not love at all. That is not a captor. It is the one who left the door unlocked, and still hopes you will come home.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
