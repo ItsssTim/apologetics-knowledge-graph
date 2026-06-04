@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0e1124">
+<title>If God knows all, am I free? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f4fb;
+    --ink-muted: #dce1f1;
+    --ink-soft: #9aa3c4;
+    --warm-black: #0e1124;
+    --cream: #edeff6;
+    --clay: #34407e;
+    --amber: #9bb6ea;
+    --hairline: rgba(220,225,248,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 40px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #1f2750;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,225,248,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,225,248,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: midnight indigo resolving to luminous starlight blue */
+  .bg-intro { background: linear-gradient(168deg, #0e1124 0%, #181c40 40%, #2a3568 82%, #3c4a8a 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0e1124 0%, #14193a 34%, #283566 74%, #36447e 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0d1022 0%, #161b3c 34%, #2c3a6e 74%, #3e4e88 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0e1124 0%, #181d3e 34%, #303f76 74%, #46568e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0e1124 0%, #1a2046 30%, #36468a 64%, #6f8cd0 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0e1124 0%, #181c40 45%, #34427e 80%, #7088c8 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5466be 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #232d5e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6f8cd0 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #9fb8ec 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,225,248,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Foreknowledge and freedom</div>
+    <h1 class="display display-lg">If God knows my choices, am I really free?</h1>
+    <p class="tagline">If God knew, before you were born, every choice you would ever make, including whether you would turn to him or walk away, then are those choices really yours? It can feel like the future is already locked and you are only acting it out. But the worry rests on a mix-up worth untangling.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Knowing isn't making</div><div class="map-sub">Foreknowledge is not force</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">How he can know</div><div class="map-sub">Two ways God sees a free act</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Where Christians differ</div><div class="map-sub">One honest in-house debate</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Why love needs a choice</div><div class="map-sub">The reason for a world like this</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 KNOWING ISN'T MAKING -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Knowing vs making</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The hidden assumption</div>
+    <h1 class="display">Knowing what you'll do isn't making you do it.</h1>
+    <p class="tagline">The question quietly smuggles in an assumption: that if God knows the outcome, the outcome must be forced. But knowing and causing are two different things, and almost everything turns on the gap between them.</p>
+
+    <div class="row"><div class="row-icon">Know vs cause</div><div class="row-text">There is a silent jump in the worry, from God knew to God made it happen. Those are not the same act. A perfect weather forecast that gets tomorrow right every single time does not cause the weather. Knowing what will happen and making it happen are simply different, and only the second one would threaten your freedom.</div></div>
+    <div class="row"><div class="row-icon">Who decides</div><div class="row-text">In fact the arrow runs the other way. What God knows about your choice depends on the choice you will actually make, not the reverse. You do not act that way because he foresaw it; he foresees it because that is what you will freely do. Your free act is part of what makes his knowledge true in the first place.</div></div>
+    <div class="row"><div class="row-icon">A good friend</div><div class="row-text">Think of someone who knows you so well they can tell what you will order before you have opened the menu. Their accurate guess takes nothing away from you; you still choose. Now stretch that out to a God who knows you perfectly. His certainty is far greater, but it presses on your freedom no harder than your friend's good guess.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If God already knows the outcome, then it is fixed, so I cannot really choose.</b> But fixed and forced are not the same thing. Yes, it is settled that you will do what you will do, and what settles it is your own free choice, not a hand on the back of your neck. A true fact about your future is still a fact about something you yourself freely bring about.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God knowing what you will choose is not the same as God making you choose it. Foreknowledge is not force, and the determinism worry only bites if you blur the two together.</div></div>
+  </div>
+</section>
+
+<!-- B2 HOW HE CAN KNOW -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / How he knows</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">But how can he know?</div>
+    <h1 class="display">There are two honest ways God can know.</h1>
+    <p class="tagline">It is fair to ask how a genuinely free choice can be known ahead of time at all. Christians give two answers, and on both of them your choice stays your own.</p>
+
+    <div class="row"><div class="row-icon">Middle knowledge</div><div class="row-text">The first is called middle knowledge. The idea is that God knows what every possible person would freely do in any situation they could be placed in, and then chooses which world to bring about. The choice still flows from you; he reads it, he does not write it. Jesus shows exactly this kind of knowing when he says that Tyre and Sidon would have turned to God if they had seen the miracles Capernaum saw.</div></div>
+    <div class="row"><div class="row-icon">Just knowing</div><div class="row-text">The second is simpler still. An unlimited God may just know the future directly, the way you know what is in front of you, without running any procedure at all. Why assume that the being who made time has to reason his way forward to it the way we do? On this view he simply sees what is coming, free actions and all.</div></div>
+    <div class="row"><div class="row-icon">Either way</div><div class="row-text">The two camps argue over the mechanics, but they agree on the thing that matters here. On neither picture does God's knowledge reach back down the years and pull the strings. The choice is still genuinely yours, and his knowing it in advance does not unmake it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Knowing what I would do in every possible situation still sounds like I am on rails.</b> But the truth about what you would freely do flows from you, the free agent, not from God. He could have created no one at all, so the whole world of free creatures is his gift, yet the choices made inside it are authored by the people making them. Reading a story is not the same as dictating it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: whether by middle knowledge or by simply seeing the future directly, God can know a free choice without causing it. The certainty is his; the choosing stays yours.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHERE CHRISTIANS DIFFER -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Where Christians differ</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">An honest in-house debate</div>
+    <h1 class="display">Christians don't all agree on the how.</h1>
+    <p class="tagline">It is worth being honest that believers land in different places on this, and the disagreement is real. But notice carefully what they disagree about, and what they do not.</p>
+
+    <div class="row"><div class="row-icon">One side</div><div class="row-text">On one side, the Reformed or Calvinist tradition leans hard on God's sovereign choice. Before the world began, they say, God set his love on those he would save, and his call reaches in and raises the spiritually dead to life. The accent falls on grace as entirely God's initiative, with nothing at all owed to us.</div></div>
+    <div class="row"><div class="row-icon">The other side</div><div class="row-text">On the other side, the Arminian and Molinist traditions lean hard on genuine freedom. God elects, they say, in full view of the response he knows each person will freely give. The accent falls on a love that is truly offered, and can be truly received or refused.</div></div>
+    <div class="row"><div class="row-icon">What's shared</div><div class="row-text">Here is the part most people miss. Both sides hold two things the Bible plainly teaches side by side: God is completely sovereign, and you really do choose and are responsible for it. They debate how those two fit together, not whether both are true. Disagreement about the mechanism is not confusion about the facts.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Christians cannot even agree on this, so the whole idea must be incoherent.</b> But disagreement about how something works is not proof that it does not. People argued for centuries about how light behaves while never once doubting that it shines. Christians hold the two fixed points firmly and discuss the join, which is just what you would expect where a finite mind reaches the edge of an infinite one.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Christian family runs from a strong stress on sovereignty to a strong stress on freedom, yet every branch affirms both that God is sovereign and that your choices are real. The debate is about the how, not the whether.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHY LOVE NEEDS A CHOICE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Why it's not cold</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why it isn't a cold puzzle</div>
+    <h1 class="display">Love that can't say no isn't love.</h1>
+    <p class="tagline">This brings us to the heart of why God would make a world like ours at all, knowing some would turn away. The answer is not cold logic. It is love.</p>
+
+    <div class="row"><div class="row-icon">Why a world</div><div class="row-text">God wanted creatures who could actually love him, and love has to be free or it becomes something else. A yes that could never have been a no is not devotion, it is just a mechanism running. As Lennox puts it, take away free will and you take away the very possibility of love. A world with real refusal in it is the price of a world with real love in it.</div></div>
+    <div class="row"><div class="row-icon">Freely theirs</div><div class="row-text">So the people who turn away do so freely, and his knowing it beforehand does not make him the author of it. He grieves the refusal rather than scripting it. Jesus weeps over a city that would not come to him, which only makes sense if the not coming was truly and fully theirs.</div></div>
+    <div class="row"><div class="row-icon">Both ways</div><div class="row-text">And notice the determinism worry cuts against the sceptic too. If everything really were determined, you could not trust your own reasoning, since you would only ever think what you were caused to think, and nobody can actually live as though their choices were not real. The Christian never had to pick between a sovereign God and a free you. The faith has always held both at once.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A loving God would never create people he knew would be lost.</b> But the only way to guarantee that no one is ever lost is to make no one who can freely love, a world of puppets, which is not love at all. Those who are lost choose it; foreknowledge does not force it. A God who refused to risk any no would be a God who made a real yes impossible.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God makes a world where people can refuse him because love has to be free. The lost choose their own way, and a determinism that erased that choice would also erase your reasoning, your love, and any life you could actually live.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Knowing, not forcing.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Knowing isn't making</div><div class="sum-text">A perfect forecast doesn't cause the weather. God <b>knowing</b> your choice is not God <b>forcing</b> it. Foreknowledge is not force.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; How he can know</div><div class="sum-text">Two models, <b>middle knowledge</b> or simply seeing the future directly. On both, the choice stays genuinely yours.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Where Christians differ</div><div class="sum-text">From a strong stress on sovereignty to a strong stress on freedom, but <b>all affirm both</b> God's sovereignty and your real responsibility.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Why love needs a choice</div><div class="sum-text">Love that can't say no isn't love. The lost <b>choose</b> freely; God knows it without authoring it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So how does a Christian reconcile God's knowing with your freedom? By refusing the trick in the question. Knowing is not forcing. God can see exactly what you will freely do without reaching in to make you do it, and the proof that your choice is real is the very thing the sceptic leans on every time he weighs the evidence and decides for himself. A God who knew you would turn away and made you anyway is not a tyrant. He is the one who thought a world with real love in it was worth the risk of real refusal.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
