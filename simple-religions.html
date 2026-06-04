@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a1310">
+<title>Aren't all religions the same? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f7f3;
+    --ink-muted: #d6e2d8;
+    --ink-soft: #97aa9c;
+    --warm-black: #0a1310;
+    --cream: #f1f1e7;
+    --clay: #2f7d5a;
+    --amber: #d8b35a;
+    --hairline: rgba(225,240,228,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(48px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.58; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 40px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 11px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.45; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 18px; padding: 14px 16px;
+    background: var(--cream); color: #1c2a1f;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(225,240,228,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(225,240,228,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep forest to jewel green */
+  .bg-intro { background: linear-gradient(168deg, #0a1310 0%, #0f2018 38%, #1a4632 82%, #246d4a 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0a1310 0%, #102017 34%, #1c4631 74%, #266a47 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #091210 0%, #0e1f1c 34%, #184238 74%, #21675a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0a1410 0%, #112318 34%, #1f4d33 74%, #2f7d4e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0b1410 0%, #14241a 34%, #2a5236 72%, #4a8a52 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0a1310 0%, #0f2018 45%, #1c4a34 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4fc88a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1a5a3c 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #3fae82 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cdb45a 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(225,240,228,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The tolerant objection</div>
+    <h1 class="display display-lg">Aren't all religions basically the same?</h1>
+    <p class="tagline">It is the kindest-sounding idea going: every religion is just a different path up the same mountain, blind men each feeling one part of the same elephant. It sounds humble and generous. But it quietly assumes something nobody could actually know, and it does not survive a close look at what the religions really teach.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Where they genuinely overlap</div><div class="map-sub">Shared morals, shared values</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Where they flatly disagree</div><div class="map-sub">Origin, identity, purpose, destiny</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Where Christianity stands alone</div><div class="map-sub">Grace, the claim, the evidence</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Why it fits reality best</div><div class="map-sub">And isn't that arrogant?</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 OVERLAP -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Where they overlap</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Shared morals, shared values</div>
+    <h1 class="display">The similarity is real, but it is on the surface.</h1>
+    <p class="tagline">Start by giving the objection its due, because there is something to it. At the level of basic ethics, the major faiths really do echo one another.</p>
+
+    <div class="row"><div class="row-icon">The overlap</div><div class="row-text">Nearly every tradition condemns murder, theft, betrayal and cruelty, and some version of treat others as you would want to be treated turns up almost everywhere. On day-to-day right and wrong, a Christian, a Muslim and a Buddhist will often nod along together. This is genuine common ground, not a trick.</div></div>
+    <div class="row"><div class="row-icon">Shared values</div><div class="row-text">They also tend to prize the same things: compassion, honesty, humility, self-control, caring for the poor. And nearly all of them share one deep instinct, that the world is not as it should be and that we ourselves ought to be better than we are. That shared ache is real, and it is exactly why the same mountain idea feels true.</div></div>
+    <div class="row"><div class="row-icon">Even here</div><div class="row-text">But the agreement frays even at this level. Buddhism teaches that the route to peace is to let go of desire itself; Jesus says the opposite, to hunger and thirst for what is right, to want the good more, not less. So even on values the paths are already turning away from each other. Hold that thought.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So you admit they teach the same good things, why quibble over the rest?</b> Because shared ethics is the surface, not the substance. Agreeing that kindness is good is a long way from agreeing on who God is, what a human being is, or what happens when you die. And those are not footnotes. They change everything about how you live and what you hope for. The overlap is real; it is just not where the action is.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the religions do share a real moral floor, and that is worth honouring. But a shared sense of right and wrong is not the same as a shared account of reality.</div></div>
+  </div>
+</section>
+
+<!-- B2 DISAGREE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Where they split</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Origin, identity, purpose, destiny</div>
+    <h1 class="display">On the questions that matter, they contradict.</h1>
+    <p class="tagline">Every worldview has to answer four big questions: where we came from, who we are, why we are here, and where it is all going. Here the faiths do not blur into one. They give answers that cannot all be true.</p>
+
+    <div class="row"><div class="row-icon">Origin</div><div class="row-text">Where did everything come from? Christianity, like Judaism and Islam, says a personal God made it on purpose. Much of Hindu and Eastern thought says it flows out of an impersonal divine reality that everything is part of. The secular answer is matter and chance, with no one behind it. Those are three different stories, not one in three outfits.</div></div>
+    <div class="row"><div class="row-icon">Identity</div><div class="row-text">What are you? Christianity says a person made in God's image, of real but dependent worth. Hindu thought says your separate self is finally an illusion to see past, since all is ultimately one. The secular view says you are a clever animal, a passing arrangement of atoms. Sacred image-bearer, illusion to dissolve, or accident of chemistry. They exclude each other.</div></div>
+    <div class="row"><div class="row-icon">Purpose</div><div class="row-text">Why are you here? To know and love the God who made you (Christianity). To break free of the cycle of rebirth and the grip of craving (Buddhism, much of Hinduism). To submit to God and so earn paradise (Islam). Or to invent whatever meaning you like, since none came built in (the secular view). Those aim a life in opposite directions.</div></div>
+    <div class="row"><div class="row-icon">Destiny</div><div class="row-text">Where is it all heading? Christianity says resurrection and life with God. The Eastern traditions say reincarnation, reborn again and again until you are finally released. Islam says paradise or judgement, weighed on the scales of your deeds. The secular answer is that the lights simply go out. They cannot all be what waits.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If you'd been born in India you would be Hindu, so it is all just an accident of geography.</b> Probably true, and beside the point. Where you picked up a belief says nothing about whether it is true. Born in a different century you would believe different science too, and that does not make today's science false. The question was never where did your belief come from. It is which of these accounts is actually right.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: two plus two is four, not three and not five, and truth works the same way. The religions can all be wrong, or one can be right, but their opposite answers cannot all be true at once.</div></div>
+  </div>
+</section>
+
+<!-- B3 UNIQUE -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Third / What is unique</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Grace, the claim, the evidence</div>
+    <h1 class="display">Christianity runs in the opposite direction.</h1>
+    <p class="tagline">Once you see they really do differ, the question becomes which one, if any, is true. And here Christianity is not just one more option on the shelf. It is built the other way around.</p>
+
+    <div class="row"><div class="row-icon">Done, not do</div><div class="row-text">Every other system is, at heart, a ladder: do enough good to outweigh the bad, work off your karma, keep the Five Pillars, walk the Eightfold Path. It is about what you must do to climb up to God. Christianity alone says the ladder does not work, so God climbed down to us. It is not a religion of achievement, it is a rescue. Done, not do.</div></div>
+    <div class="row"><div class="row-icon">His claim</div><div class="row-text">The founders of the other faiths pointed to a way: Buddha to a path, Muhammad to a book. Jesus said I am the way, and claimed to be God in person and to forgive sins. That is why you cannot quietly file him as one more wise teacher. As Knechtle puts it, either he is God in human form, as the eyewitnesses said, or just a good teacher, as the Quran says. His own words will not let you have it both ways.</div></div>
+    <div class="row"><div class="row-icon">Checkable</div><div class="row-text">And Christianity bets everything on a public, checkable event: a real execution and an empty tomb, in front of witnesses, in datable history. Other faiths tend to rest on a private revelation or the beauty of a teaching. Christianity says go and investigate the evidence. That is a very different kind of claim, and a riskier one, which is part of why it is worth taking seriously.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Jesus was just a great moral teacher, like the others.</b> It is the one box his own words rule out. Good teachers do not generally claim to be God, to forgive sins committed against other people, or to be the one road to the Father. Either those claims are true, or they are the claims of someone badly deluded or dishonest. What they cannot be is the modest sayings of just another sage in the line-up.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: grace instead of climbing, a founder who claimed to be God, and a faith staked on checkable history. On all three, Christianity is in a different category, not a variation on the theme.</div></div>
+  </div>
+</section>
+
+<!-- B4 FITS BEST -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Why it fits best</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">And isn't that arrogant?</div>
+    <h1 class="display">It tells the truth about us we already half-know.</h1>
+    <p class="tagline">Being different is not the same as being right. So here is why so many find that Christianity, of all of them, fits the world as we actually live it.</p>
+
+    <div class="row"><div class="row-icon">Both at once</div><div class="row-text">We all feel two things that are hard to hold together: that human beings have real worth, and that we are also genuinely broken. The secular story struggles to ground real worth in mere atoms. Some Eastern thought treats the self as an illusion, which dissolves the worth. Christianity says both at full strength: made in God's image, and truly fallen. It matches what you already sense about yourself.</div></div>
+    <div class="row"><div class="row-icon">Open to all</div><div class="row-text">Yes, Christianity is exclusive, Jesus as the one way. But it is the most inclusive exclusive claim there is. Because you get in by grace and not by merit, the door is open to anyone: any country, any caste, any record, the respectable and the wreck alike. No good-enough scoreboard, no lucky birth required. Narrow door, but flung wide to everybody.</div></div>
+    <div class="row"><div class="row-icon">Rings true</div><div class="row-text">Put it together and it has the ring of truth: it explains the moral law we keep failing, the worth we cannot shake, the brokenness we cannot fix, and it answers them not with more rules but with rescue. It does not just make sense in a lecture. It fits the actual texture of being human.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Isn't it arrogant to say your religion is the only right one?</b> Notice that all are equally valid is itself a claim that excludes everyone who says otherwise, which is most of the world's believers. So the pluralist is not standing above the argument, they have just made their own. And the blind-men-and-the-elephant story only works if the storyteller can somehow see the whole elephant, the very God's-eye view it insists nobody has. The honest question is not who is being exclusive. Everyone is. It is who is right.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: claiming to be true is not arrogance, it is what every worldview does, pluralism included. Christianity backs its claim by fitting reality, holding our worth and our brokenness together, and opening the door to all.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, are they all the same?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The overlap</div><div class="sum-text">They <b>share a real moral floor</b>, which is why the idea feels true. But that is the surface.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; The split</div><div class="sum-text">On origin, identity, purpose and destiny they give <b>contradictory answers</b>. They cannot all be true.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The difference</div><div class="sum-text"><b>Grace not climbing</b>, a founder who claimed to be God, and a faith staked on checkable history.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Why it fits</div><div class="sum-text">It holds our <b>worth and our brokenness</b> together, and opens its narrow door to absolutely everyone.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So no, they are not all the same. They agree on a good deal of how to live, and disagree on almost everything about what is real. The generous-sounding answer flattens away the very differences that matter most. Christianity does not ask you to climb; it says God came down, in person, in history, and threw the door open to anyone willing to walk through it.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
