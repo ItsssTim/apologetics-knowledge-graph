@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a1820">
+<title>How can God be three and one? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f0f3f3;
+    --ink-muted: #d8e0e0;
+    --ink-soft: #93a4a6;
+    --warm-black: #0a1820;
+    --cream: #f2ece4;
+    --clay: #8a4a4e;
+    --amber: #e0b052;
+    --hairline: rgba(228,238,238,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #1c1410;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,238,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,238,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep sapphire-teal (mystery) warming through rose to gold (love, glory) */
+  .bg-intro { background: linear-gradient(168deg, #0a1820 0%, #122830 38%, #4a3044 76%, #7e5a3a 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0a1820 0%, #0f242c 34%, #1f3e44 74%, #2e4e50 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #091620 0%, #11262e 34%, #2e3a44 74%, #44424e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0a1820 0%, #16242e 34%, #4a2e42 74%, #7a4a48 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0a1820 0%, #12222c 30%, #4e3a3c 64%, #e0b052 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0a1820 0%, #122830 45%, #56383e 80%, #d6a448 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #1f4e58 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #11262e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a4a4a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,238,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The Trinity</div>
+    <h1 class="display display-lg">How can God be three and one?</h1>
+    <p class="tagline">It is the doctrine that makes people tap their heads. God is one, yet the Father, the Son and the Spirit are each called God. Isn't that just bad arithmetic, or three gods sharing one label? It is the hardest Christian idea to picture, but it is far more careful, and far more beautiful, than the muddle it gets mistaken for.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What it actually claims</div><div class="map-sub">One God, three persons, not three gods</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">It's not a contradiction</div><div class="map-sub">One in being, three in person</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Why it's actually good news</div><div class="map-sub">Only a Trinity can really be love</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">It wasn't invented at Nicaea</div><div class="map-sub">The raw materials are biblical</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT IT CLAIMS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What it claims</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What is actually being claimed</div>
+    <h1 class="display">One God, three persons. Not three gods.</h1>
+    <p class="tagline">Most of the confusion comes from attacking versions of the Trinity that no Christian has ever held. So pin down what the doctrine actually says, and what it flatly denies.</p>
+
+    <div class="row"><div class="row-icon">One God</div><div class="row-text">Christianity is fiercely monotheistic: there is one God, full stop. The Trinity does not chip away at that. It says the one God exists eternally as three persons, the Father, the Son and the Holy Spirit, who are not three parts of God and not three separate gods, but each fully the one God.</div></div>
+    <div class="row"><div class="row-icon">Three persons</div><div class="row-text">A useful shorthand is that God is one what and three whos. There is one divine being, one what, and within that one being there are three persons, three whos, who eternally know and love one another. The persons are genuinely distinct, but the being is undivided. That is the claim, stated precisely.</div></div>
+    <div class="row"><div class="row-icon">Not polytheism</div><div class="row-text">So whatever the Trinity is, it is not three gods in a trench coat. That would be tritheism, which the church has always rejected as a heresy, just as firmly as it rejects the opposite mistake of one God merely wearing three masks. The doctrine was hammered out precisely to rule both of those out.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>It's just three gods in a trench coat, polytheism with extra steps.</b> No; that is tritheism, which Christianity explicitly condemns as a heresy. The claim is one God, not three, existing as three persons who share one undivided being. The faith is every bit as monotheistic as Judaism or Islam. The Trinity is one God, never a committee of them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Trinity is one God in three persons, one what and three whos. It is not three gods, and not one God in three costumes. The church defined it precisely to rule out both errors, and it remains strictly monotheistic.</div></div>
+  </div>
+</section>
+
+<!-- B2 NOT A CONTRADICTION -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Not a contradiction</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Isn't it just a contradiction?</div>
+    <h1 class="display">One in being, three in person.</h1>
+    <p class="tagline">The sharpest version of the objection is that this is simply one equals three, a plain self-contradiction. But look carefully at what a contradiction actually requires.</p>
+
+    <div class="row"><div class="row-icon">Different respects</div><div class="row-text">A contradiction is saying something is both true and not true in the same way, at the same time. The Trinity never does that. It does not say God is one person and three persons, or one being and three beings. It says he is one in being and three in person, two different respects. No rule of logic is broken, so there is no contradiction to answer.</div></div>
+    <div class="row"><div class="row-icon">Not one equals three</div><div class="row-text">So it was never the claim that one god equals three gods, or one person equals three persons, which really would be nonsense. It is more like a single reality that is one in one sense and three in another, which is unusual but not illogical. The maths objection only works against a version that nobody is actually defending.</div></div>
+    <div class="row"><div class="row-icon">Mystery, not nonsense</div><div class="row-text">That leaves genuine mystery, and that is fine. If God is infinite, you would expect him to overflow a finite mind; a God you could fully fit inside your head would hardly be worth worshipping. Mystery is not the same thing as contradiction. The first means there is more here than we can grasp. The second means the idea destroys itself, and this one does not.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>One equals three is a flat contradiction; you can't even do basic maths.</b> It would indeed be a contradiction to say God is one person and three persons, or one being and three beings. But that is not the claim. He is one in being and three in person, which are different respects, so no law of logic is broken. It is beyond full understanding, yet mystery is not contradiction, and you would expect the infinite to exceed a finite mind.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a contradiction means the same thing affirmed and denied in the same respect. The Trinity says one in being, three in person, different respects, so no contradiction. It stays a real mystery, but mystery, the more-than-we-can-grasp, is not nonsense.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHY IT'S GOOD NEWS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Why it's good news</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why it's actually good news</div>
+    <h1 class="display">Only a Trinity can really be love.</h1>
+    <p class="tagline">Far from being an awkward technicality, the Trinity turns out to be the key to one of the most loved lines in the Bible. It is the reason the Christian God can be what he is said to be.</p>
+
+    <div class="row"><div class="row-icon">God is love</div><div class="row-text">The Bible says that God is love, not merely that God is loving, but that love is somehow what he is. Now sit with that for a moment. Love is not a solitary act. It needs a lover, a beloved, and the love that flows between them. By its very nature, love requires more than one.</div></div>
+    <div class="row"><div class="row-icon">Love needs more</div><div class="row-text">So here is the problem for a strictly solitary God, a single divine person, utterly alone. Before he created anything at all, who was he loving? On that picture, God was not love until he made a universe to practise on, which would make love something God acquired, not something he is. A lonely God cannot be love at the root.</div></div>
+    <div class="row"><div class="row-icon">Eternally</div><div class="row-text">The Trinity is exactly what solves this. From all eternity, before there was any creation, the Father loved the Son in the Spirit. God did not need the world in order to love; he was already, in himself, a community of self-giving love. That is why God is love can be eternally true, and it is the very opposite of a needless complication.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Why would God have to be three? It sounds needlessly complicated.</b> Because the Bible says God is love, and love is not a solitary thing; it needs a lover, a beloved and the love between them. A God who was a single, lonely person could not have been love before he made anything to love. The Trinity is precisely what lets God be love eternally, in himself. It is not a complication. It is the heart of the matter.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: because God is love, he must be more than a solitary person; love needs a giver and a receiver. The Trinity means God was love eternally, within himself, before any creation. Far from a technicality, it is what makes God is love true at all.</div></div>
+  </div>
+</section>
+
+<!-- B4 NOT INVENTED -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Not a late invention</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Wasn't it invented later?</div>
+    <h1 class="display">It wasn't invented at Nicaea.</h1>
+    <p class="tagline">A common last move is that the Trinity was cooked up by a church council centuries after Jesus. The word came later. The substance did not.</p>
+
+    <div class="row"><div class="row-icon">Not Nicaea</div><div class="row-text">It is true the technical vocabulary was sharpened over time, and that the Council of Nicaea defended the doctrine against a man named Arius who denied the Son was fully God. But defending and clarifying are not the same as inventing. Nicaea named and protected what the church already believed, much as the canon card describes for the Bible itself.</div></div>
+    <div class="row"><div class="row-icon">In the text</div><div class="row-text">And the raw materials are all there in the first-century documents, long before any council met. The Father is called God. Jesus is worshipped and addressed as God, which the card on his divinity lays out. The Spirit is spoken of as God. And throughout, there is insisted to be only one God. Hold all of that together and you already have the Trinity in seed.</div></div>
+    <div class="row"><div class="row-icon">Clarified</div><div class="row-text">So the doctrine is not a late addition bolted onto a simpler faith. It is the church's careful summary of what the apostles were already saying, put into precise words in order to fence out the distortions. The creed did not create the three-in-one God. It described the one the New Testament had already handed down.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The Trinity was invented by a church council in the fourth century.</b> The formal word was coined later, and Nicaea did clarify the doctrine against those who denied it, but it invented nothing. The ingredients are all in the earliest documents: the Father is God, Jesus is worshipped as God, the Spirit is God, and there is only one God. The council named what the apostles already believed, exactly as it did with the canon.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Trinity was clarified, not invented, at Nicaea. The first-century writings already affirm one God, the Father as God, the Son worshipped as God, and the Spirit as God. The creeds put precise words to what the apostles taught, fencing out the distortions.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">One God, who is love.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What it claims</div><div class="sum-text">One God in three persons, <b>one what and three whos</b>. Not three gods, not one God in masks. Strictly monotheistic.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Not a contradiction</div><div class="sum-text"><b>One in being, three in person</b>, different respects. A real mystery, but mystery is not nonsense.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Why it's good news</div><div class="sum-text">Because God is love, and <b>love needs more than one</b>. Only a Trinity could be love eternally, before creation.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Not invented at Nicaea</div><div class="sum-text">The raw materials are first-century. The council <b>clarified, didn't invent</b>, just as with the canon.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So how can God be three and one? Not by bad arithmetic, and not by being three gods in disguise. The claim is careful: one God in being, three persons who eternally know and love one another. That is a mystery, as you would expect of an infinite God, but it is not a contradiction, because the oneness and the threeness are in different respects. And it is the furthest thing from a dry technicality. It is the reason the most famous line about God, that God is love, can be true from all eternity. A solitary God could only begin loving once he had something to love. The God of the Bible was love before the world began.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
