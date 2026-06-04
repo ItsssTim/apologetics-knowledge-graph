@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#120c18">
+<title>Did Jesus claim to be God? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f3fa;
+    --ink-muted: #e1d8ec;
+    --ink-soft: #a99cbc;
+    --warm-black: #120c18;
+    --cream: #f3efe6;
+    --clay: #6a3a8a;
+    --amber: #d8b257;
+    --hairline: rgba(234,226,246,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 40px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #251830;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(234,226,246,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(234,226,246,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: royal purple to radiant gold (kingship and glory) */
+  .bg-intro { background: linear-gradient(168deg, #120c18 0%, #1e1430 38%, #3e2660 82%, #563880 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #120c18 0%, #1b122a 34%, #382356 74%, #4e3274 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #110b16 0%, #1d1430 34%, #3e2660 74%, #563880 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #120c18 0%, #1f1530 34%, #46306a 74%, #66468e 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #120c18 0%, #201632 30%, #5a4030 64%, #cf9e3e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #120c18 0%, #1e1430 45%, #46326e 80%, #7a6238 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #8a5fc0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #3a2068 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #a060b0 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0b858 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(234,226,246,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Who did Jesus think he was?</div>
+    <h1 class="display display-lg">Did Jesus actually claim to be God?</h1>
+    <p class="tagline">A popular line says no, that Jesus was only a wise teacher and that the church promoted him to God centuries later. But look at what he actually said and did, and at how the people around him reacted, and that story falls apart.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What he said and did</div><div class="map-sub">He didn't say the words, he did better</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Was it invented later?</div><div class="map-sub">It wasn't bolted on at Nicaea</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">So what are the options?</div><div class="map-sub">Just a good teacher is off the menu</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Why it changes everything</div><div class="map-sub">A claim, and its backing</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 THE CLAIMS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The claims</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What he said and did</div>
+    <h1 class="display">He didn't say the words. He did better.</h1>
+    <p class="tagline">It is true Jesus did not walk around announcing the bald phrase, I am God. In his world, he did something far more unmistakable than that.</p>
+
+    <div class="row"><div class="row-icon">Only God could</div><div class="row-text">Jesus did things that, to a monotheistic Jew, only God could do. He forgave people their sins, not merely wrongs against himself, but sins outright, drawing the shocked response: who can forgive sins but God alone? He claimed authority over the Sabbath and the Law, and he accepted worship rather than refusing it. These are not the moves of a humble rabbi; they are divine prerogatives.</div></div>
+    <div class="row"><div class="row-icon">The I am</div><div class="row-text">Most strikingly, he took the divine name for himself. Before Abraham was, he said, I am, deliberately echoing the name God gave to Moses. He said that he and the Father are one, and that whoever had seen him had seen the Father. In a fiercely monotheistic culture, none of this was subtle, and none of it was missed.</div></div>
+    <div class="row"><div class="row-icon">They got it</div><div class="row-text">The reactions prove his hearers understood exactly what he meant. More than once they picked up stones to kill him, saying that he, a mere man, was making himself God. At his trial the high priest tore his robes and cried blasphemy. And when Thomas fell down and called him my Lord and my God, Jesus accepted it rather than correcting him.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>He never actually said the plain words, I am God.</b> True, and he did not need to. In a Jewish world, taking the divine name, forgiving sins outright and receiving worship were unmistakable claims to deity, which is exactly why they kept trying to execute him for blasphemy. Demanding one precise English sentence ignores how he really made the claim, and how clearly everyone around him heard it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Jesus claimed deity not with a slogan but with his actions, forgiving sins, taking the divine name, receiving worship, and his hearers understood him so well they tried to stone him for it.</div></div>
+  </div>
+</section>
+
+<!-- B2 INVENTED LATER -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Invented later?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Was it bolted on later?</div>
+    <h1 class="display">It wasn't invented centuries later.</h1>
+    <p class="tagline">The common follow-up is that the church invented Jesus's divinity long afterwards, perhaps at the Council of Nicaea. The timeline simply does not allow it.</p>
+
+    <div class="row"><div class="row-icon">Not Nicaea</div><div class="row-text">Nicaea, in 325, did not invent the divinity of Christ; it defended what was already believed against a man who denied it, as the canon card lays out. And we have manuscripts from the second century, which Nicaea never knew about, already affirming that Jesus is divine. The belief is far older than the council so often blamed for it.</div></div>
+    <div class="row"><div class="row-icon">From the start</div><div class="row-text">The earliest Christian documents we have, the letters of Paul written in the 50s, before the Gospels, already speak of Jesus as Lord and apply texts about God directly to him. There was no slow promotion from teacher to deity over the centuries. The highest possible view of Jesus is right there in the very earliest layer.</div></div>
+    <div class="row"><div class="row-icon">Worshipped fast</div><div class="row-text">And notice who was doing the worshipping: strict, monotheistic Jews, the people on earth most horrified by worshipping any human being. Yet within a couple of decades of the crucifixion they were worshipping Jesus. Something extraordinary, not a slowly swelling legend, is needed to explain so fast and so unlikely a turn.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The divinity evolved gradually as the legend grew.</b> But it runs the wrong way. The earliest sources have the highest view of Jesus, not the lowest. If it were a legend swelling over time, you would expect a mere human teacher in the early layer and a god only later. Instead Paul, our earliest witness, is already worshipping Jesus as Lord within about twenty years.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the divinity of Jesus is in the earliest documents, worshipped by monotheistic Jews within decades, and it predates Nicaea by three centuries. It was not a later invention; it was there from the start.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE OPTIONS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / The options</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">So what are the options?</div>
+    <h1 class="display">So just a good teacher is off the menu.</h1>
+    <p class="tagline">Once you see what Jesus actually claimed, the comfortable middle option disappears. This is C.S. Lewis's famous point, and it is hard to wriggle out of.</p>
+
+    <div class="row"><div class="row-icon">The trilemma</div><div class="row-text">A man who genuinely claims to forgive all sins and to share the divine name is not simply a wise moral teacher. As Lewis put it, you are left with three options. Either he was lying. Or he was deluded, since a man who sincerely believes he is God is not sane. Or he was telling the truth. Liar, lunatic, or Lord.</div></div>
+    <div class="row"><div class="row-icon">Not a teacher</div><div class="row-text">The one option his own words rule out is the popular one: that he was merely a great teacher among others. Great teachers do not claim to forgive the sins of strangers, or take God's own name as their own. You may call Jesus many things, but not a good teacher and nothing more. That verdict died with what he actually said.</div></div>
+    <div class="row"><div class="row-icon">So, Lord</div><div class="row-text">And of the three that remain, two do not fit the man. As Knechtle observes, Jesus is no deluded cult leader; he taught the highest ethic the world has seen and then lived it, and he predicted his own death and resurrection and, on the evidence, pulled it off. That leaves the option most people least expect: that he was telling the truth.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>He was just a great moral teacher, like Buddha or Socrates.</b> But that is precisely the option his claims exclude. Buddha and Socrates did not announce that they could forgive all human sin, or that they shared the name of God. Strip those claims out and you no longer have the real Jesus; leave them in and good teacher is the one verdict that will not fit.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: faced with what Jesus actually claimed, just a good teacher is the one answer ruled out. The honest options are liar, lunatic, or Lord, and the man we meet fits only the last.</div></div>
+  </div>
+</section>
+
+<!-- B4 WHY IT MATTERS -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Why it matters</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why it changes everything</div>
+    <h1 class="display">A claim alone isn't proof. But this one was backed.</h1>
+    <p class="tagline">None of this yet proves he was right, only that he made the claim and meant it. The proof is what came next, and it is the hinge of the whole faith.</p>
+
+    <div class="row"><div class="row-icon">Just a claim</div><div class="row-text">A claim, however bold, is not by itself the truth. Plenty of people have claimed to be divine and been badly mistaken. So the divinity of Jesus does not rest on his own say-so alone, and it was never meant to. The claim needed backing, and Jesus pointed in advance to exactly the backing he would give.</div></div>
+    <div class="row"><div class="row-icon">The backing</div><div class="row-text">He staked it all on his resurrection. He said he would die and rise, and the case for the empty tomb and the transformed witnesses is the subject of its own card. A man who claims to be God and then walks out of his own grave has supplied the one signature that would settle the matter. The claim and the vindication stand or fall together.</div></div>
+    <div class="row"><div class="row-icon">The real question</div><div class="row-text">And this is why it is the hinge of everything. If Jesus is God, then the cross is God himself paying our debt, he is not one teacher among the religions but the Lord of all, and no honest person can quietly file him under nice moral example. The question stops being was he wise, and becomes the only one that finally matters: is he Lord?</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Even if he claimed it, claiming something doesn't make it true.</b> Exactly right, which is why Christianity never rests the case on the claim alone. It rests it on the resurrection, the claim put to the test and, on the evidence, vindicated. Take that away and Jesus is a tragic, deluded figure; leave it in and the claim has the one kind of backing that actually counts.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the claim does not stand alone; it is backed by the resurrection. Jesus claimed to be God, his hearers knew it, the first church worshipped him for it, and the empty tomb is the signature on the claim.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, did he claim to be God?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The claims</div><div class="sum-text">Not a slogan, but <b>forgiving sins, taking the divine name, receiving worship</b>, his hearers tried to stone him for it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Invented later?</div><div class="sum-text">No. The earliest documents (Paul, 50s) already worship him as Lord, decades before any council. <b>Nicaea defended it, didn't invent it.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The options</div><div class="sum-text">Just a good teacher is the one option ruled out. <b>Liar, lunatic, or Lord</b>, and only Lord fits the man.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Why it matters</div><div class="sum-text">A claim isn't proof, but the <b>resurrection backs it</b>. The real question becomes not was he wise, but is he Lord?</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So did Jesus claim to be God? Not with a slogan, but with everything that counted: forgiving sins, taking God's own name, receiving worship, and dying for saying so. His first followers, monotheistic Jews, worshipped him within years, not centuries. That rules out the easy verdict of nice teacher and leaves the hard one. He never gave us the option of mild admiration. He forces the real question: is he Lord?</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
