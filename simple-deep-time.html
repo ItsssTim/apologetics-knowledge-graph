@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#10151b">
+<title>Fossils, dinosaurs, the Ice Age, and Genesis &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f2ef;
+    --ink-muted: #dde0dc;
+    --ink-soft: #9ba29f;
+    --warm-black: #10151b;
+    --cream: #f1ece2;
+    --clay: #8a4a2e;
+    --amber: #d4a24e;
+    --hairline: rgba(235,236,233,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2a1810;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(235,236,233,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(235,236,233,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: layered stone strata, cool slate through warm rust to amber gold */
+  .bg-intro { background: linear-gradient(168deg, #10151b 0%, #1a222c 38%, #4a3328 78%, #6e4630 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #10151b 0%, #182029 34%, #2e3640 74%, #3e4650 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0f141a 0%, #1a222c 34%, #3a3236 74%, #56423a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #10151b 0%, #1c2028 34%, #4a3528 74%, #6e4830 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #10151b 0%, #1e242c 30%, #5a3e2a 64%, #c89240 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #10151b 0%, #1a222c 45%, #5a3e2a 80%, #c2903c 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a4452 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1a222c 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7e4a2e 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4a24e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(235,236,233,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Deep time and the Bible</div>
+    <h1 class="display display-lg">Fossils, dinosaurs, the Ice Age, and Genesis.</h1>
+    <p class="tagline">The rocks tell a long story. Fossils stacked through layers laid down over ages, dinosaurs that ruled the earth and vanished long before the first people, ice sheets that came and went. If the earth is really that ancient, what happens to Genesis? The short answer surprises a lot of people: far less than you would think.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The Bible never dates the earth</div><div class="map-sub">No verse gives it an age</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Faith didn't lose to the rocks</div><div class="map-sub">Christians helped build geology</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">What the rocks actually are</div><div class="map-sub">Fossils, dinosaurs, the Ice Age</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">It makes the Maker bigger</div><div class="map-sub">Deep time magnifies the Creator</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 NO DATE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / No date in the text</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Does the Bible give an age?</div>
+    <h1 class="display">The Bible never puts a date on the earth.</h1>
+    <p class="tagline">The whole clash depends on the idea that Scripture teaches a young earth of a few thousand years. Read it closely, and you find it never actually says so.</p>
+
+    <div class="row"><div class="row-icon">Show the verse</div><div class="row-text">Cliffe Knechtle makes the point bluntly. He has read the Bible for over fifty years, and he challenges anyone to show him the verse that states how old the earth is, because there isn't one. If you want to know the age of the earth, he says, you turn to geology, the same way you turn to biology to learn about a tree, not to Genesis. The Bible simply never poses the question.</div></div>
+    <div class="row"><div class="row-icon">The genealogies</div><div class="row-text">The famous figure of about six thousand years did not come from the text. It came from Archbishop Ussher in the sixteen hundreds, who added up the genealogies as though each named father came directly before his son. But Hebrew genealogies routinely skip generations to spotlight the important names, so son of can mean descendant of. The sums were never meant to be a stopwatch, and they never yielded a real date.</div></div>
+    <div class="row"><div class="row-icon">Before the days</div><div class="row-text">And Lennox points to something in the grammar that most readers miss. The opening line, in the beginning God created the heavens and the earth, sits before the sequence of days begins, and in a different past tense. Whatever you make of the days themselves, the beginning is set at an indefinite time before them. The text itself leaves the age of the earth wide open.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The Bible clearly teaches the earth is about six thousand years old.</b> It says so nowhere. That figure is a seventeenth-century calculation by Archbishop Ussher, who added up the genealogies as if each were an unbroken father-to-son chain. But those lists skip generations on purpose, to highlight the names that matter, so the totals never produced a genuine age. The Bible names no age for the earth at all.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Scripture nowhere states the age of the earth. The young-earth figure is a later sum from genealogies never built to be added up, and Genesis 1:1 even places the beginning before the days. Deep time fills a silence rather than breaking a claim.</div></div>
+  </div>
+</section>
+
+<!-- B2 FAITH AND ROCKS -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Faith and the rocks</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Was it ever faith versus science?</div>
+    <h1 class="display">Faith didn't lose a war to the rocks.</h1>
+    <p class="tagline">The story is usually told as religion digging in against the evidence of an old earth. The real history is messier, and a good deal friendlier.</p>
+
+    <div class="row"><div class="row-icon">A real range</div><div class="row-text">Christians who fully trust the Bible hold a range of views. Some hold to a young earth. Many more accept the standard ancient earth and read the days of Genesis accordingly. Lennox, an Oxford professor of science and a committed Christian, says plainly that he has no difficulty at all with a universe of around thirteen and a half billion years, and that sincere believers simply differ on the matter.</div></div>
+    <div class="row"><div class="row-icon">Who built it</div><div class="row-text">And remember who helped build the science. Several founders of geology and palaeontology were devout Christians. Nicolas Steno, who worked out the basic law of how rock layers are laid down, was a Catholic bishop. Pioneering geologists like Sedgwick and Buckland were Anglican clergymen. The notion that an ancient earth is an attack on faith is far more recent, and far more local, than people assume.</div></div>
+    <div class="row"><div class="row-icon">Not at war</div><div class="row-text">So the battle line the objection draws, ancient rocks on one side and the Bible on the other, is largely a modern invention. The people who first read the layers of strata were not trying to topple Genesis. A great many of them were reading the rocks precisely as the handiwork of the God of Genesis.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Religion has always fought science over the age of the earth.</b> History tells a messier story. Some of the founders of geology and palaeontology were devout believers, including the Catholic bishop Nicolas Steno, who first explained how rock layers form. The idea that holding to an ancient earth betrays the faith is recent and narrow, not the ancient or universal Christian position.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christians hold a genuine range of views, and most who engage the science accept an ancient earth. Several founders of geology were devout believers. The supposed war between faith and the age of the earth is far newer and blurrier than the objection assumes.</div></div>
+  </div>
+</section>
+
+<!-- B3 WHAT THEY ARE -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / What they actually are</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">So what are they?</div>
+    <h1 class="display">So what are fossils, dinosaurs, and ice?</h1>
+    <p class="tagline">With the age of the earth left open by the text, the three things in your question stop being threats and become simply the deep history of the world God made.</p>
+
+    <div class="row"><div class="row-icon">Fossils</div><div class="row-text">Fossils are the long record of life on earth, the remains of living things pressed into rock and layered up over vast stretches of time. To a Christian who reads the rocks at face value, they are not a problem to explain away. They are the unfolding story of a creation that has been here far longer than we have, written into stone.</div></div>
+    <div class="row"><div class="row-icon">Dinosaurs</div><div class="row-text">Dinosaurs were magnificent animals that lived, flourished and died out tens of millions of years before the first humans. That the Bible never mentions them is no stranger than the fact that it never mentions kangaroos or penguins. Genesis is not a catalogue of every creature. It is the account of who made them, and dinosaurs are among the most spectacular things he made.</div></div>
+    <div class="row"><div class="row-icon">The Ice Age</div><div class="row-text">The Ice Age, when great sheets of ice advanced and retreated across the continents, is simply one long, cold chapter in the deep history of the planet. Like the fossils and the dinosaurs, it sits comfortably within the ages that the opening of Genesis quietly passes over, without ever once denying them.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If dinosaurs were real and the Bible never mentions them, the Bible is incomplete.</b> The Bible never mentions kangaroos, antibiotics or the Pacific Ocean either, and nobody counts that against it. It was never meant to be an inventory of everything that exists. It tells you who made the world and why you are here, and leaves the full list of creatures, living and extinct, to the world itself to reveal.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: fossils are the deep record of life, dinosaurs are creatures that lived and died long before us, and the Ice Age is a chapter of the planet's long climate. None are mentioned or denied by Genesis, because Genesis is answering who and why, not the geological when.</div></div>
+  </div>
+</section>
+
+<!-- B4 BIGGER MAKER -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The bigger picture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What Genesis is really claiming</div>
+    <h1 class="display">Deep time makes the Maker bigger.</h1>
+    <p class="tagline">Look at what the opening of Genesis actually sets out to say, and you find that none of it rises or falls on the age of a rock.</p>
+
+    <div class="row"><div class="row-icon">What it claims</div><div class="row-text">Genesis 1 makes a handful of enormous claims. There is one God, not a quarrelling pantheon. The world is made on purpose and called good, not flung out by accident. The sun, moon and stars are created things, not gods to be feared. And human beings carry the image of God, and real dignity with it. Those are the load-bearing claims of the chapter.</div></div>
+    <div class="row"><div class="row-icon">Untouched</div><div class="row-text">Now notice this: not one of them depends on whether the earth is six thousand or four and a half billion years old. An ancient earth, a long fossil record, an age of dinosaurs and an Ice Age leave every one of those claims standing exactly where it was. The age of the rocks and the message of Genesis are simply answering two different questions.</div></div>
+    <div class="row"><div class="row-icon">Bigger not smaller</div><div class="row-text">And here is the turn worth sitting with. A creation shaped over unimaginable ages, teeming with vanished wonders, does not make its Creator smaller. It makes him more staggering. The deep past is the long, patient backstory of the world Genesis says he spoke into being. The rocks do not bury God. They put his patience and his artistry on display.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>An ancient earth full of long-dead species looks nothing like a good creation.</b> It looks like a long history, which is precisely what an old creation would have. Age is not the same as pointlessness, and the death of animals over deep time is not the moral evil the rest of the Bible is concerned with. A vast, ancient, teeming world is not less the work of a Creator. If anything, it is a great deal more.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the real claims of Genesis 1, one God, a purposeful and good creation, the stars as made things, humanity in God's image, are untouched by the age of the earth. Deep time does not shrink the Creator. It magnifies him.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">The rocks don't bury God.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; No date in the text</div><div class="sum-text">Scripture never states the earth's age; the 6,000-year figure is <b>Ussher's later sum</b> from genealogies that skip generations.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Faith and the rocks</div><div class="sum-text">Christians hold a range, most accept an old earth, and devout believers <b>helped found geology</b>. The war is modern.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; What they actually are</div><div class="sum-text">Fossils, dinosaurs and the Ice Age are the <b>deep history of the world God made</b>. Genesis answers who and why, not when.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The bigger picture</div><div class="sum-text">Genesis 1's real claims don't depend on the age of a rock. <b>Deep time makes the Maker bigger</b>, not smaller.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So what is the deal with fossils, dinosaurs and the Ice Age? They are the deep, ancient history of a world the Bible never claimed was young. Genesis gives no age for the earth; the six-thousand-year figure was added by a bishop centuries later. Christians have long held a range of views, and many who pioneered the very sciences in question did so as believers. And the things Genesis actually claims, one good God who made everything on purpose and stamped his image on us, stand untouched whether the earth is six thousand years old or billions. The rocks do not bury God. They show how vast and patient the Maker really is.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
