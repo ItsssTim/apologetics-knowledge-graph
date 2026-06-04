@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#11101e">
+<title>What about those who lived before Jesus? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f2ee;
+    --ink-muted: #e6ddd6;
+    --ink-soft: #a8a0aa;
+    --warm-black: #11101e;
+    --cream: #f3ece2;
+    --clay: #9a5a3a;
+    --amber: #e0a45e;
+    --hairline: rgba(240,232,228,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 35px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2c1a14;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,228,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,228,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: pre-dawn indigo-violet night resolving to a warm sunrise gold */
+  .bg-intro { background: linear-gradient(168deg, #11101e 0%, #1c1830 38%, #4a2c44 78%, #8a4a3e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #11101e 0%, #191628 34%, #2e2440 74%, #3e3052 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #100f1c 0%, #1b182e 34%, #3a2842 74%, #5a3848 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #11101e 0%, #1e1a30 34%, #4a2e44 74%, #7a4640 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #11101e 0%, #221a2e 30%, #6a3e44 64%, #d98a52 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #11101e 0%, #1c1830 45%, #5a3648 80%, #cf8a52 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2c5a 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c1830 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a4e44 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a45e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,228,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Everyone who lived before the cross</div>
+    <h1 class="display display-lg">What about those who lived before Jesus?</h1>
+    <p class="tagline">It is a fair and serious question. Jesus died when he died, at one fixed point in history. So what about the countless billions who lived and died before him, who never had the chance to hear the gospel as we know it today? How can a just and loving God hold them to a rescue that had not yet happened? The answer is older, and steadier, than most people expect.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">It was never about the name</div><div class="map-sub">Saved by faith, not information</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Abraham, two thousand years early</div><div class="map-sub">The Bible's own test case</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The cross reaches backward</div><div class="map-sub">One rescue, seen from both sides</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Judged on the light they had</div><div class="map-sub">The justice question answered</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 NOT THE NAME -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Not about the name</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The hidden assumption</div>
+    <h1 class="display">It was never about hearing the name.</h1>
+    <p class="tagline">The question carries a buried assumption: that to be saved you must first hear about the crucified and risen Jesus by name. But the Bible never actually says that is the mechanism, and seeing this changes everything.</p>
+
+    <div class="row"><div class="row-icon">Not the name</div><div class="row-text">From the very first pages, people are made right with God by trusting him, not by possessing a particular set of facts. Salvation is by grace, received through faith. The name of Jesus is the clearest light God ever gives, but Scripture never treats hearing that name as the secret password without which rescue is impossible. The basis has always been faith in God.</div></div>
+    <div class="row"><div class="row-icon">Eternal Word</div><div class="row-text">And the one who saves did not begin to exist in Bethlehem. As Keith Ward puts it, Jesus did not start to exist when he was born; the eternal Word of God has always existed, and has always been the saviour of the world. The birth in time is the moment that eternal Word stepped into history. It is not the moment the saving began.</div></div>
+    <div class="row"><div class="row-icon">What changed</div><div class="row-text">So what actually changed at the cross was not the basis of salvation but the brightness of the revelation. Before, people trusted God through a promise dimly seen. After, we trust him through a promise fulfilled in plain daylight. The light grew brighter. The way home stayed exactly the same.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But Jesus said no one comes to the Father except through him.</b> He did, and it is true. Yet notice what it claims and what it does not. It says salvation comes only through Christ and his work, the ground of every rescue. It does not say you must first hear his name to benefit, any more than a patient must name the chemistry of a drug for it to cure him. Abraham came to the Father through Christ without ever knowing the name.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: salvation has always been by grace through faith in God, grounded in Christ. Hearing the name is the clearest form of the light, never the entry code without which God cannot save.</div></div>
+  </div>
+</section>
+
+<!-- B2 ABRAHAM -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Abraham's faith</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The Bible's own test case</div>
+    <h1 class="display">Abraham was saved, two thousand years early.</h1>
+    <p class="tagline">This is not a clever modern patch. The New Testament's own headline example of a saved person is a man who lived around two millennia before Christ and never heard his name.</p>
+
+    <div class="row"><div class="row-icon">Abraham</div><div class="row-text">When Paul wants to explain how anyone at all is made right with God, he reaches not for a Christian convert but for Abraham. Abraham believed God, and it was credited to him as righteousness. As Lennox notes, he knew almost nothing of Christ and nothing whatever about Jesus, yet he is the Bible's chosen model of being justified by faith. If Abraham is in, the no chance objection is already in deep trouble.</div></div>
+    <div class="row"><div class="row-icon">Hebrews 11</div><div class="row-text">And Abraham is far from alone. Hebrews chapter 11 runs through a whole crowd of them, Abel, Enoch, Noah, Moses, Rahab the prostitute, David, the prophets, every one commended for faith, every one living before the cross. Knechtle calls it a truckload of people in heaven who never once heard the name Jesus.</div></div>
+    <div class="row"><div class="row-icon">Forward faith</div><div class="row-text">So how were they saved? By a faith that leaned forward. They trusted the God who had promised to put things right, and they died, as Hebrews says, still looking for it, having seen it only from a distance and welcomed it. They did not need the whole picture. They needed only to trust the One who was painting it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Abraham was a special patriarch; that does nothing for an ordinary person in ancient China.</b> But Hebrews 11 is not a list of loopholes for VIPs. Paul presents Abraham as the pattern for everyone, and the thing Abraham responded to, what God reveals through creation and conscience, reaches every person in every place. Lennox notes that missionaries have stumbled on remote tribes who had become monotheists simply by responding honestly to nature.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the Bible's own model of a saved person, Abraham, never heard the name of Jesus and lived two thousand years before him. Salvation by forward-looking faith is the rule, not some rare exception.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE CROSS REACHES BACK -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / The cross reaches back</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Across the timeline</div>
+    <h1 class="display">The cross reaches backward, not only forward.</h1>
+    <p class="tagline">You are quite right that Jesus died when he died, at one fixed point in history. But the worth of that death is not trapped inside the year it happened.</p>
+
+    <div class="row"><div class="row-icon">When he died</div><div class="row-text">We naturally picture cause and effect running one way, earlier to later, so a death around the year thirty cannot seem to reach back and help someone who died centuries before. That is true of ordinary events inside time. It is not true of the decisive act of the God who made time and stands outside it.</div></div>
+    <div class="row"><div class="row-icon">Reaches back</div><div class="row-text">Scripture says so directly. Paul writes that God, in his patience, had passed over the sins committed beforehand, settling them at the cross. Hebrews says Christ's death redeems those who were called under the older covenant. As Knechtle puts it, the only reason Abraham and Moses are in heaven is that God applies the death of his son to them. The atonement is applied right across history.</div></div>
+    <div class="row"><div class="row-icon">Two sides</div><div class="row-text">So picture one event with two views of it. Those before Christ looked forward to a rescue they could not yet see clearly. We look back to the same rescue, now accomplished. One Saviour, one cross, one grace, seen from either side of the single moment it happened. A will signed today can provide for children not yet born, and a debt can be cleared by a payment made long after it was owed.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A death in the first century cannot possibly save someone who died fifteen centuries before it.</b> That assumes God is locked inside the timeline the way we are. He is not. The eternal Word was always the saviour, and the cross is his decisive act, not a local event whose reach the calendar can fence in. We accept the same logic elsewhere: one sacrifice can cover what came before it as readily as what comes after.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the cross is one event, but its reach is not bound by its date. God applies it backwards to all who trusted him before, and forwards to all who trust him after. They looked ahead to the promise; we look back at the fulfilment.</div></div>
+  </div>
+</section>
+
+<!-- B4 JUDGED ON LIGHT THEY HAD -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / Judged justly</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The justice question, answered</div>
+    <h1 class="display">No one is judged for what they could never have known.</h1>
+    <p class="tagline">This goes to the very heart of your question, the just and loving God. And here the principle is clear, and clearly fair.</p>
+
+    <div class="row"><div class="row-icon">Light they had</div><div class="row-text">Lennox states it plainly: God judges people on the basis of the evidence they actually had, never on evidence they never received. A God who condemned people for missing a message that never reached them would be flatly immoral, and, as Lennox asks, who could believe in a God like that? That is simply not the God of the Bible.</div></div>
+    <div class="row"><div class="row-icon">Real access</div><div class="row-text">And nobody has been left with nothing. Every person in every age has had real access to God through what he shows of himself in creation, and in conscience, the sense of right and wrong written on the heart. Jesus himself said the truly blind are not condemned for failing to see. People are answerable for the light they were given, not for light that never reached them.</div></div>
+    <div class="row"><div class="row-icon">The just Judge</div><div class="row-text">Where the details are beyond us, the honest answer is the humble one. We do not know exactly how God weighs each case, but we do know the character of the Judge. As far back as Abraham pleading over Sodom, the Bible's settled answer is that the Judge of all the earth will do what is right. Nobody is being cheated. And this is the Judge who stepped down and died for the very people he judges.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A loving God should simply have made the gospel obvious to everyone, everywhere, from the start.</b> Perhaps; but notice how far the objection has shrunk. It is no longer that people had no chance, it is that you would have arranged the timing differently. Everyone has had genuine access through what they were given, the ancient patriarch and the dying thief alike. Where God draws each line, we can leave to the only Judge who has himself bled for the accused.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God judges everyone on the light they actually had, never on light they could not reach. The premise that people before Christ had no opportunity is the part that does not hold. Their opportunity was real, and the Judge is just.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Saved the same way Abraham was.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Not about the name</div><div class="sum-text">Salvation was always by grace through <b>faith in God</b>, not by hearing a name. The eternal Word was always the Saviour.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Abraham, 2,000 years early</div><div class="sum-text">The Bible's own model of a saved person <b>never heard of Jesus</b>. Hebrews 11 is a whole crowd of them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The cross reaches back</div><div class="sum-text">One event, but its worth isn't trapped in its date. God <b>applies it backward</b> to all who trusted him.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; Judged on the light they had</div><div class="sum-text">No one is condemned for a message that never reached them. <b>Everyone had real access</b>; the Judge is just.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So what about everyone who lived and died before Jesus? They were saved exactly the way Abraham was, and the same way you are: by grace, through faith, resting on a cross that reaches in both directions across time. They trusted the promise looking forward; we trust it looking back. No one is judged for a gospel that had not yet arrived, only for what God had genuinely shown them. On this, Christians across the centuries have largely agreed. The harder, more debated question is what happens to those who never hear today. But for those before Christ, the answer is steady: the same Saviour, the same grace, reaching back to bring them home.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
