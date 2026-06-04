@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c1020">
+<title>Hasn't science disproved miracles? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f3f8;
+    --ink-muted: #dcdfec;
+    --ink-soft: #97a0b8;
+    --warm-black: #0c1020;
+    --cream: #f1eee4;
+    --clay: #7a5a24;
+    --amber: #e6b850;
+    --hairline: rgba(228,232,244,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 36px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,232,244,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,232,244,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep ink-indigo cosmos resolving to a luminous warm gold (the Author breaking in) */
+  .bg-intro { background: linear-gradient(168deg, #0c1020 0%, #161a32 38%, #3a3850 78%, #6e5a36 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c1020 0%, #12162a 34%, #232840 74%, #313650 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b0f1c 0%, #14182e 34%, #2c2e46 74%, #45403e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c1020 0%, #161a30 34%, #34324a 74%, #5e4e34 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0c1020 0%, #181c34 30%, #463e40 64%, #e6b850 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c1020 0%, #161a32 45%, #4a4036 80%, #d8aa44 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #2e3458 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #14182e 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7e5e2a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e6b850 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,232,244,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Miracles and the laws of nature</div>
+    <h1 class="display display-lg">Hasn't science disproved miracles?</h1>
+    <p class="tagline">For a lot of people this is the quiet deal-breaker. We know how nature works now, so surely the walking-on-water, rising-from-the-dead claims belong to a pre-scientific age. Hasn't science simply closed the door on miracles? It turns out the door was never science's to close, and seeing why clears the path to everything else.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">A miracle isn't science breaking</div><div class="map-sub">The Author acting in his world</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Science can't rule them out</div><div class="map-sub">Laws describe, they don't forbid</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The slogans don't hold up</div><div class="map-sub">Hume's circle, and the famous slogan</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">It was always the God question</div><div class="map-sub">An assumption, not a finding</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 NOT MAGIC -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What a miracle is</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What a miracle actually is</div>
+    <h1 class="display">A miracle isn't science breaking down.</h1>
+    <p class="tagline">Most of the objection rests on a picture of what a miracle is, and it is the wrong picture. Fix that, and the supposed conflict with science largely dissolves.</p>
+
+    <div class="row"><div class="row-icon">Not magic</div><div class="row-text">A miracle is not magic, and it is not nature malfunctioning. On the Christian view it is the personal God who designed the natural order choosing, on rare and significant occasions, to act within it. As Lennox puts it, the regularities of nature are God's own handiwork, and now and then their Author does something special to draw attention to himself.</div></div>
+    <div class="row"><div class="row-icon">The Author</div><div class="row-text">This is why a miracle does not break the laws of nature, any more than a composer breaks the rules of music by adding a new note. God feeds a fresh event into the system, and the regular order simply carries on around it. The laws describe what nature does when it is left to itself. They were never a cage around the one who made them.</div></div>
+    <div class="row"><div class="row-icon">Why it counts</div><div class="row-text">And here is the part people miss: the regularity is exactly what makes a miracle a miracle. The reason the resurrection means anything is that everybody knows dead people stay dead. If bodies rose every Tuesday, nobody would call it a sign. A miracle leans on the ordinary rule. It does not deny it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Believing in miracles is just a primitive, pre-scientific cop-out.</b> But the people in these stories knew the regularities as well as we do. When Joseph learned Mary was pregnant, his first instinct was not to cry miracle but to quietly call off the wedding, because he knew perfectly well where babies come from. You have to know nature's normal course to recognise an exception to it. Miracle is not ignorance of the laws. It depends on them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a miracle is not nature breaking down but its Author acting within it, a new event fed into the regular order. Far from denying the laws of nature, the claim depends on knowing them, which is what makes the event a sign at all.</div></div>
+  </div>
+</section>
+
+<!-- B2 SCIENCE CAN'T RULE OUT -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Science can't settle it</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Can science settle it?</div>
+    <h1 class="display">Science can't actually rule them out.</h1>
+    <p class="tagline">Science is extraordinarily good at describing how nature behaves on its own. That is a different thing from telling you whether anything beyond nature can ever act, and the difference is everything.</p>
+
+    <div class="row"><div class="row-icon">Describe, not forbid</div><div class="row-text">The laws of nature are descriptions of what regularly happens, not commands that forbid anything else. They tell you, with great precision, what the universe does when nothing interferes. They cannot tell you that nothing ever could interfere, because that is not a measurement. It is a guess about what exists beyond the reach of the instruments.</div></div>
+    <div class="row"><div class="row-icon">The drawer</div><div class="row-text">Lennox uses a homely picture. If you leave money in a drawer and later find some missing, you do not conclude that the laws of arithmetic have been broken. You conclude that someone has been into the drawer. The laws of arithmetic no more stop a person from acting than the laws of nature stop their Author from acting. They simply describe what happens when no one does.</div></div>
+    <div class="row"><div class="row-icon">No instrument</div><div class="row-text">So when someone says science has disproved miracles, ask which experiment did it. There isn't one, because science has no instrument that detects whether there is a God who can act. It can map the usual course of nature beautifully. It is simply silent on whether anything stands behind nature, which is the question that actually matters here.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But no one has ever observed the laws of nature being suspended.</b> A miracle does not suspend the laws; it adds an event to the system they describe. If someone slips extra money into your drawer overnight, arithmetic is not suspended, a person has acted. The laws carry on describing what nature does when left alone. They have nothing to say about what God may do within it on a particular occasion.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the laws of nature describe what happens on its own; they do not forbid an outside cause from acting. No experiment has disproved miracles, because science has no tool that could detect or exclude a God beyond nature. That question is outside its range.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE SLOGANS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Hume and the slogan</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Hume and the famous slogan</div>
+    <h1 class="display">The slogans don't hold up.</h1>
+    <p class="tagline">Two pieces of intellectual furniture get wheeled out here: David Hume's classic argument, and the line that extraordinary claims require extraordinary evidence. Both are weaker than their reputation.</p>
+
+    <div class="row"><div class="row-icon">Circular</div><div class="row-text">Hume argued that uniform experience establishes the laws, and so always outweighs any report of a miracle. But this quietly assumes the very thing in question. To know that experience is uniformly against miracles, you would have to have surveyed every event in all of history, which no one has. As Lennox says, Hume simply assumes what he set out to prove.</div></div>
+    <div class="row"><div class="row-icon">Self-defeating</div><div class="row-text">Worse, Hume elsewhere denies that nature is uniform at all, his famous worry that the sun rising every day so far is no guarantee it rises tomorrow. You cannot lean on the uniformity of nature to bar miracles and also deny that nature is uniform. Tellingly, Antony Flew, long regarded as Hume's leading interpreter and once the world's most famous atheist, came to admit the case did not work.</div></div>
+    <div class="row"><div class="row-icon">The slogan</div><div class="row-text">As for extraordinary claims requiring extraordinary evidence, it sounds wise and is mostly slippery. In practice the bar gets set so high that nothing could ever clear it. The fair question is not whether an event is unusual, of course a miracle is, but whether the evidence we actually have would be very hard to explain unless it had really happened.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Extraordinary claims require extraordinary evidence.</b> A neat slogan, but a blunt instrument. Taken strictly it would force us to reject many rare but perfectly real events, and in debate it usually just means the bar sits wherever the sceptic needs it to sit. Probability does not work that way. An unusual event can be well established by ordinary evidence, as long as that evidence would be hard to account for any other way.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Hume's argument is circular and even self-defeating, and the demand for extraordinary evidence is usually a bar set too high to clear on principle. Neither shows that miracles cannot happen. They only show how to dismiss one without looking.</div></div>
+  </div>
+</section>
+
+<!-- B4 THE GOD QUESTION -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The real question</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The real sticking point</div>
+    <h1 class="display">It was always the God question.</h1>
+    <p class="tagline">Strip it all back, and the objection to miracles is almost never the finding it claims to be. It is a decision made before the evidence is ever examined.</p>
+
+    <div class="row"><div class="row-icon">An assumption</div><div class="row-text">When someone says science rules out miracles, they usually mean that nature is all there is, and so nothing outside nature can act. But that is not something science discovered. It is a philosophy, naturalism, brought to the table in advance. As Lennox pressed Lawrence Krauss, the real issue is an a priori rejection of the supernatural, not any particular piece of evidence.</div></div>
+    <div class="row"><div class="row-icon">If God is there</div><div class="row-text">And once you see that, the whole thing turns on one prior question. If there is no God, then of course there are no miracles, and no evidence could ever change it. But if God exists, a miracle is simply God doing something, and there is nothing irrational about it at all. The miracle question was never really about science. It was about God.</div></div>
+    <div class="row"><div class="row-icon">Go look</div><div class="row-text">Which means the honest move is not to rule miracles out in advance, but to go and look. If God might be there, then the central Christian miracle, the resurrection of Jesus, is exactly the kind of claim worth examining on its evidence rather than dismissing on principle. That case has a card of its own.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>I'd believe in a miracle if science could verify one in the lab.</b> But science is built to study the repeatable regularities of nature, and a one-off act of God is not the sort of thing its instruments are designed to catch. Asking for a miracle on demand in a laboratory misunderstands what is being claimed. The real obstacle is rarely the evidence. It is a prior ruling that the supernatural is not allowed, and that is an assumption, not a result.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: science has not disproved miracles; a philosophy that rules out the supernatural in advance has. The question was always whether God exists, not whether a laboratory can summon a miracle. If he might, the reasonable move is to weigh the evidence for the resurrection, not refuse to look.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">The door was never science's to close.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Not science breaking</div><div class="sum-text">A miracle is the <b>Author acting in his world</b>, a new event fed into the order. The regularity is what makes it a sign.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Science can't rule out</div><div class="sum-text">Laws <b>describe</b> what nature does on its own; they don't forbid an outside cause. No experiment has disproved miracles.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The slogans</div><div class="sum-text">Hume's argument is <b>circular and self-defeating</b>; the demand for extraordinary evidence is a bar set too high.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The God question</div><div class="sum-text">The claim that science disproved miracles is an <b>assumption</b>, not a finding. If God might exist, go look at the resurrection.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So has science disproved miracles? No, and it was never equipped to. Science describes the regular order of nature; a miracle is the God who made that order acting within it, which is exactly why everyone recognises it as exceptional. The old arguments turn out to be circular, and the famous slogan is mostly a bar set wherever it needs to be. What is really doing the work is a quiet assumption that nothing beyond nature exists, slipped in before any evidence is read. Drop the assumption, and the question becomes honest again: not has science closed the door, but is God there, and did he, on one particular morning, walk out of a tomb.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
