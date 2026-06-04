@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#18100c">
+<title>Isn't belief just an accident of birth? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f1ec;
+    --ink-muted: #e8ddd2;
+    --ink-soft: #ac9f92;
+    --warm-black: #18100c;
+    --cream: #f3ebe0;
+    --clay: #9a4e26;
+    --amber: #e0a256;
+    --hairline: rgba(240,232,224,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #2c1709;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(240,232,224,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(240,232,224,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: earthen umber to warm sunlit gold (the lands and peoples of the world) */
+  .bg-intro { background: linear-gradient(168deg, #18100c 0%, #2a1810 38%, #6a3a1e 80%, #98562a 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #18100c 0%, #241610 34%, #482818 74%, #663a20 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #170f0b 0%, #28170f 34%, #5a3016 74%, #844820 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #18100c 0%, #2a1810 34%, #6a3a1c 74%, #9a5828 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #18100c 0%, #2e1a10 30%, #804a20 64%, #e0a448 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #18100c 0%, #2a1810 45%, #6e3e1e 80%, #d29a3c 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #6e3a1e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #2a1810 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #9a5a2a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a450 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(240,232,224,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The accident of birth</div>
+    <h1 class="display display-lg">Isn't my worldview just an accident of birth?</h1>
+    <p class="tagline">It looks like a lottery. Born in Riyadh, you will almost certainly be Muslim; in Bangkok, Buddhist; in Alabama, Christian. So if where you happen to be born largely decides what you believe, how could it be fair for your eternal future to hang on it? The same goes for when in history you were born. That part has a card of its own; here we take on the where.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The argument cuts both ways</div><div class="map-sub">It undoes the objector too</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">You're not actually trapped</div><div class="map-sub">Born into it isn't stuck in it</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">It isn't a trivia exam</div><div class="map-sub">Grace, not a religion you must pass</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">No accident to God</div><div class="map-sub">He sets the times and the places</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 CUTS BOTH WAYS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The genetic fallacy</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where the objection backfires</div>
+    <h1 class="display">The argument cuts both ways.</h1>
+    <p class="tagline">Start with the logic itself, because there is a problem with it before we even reach God. The claim is that you only hold your beliefs because of where you were born. But look at what that does to the person making it.</p>
+
+    <div class="row"><div class="row-icon">Both ways</div><div class="row-text">If being raised somewhere discredits what you believe, it discredits the objector just as fast. The secular Westerner only doubts because they were born into a doubting age and place. The atheist in a university town absorbed that as surely as anyone absorbed a religion. If birth invalidates belief, it invalidates the objection along with everything else. The boomerang comes straight back.</div></div>
+    <div class="row"><div class="row-icon">The origin</div><div class="row-text">This is an old mistake with a name, the genetic fallacy: confusing where a belief came from with whether it is true. As Lennox replies when told he is only a Christian because he is Irish, that is absurd. Giving the cause of how someone reached a view tells you nothing about whether the view is correct. You learned your language and your arithmetic from your culture too. That does not make two plus two a local custom.</div></div>
+    <div class="row"><div class="row-icon">Is it true</div><div class="row-text">So the real question was never how you arrived at a belief. It is whether the belief is true. Those are completely different questions, and only the second one finally matters. A person born into the right answer for cultural reasons still holds the right answer, just as a person born into a wrong one can examine it and walk out of it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You're only a Christian because you were raised in a Christian country.</b> If that discredits a belief, it discredits yours just as much, since you only doubt because you were born into a doubting age. The objection is a boomerang. How a person came to a view tells you nothing about whether it is true, otherwise we would have to bin the mathematics and the language we also soaked up from our surroundings.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: where you first met a belief has no bearing on whether it is true, and the objection refutes the sceptic as quickly as the believer. How you got here and whether you are right are two separate questions.</div></div>
+  </div>
+</section>
+
+<!-- B2 NOT TRAPPED -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / Not actually trapped</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Is the premise even true?</div>
+    <h1 class="display">Born into it isn't stuck in it.</h1>
+    <p class="tagline">The objection also leans on a claim about people that is shakier than it sounds: that we simply stay inside whatever worldview we were handed. As a hard rule, that is just not so.</p>
+
+    <div class="row"><div class="row-icon">A tendency</div><div class="row-text">It is true that belief often runs along the lines of birth. But a strong tendency is not a locked cage. Hundreds of millions of people across history have converted, deconverted, migrated, and changed their minds, many of them at enormous personal cost. The pattern bends all the time. It is an influence on where you start, not a sentence on where you finish.</div></div>
+    <div class="row"><div class="row-icon">People change</div><div class="row-text">And the map is moving as we speak. Christianity is fading in the European heartland that once defined it, and growing fastest in places with no Christian past at all, among them Iran and China, where conversion can cost a person dearly. Lennox makes the point from experience: he has watched people change their worldview again and again, which is exactly what you would not see if belief were truly fixed by birth.</div></div>
+    <div class="row"><div class="row-icon">So test it</div><div class="row-text">There is also an honest challenge buried in here. If you suspect you believe only what you were raised to believe, the answer is not to shrug, it is to test it. Lennox says this very objection is the reason he has spent his life deliberately exposing his faith to its strongest opponents. A belief you have actually examined is no longer just an accident of birth.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But statistically, religion tracks birthplace almost perfectly.</b> A strong correlation is not a locked door. Hundreds of millions have changed, often at real risk, and Christianity is collapsing in the Europe that cradled it while surging in Iran, China and Nepal, places with no Christian heritage to inherit. People are shaped by where they begin. They are not imprisoned there.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: people are influenced by the worldview they are born into, not chained to it. Conversion, migration and honest doubt move millions across those lines every generation. The cure for inherited belief is to examine it.</div></div>
+  </div>
+</section>
+
+<!-- B3 NOT AN EXAM -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Not a trivia exam</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">What is actually being judged</div>
+    <h1 class="display">It isn't a religion exam keyed to your postcode.</h1>
+    <p class="tagline">Underneath the objection sits a picture of God grading everyone on whether they landed on the correct religion, with your birthplace having pre-filled the wrong answer. But that is not how the Bible says it works.</p>
+
+    <div class="row"><div class="row-icon">Not an exam</div><div class="row-text">The picture assumes salvation is a test of getting the right religious system, performed well enough to pass. If that were true, then yes, being handed the wrong textbook at birth would be a disaster. But Christianity is not, at its heart, a system you perform. Lennox puts it sharply: most religions hand you a rule book and assess you at the end on merit. Christianity does the very opposite.</div></div>
+    <div class="row"><div class="row-icon">A free gift</div><div class="row-text">Acceptance comes at the start, as a free gift, received by trusting the God who is reaching towards you, not earned by mastering the religion of your region. Lennox compares the merit version to proposing marriage by handing someone a forty year list of rules to keep first. Real relationship does not work that way, and neither, he says, does grace. What matters is your response to God, not the label you were issued at birth.</div></div>
+    <div class="row"><div class="row-icon">Your light</div><div class="row-text">And you are answerable only for the light you actually receive. No one is judged for failing to grasp a message that never reached them. Everyone, everywhere, has some genuine light, in the created world around them and in conscience within, and the question is what they do with it. As one summary of the Christian view puts it, holding that Christ is the only way does not require condemning people by historical accident.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>So the person born Hindu or Muslim was simply handed the wrong religion, through no fault of their own.</b> Only if salvation is an exam on the correct system. It is not. It is a gift, received by trusting the God who reaches towards every person, and people are judged on the light they were genuinely given, never on a gospel that never arrived. The accident of your birthplace does not set the syllabus.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: salvation is not a culture-specific exam you might have been born studying the wrong book for. It is a gift received by faith, and people are judged on the light they truly had. The brand you inherited is not the thing in question.</div></div>
+  </div>
+</section>
+
+<!-- B4 NO ACCIDENT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / No accident to God</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The deepest answer</div>
+    <h1 class="display">Your birthplace is no accident to God.</h1>
+    <p class="tagline">Here is the part the objection never quite considers. It calls your origin an accident of birth. But to the God of the Bible, nothing about where and when you were born is accidental at all.</p>
+
+    <div class="row"><div class="row-icon">No accident</div><div class="row-text">In Acts, Paul tells the philosophers of Athens that God marked out the appointed times in history and the boundaries of where each people would live, and he did it with a purpose: so that they would seek him and perhaps reach out and find him. Your spot on the map is not a dice roll that God then judges you for. It is something he himself oversees, and aims at your finding him.</div></div>
+    <div class="row"><div class="row-icon">Times &amp; places</div><div class="row-text">So the very thing the objection treats as a cruel lottery, Scripture treats as part of God's care. The seasons and the borders of every life are arranged so that people in every corner of the earth have a real chance to seek and to find. That is the opposite of a God who scatters souls at random and then punishes them for landing badly.</div></div>
+    <div class="row"><div class="row-icon">He placed you</div><div class="row-text">Some Christian thinkers, like William Lane Craig, press this further. An all-knowing God, who knows how each person would freely respond in any setting, can order history so that those who would receive him are born where the light will reach them, and no one who would have said yes is lost merely for want of the chance. That you are even asking this, that the gospel has reached you enough to trouble you, may be part of the same providence.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Calling it providence is just a comforting story to dodge the unfairness.</b> Then weigh the alternative it assumes, that your birthplace sits outside God's care, a random throw he later judges. Scripture claims the reverse: he set the times and places where people live so that they might seek and find him. An all-knowing God arranging the world so that the most people possible are saved is not dodging the problem. It is the problem dissolving.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: to God your birthplace is not an accident but a setting he oversees, so that people everywhere might seek and find him. Far from a lottery he ignores, where and when you were born is a tool he uses to reach you.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">No accident at all.</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The argument cuts both ways</div><div class="sum-text">You only believe because of your birthplace undoes the objector too. <b>How you got a belief isn't whether it's true.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Not actually trapped</div><div class="sum-text">A tendency, not a cage. Millions convert and migrate; Christianity surges where it has no heritage. <b>Examine your beliefs.</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Not a trivia exam</div><div class="sum-text">Salvation isn't passing your culture's religion. It's a <b>free gift received by faith</b>; you're judged on the light you had.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; No accident to God</div><div class="sum-text">Acts: God sets the times and places so people might <b>seek and find him</b>. Your birthplace is a tool he uses, not a lottery he ignores.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is it fair that your beliefs lean on where you were born? First, that fact says nothing about whether they are true, and it boomerangs straight back on the sceptic. Second, no one is locked in by birth; people cross those lines all the time. Third, salvation was never a culture exam, but a gift received by trusting God on the light you genuinely have. And fourth, your place on the map is no accident to a God who set the times and borders of every life so that people everywhere might seek him and find him. The accident of birth turns out to be no accident at all.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
