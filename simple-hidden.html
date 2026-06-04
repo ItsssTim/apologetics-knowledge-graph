@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#120e18">
+<title>Why does God seem hidden? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f4f9;
+    --ink-muted: #e0d8ea;
+    --ink-soft: #a89bb6;
+    --warm-black: #120e18;
+    --cream: #f3eee6;
+    --clay: #6a4a9c;
+    --amber: #d2a857;
+    --hairline: rgba(235,228,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.58; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 38px; font-weight: 600; line-height: 1.05;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 41px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a2e;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 26px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(235,228,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 14px 16px; margin-top: 11px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(235,228,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14.5px; font-weight:400; line-height:1.42; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 22px; }
+
+  /* gradients: the veil, lifting to light */
+  .bg-intro { background: linear-gradient(168deg, #120e18 0%, #1d1528 38%, #3a2a5c 82%, #533a7e 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #110d17 0%, #1b1426 34%, #342456 74%, #4a3470 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #120e18 0%, #1e1629 34%, #3c2a60 74%, #543d82 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #130d18 0%, #21162a 34%, #45285e 74%, #6a3f80 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #140f18 0%, #241a2c 30%, #5a4258 66%, #c08f4e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #120e18 0%, #1d1528 45%, #46315e 80%, #6e5450 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #9a7fd0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #4a3478 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #a060b0 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d9a857 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(235,228,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">4 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The silence question</div>
+    <h1 class="display display-lg">Why does God seem so hidden?</h1>
+    <p class="tagline">If he is real and wants to be known, why is it not obvious? Honest people feel this, not just sceptics. The worship leader Jon Steingard put it plainly before he walked away from faith: if a relationship with God is the most important thing, why has he not made it plain as day?</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What do we mean by hidden?</div><div class="map-sub">Hidden, or just not on demand?</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Why not just overwhelm us?</div><div class="map-sub">Enough light, and enough shadow</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Is it the head or the heart?</div><div class="map-sub">We are not neutral about the answer</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">He came looking for us</div><div class="map-sub">The silence God broke himself</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 WHAT IS HIDDEN -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / What is hidden?</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Hidden, or just not on demand?</div>
+    <h1 class="display">He is quieter than you'd expect, not absent.</h1>
+    <p class="tagline">First, get the complaint right, because it is usually sharper than people state it. The issue is rarely that there is no evidence at all. It is that the evidence does not corner you.</p>
+
+    <div class="row"><div class="row-icon">The complaint</div><div class="row-text">Listen to what is actually being said. Not there is zero trace of God, but there is no proof I cannot argue my way out of. Those are very different complaints. There is a real gap between God leaving no trail and God simply declining to force himself on you. The honest grievance is about the second one.</div></div>
+    <div class="row"><div class="row-icon">Not an object</div><div class="row-text">Part of the trouble is a category mistake. God, if he is real, is not one more object inside the universe, a very large man somewhere you could photograph. He is the reason there is a universe at all, outside space and time. You do not find that kind of being by scanning the sky, any more than you find an author by searching her novel for a character with her name.</div></div>
+    <div class="row"><div class="row-icon">The trail</div><div class="row-text">And he is not trace-less. The beginning and the fine-tuning of the universe, the moral law you feel pressing on you, the stubborn reality of beauty and love, and above all a man in history who claimed to be God. You can read every one of those another way if you want to. That you are free to do so is exactly the point, and it is step two.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If God were real he would just come down to the lake and say hello. That he doesn't is proof he isn't there.</b> But that pictures God as a man who could wander over on request. Demanding that the author step onto the page and wave is a misunderstanding of what an author is. The deeper reply is that, on the Christian account, he did show up, just not on tap. Hold that for step four.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the honest complaint is not no evidence, it is no proof you cannot dodge. God seems hidden because he does not overwhelm, not because he left no trail.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHY NOT OVERWHELM -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Why not overwhelm?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Enough light, and enough shadow</div>
+    <h1 class="display">Overwhelming proof would crush what he wants.</h1>
+    <p class="tagline">So why not remove all doubt? He could presumably blaze across the sky tonight. The reason he does not is the same thread that ran through the suffering question: he is after love, and love cannot be forced.</p>
+
+    <div class="row"><div class="row-icon">Pascal</div><div class="row-text">Blaise Pascal put it in a line that has steadied a lot of doubters: God has given enough light for those who want to see, and enough shadow for those who would rather not. Enough to find if you are genuinely looking, not so much that it bludgeons the unwilling into agreement. That mix is not an accident. It is the design.</div></div>
+    <div class="row"><div class="row-icon">No force</div><div class="row-text">If God's reality were as unavoidable as a tax bill, you would get compliance, not love. People would bow the way you obey an armed guard, out of fear and prudence. That is all stick and no heart. A God who wanted real children rather than cowed subjects would, precisely, not make himself impossible to refuse.</div></div>
+    <div class="row"><div class="row-icon">The step</div><div class="row-text">Knechtle compares it to marriage. There is only so much you can know about a person before you commit; at some point you take a step in order to fully know them. That is what faith actually is. Not believing with no evidence, but trusting enough, on good evidence, to take the step that lets you know the rest.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>A decent father would never let his own child grow up doubting he even exists.</b> A sharp point, and worth two honest replies. Loving parents do raise children who, grown, insist they were never loved, so perceived distance is not always the parent's fault. And a father who erased all doubt by sheer overpowering force would secure a frightened child, not a trusting one. The analogy quietly assumes God's goal is to be believed in. His goal is to be loved, and that he will not force.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: God could overwhelm you and chooses not to, because coerced belief is not the relationship he is after. Enough light to seek by, not so much that it compels.</div></div>
+  </div>
+</section>
+
+<!-- B3 HEAD OR HEART -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Head or heart?</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">We are not neutral about the answer</div>
+    <h1 class="display">Whether we find him isn't only about evidence.</h1>
+    <p class="tagline">Here is the uncomfortable part, and it cuts at everyone. We like to picture ourselves as cool juries weighing the facts. On a question this personal, nobody is quite that detached.</p>
+
+    <div class="row"><div class="row-icon">We lean</div><div class="row-text">On the biggest questions people believe and disbelieve partly according to what they want to be true. And few questions are more loaded than this one, because a real God would have a claim on your life. It is worth asking yourself honestly: would I rather he were there, or rather he were not? That lean quietly shapes what you will even accept as evidence.</div></div>
+    <div class="row"><div class="row-icon">Seek and find</div><div class="row-text">The Bible's repeated promise is not come and I will overwhelm you. It is seek and you will find, you will find me when you look with your whole heart. That is the logic of hide-and-seek with a findable God, not the silence of an empty house. The posture of the looking changes what gets seen.</div></div>
+    <div class="row"><div class="row-icon">Honest doubt</div><div class="row-text">And this has to be said carefully. Some people genuinely wish God were real and still do not find him. The sincere doubter is not a myth, and it would be cheap and false to brand every questioner a rebel. But a God who is just, as the earlier questions argued, deals rightly with each heart and meets the real seeker. Nobody honestly looking is turned away at the door.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>But I would prefer a loving God existed, and I still don't find him. I am not resisting anything.</b> That is the most honest form of the objection, and it deserves respect, not a slogan. Two gentle things. Wanting a comforting higher power is not the same as wanting the particular God who would reorder your life; the heart can say yes on one level and flinch on another. And the promise still holds: keep genuinely seeking. Many who said exactly this found the door opened later, not on demand, but it opened.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: finding God is not a pure evidence problem, the will is in it too. The promise is that honest, whole-hearted seeking is met, even when it is not met instantly.</div></div>
+  </div>
+</section>
+
+<!-- B4 HE CAME LOOKING -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / He came looking</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The silence God broke himself</div>
+    <h1 class="display">The Christian claim: God broke his own silence.</h1>
+    <p class="tagline">Here is the turn that sets Christianity apart from a vague deity behind the clouds. It does not say God is forever hidden and you must guess well. It says he stepped out of hiding, on purpose.</p>
+
+    <div class="row"><div class="row-icon">He showed up</div><div class="row-text">Knechtle's answer to the demand show yourself is simply: he did. He became a Jewish man two thousand years ago, spoke a human language, lived a human life, so that people with finite minds could look at him and begin to understand God. That is why the gospels matter; they are the record of God making himself find-able. As Jesus said, whoever has seen me has seen the Father.</div></div>
+    <div class="row"><div class="row-icon">Like a person</div><div class="row-text">And you come to know God the way you come to know a person, not the way you prove a theorem. By encounter, by trust, by walking with him over time, not by a knock-down equation on a whiteboard. Vast numbers of people, hard sceptics among them, describe meeting a reality that then changed them. That is the kind of evidence a person gives you, from inside the relationship.</div></div>
+    <div class="row"><div class="row-icon">The cost</div><div class="row-text">And the deepest answer to where is God when I call is the cross. God's proof of love is not a light show on demand. It is that he entered the very worst of human life and died inside it. A God willing to do that is not an absentee landlord. He is the opposite: present at the exact point where it feels most like he is missing.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Then why not give me what he gave Thomas, and let me touch the wounds?</b> Fair, and notice Jesus did exactly that for Thomas, he met the doubt rather than scolding it. But he added that those who come to trust on good evidence, without a private miracle, are not second-class believers. The evidence he has left, a real life, death and resurrection in history, changed lives, the way it all fits together, is the kind you weigh and then step toward, the way you trust a person, not the kind that flattens you into agreement.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: Christianity's whole answer to hiddenness is that God did not stay behind the clouds. He showed up in person, and he is known the way a person is known.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So where is God?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; What hidden means</div><div class="sum-text">Not no evidence, but <b>no proof you cannot dodge</b>. He is not an object in the world to photograph.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Why not overwhelm</div><div class="sum-text">Coerced belief is not love. <b>Enough light for the seeker</b>, enough shadow for the unwilling.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Head or heart</div><div class="sum-text">We are <b>not neutral</b>; the will is in it. The promise is that honest seeking is met.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; He came looking</div><div class="sum-text">God <b>stepped into history</b> in Christ, and is known the way a person is, not a theorem.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So the quiet is not the silence of an empty universe. It is a God who will not overwhelm you into love, who has left more than enough light for anyone genuinely looking, and who, on the Christian claim, has already broken cover, in a manger, on a cross, out of a tomb. The real question may be less where is God, and more whether we have wanted to find him.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  // Intro-map and summary topics jump to their section (scroll-snap-safe).
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
