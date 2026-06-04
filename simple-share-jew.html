@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0e16">
+<title>Sharing the gospel with a Jewish friend &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f3f5fb;
+    --ink-muted: #dae0ee;
+    --ink-soft: #98a2bd;
+    --warm-black: #0b0e16;
+    --cream: #f3efe5;
+    --clay: #b07d3a;
+    --amber: #d4b052;
+    --hairline: rgba(220,228,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #16203a;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,228,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,228,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: heritage royal-blue to warm gold */
+  .bg-intro { background: linear-gradient(168deg, #0b0e16 0%, #131a2e 38%, #233a6e 82%, #324e92 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0b0e16 0%, #121829 34%, #20366a 74%, #2e4888 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0a0d14 0%, #131a2c 34%, #233a6e 74%, #324e92 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0b0e16 0%, #141b2c 34%, #36406a 74%, #5e5a72 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0b0e16 0%, #151c2a 30%, #4a4632 64%, #b89240 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0b0e16 0%, #131a2e 45%, #2a3e6e 78%, #6a5a40 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #4a6ad0 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1e2f6a 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6a6a8a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d4b052 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,228,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sharing your faith</div>
+    <h1 class="display display-lg">How do I share the gospel with a Jewish friend?</h1>
+    <p class="tagline">This is the one conversation where you begin inside the same story: the same Scriptures, the same one God, the same long hope for a Messiah. It is also the one most scarred by history. Both of those shape how you go about it. Here is how.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Understand them</div><div class="map-sub">Where they're coming from</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Find the bridge</div><div class="map-sub">The Scriptures you both trust</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Point to Jesus</div><div class="map-sub">The Messiah they're waiting for</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The posture</div><div class="map-sub">Humility, honesty, deep respect</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 UNDERSTAND -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Understand them</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where they're coming from</div>
+    <h1 class="display">You share their Scriptures, and a painful history.</h1>
+    <p class="tagline">With a Jewish friend you start closer than with anyone, and carrying a heavier history than with anyone. Hold both honestly from the very first.</p>
+
+    <div class="row"><div class="row-icon">Same story</div><div class="row-text">A Jewish person already holds much of what you do: one God, the Hebrew Scriptures you call the Old Testament, the covenant, and the long hope for a Messiah. You are not importing a foreign religion. Jesus was a Jew, his first followers were all Jews, and the whole story grows out of theirs. Begin by feeling how much you genuinely share.</div></div>
+    <div class="row"><div class="row-icon">The wound</div><div class="row-text">But you have to reckon with history. For centuries, terrible things were done to Jewish people in the name of Christ, the Crusades, the Inquisition, the pogroms, and the silence of many churches during the Holocaust. For many Jews, the name Jesus is bound up with their persecutors. You cannot share the gospel honestly while pretending none of that happened.</div></div>
+    <div class="row"><div class="row-icon">A people</div><div class="row-text">And understand that for many, being Jewish is as much peoplehood and family as it is belief. So following Jesus can feel like betraying your own people, not merely changing your mind. Many are also secular rather than observant. As always, find out what your particular friend actually believes and carries before you say a word.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Knowing nothing of the history, or brushing past it.</b> To a Jewish person, a Christian who is ignorant of, or breezy about, what was done in Christ's name can be deeply wounding. Acknowledge it humbly and plainly. Real Christianity utterly repudiates that violence, and saying so out loud is very often the first thing that earns you any hearing at all.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: you share the same Scriptures and the same hope, but also a painful history. Honour both, the deep common ground, and the wounds done in Christ's name.</div></div>
+  </div>
+</section>
+
+<!-- B2 BRIDGE -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Where to begin</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The Scriptures you both trust</div>
+    <h1 class="display">Begin in the Scriptures you both already trust.</h1>
+    <p class="tagline">The bridge is the Hebrew Bible itself. Frame the whole thing not as leaving Judaism, but as its fulfilment, and let their own Scriptures do the work.</p>
+
+    <div class="row"><div class="row-icon">Completion</div><div class="row-text">Frame it with care. You are not asking them to abandon their heritage and join a Gentile religion; you are inviting them to consider that their own story has reached its fulfilment. The first thousands of believers in Jesus were Jews who became convinced he was the Messiah their Scriptures had promised. This is the most Jewish thing there is.</div></div>
+    <div class="row"><div class="row-icon">The prophecies</div><div class="row-text">Then open the Scriptures you both trust. The Hebrew prophets sketch a Messiah with startling specifics: born in Bethlehem, from the line of David, arriving before the second temple fell. Walk through them gently and let the pattern build. These are their texts, not imported ones, which is exactly what makes them land with such weight.</div></div>
+    <div class="row"><div class="row-icon">Isaiah 53</div><div class="row-text">And there is one passage worth reading slowly together: Isaiah 53, written centuries before Jesus, describing a servant pierced for our wrongdoing, crushed for our sins, silent before his accusers, and yet vindicated. Many Jewish people have never read it closely, and reading it as if for the first time can be quietly seismic. It sounds unmistakably like one particular person.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Treating it as Christianity versus Judaism.</b> The framing matters enormously. Set it up as us against you and you simply confirm the centuries of hostility. Set it up as here is your Messiah, foretold in your own Scriptures, and you invite them home rather than away. It is completion, not conversion to something foreign and hostile.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: build on the Scriptures you share, frame it as fulfilment rather than abandonment, and let the Hebrew prophets, above all Isaiah 53, speak for themselves.</div></div>
+  </div>
+</section>
+
+<!-- B3 POINT TO JESUS -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Point to Jesus</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The Messiah they're waiting for</div>
+    <h1 class="display">The Messiah they're still waiting for has come.</h1>
+    <p class="tagline">The gospel for a Jewish person is not a new God or a new book. It is the astonishing claim that the long-awaited Messiah has already arrived.</p>
+
+    <div class="row"><div class="row-icon">He came</div><div class="row-text">The heart of it is simple and staggering: the Messiah you have hoped and prayed and waited for has come, and his name is Jesus, Yeshua. Not a Roman invention, not the god of your oppressors, but a Jewish Messiah for the Jewish people, and through them for the whole world. The long waiting is over.</div></div>
+    <div class="row"><div class="row-icon">Why he suffered</div><div class="row-text">The common objection is that the Messiah was meant to bring peace and a kingdom, yet Jesus was killed. But Isaiah 53 already held the answer the world overlooked: the Messiah would suffer first, bearing the sins of the people, before he reigns. The cross is not the failure of the hope; it is the part of the hope that was always hardest to see coming.</div></div>
+    <div class="row"><div class="row-icon">Still Jewish</div><div class="row-text">And following him is not ceasing to be Jewish. There are many Jewish believers in Jesus who hold their heritage with joy, not loss; in their own eyes they have not left their faith but found its centre. You are inviting your friend deeper into their own story, not calling them out of it.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Any hint of triumph, or of you got it wrong.</b> After such a history, smugness is unbearable and deeply unchristian. This is not a victory lap; it is one person, humbled by grace, gently showing another the Messiah promised in the Scriptures they both love. Come as a fellow heir of the promise, not as the winner of an argument.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: the message is that their long-awaited Messiah has come, that Isaiah 53 foretold a suffering Messiah, and that following him is finding the heart of their faith, not leaving it.</div></div>
+  </div>
+</section>
+
+<!-- B4 POSTURE -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The posture</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Humility, honesty, deep respect</div>
+    <h1 class="display">Humility, honesty, and deep respect.</h1>
+    <p class="tagline">More than with almost anyone, here the manner is the message. Humility about the past and respect for the people are everything.</p>
+
+    <div class="row"><div class="row-icon">Own the past</div><div class="row-text">Lead with humility about the history, and mean it. Be quick to grieve what was done to Jewish people in Christ's name, and to say plainly that it betrayed the Jewish Messiah himself. That honesty does not weaken your witness; with a Jewish friend, it is very often the one thing that makes any witness possible at all.</div></div>
+    <div class="row"><div class="row-icon">Respect them</div><div class="row-text">Honour the heritage, the family, the peoplehood. Do not treat their Jewish identity as something to be shed and discarded. Show that you love and respect who they are, not as a target to be won, but as a friend handed something precious by their own people, who wants to share something just as precious in return.</div></div>
+    <div class="row"><div class="row-icon">It's God's job</div><div class="row-text">And rest in this: you cannot open anyone's eyes; only God can. Your part is to love, to live it, to point gently to the Scriptures, to grieve the past honestly, and to pray. The same God who has kept this people through every century is more than able to bring them home. Be patient, and leave it with him.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Forgetting that you are a guest in their story.</b> The Scriptures, the covenant, the Messiah, all of it came through the Jewish people first. Approach with the humility of someone who has been grafted in, not the swagger of an owner. Gratitude, never condescension, is the only posture that actually fits this conversation.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: lead with humility about the past, deep respect for the people and their heritage, and the patience of someone who knows that only God opens eyes.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Understand them</div><div class="sum-text">You share their Scriptures, one God and the Messianic hope, and a <b>painful history</b> done in Christ's name. Honour both.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Find the bridge</div><div class="sum-text">Begin in the Hebrew Scriptures, frame it as <b>fulfilment not abandonment</b>, and let Isaiah 53 speak.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Point to Jesus</div><div class="sum-text">The long-awaited <b>Messiah has come</b>; Isaiah 53 foretold he would suffer first; following him is finding their faith, not leaving it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; The posture</div><div class="sum-text"><b>Humility about the past</b>, deep respect for the people, and trust that only God opens eyes.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with a Jewish friend you are not importing a foreign religion; you are pointing, humbly, to a Jewish Messiah foretold in the Scriptures you both treasure. Grieve the history honestly, honour the heritage, let the prophets speak, and invite them not away from their story, but into its very heart.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: [0.55] });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+</body>
+</html>
