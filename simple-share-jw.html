@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0e1320">
+<title>Sharing the gospel with a Jehovah's Witness friend &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f2f5fb;
+    --ink-muted: #dae0ee;
+    --ink-soft: #97a1bb;
+    --warm-black: #0e1320;
+    --cream: #f1ece0;
+    --clay: #3a4660;
+    --amber: #d8b060;
+    --hairline: rgba(220,228,245,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(220,228,245,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(220,228,245,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep blue-grey to warm amber */
+  .bg-intro { background: linear-gradient(168deg, #0e1320 0%, #131a2c 38%, #232d44 82%, #2e3a56 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0e1320 0%, #131a2c 34%, #222c43 74%, #2c3852 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0d111d 0%, #131a2c 34%, #242e46 74%, #303c58 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0e1320 0%, #161c2e 34%, #3a3c46 74%, #6a5c44 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0e1320 0%, #161c2e 30%, #4a4434 64%, #b08a3e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0e1320 0%, #131a2c 45%, #2c3450 78%, #6a5a40 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a4a72 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c2440 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #7a7050 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d8b060 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,228,245,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(247,250,255,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(247,250,255,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Bible-loving, and one question away</div>
+    <h1 class="display display-lg">How do I share the gospel with a Jehovah's Witness friend?</h1>
+    <p class="tagline">Jehovah's Witnesses are sincere, disciplined, Bible-loving people who will happily talk about God for hours. That love of Scripture is your bridge. Almost everything turns on a single question they have been taught to answer differently from the rest of the church: who exactly is Jesus?</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Honour the Scripture</div><div class="map-sub">Start where you agree, find the hinge</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Who is Jesus, really?</div><div class="map-sub">Walk the texts gently</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The rest grace gives</div><div class="map-sub">Assurance, not the weight of works</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">How to carry it</div><div class="map-sub">Questions, patience, no attacks</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 HONOUR THE SCRIPTURE -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Honour the Scripture</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Honour the love of Scripture</div>
+    <h1 class="display">Start where you agree, then find the hinge.</h1>
+    <p class="tagline">A Witness is not someone who needs convincing that God matters; they have given their life to it. Begin on the ground you genuinely share, then move gently to the one question that changes everything.</p>
+
+    <div class="row"><div class="row-icon">Common ground</div><div class="row-text">Start with what you genuinely share: a high regard for the Bible and a real desire to please God. Your friend reads Scripture, prays, and orders their whole life around obeying him. That is not nothing. Honour it. You are not talking to a sceptic; you are talking to a serious believer who loves the same book you do.</div></div>
+    <div class="row"><div class="row-icon">The hinge</div><div class="row-text">The one question everything turns on is the identity of Jesus. Almost every other difference flows downstream of this single point. Get clear, kindly, that this is the hinge, and you avoid a hundred scattered arguments. Keep coming back to it: not the calendar, not the blood transfusion policy, but who Jesus actually is.</div></div>
+    <div class="row"><div class="row-icon">What they hold</div><div class="row-text">In Watchtower teaching Jesus is Michael the archangel, a created being, a god but not God almighty. Almost everything else follows from that one answer. Understanding this is vital, because when you say Jesus is Lord, your friend hears something far smaller than you mean. The whole conversation lives or dies on this question.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Skipping past the common ground straight into conflict.</b> If you open swinging, your friend simply raises the defences they have been trained to raise, and the real question never gets a hearing. Honour the love of Scripture you share first. That earned trust is what lets you reach the one point that matters.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: begin on the Scripture you both love, then move gently to the one question that matters, who Jesus really is.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHO IS JESUS -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Who is Jesus</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who is Jesus, really?</div>
+    <h1 class="display">Walk the texts gently, in order.</h1>
+    <p class="tagline">Since you both love the Bible, let the Bible do the work. Open it together and walk through the texts slowly, not as ammunition, but as a path you travel side by side.</p>
+
+    <div class="row"><div class="row-icon">He is God</div><div class="row-text">Thomas falls before the risen Jesus and calls him my Lord and my God, and Jesus accepts it rather than correcting him <span class="ref">(John 20:28)</span>. John opens by saying the Word was God <span class="ref">(John 1:1)</span>. If Jesus were only an exalted creature, this is the moment to say so; instead he receives the worship. Let your friend sit with that.</div></div>
+    <div class="row"><div class="row-icon">The divine name</div><div class="row-text">Jesus takes the divine name to himself, saying that before Abraham was, he is <span class="ref">(John 8:58)</span>, echoing the very name God gave at the burning bush. And all things were made through him and hold together in him <span class="ref">(Colossians 1:16-17)</span>. The one through whom everything was created cannot himself be one of the created things.</div></div>
+    <div class="row"><div class="row-icon">Worshipped</div><div class="row-text">Even the angels are told to worship him <span class="ref">(Hebrews 1:6)</span>. Yet Scripture allows worship of God alone. So a created angel, Michael or any other, could never qualify for what Jesus is given here. Gently ask your friend: if only God may be worshipped, and the angels are commanded to worship the Son, what does that make the Son?</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Firing verses like ammunition instead of walking through them together.</b> A rapid volley of proof-texts feels like an ambush, and your friend has been drilled to deflect exactly that. Slow down. Read one passage, let it breathe, ask what they make of it. You are showing them something, not scoring points off them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: let the texts do the work, gently and in order; you are showing, not winning.</div></div>
+  </div>
+</section>
+
+<!-- B3 THE REST GRACE GIVES -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / The rest grace gives</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The rest that grace gives</div>
+    <h1 class="display">Offer the rest their system cannot give.</h1>
+    <p class="tagline">Behind the doctrine there is usually a tired heart. The gospel has something to offer your friend that the organisation never can: rest, and the assurance of being saved.</p>
+
+    <div class="row"><div class="row-icon">The weight</div><div class="row-text">Many Witnesses live under works and the organisation, never quite sure they have done enough. There are hours to log, meetings to attend, a standard always just ahead of them. Beneath the confident answers is often a quiet, exhausting uncertainty about whether they will finally measure up. See that weary heart, not just the arguments.</div></div>
+    <div class="row"><div class="row-icon">Assurance</div><div class="row-text">The Bible offers something their system withholds: assurance. John writes so that you may know you have eternal life <span class="ref">(1 John 5:13)</span>. Not hope it, not work towards it, but know it. For someone taught that their standing is never quite settled, the idea that you can actually know is almost too good to believe.</div></div>
+    <div class="row"><div class="row-icon">A gift</div><div class="row-text">Salvation is a gift, not wages earned <span class="ref">(Ephesians 2:8-9)</span>. It is by grace, through faith, and not of works, so no one can boast. To someone carrying an exhausting uncertainty, that is deep relief: the debt is not theirs to pay down, because it has already been paid in full for them. Offer them that rest.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Debating doctrine while missing the weary heart in front of you.</b> It is easy to win every point about the Trinity and never once notice the person is tired. The deepest thing you have to offer is not a better argument; it is rest. Lead with the gift of grace, and let the doctrine serve the person, not the other way around.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: offer the rest of grace, not another burden.</div></div>
+  </div>
+</section>
+
+<!-- B4 HOW TO CARRY IT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / How to carry it</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How to carry it</div>
+    <h1 class="display">Questions and patience, never an attack.</h1>
+    <p class="tagline">How you carry the conversation matters as much as what you say. The goal is to win your friend, gently and over time, not to win a round.</p>
+
+    <div class="row"><div class="row-icon">Ask and listen</div><div class="row-text">Ask gentle questions and listen, rather than ambushing. Questions invite your friend to think for themselves, which a lecture never does. What do you make of this verse? What first drew you in? Curiosity disarms in a way that confrontation cannot, and it tells them you actually see the person, not a target.</div></div>
+    <div class="row"><div class="row-icon">No proof-text war</div><div class="row-text">Do not get dragged into a verse-by-verse battle over their New World Translation, and never open by attacking the Watchtower organisation. That only hardens the very defences they have been trained to raise, and the conversation turns into a contest nobody wins. Stay off the well-worn battlegrounds and keep returning to the person of Jesus.</div></div>
+    <div class="row"><div class="row-icon">Keep pointing</div><div class="row-text">Keep pointing, kindly and repeatedly, to who Jesus is and to the rest he gives. You may have the same gentle conversation many times before anything shifts, and that is fine. Be the steady, loving friend who is still there long after the first talk, praying more than pressuring, and trusting God with the timing.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Opening with an attack on the organisation, or a proof-text war on the translation.</b> Both harden them, because both confirm exactly what they have been warned to expect from outsiders. Lay down those weapons. Aim past the system, at the friend, and keep the focus on Jesus and on grace, where the real invitation lives.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: you want to win your friend to the real Jesus, not to win an argument about the Watchtower.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four moves, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; Honour the Scripture</div><div class="sum-text">Start on the <b>Bible you both love</b>, then move to the one hinge: who Jesus is, the question everything turns on.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Who is Jesus, really?</div><div class="sum-text">Walk the texts gently and let them <b>show that he is worshipped, named and eternal</b>, fully God, never just an angel.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; The rest grace gives</div><div class="sum-text">Offer the <b>assurance their system cannot give</b>, grace received rather than wages earned, rest for a weary heart.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; How to carry it</div><div class="sum-text"><b>Questions, patience, and no attacks</b>, pointing to Jesus over and over, never to a fight about the organisation.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">Start on the Bible you both love, then go to the one question everything turns on, who Jesus is. Let the texts show, gently, that he is worshipped, named and eternal, fully God. Then offer the rest their system cannot give, the assurance of grace received rather than wages earned. Point to him with patience, never with an attack on their organisation.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

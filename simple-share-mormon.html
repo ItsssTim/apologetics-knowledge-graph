@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#121611">
+<title>Sharing the gospel with a Mormon friend &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f6f1;
+    --ink-muted: #dde3d6;
+    --ink-soft: #a3ad96;
+    --warm-black: #121611;
+    --cream: #f2efe4;
+    --clay: #4a5a3e;
+    --amber: #cdb15a;
+    --hairline: rgba(228,236,216,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.8;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 37px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241c10;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,236,216,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,236,216,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 20px; font-weight: 600; line-height: 1.26; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: warm sage-green and stone to honey gold */
+  .bg-intro { background: linear-gradient(168deg, #121611 0%, #1a201a 38%, #2a3526 82%, #3a4a32 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #121611 0%, #191f19 34%, #283324 74%, #384830 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #111510 0%, #1a201a 34%, #2c3826 74%, #3e5034 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #121611 0%, #1b211a 34%, #3a4430 74%, #5e6440 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #121611 0%, #1a201a 30%, #4a4830 64%, #cdb15a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #121611 0%, #1a201a 45%, #2e3a28 78%, #6a5e3a 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5a7048 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #2a3a26 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #8a8a5a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cdb15a 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,236,216,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">How to share</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Same words, a different dictionary</div>
+    <h1 class="display display-lg">How do I share the gospel with a Mormon friend?</h1>
+    <p class="tagline">Mormons, or Latter-day Saints, are often warm, devoted, family-centred people who speak of Jesus and quote the Bible. That is real common ground. The catch is that the shared words can carry different meanings underneath, so the kindest and clearest thing you can do is gently find out what your friend actually means before assuming you already agree.</p>
+
+    <div class="map">
+      <a class="map-item" href="#b1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The shared words</div><div class="map-sub">Same vocabulary, a different dictionary</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Who is God?</div><div class="map-sub">The deepest divergence of all</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Jesus and grace</div><div class="map-sub">A free gift, not a weight of works</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#b4"><div class="map-e">4</div><div class="map-body"><div class="map-title">How to carry it</div><div class="map-sub">Warmth, never an attack</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- B1 SHARED WORDS -->
+<section id="b1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The shared words</div><div class="pill">Step 1 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Start with the shared words</div>
+    <h1 class="display">The vocabulary overlaps. The dictionary differs.</h1>
+    <p class="tagline">You and your Latter-day Saint friend will use many of the same words, and it is easy to assume you mean the same things. Begin by gently finding out whether you actually do.</p>
+
+    <div class="row"><div class="row-icon">Shared words</div><div class="row-text">You both say God, Jesus, gospel, grace, heaven. That overlap is genuine and worth honouring, but it can quietly mislead you. The same words can carry different meanings underneath, so it is easy to nod along thinking you agree when in fact you are describing two different things. Notice the overlap, then get curious about what sits beneath it.</div></div>
+    <div class="row"><div class="row-icon">Honour first</div><div class="row-text">Before anything else, genuinely honour what is good. Latter-day Saints are often deeply sincere, devoted to God, committed to clean living and to family in a way that puts many of us to shame. That is real and admirable. Start by recognising it honestly, not as a tactic, but because it is true and because your friend deserves to be seen clearly.</div></div>
+    <div class="row"><div class="row-icon">Ask, do not assume</div><div class="row-text">Then ask, with real curiosity, what your friend actually means. Who is God to you? Who is Jesus? How is a person saved? Let them tell you in their own words rather than assuming you already know. Questions like these are warm, not combative, and they surface the real differences far more gently than a lecture ever could.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Assuming the same words mean the same things.</b> If you take God, grace and gospel to mean what you mean and never check, the two of you will talk straight past each other for an hour and both leave frustrated. The shared vocabulary is a bridge only if you walk across it slowly. Ask what the words mean before you build anything on them.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: begin as a curious friend, not a prosecutor. Honour their sincerity, and ask what they mean before you assume you already agree.</div></div>
+  </div>
+</section>
+
+<!-- B2 WHO IS GOD -->
+<section id="b2" class="bg-e2">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">Second / Who is God?</div><div class="pill">Step 2 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who is God?</div>
+    <h1 class="display">The deepest divergence is who God is.</h1>
+    <p class="tagline">Under the shared word God lies the biggest difference of all. Raise it gently, not as a debate to win, but as a question the two of you can explore together.</p>
+
+    <div class="row"><div class="row-icon">Their teaching</div><div class="row-text">In Latter-day Saint teaching, God was once a man who progressed over time to become God, and faithful people can themselves progress to become gods. It is a very different picture from the one you may have assumed sat behind the shared word. This is worth understanding clearly and patiently, because it shapes everything else your friend believes.</div></div>
+    <div class="row"><div class="row-icon">The Bible's God</div><div class="row-text">The God of the Bible has always been God, the only God, with none formed before him and none after <span class="ref">(Isaiah 43:10)</span>. He is the first and the last, and besides him there is no God <span class="ref">(Isaiah 44:6)</span>. He did not progress into godhood and he is not one god among many; he is the one eternal God who has always simply been. That is a genuinely different claim, and it matters.</div></div>
+    <div class="row"><div class="row-icon">A gentle question</div><div class="row-text">So explore it together rather than declaring it at them. A gentle way in is simply to wonder aloud: was God always God, or did he become God? Let your friend think it through. Open the Scriptures together and read what they say about a God who has no beginning. A question invites reflection; a verdict only invites a wall.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Turning this into a debate to win rather than a question to explore.</b> The identity of God is far too important to reduce to a contest of point-scoring. If you go in to win, your friend will brace and defend; if you go in to explore, you can think together. Hold it as a shared search for what is actually true, and let the Scriptures do the heavy lifting.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: the identity of God is the hinge. Raise it gently, as a shared search for what is true, not as a wall to back your friend against.</div></div>
+  </div>
+</section>
+
+<!-- B3 JESUS AND GRACE -->
+<section id="b3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / Jesus and grace</div><div class="pill">Step 3 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who is Jesus, and how are we saved?</div>
+    <h1 class="display">A Jesus who is God, and grace as a gift.</h1>
+    <p class="tagline">Two of the deepest gifts the gospel offers your friend are a Jesus who is eternally God, and a salvation that is given, not earned by exhausting yourself towards worthiness.</p>
+
+    <div class="row"><div class="row-icon">Their teaching</div><div class="row-text">In Latter-day Saint teaching, Jesus is a created spirit-being, and salvation comes by grace after all you can do. In practice that places a real and heavy weight on the believer: a long ledger of worthiness and works that has to be kept up. Many sincere Latter-day Saints carry that weight faithfully, and quietly, for years.</div></div>
+    <div class="row"><div class="row-icon">The Bible's Jesus</div><div class="row-text">The Jesus of the Bible is not a created being at all. He is eternally God, the Word who was with God in the beginning and who was God <span class="ref">(John 1:1)</span>. He did not begin; he made all that began. That is a far higher claim than a noble created spirit, and it changes everything about what his life and death actually mean for your friend.</div></div>
+    <div class="row"><div class="row-icon">Grace, freely</div><div class="row-text">And salvation in the Bible is a free gift of grace, received by faith and not earned by performance, so that no one can boast <span class="ref">(Ephesians 2:8-9)</span>. There is no ledger left to balance. For someone tired out by the long arithmetic of worthiness, that is not abstract theology; it is profound, almost unbelievable relief. Let them feel how good that news really is.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Arguing doctrine coldly instead of offering the relief of grace.</b> You can be exactly right about the nature of Jesus and still leave your friend cold if all you bring is an argument. Many Latter-day Saints are quietly exhausted by the weight of works. Lead with the gift, not the rebuttal. Grace is the warmest thing you have to offer, so offer it warmly.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: lead with the gift. Many Latter-day Saint friends are tired from carrying the weight of worthiness, and grace, freely given, is genuinely good news.</div></div>
+  </div>
+</section>
+
+<!-- B4 HOW TO CARRY IT -->
+<section id="b4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / How to carry it</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">How to carry it</div>
+    <h1 class="display">Warm, patient, and never an attack.</h1>
+    <p class="tagline">How you carry the message matters as much as the message. Be warm and unthreatened, lead with Jesus and grace, and point to the Jesus underneath the shared words.</p>
+
+    <div class="row"><div class="row-icon">Be unthreatened</div><div class="row-text">Be warm, patient and entirely unthreatened. You are not in a fight, and you have nothing to prove. A relaxed, kind, genuinely interested friend is far more persuasive than an anxious one with a list of talking points. Take the long view, stay easy, and let the friendship be real rather than a means to an end.</div></div>
+    <div class="row"><div class="row-icon">Lead with Jesus</div><div class="row-text">Lead with the real Jesus and the gift of grace. Never open by attacking Joseph Smith, the gold plates or the history of the church; that slams the door before you have said anything worth hearing. Begin instead with the Jesus who is God and the grace that is free, and let the good news, not the takedown, carry the conversation.</div></div>
+    <div class="row"><div class="row-icon">Point, do not demolish</div><div class="row-text">You are not adding to your friend's religion, and you are not there to demolish it. You are pointing past the shared words to the Jesus underneath them, the eternal Son and the gift of grace, the faith once for all delivered to the saints <span class="ref">(Jude 1:3)</span>. Your aim is not to dismantle a system but to introduce a person.</div></div>
+
+    <div class="objection">
+      <div class="label">The mistake to avoid</div>
+      <div class="otext"><b>Opening with an attack on the prophet or the Book of Mormon.</b> Lead with Joseph Smith or the gold plates and you confirm every defence your friend has ever been taught to raise, and the conversation is over before it starts. The attack feels like winning and accomplishes nothing. Point to Jesus instead, and leave the door open.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Remember: your friend is likely more devout and moral than you. Win them to the biblical Jesus, not against their prophet.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The whole approach</div></div>
+  <div class="stack">
+    <div class="eyebrow">Four moves, taken together</div>
+    <h1 class="display">So, how do you share it?</h1>
+
+    <a class="sum-card" href="#b1"><div class="sum-body"><div class="sum-e">1 &middot; The shared words</div><div class="sum-text">Same vocabulary, a different dictionary. Honour their sincerity, then <b>ask what they mean</b> before you assume.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b2"><div class="sum-body"><div class="sum-e">2 &middot; Who is God?</div><div class="sum-text">The deepest divergence. Gently explore together: was God always God, or <b>did he become God?</b></div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b3"><div class="sum-body"><div class="sum-e">3 &middot; Jesus and grace</div><div class="sum-text">A Jesus who is <b>eternally God</b>, and grace as a free gift, not a weight of worthiness and works.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; How to carry it</div><div class="sum-text"><b>Warmth, never an attack.</b> Point to the Jesus underneath the shared words, not against their prophet.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So with a Latter-day Saint friend, remember the shared words hide different meanings, so ask before you assume. The deepest differences are who God is and who Jesus is. And the best gift you bring is grace: the God who was always God, and the Jesus who offers freely what your friend is exhausting themselves to earn. Lead with him, with warmth, not with an attack on their prophet.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>
