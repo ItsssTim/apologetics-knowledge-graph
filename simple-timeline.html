@@ -7,6 +7,8 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
   :root{--ink:#f6f1e9;--ink-muted:#d9cdbb;--ink-soft:#9a8e7c;--warm-black:#14100b;--hairline:rgba(245,238,228,0.085);--accent:#e0b25a;--council:#f0c674;}
   html,body{font-family:'SF Pro Display',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--warm-black);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  *{scrollbar-width:none;-ms-overflow-style:none;}
+  *::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;background:transparent!important;}
   .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60vh 60vh at 92% -6%,rgba(224,178,90,0.08) 0,transparent 60%),radial-gradient(55vh 55vh at -8% 104%,rgba(122,70,50,0.10) 0,transparent 62%);}
   .wrap{position:relative;z-index:1;width:100%;padding:24px clamp(16px,3vw,48px) 64px;}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
@@ -28,7 +30,7 @@
   .eralabel{position:absolute;left:6.6%;right:0;z-index:6;pointer-events:none;}
   .eralabel span{position:absolute;left:4.2%;top:-9px;font-family:'SF Pro Text',system-ui,sans-serif;font-size:9.5px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#f0c674;background:#14100b;padding:4px 11px;border-radius:7px;border:0.5px solid rgba(240,198,116,0.30);white-space:nowrap;}
   .emp{position:absolute;z-index:1;border-radius:4px;opacity:0.94;overflow:hidden;display:flex;justify-content:center;align-items:flex-start;}
-  .emp span{writing-mode:vertical-rl;text-orientation:mixed;font-family:'SF Pro Display',system-ui,sans-serif;font-weight:800;color:rgba(18,14,9,0.88);text-align:center;white-space:nowrap;padding-top:14px;}
+  .emp span{writing-mode:vertical-rl;text-orientation:mixed;font-family:'SF Pro Display',system-ui,sans-serif;font-weight:800;text-align:center;white-space:nowrap;padding-top:30px;}
   .king{position:absolute;z-index:1;border-radius:4px;background:var(--kc);opacity:0.4;border-left:2px solid var(--kc);cursor:pointer;overflow:hidden;transition:opacity .12s;}
   .king:hover,.king:focus{opacity:0.74;outline:none;}
   .king span{font-family:'SF Pro Text',system-ui,sans-serif;font-size:10px;font-weight:600;color:#fff;padding:3px 0 0 7px;display:block;white-space:nowrap;}
@@ -141,13 +143,13 @@
 <div class="ylab" style="top:15176px">1900</div>
 <div class="grid" style="top:15883px"></div>
 <div class="ylab" style="top:15876px">2000</div>
-<div class="emp" style="top:324px;height:1040px;left:6.6%;width:4.9%;background:#caa23e"><span style="font-size:34.0px;letter-spacing:23.9px">Egyptian Empire</span></div>
-<div class="emp" style="top:1364px;height:1300px;left:6.6%;width:4.9%;background:#8a6a3a"><span style="font-size:34.0px;letter-spacing:37.4px">Israel &amp; Judah</span></div>
-<div class="emp" style="top:2664px;height:524px;left:6.6%;width:4.9%;background:#a8472f"><span style="font-size:29.9px;letter-spacing:0.0px">Assyrian Empire</span></div>
-<div class="emp" style="top:3188px;height:374px;left:6.6%;width:4.9%;background:#6a4a90"><span style="font-size:18.9px;letter-spacing:0.0px">Babylonian Empire</span></div>
-<div class="emp" style="top:3562px;height:1242px;left:6.6%;width:4.9%;background:#2f8c84"><span style="font-size:34.0px;letter-spacing:37.4px">Persian Empire</span></div>
-<div class="emp" style="top:4804px;height:1385px;left:6.6%;width:4.9%;background:#3f72ad"><span style="font-size:34.0px;letter-spacing:37.4px">Greek Empire</span></div>
-<div class="emp" style="top:6189px;height:4485px;left:6.6%;width:4.9%;background:#9c2f3c"><span style="font-size:34.0px;letter-spacing:37.4px">Roman Empire</span></div>
+<div class="emp" style="top:324px;height:1040px;left:6.6%;width:4.9%;background:#E5A93B"><span style="font-size:44.0px;letter-spacing:1.0px;color:rgba(22,16,9,0.92)">Egyptian Empire</span></div>
+<div class="emp" style="top:1364px;height:1300px;left:6.6%;width:4.9%;background:#4A90E2"><span style="font-size:44.0px;letter-spacing:1.0px;color:rgba(22,16,9,0.92)">Israel &amp; Judah</span></div>
+<div class="emp" style="top:2664px;height:524px;left:6.6%;width:4.9%;background:#3B5323"><span style="font-size:26.8px;letter-spacing:1.0px;color:rgba(255,251,245,0.96)">Assyrian Empire</span></div>
+<div class="emp" style="top:3188px;height:374px;left:6.6%;width:4.9%;background:#1F3A60"><span style="font-size:16.1px;letter-spacing:1.0px;color:rgba(255,251,245,0.96)">Babylonian Empire</span></div>
+<div class="emp" style="top:3562px;height:1242px;left:6.6%;width:4.9%;background:#5A2A60"><span style="font-size:44.0px;letter-spacing:1.0px;color:rgba(255,251,245,0.96)">Persian Empire</span></div>
+<div class="emp" style="top:4804px;height:1385px;left:6.6%;width:4.9%;background:#D97724"><span style="font-size:44.0px;letter-spacing:1.0px;color:rgba(22,16,9,0.92)">Greek Empire</span></div>
+<div class="emp" style="top:6189px;height:4485px;left:6.6%;width:4.9%;background:#8B0000"><span style="font-size:44.0px;letter-spacing:1.0px;color:rgba(255,251,245,0.96)">Roman Empire</span></div>
 <div class="ev" data-id="be00" data-label="God calls Abraham" data-year="2000 BC" data-type="event" tabindex="0" style="top:305px;left:37.40%;width:18.60%;--c:#e0b25a;--evw:99px"><span class="evy">2000 BC</span><span class="evt">God calls Abraham</span></div>
 <div class="ev" data-id="be01" data-label="God&#x27;s covenant with Abraham" data-year="1991 BC" data-type="event" tabindex="0" style="top:337px;left:37.40%;width:18.60%;--c:#e0b25a;--evw:99px"><span class="evy">1991 BC</span><span class="evt">God&#x27;s covenant with Abraham</span></div>
 <div class="ev" data-id="be02" data-label="Isaac, the child of promise, is born" data-year="1900 BC" data-type="event" tabindex="0" style="top:397px;left:37.40%;width:18.60%;--c:#e0b25a;--evw:99px"><span class="evy">1900 BC</span><span class="evt">Isaac, the child of promise, is born</span></div>
