@@ -109,7 +109,7 @@
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
     flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
-  }
+   padding-top: 1.5px;}
   .row-text {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
@@ -244,6 +244,11 @@
   @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
     .next-btn { display: inline-flex; }
   }
+  .cardnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;}
+  .cardnav a{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;font-family:'SF Pro Text',system-ui,sans-serif;font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);background:rgba(0,0,0,0.34);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(255,247,238,0.18);border-radius:9999px;text-decoration:none;transition:background 0.2s ease,transform 0.2s ease;}
+  .cardnav a:hover{background:rgba(0,0,0,0.5);}
+  .cardnav a:active{transform:scale(0.96);}
+  .cardnav .ar{font-size:17px;opacity:0.8;line-height:1;}
 </style>
 </head>
 <body>
@@ -374,6 +379,7 @@
     <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The evidence</div><div class="sum-text">He <b>emptied himself</b>, served, and died on a cross. The being accused of vanity behaves like its opposite.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
     <p class="bottom-line">So is God egotistical to seek worship? Only if he is not really worthy of it. Worship is the fitting response to what is supremely good, the way awe is the fitting response to something magnificent. He commands it for our good, not to fill a need he does not have, and then he proves the point by stooping to serve and to die. Praising what is truly excellent does not flatter him. It completes our joy <span class="ref">(Romans 11:34-36)</span>.</p>
+    <div class="cardnav"><a href="simple-answers.html"><span class="ar">&lsaquo;</span> Back</a><a href="simple-conquest.html">Next question <span class="ar">&rsaquo;</span></a></div>
   </div>
 </section>
 

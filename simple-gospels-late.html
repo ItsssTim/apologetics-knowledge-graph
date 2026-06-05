@@ -109,7 +109,7 @@
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
     flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
-  }
+   padding-top: 1.5px;}
   .row-text {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
@@ -249,6 +249,11 @@
   @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
     .next-btn { display: inline-flex; }
   }
+  .cardnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;}
+  .cardnav a{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;font-family:'SF Pro Text',system-ui,sans-serif;font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);background:rgba(0,0,0,0.34);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(255,247,238,0.18);border-radius:9999px;text-decoration:none;transition:background 0.2s ease,transform 0.2s ease;}
+  .cardnav a:hover{background:rgba(0,0,0,0.5);}
+  .cardnav a:active{transform:scale(0.96);}
+  .cardnav .ar{font-size:17px;opacity:0.8;line-height:1;}
 </style>
 </head>
 <body>
@@ -355,6 +360,7 @@
     <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Burned-in memory</div><div class="sum-text">You never forget your 9/11. The witnesses were <b>transformed by what they saw</b>, and the accounts name real people you could go and ask.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
     <p class="bottom-line">So were the Gospels written too late to trust? Only if you picture a lone whisper crossing silent centuries. The reality is the reverse: a gap that is short for the ancient world, an oral culture that told these stories aloud and corrected them in public, and the unforgettable memory of the most shattering event the witnesses ever lived through, with their sources named so you could go and check. The accounts do not reach us as a faded rumour. They reach us close to the people who were actually there.</p>
+    <div class="cardnav"><a href="simple-answers.html"><span class="ar">&lsaquo;</span> Back</a><a href="simple-gospel-contradictions.html">Next question <span class="ar">&rsaquo;</span></a></div>
   </div>
 </section>
 

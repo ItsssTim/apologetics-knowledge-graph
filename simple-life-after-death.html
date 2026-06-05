@@ -109,7 +109,7 @@
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
     flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
-  }
+   padding-top: 1.5px;}
   .row-text {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
@@ -245,6 +245,11 @@
   @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
     .next-btn { display: inline-flex; }
   }
+  .cardnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;}
+  .cardnav a{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;font-family:'SF Pro Text',system-ui,sans-serif;font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);background:rgba(0,0,0,0.34);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(255,247,238,0.18);border-radius:9999px;text-decoration:none;transition:background 0.2s ease,transform 0.2s ease;}
+  .cardnav a:hover{background:rgba(0,0,0,0.5);}
+  .cardnav a:active{transform:scale(0.96);}
+  .cardnav .ar{font-size:17px;opacity:0.8;line-height:1;}
 </style>
 </head>
 <body>
@@ -399,6 +404,7 @@
     <a class="sum-card" href="#s5"><div class="sum-body"><div class="sum-e">5 &middot; The witness</div><div class="sum-text">One man was executed, his <b>tomb found empty</b>, seen alive by many, and a movement of thousands sprang up within weeks.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
     <p class="bottom-line">So is there life after death? The longing points one way, the enduring self and the immaterial mind keep that door open, the best near-death cases push it wider, and the resurrection of Jesus turns a reasonable hope into a reported event. None of these forces belief on its own. Together they make the Christian answer the more honest one. You are not only a body waiting to stop. If the grave could not hold him, it need not be the last word over you.</p>
+    <div class="cardnav"><a href="simple-answers.html"><span class="ar">&lsaquo;</span> Back</a><a href="simple-suffering.html">Next question <span class="ar">&rsaquo;</span></a></div>
   </div>
 </section>
 

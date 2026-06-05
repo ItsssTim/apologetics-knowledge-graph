@@ -109,7 +109,7 @@
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
     flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
-  }
+   padding-top: 1.5px;}
   .row-text {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
@@ -249,6 +249,11 @@
   @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
     .next-btn { display: inline-flex; }
   }
+  .cardnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;}
+  .cardnav a{display:inline-flex;align-items:center;gap:8px;padding:11px 17px;font-family:'SF Pro Text',system-ui,sans-serif;font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);background:rgba(0,0,0,0.34);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(255,247,238,0.18);border-radius:9999px;text-decoration:none;transition:background 0.2s ease,transform 0.2s ease;}
+  .cardnav a:hover{background:rgba(0,0,0,0.5);}
+  .cardnav a:active{transform:scale(0.96);}
+  .cardnav .ar{font-size:17px;opacity:0.8;line-height:1;}
 </style>
 </head>
 <body>
@@ -379,6 +384,7 @@
     <a class="sum-card" href="#b4"><div class="sum-body"><div class="sum-e">4 &middot; What changes</div><div class="sum-text">If God is real, life has meaning, your worth is secure, and <b>love isn't swallowed by the grave</b>. That's the difference.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
     <p class="bottom-line">So does life have any meaning without God? You can certainly build a meaning for yourself, and many do. But on a strictly godless account it is a meaning you invent, that will not outlast you, and that almost nobody can actually live by. The deep human hunger for something more is not a proof, but it is a clue, and it points somewhere. And if God is real, the difference is total: you are not an accident but someone known and loved, your worth does not hang on your usefulness, and the things you love are not heading for nothing. That is what is at stake, and it is worth following all the way to the question of whether it is true.</p>
+    <div class="cardnav"><a href="simple-answers.html"><span class="ar">&lsaquo;</span> Back</a><a href="simple-gospels-late.html">Next question <span class="ar">&rsaquo;</span></a></div>
   </div>
 </section>
 
