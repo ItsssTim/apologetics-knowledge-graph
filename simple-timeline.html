@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#14100b"><title>The whole story, on one scroll &middot; Simple Answers</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  :root { --ink:#f4efe6; --ink-muted:#dccfbb; --ink-soft:#a99c86; --warm-black:#14100b;
+    --panel:#1d1810; --hairline:rgba(245,238,228,0.10); --accent:#dca850; }
+  html,body { font-family:'SF Pro Display',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--warm-black); color:var(--ink); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+  .bg-glow { position:fixed; inset:0; z-index:0; pointer-events:none;
+    background: radial-gradient(60vh 60vh at 85% -10%, rgba(220,168,80,0.14) 0%, transparent 60%),
+                radial-gradient(55vh 55vh at -10% 108%, rgba(122,70,50,0.16) 0%, transparent 62%); }
+  .wrap { position:relative; z-index:1; max-width:720px; margin:0 auto;
+    padding: max(env(safe-area-inset-top),26px) 22px max(env(safe-area-inset-bottom),56px); }
+  .topbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; }
+  .topbar a { color:var(--ink); text-decoration:none; font-family:'SF Pro Text',system-ui,sans-serif; font-size:13px; font-weight:600; opacity:0.72; }
+  .topbar .pill { font-family:'SF Pro Text',system-ui,sans-serif; font-size:11px; font-weight:600; letter-spacing:0.06em;
+    text-transform:uppercase; opacity:0.6; padding:5px 11px; border:0.5px solid currentColor; border-radius:9999px; }
+  .eyebrow { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; font-weight:600; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+  h1 { font-size:38px; font-weight:600; line-height:1.04; letter-spacing:-0.022em; margin-bottom:14px; }
+  .lede { font-family:'SF Pro Text',system-ui,sans-serif; font-size:16px; font-weight:400; line-height:1.5;
+    letter-spacing:-0.005em; color:var(--ink-muted); margin-bottom:34px; max-width:34em; }
+
+  .timeline { position:relative; }
+  .era { position:relative; border-left:3px solid var(--emp); padding:0 0 30px 26px; }
+  .era:last-child { border-left-color:transparent; }
+  .node { position:absolute; left:-8px; top:3px; width:13px; height:13px; border-radius:50%;
+    background:var(--emp); border:2px solid var(--warm-black); box-shadow:0 0 0 1px var(--emp); }
+  .ehead { display:flex; align-items:center; gap:10px; margin-bottom:5px; flex-wrap:wrap; }
+  .emp { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--warm-black); background:var(--emp); padding:3px 8px; border-radius:6px; }
+  .edate { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; font-weight:600; color:var(--ink-soft); letter-spacing:0.02em; }
+  .etitle { font-size:21px; font-weight:600; line-height:1.15; letter-spacing:-0.015em; margin-bottom:10px; }
+  .events { list-style:none; }
+  .events li { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; line-height:1.5; color:var(--ink-muted);
+    padding-left:16px; position:relative; margin-bottom:4px; }
+  .events li::before { content:""; position:absolute; left:2px; top:9px; width:4px; height:4px; border-radius:50%; background:var(--emp); opacity:0.8; }
+
+  .monarchy { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0 4px; }
+  .mcol { background:rgba(245,238,228,0.04); border:0.5px solid var(--hairline); border-radius:13px; padding:12px 13px; }
+  .mcol.north { box-shadow: inset 3px 0 0 #a04432; }
+  .mcol.south { box-shadow: inset 3px 0 0 #caa23e; }
+  .mh { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+  .mrow { margin-bottom:7px; }
+  .mrow:last-child { margin-bottom:0; }
+  .ml { display:block; font-family:'SF Pro Text',system-ui,sans-serif; font-size:9.5px; font-weight:700; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:2px; }
+  .mv { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12.5px; line-height:1.4; color:var(--ink-muted); }
+
+  .books { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12.5px; line-height:1.45; color:var(--ink-soft); margin-top:9px; }
+  .bl { font-weight:700; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-right:4px; }
+  .enote { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; line-height:1.45; color:var(--ink-soft); font-style:normal; opacity:0.82; margin-top:8px; }
+
+  .hinge { display:flex; align-items:baseline; gap:9px; margin-top:14px; padding-left:2px; position:relative; }
+  .hnode { position:absolute; left:-9px; top:4px; width:15px; height:15px; border-radius:50%; background:var(--accent);
+    border:2px solid var(--warm-black); box-shadow:0 0 12px rgba(220,168,80,0.5); }
+  .hdate { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.02em; white-space:nowrap; }
+  .hlabel { font-size:14.5px; font-weight:600; line-height:1.3; color:var(--ink); letter-spacing:-0.01em; }
+
+  .foot { font-family:'SF Pro Text',system-ui,sans-serif; font-size:12px; line-height:1.5; color:var(--ink-soft); margin-top:26px; padding-top:18px; border-top:0.5px solid var(--hairline); }
+  .foot a { color:var(--accent); text-decoration:none; }
+
+  @media (max-width:560px) { .monarchy { grid-template-columns:1fr; } h1 { font-size:32px; } }
+</style></head><body>
+<div class="bg-glow"></div>
+<div class="wrap">
+  <div class="topbar"><a href="simple-answers.html">&larr; Simple Answers</a><div class="pill">Timeline</div></div>
+  <div class="eyebrow">The big story</div>
+  <h1>The whole story, on one scroll.</h1>
+  <p class="lede">From creation to right now, every book, king, prophet and empire in its place, so the whole story finally fits together. The colour down the left is the empire in power, changing as you scroll.</p>
+  <div class="timeline"><div class="era" style="--emp:#5f5b52">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Primeval</span><span class="edate">Before the dated clock</span></div>
+<h2 class="etitle">Creation to Babel</h2>
+<ul class="events"><li>Creation, and the Fall of humanity (Genesis 1 to 3)</li><li>Cain and Abel; the long line of generations</li><li>The Flood, and God's covenant with Noah</li><li>Babel: the nations scatter across the earth</li></ul>
+<div class="books"><span class="bl">Books</span> Genesis 1 to 11</div>
+<div class="enote">No fixed dates. The Bible does not date the earth or these events.</div>
+</div>
+<div class="era" style="--emp:#caa23e">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Egypt</span><span class="edate">c. 2000 BC</span></div>
+<h2 class="etitle">The patriarchs</h2>
+<ul class="events"><li>God calls Abraham and makes the covenant of promise</li><li>Isaac, then Jacob, renamed Israel, and his twelve sons</li><li>Joseph is sold into Egypt and rises to power; Israel settles there</li></ul>
+<div class="books"><span class="bl">Books</span> Genesis 12 to 50</div>
+</div>
+<div class="era" style="--emp:#caa23e">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Egypt</span><span class="edate">c. 1450 BC</span></div>
+<h2 class="etitle">Exodus and the Law</h2>
+<ul class="events"><li>Israel enslaved; Moses and the burning bush</li><li>The plagues, the Passover, and the Exodus</li><li>The Law given at Sinai; the tabernacle built</li><li>Forty years in the wilderness</li></ul>
+<div class="books"><span class="bl">Books</span> Exodus, Leviticus, Numbers, Deuteronomy</div>
+<div class="enote">The Exodus is dated early (c. 1446 BC) or late (c. 1260 BC).</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">c. 1446 BC</span><span class="hlabel">The Exodus from Egypt</span></div>
+</div>
+<div class="era" style="--emp:#7c6a44">
+<span class="node"></span>
+<div class="ehead"><span class="emp">The tribes</span><span class="edate">c. 1400 to 1050 BC</span></div>
+<h2 class="etitle">Conquest and Judges</h2>
+<ul class="events"><li>Joshua leads Israel into the promised land</li><li>The Judges: cycles of sin, rescue, and relapse</li><li>Ruth, set in the days of the Judges</li></ul>
+<div class="books"><span class="bl">Books</span> Joshua, Judges, Ruth</div>
+</div>
+<div class="era" style="--emp:#9a7038">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Israel united</span><span class="edate">c. 1050 to 930 BC</span></div>
+<h2 class="etitle">The united monarchy</h2>
+<ul class="events"><li>Israel demands a king; Saul is anointed</li><li>David: shepherd, king, and psalmist, promised an everlasting throne</li><li>Solomon: wisdom, wealth, and the first Temple</li></ul>
+<div class="books"><span class="bl">Books</span> 1 and 2 Samuel, 1 Kings, Psalms, Proverbs, Ecclesiastes, Song of Songs</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">c. 960 BC</span><span class="hlabel">Solomon builds the Temple</span></div>
+</div>
+<div class="era" style="--emp:#9a7038">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Israel and Judah</span><span class="edate">930 to 722 BC</span></div>
+<h2 class="etitle">The kingdom divides</h2>
+<ul class="events"><li>After Solomon, the one kingdom splits in two</li><li>North: Israel, capital Samaria. South: Judah, capital Jerusalem</li><li>Assyria rises to the east, and looms</li></ul>
+<div class="monarchy"><div class="mcol north"><div class="mh">Israel, the north</div><div class="mrow"><span class="ml">Kings</span><span class="mv">Jeroboam I (the golden calves), Omri, Ahab (with Jezebel), Jehu, Jeroboam II, Hoshea (the last)</span></div><div class="mrow"><span class="ml">Prophets</span><span class="mv">Elijah, Elisha, Jonah, Amos, Hosea</span></div></div><div class="mcol south"><div class="mh">Judah, the south</div><div class="mrow"><span class="ml">Kings</span><span class="mv">Rehoboam (the first), Asa, Jehoshaphat, Uzziah, Jotham, Ahaz</span></div><div class="mrow"><span class="ml">Prophets</span><span class="mv">Isaiah, Micah</span></div></div></div>
+<div class="books"><span class="bl">Books</span> 1 and 2 Kings, 1 and 2 Chronicles</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">722 BC</span><span class="hlabel">Assyria destroys the north; the ten tribes scattered</span></div>
+</div>
+<div class="era" style="--emp:#a04432">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Assyria, then Babylon</span><span class="edate">722 to 586 BC</span></div>
+<h2 class="etitle">Judah alone</h2>
+<ul class="events"><li>The north is gone; Judah survives a while longer</li><li>Hezekiah trusts God as Assyria besieges Jerusalem</li><li>Josiah's reforms; the lost Book of the Law is found</li><li>Babylon overtakes Assyria; Nineveh falls (612 BC)</li><li>Kings of Judah: Hezekiah, Manasseh, Josiah, Zedekiah (the last)</li><li>Prophets to Judah: Jeremiah, Nahum, Habakkuk, Zephaniah</li></ul>
+<div class="books"><span class="bl">Books</span> Jeremiah, Nahum, Habakkuk, Zephaniah</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">586 BC</span><span class="hlabel">Babylon destroys Jerusalem and the Temple</span></div>
+</div>
+<div class="era" style="--emp:#6a4a90">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Babylon</span><span class="edate">586 to 538 BC</span></div>
+<h2 class="etitle">The Babylonian exile</h2>
+<ul class="events"><li>Judah is carried off to Babylon; the Temple lies in ruins</li><li>Ezekiel prophesies among the exiles</li><li>Daniel serves, and stands firm, in the Babylonian court</li><li>Jeremiah laments over the fallen city</li></ul>
+<div class="books"><span class="bl">Books</span> Ezekiel, Daniel, Lamentations</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">539 BC</span><span class="hlabel">Persia conquers Babylon</span></div>
+</div>
+<div class="era" style="--emp:#2f8c84">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Persia</span><span class="edate">538 to 430 BC</span></div>
+<h2 class="etitle">Return and restoration</h2>
+<ul class="events"><li>Cyrus of Persia lets the exiles go home</li><li>The Temple is rebuilt (c. 516 BC)</li><li>Ezra teaches the Law; Nehemiah rebuilds the walls (c. 445 BC)</li><li>Esther saves her people in the Persian court</li></ul>
+<div class="books"><span class="bl">Books</span> Ezra, Nehemiah, Esther, Haggai, Zechariah, Malachi</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">c. 430 BC</span><span class="hlabel">Malachi, the last prophet; then the voice falls silent</span></div>
+</div>
+<div class="era" style="--emp:#3f72ad">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Greece, then Rome</span><span class="edate">c. 430 to 5 BC</span></div>
+<h2 class="etitle">The 400 years of silence</h2>
+<ul class="events"><li>No prophet speaks, but history races on</li><li>Alexander conquers; Greek becomes the world's tongue (c. 333 BC)</li><li>The Scriptures translated into Greek, the Septuagint (c. 250 BC)</li><li>The Maccabees revolt; the Temple is rededicated, Hanukkah (167 BC)</li><li>Rome takes Jerusalem (63 BC); Herod is made king (37 BC)</li><li>Synagogues spread; the Pharisees and Sadducees emerge</li></ul>
+<div class="books"><span class="bl">Books</span> Between the Testaments</div>
+</div>
+<div class="era" style="--emp:#9c2f3c">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Rome</span><span class="edate">c. 5 BC to AD 30</span></div>
+<h2 class="etitle">Jesus</h2>
+<ul class="events"><li>Born in Bethlehem, under the emperor Augustus</li><li>Years of teaching, healing, and the kingdom of God</li><li>Crucified under Pontius Pilate</li><li>Risen on the third day</li></ul>
+<div class="books"><span class="bl">Books</span> Narrated by the Gospels, written later</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">c. AD 30</span><span class="hlabel">The crucifixion and the resurrection</span></div>
+</div>
+<div class="era" style="--emp:#9c2f3c">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Rome</span><span class="edate">AD 30 to 100</span></div>
+<h2 class="etitle">The apostolic age</h2>
+<ul class="events"><li>Pentecost; the church is born</li><li>Saul meets the risen Jesus on the Damascus road (c. AD 33)</li><li>Paul carries the gospel across the empire</li><li>The Jerusalem Council settles grace for the nations (c. AD 49)</li><li>The New Testament is written: Paul's letters (50s), the Gospels (60s to 90s), Revelation (c. 95)</li></ul>
+<div class="books"><span class="bl">Books</span> The whole New Testament</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">AD 70</span><span class="hlabel">Rome destroys the Second Temple</span></div>
+</div>
+<div class="era" style="--emp:#9c2f3c">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Rome, and its fall</span><span class="edate">AD 100 to 500</span></div>
+<h2 class="etitle">The early church and the councils</h2>
+<ul class="events"><li>Persecution, martyrs, and the first apologists</li><li>The New Testament canon is recognised</li><li>Constantine; the Edict of Milan ends persecution (313)</li><li>The councils define the faith against error</li><li>Augustine; the West works out grace, sin, and the church</li></ul>
+<div class="books"><span class="bl">Books</span> The creeds and the councils</div>
+<div class="hinge"><span class="hnode"></span><span class="hdate">AD 325</span><span class="hlabel">The Council of Nicaea</span></div>
+</div>
+<div class="era" style="--emp:#b9783e">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Christendom</span><span class="edate">500 to 1500</span></div>
+<h2 class="etitle">The Middle Ages</h2>
+<ul class="events"><li>The faith spreads across Europe and beyond</li><li>The Great Schism splits East and West (1054)</li><li>The Crusades</li><li>Aquinas, the universities, and the great cathedrals</li></ul>
+</div>
+<div class="era" style="--emp:#b9783e">
+<span class="node"></span>
+<div class="ehead"><span class="emp">Christendom</span><span class="edate">The 1500s</span></div>
+<h2 class="etitle">The Reformation</h2>
+<ul class="events"><li>The printing press puts the Bible within reach of all</li><li>Luther nails up the 95 Theses (1517)</li><li>Tyndale and Calvin; the Scriptures in the common tongue</li><li>Rome answers at the Council of Trent</li></ul>
+<div class="hinge"><span class="hnode"></span><span class="hdate">1517</span><span class="hlabel">Luther's 95 Theses</span></div>
+</div>
+<div class="era" style="--emp:#b9783e">
+<span class="node"></span>
+<div class="ehead"><span class="emp">The global church</span><span class="edate">1600 to today</span></div>
+<h2 class="etitle">To the present day</h2>
+<ul class="events"><li>The Great Awakenings and seasons of revival</li><li>The modern missionary movement reaches the whole world</li><li>The faith's centre shifts to Africa, Asia, and Latin America</li><li>The same gospel, two thousand years on, in your hands</li></ul>
+</div></div>
+  <p class="foot">Dates are approximate, and the earliest period is left undated on purpose. The scroll is paced by what matters, not drawn to scale. Each era opens up in the full <a href="simple-answers.html">Simple Answers</a> cards.</p>
+</div></body></html>
