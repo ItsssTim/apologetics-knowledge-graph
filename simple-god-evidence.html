@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0a18">
+<title>Is there any good reason to think God is real? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f2fa;
+    --ink-muted: #ddd9ec;
+    --ink-soft: #a39fbc;
+    --warm-black: #0d0a18;
+    --cream: #efeaf3;
+    --clay: #463a7a;
+    --amber: #cda94e;
+    --hairline: rgba(238,236,250,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,236,250,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cosmic indigo and violet resolving to luminous gold */
+  .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
+  .bg-e5    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #524670 74%, #7e683e 100%); }
+  .bg-e6    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #5c4f54 74%, #a4843a 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c1640 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #5a4a8a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cda94e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">6 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">A case built one beam at a time</div>
+    <h1 class="display display-lg">Is there any good reason to think God is real?</h1>
+    <p class="tagline">Plenty of people assume faith is a leap in the dark, believing because you were raised to or because it feels nice. But there are real arguments here, and no single one has to carry the whole weight. Think of it like a courtroom case. You take the evidence one strand at a time, then ask what best explains all of it together.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The universe had a beginning</div><div class="map-sub">And beginnings need a cause</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Nature looks designed</div><div class="map-sub">Order that points to a mind</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The dials are set for life</div><div class="map-sub">Fine-tuning too precise to shrug off</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Life runs on written code</div><div class="map-sub">Information inside every cell</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s5"><div class="map-e">5</div><div class="map-body"><div class="map-title">Right and wrong are real</div><div class="map-sub">A moral law needs a lawgiver</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s6"><div class="map-e">6</div><div class="map-body"><div class="map-title">People actually meet God</div><div class="map-sub">Experience, across every culture</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 COSMOLOGICAL -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-1"></span>
+  <div class="header"><div class="counter">First / The beginning</div><div class="pill">Step 1 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why is there anything at all</div>
+    <h1 class="display">The universe began. Beginnings need a cause.</h1>
+    <p class="tagline">Start with the plainest fact there is. Something exists rather than nothing. The philosopher J. P. Moreland puts the next step in three simple moves.</p>
+
+    <div class="row"><div class="row-icon">It had a start</div><div class="row-text">The past cannot stretch back forever. You can never count to the end of an endless list, so if the chain of past events were truly infinite, this present moment could never have arrived. Yet here we are. So the universe began. The slow loss of usable energy points the same way.</div></div>
+    <div class="row"><div class="row-icon">It was caused</div><div class="row-text">Nothing in all our experience simply pops into being out of nothing. Things come from other things. A beginning that real therefore calls for a cause that brought it about.</div></div>
+    <div class="row"><div class="row-icon">The cause is personal</div><div class="row-text">Time, space and matter started with the universe, so its cause sits outside all three. It is timeless, spaceless and immaterial. And only a free agent could choose to bring a world into being, which means the cause is more like a mind than a mechanism.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>The universe could have come from nothing, or just always existed.</b> Both run into walls. Coming from literally nothing has no parallel anywhere in science. And an actual infinite past cannot be crossed to reach today. The honest options keep narrowing to a beginning with a cause beyond the physical <span class="ref">(Genesis 1:1)</span>.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A universe that began, from a cause outside space and time that chose to act, already sounds a great deal like the God people have always described.</div></div>
+  </div>
+</section>
+
+<!-- S2 DESIGN -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">Second / The design</div><div class="pill">Step 2 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">Order that asks to be explained</div>
+    <h1 class="display">When you find a watch, you infer a watchmaker.</h1>
+    <p class="tagline">William Paley said it centuries ago. Stumble on a watch in a field and you do not assume wind and rain assembled it. The mathematician William Dembski shows the same reasoning still holds.</p>
+
+    <div class="row"><div class="row-icon">The watch</div><div class="row-text">A watch has parts arranged for a purpose, gears fitted to tell time. That arrangement is the signature of a designer. The human eye, parts fitted together to produce sight, makes the point even more sharply.</div></div>
+    <div class="row"><div class="row-icon">The update</div><div class="row-text">Modern intelligent design takes Paley further using information theory and molecular biology. It is not a gap in knowledge. It is a positive inference from the kind of order that, everywhere else, only minds produce.</div></div>
+    <div class="row"><div class="row-icon">Stay modest</div><div class="row-text">Dembski is careful here. This argument shows a designing intelligence behind nature. On its own it does not name that intelligence or prove the gospel. It clears the ground. The other strands fill in who.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Darwin explained design away, an unguided process can mimic a designer.</b> It can mimic some of it. The deeper claim was that random variation and selection account for all biological order. Notice what is being granted even by critics: nature looks so designed that you need a whole theory to explain the appearance away.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">You do not need to settle every biology debate. The order in nature is real enough that even its sceptics spend their energy explaining the design, not denying it.</div></div>
+  </div>
+</section>
+
+<!-- S3 FINE-TUNING -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Third / The fine-tuning</div><div class="pill">Step 3 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">The settings behind the scenery</div>
+    <h1 class="display">The dials are set for life with eerie precision.</h1>
+    <p class="tagline">Step behind the universe to the constants that govern it. The physicist Walter Bradley catalogues just how finely balanced they are.</p>
+
+    <div class="row"><div class="row-icon">Fifty needs</div><div class="row-text">At least fifty distinct requirements must all be met for life to exist anywhere: the right elements to build molecular machines, carbon that bonds and releases, water as a solvent across earthly temperatures, energy sources matched to the chemistry. Every one is satisfied here.</div></div>
+    <div class="row"><div class="row-icon">Nineteen constants</div><div class="row-text">Nineteen universal constants, the speed of light, the gravity force, the mass of the electron, the unit charge, sit at life-permitting values. The strong force and electromagnetism must balance to within about five percent, or you get no stable sun and no rich variety of elements.</div></div>
+    <div class="row"><div class="row-icon">A blunt verdict</div><div class="row-text">The astronomer Fred Hoyle, no friend of religion, concluded that a super intellect had monkeyed with the physics, chemistry and biology, and that there are no blind forces worth speaking about in nature.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Maybe there are countless other universes, and we just live in the one that works.</b> Notice this is a leap of faith too, an unobserved sea of universes invoked precisely to avoid a designer. Given one universe, the one we can actually see, fine-tuning this exact is far more at home with a mind behind it than with luck.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">When the settings of reality are tuned this carefully, and a sceptic of Hoyle's standing calls it the work of a super intellect, design has stopped being a religious hunch.</div></div>
+  </div>
+</section>
+
+<!-- S4 DNA / INFORMATION -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Fourth / The code</div><div class="pill">Step 4 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">A message written into matter</div>
+    <h1 class="display">Every living cell runs on written code.</h1>
+    <p class="tagline">Zoom all the way in, to the molecule inside you. Bradley points out that life is not just chemistry, it is information, and information behaves like a message.</p>
+
+    <div class="row"><div class="row-icon">DNA is text</div><div class="row-text">DNA is a storage system. It encodes the instructions for building and running a living thing, written in a four-letter chemical alphabet. We know of no other source for coded information like this except a mind.</div></div>
+    <div class="row"><div class="row-icon">The odds</div><div class="row-text">The chance of one key protein, the cytochrome-C molecule, falling into the correct sequence by accident is about one in ten followed by sixty zeros. That is not a long shot. It is a number that makes blind chance stop being a serious answer.</div></div>
+    <div class="row"><div class="row-icon">Built to work</div><div class="row-text">The biochemist Michael Behe adds that some molecular systems only function once every part is in place, with no advantage until assembled. Information plus that kind of all-or-nothing machinery points hard toward design, not gradual accident.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Given enough time, chance and natural selection will write the code on their own.</b> Selection can only refine what already lives and reproduces. It cannot author the first set of instructions, and the odds against that first sequence forming by accident are staggering. Time does not help when the target is that small.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Wherever else you find coded language, you find an author behind it. The code at the heart of life is the same kind of clue, written small.</div></div>
+  </div>
+</section>
+
+<!-- S5 MORAL -->
+<section id="s5" class="bg-e5">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Fifth / The moral law</div><div class="pill">Step 5 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">The clue inside you</div>
+    <h1 class="display">Some things are really wrong, not just unpopular.</h1>
+    <p class="tagline">Leave the telescope and microscope for a moment and look inward. The philosopher Paul Copan argues that our sense of right and wrong is itself a signpost.</p>
+
+    <div class="row"><div class="row-icon">You know it</div><div class="row-text">Torturing a child for fun is not merely frowned upon, it is wrong. You know that by conscience, before any argument. People across every culture recognise the same core virtues, as if a law were written on the heart <span class="ref">(Romans 2:15)</span>.</div></div>
+    <div class="row"><div class="row-icon">The argument</div><div class="row-text">It runs cleanly. If real, binding moral duties exist, they need a ground beyond human opinion. They plainly do exist. So there is a source of moral law above us, the kind of anchor a good God provides <span class="ref">(Romans 2:14-15)</span>.</div></div>
+    <div class="row"><div class="row-icon">Real worth</div><div class="row-text">This is also why every person carries dignity that no government grants and none can revoke. If we are made in God's image, human worth is built in, not handed out. Take God away and that footing gets very hard to keep.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Morality is just evolution and culture, no God required.</b> But that only explains why we have moral feelings, not why some acts are genuinely wrong whether we feel it or not. The atheist who calls cruelty evil is borrowing the very moral law the view denies. The objection leans on the thing it tries to remove.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">If right and wrong are more than personal taste, and almost everyone lives as though they are, then the moral law you already trust is pointing somewhere.</div></div>
+  </div>
+</section>
+
+<!-- S6 RELIGIOUS EXPERIENCE -->
+<section id="s6" class="bg-e6">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Sixth / The encounter</div><div class="pill">Step 6 of 6</div></div>
+  <div class="stack">
+    <div class="eyebrow">The witness of experience</div>
+    <h1 class="display">Across every culture, people say they have met God.</h1>
+    <p class="tagline">The arguments so far work from the outside in. This last strand is more personal. The philosopher Douglas Geivett asks whether the experience of God can count as evidence too.</p>
+
+    <div class="row"><div class="row-icon">The reports</div><div class="row-text">Scripture and history are full of direct encounters, Moses at the burning bush among the most famous <span class="ref">(Exodus 3)</span>. And it is not an ancient or local thing. Reports of meeting the divine turn up in every age and across the world.</div></div>
+    <div class="row"><div class="row-icon">A fair rule</div><div class="row-text">We trust our experiences unless we have good reason not to. You believe your own eyes and ears without a proof for each one. Geivett says we should extend that same rational trust to experiences of God, rather than rule them out from the start.</div></div>
+    <div class="row"><div class="row-icon">Weight in numbers</div><div class="row-text">No single experience compels everyone, and it should not have to. But the sheer breadth of these reports across cultures adds real weight, and it lands hardest when it joins the other lines of evidence rather than standing alone.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Experiences can be mistaken or invented, so they prove nothing.</b> Some surely are, and an experience can be misread. But the bare possibility of error does not discredit all experience, or you would have to throw out ordinary perception too. You weigh experiences, you do not dismiss a whole class of them in advance.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Treated as fairly as any other experience, the worldwide testimony of people who say they have encountered God is evidence worth taking seriously, not waving away.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Six strands, taken together</div>
+    <h1 class="display">No single beam, but a converging case.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The beginning</div><div class="sum-text">The universe <b>began</b>, so it had a cause beyond space and time, one that chose to act.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The design</div><div class="sum-text">Nature carries the <b>fingerprints of a mind</b>, the kind of order that, everywhere else, only design produces.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The fine-tuning</div><div class="sum-text">The constants are tuned for life so finely that even <b>Fred Hoyle</b> spoke of a super intellect.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The code</div><div class="sum-text">Life runs on <b>written information</b> in DNA, and coded language always traces back to a mind.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s5"><div class="sum-body"><div class="sum-e">5 &middot; The moral law</div><div class="sum-text">Real right and wrong need a <b>ground above us</b>, the anchor a good God supplies.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s6"><div class="sum-body"><div class="sum-e">6 &middot; The encounter</div><div class="sum-text">Across every culture, people report <b>meeting God</b>, testimony that deserves a fair hearing.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is there any good reason to think God is real? Not one knockdown proof, but six independent strands that all lean the same way: a beginning, a design, a fine-tuned home, a written code, a moral law, and a worldwide weight of experience. Any one might be talked around. Together they make the question worth your honest attention. The reasonable next step is not to settle it from a distance, but to look into it for yourself.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

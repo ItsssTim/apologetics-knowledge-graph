@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0a18">
-<title>If God made everything, who made God? &middot; Simple Answers</title>
+<title>Wasn't missionary work just colonialism? &middot; Simple Answers</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -96,7 +96,7 @@
     font-size: 37px; font-weight: 600; line-height: 1.06;
     letter-spacing: -0.022em; margin-bottom: 12px;
   }
-  .display-lg { font-size: 34px; }
+  .display-lg { font-size: 33px; }
   .tagline {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 17px; font-weight: 400; line-height: 1.45;
@@ -148,7 +148,6 @@
     font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
   }
 
-  /* intro map */
   .map { margin-top: 6px; }
   .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
   .map-item:first-of-type { border-top: none; }
@@ -172,7 +171,6 @@
     opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
   }
 
-  /* summary cards */
   .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
   a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
   a.sum-card:hover { background: rgba(238,236,250,0.10); }
@@ -188,7 +186,8 @@
   .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
   .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
   .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
-  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #443a5a 74%, #9a7e3a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
   .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
 
   .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
@@ -202,14 +201,10 @@
     background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
   }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
   .dot.active { background: #fff; width: 18px; border-radius: 6px; }
-
-  /* --- Simple Answers: shared nav + transition polish --- */
-  .dot { position: relative; cursor: pointer; }
   .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
   .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
-  /* Touch devices: space the dots out and give each a large, tiling tap target. */
   @media (pointer: coarse) {
     .dots { gap: 13px; padding: 10px 16px; }
     .dot { width: 7px; height: 7px; }
@@ -259,86 +254,109 @@
   <span class="hero hero-b blob-2"></span>
   <div class="header">
     <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
-    <div class="pill">3 steps</div>
+    <div class="pill">4 steps</div>
   </div>
   <div class="stack">
-    <div class="eyebrow">The question that feels like checkmate</div>
-    <h1 class="display display-lg">If God made everything, who made God?</h1>
-    <p class="tagline">It feels like the move that ends the game. If everything needs a maker, then God needs one too, and if God can exist uncaused, why not just the universe? It sounds airtight. It rests on a quiet misunderstanding of the one word in the sentence that matters: God.</p>
+    <div class="eyebrow">A charge worth taking seriously</div>
+    <h1 class="display display-lg">Wasn't missionary work just colonialism?</h1>
+    <p class="tagline">The picture is familiar. Westerners arrive, the empire follows, and a whole way of life is erased in the name of God. Some of that really happened, and it should be named without flinching. But the popular story flattens a far more surprising record, one where missionaries were often the loudest critics of empire, not its servants.</p>
 
     <div class="map">
-      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Only things that begin need a cause</div><div class="map-sub">Fix the rule and the question changes</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The chain has to stop somewhere</div><div class="map-sub">Why not causes all the way down</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The wrong question, not a hard one</div><div class="map-sub">A category mistake, like the smell of blue</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Concede the wrongs first</div><div class="map-sub">Where the charge is fair, say so</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The gospel owns no culture</div><div class="map-sub">It was never a Western possession</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">They fought for the conquered</div><div class="map-sub">Languages saved, peoples defended</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Then look at what followed</div><div class="map-sub">The pattern the data keeps finding</div></div><span class="map-go">&rsaquo;</span></a>
     </div>
 
     <div class="cue">Swipe up to begin &darr;</div>
   </div>
 </section>
 
-<!-- S1 THE PRINCIPLE -->
+<!-- S1 CONCEDE -->
 <section id="s1" class="bg-e1">
   <span class="hero hero-a blob-2"></span>
-  <div class="header"><div class="counter">First / The principle</div><div class="pill">Step 1 of 3</div></div>
+  <div class="header"><div class="counter">First / The honest part</div><div class="pill">Step 1 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">The principle, stated correctly</div>
-    <h1 class="display">Only things that begin need a cause.</h1>
-    <p class="tagline">The objection smuggles in a rule nobody actually holds. Fix the rule, and the question changes.</p>
+    <div class="eyebrow">Start by agreeing</div>
+    <h1 class="display">Yes, real harm was done. Name it.</h1>
+    <p class="tagline">A defence that pretends mission was spotless is not worth hearing. The honest answer begins by conceding what is true.</p>
 
-    <div class="row"><div class="row-icon">Not everything</div><div class="row-text">The principle was never that everything has a cause. It is that everything that begins to exist has a cause. Things that come into being need something to bring them about. That is the careful version of the idea, the one behind the cosmological argument that thinkers like William Lane Craig and John Lennox defend.</div></div>
-    <div class="row"><div class="row-icon">The universe began</div><div class="row-text">And the universe looks very much like a thing that began. Its expansion and the second law of thermodynamics, energy steadily spreading out, both point back to a finite past with a starting point, which sounds a great deal like in the beginning God created the heavens and the earth <span class="ref">(Genesis 1:1)</span>. Even the sceptic David Hume called creation from literal nothing absurd. Something that starts to exist does not bring itself into being out of nothing.</div></div>
-    <div class="row"><div class="row-icon">God did not begin</div><div class="row-text">God, by definition, is not that kind of thing. The God of the Bible has no beginning and no end; he simply is, before all things <span class="ref">(Psalm 90:2)</span>. So asking what caused God is asking what caused the one thing that never came into being.</div></div>
+    <div class="row"><div class="row-icon">It happened</div><div class="row-text">Some who carried the Christian name did treat the cross as a flag of conquest. Local customs were despised, churches leaned on colonial power, and the line between sharing faith and imposing culture was crossed.</div></div>
+    <div class="row"><div class="row-icon">No excuses</div><div class="row-text">None of that should be softened. People made in God's image were wronged by those who claimed to serve him, and that wrong is not erased by good done elsewhere.</div></div>
+    <div class="row"><div class="row-icon">The real question</div><div class="row-text">But conceding the abuses is not the same as accepting the verdict. Was empire the rule of mission, or the betrayal of it? That is what the record has to settle.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Everything needs a cause, so God needs one too.</b> Bertrand Russell pressed exactly this: if everything must have a cause, then God must have one as well. But that is not the principle. The principle is that everything which begins to exist needs a cause. God did not begin; the universe did. Applying a rule about things-that-start to the one thing that never started is not a fair use of the rule. It is a misuse of it.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>If even some missionaries served empire, the whole project is tainted.</b> By that test every movement is tainted, since every movement has its hypocrites. The fair question is not whether abuses occurred, it is whether they expressed the faith or contradicted it.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">The rule is not everything has a cause; it is everything that begins has a cause. The universe began. God did not. So who made God is asking after the maker of the one thing that was never made.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Conceding the wrongs honestly is what earns you the right to be heard on the rest. Start there, not with defensiveness.</div></div>
   </div>
 </section>
 
-<!-- S2 THE CHAIN -->
+<!-- S2 NO CULTURE -->
 <section id="s2" class="bg-e2">
   <span class="hero hero-a blob-3"></span>
-  <div class="header"><div class="counter">Second / The chain</div><div class="pill">Step 2 of 3</div></div>
+  <div class="header"><div class="counter">Second / The category error</div><div class="pill">Step 2 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">Why not causes all the way down?</div>
-    <h1 class="display">The chain has to stop somewhere.</h1>
-    <p class="tagline">If you refuse a first cause, the alternative is an endless chain of causes, and that turns out to explain nothing at all.</p>
+    <div class="eyebrow">Two things being confused</div>
+    <h1 class="display">The gospel belongs to no single culture.</h1>
+    <p class="tagline">The whole accusation rests on a quiet assumption: that to spread Christianity is to spread the West. History says otherwise.</p>
 
-    <div class="row"><div class="row-icon">Passing the bill</div><div class="row-text">Imagine every cause needs an earlier cause, with no end. Each link just passes the bill to the one before it, forever. A debt endlessly deferred is never actually paid. An explanation endlessly postponed never actually explains. The chain that never stops never accounts for why anything is here.</div></div>
-    <div class="row"><div class="row-icon">The unmoved mover</div><div class="row-text">So reason pushes towards a stopping point: something that is not itself caused, that holds everything else up without needing to be held. Aristotle called it the unmoved mover. It is not a gap in the explanation; it is the floor the whole explanation stands on.</div></div>
-    <div class="row"><div class="row-icon">Eternal something</div><div class="row-text">Which leaves a simple choice. Either there is an eternal, uncaused something that grounds it all, or there is an infinite regress that grounds nothing. The everlasting God, Maker of all, who does not grow faint or weary, is the first option named <span class="ref">(Isaiah 40:28)</span>. He is where the chain rests, not one more link in it.</div></div>
+    <div class="row"><div class="row-icon">Born in the East</div><div class="row-text">The faith began in the Middle East and spread first through Africa, Asia and the Near East, long before it reached northern Europe. From the start it was sent to all nations <span class="ref">(Matthew 28:19)</span>, never the property of Western civilisation to export.</div></div>
+    <div class="row"><div class="row-icon">Every tongue</div><div class="row-text">Unlike an empire, the Christian message claims to fit every people without making them stop being that people. Its own vision of the end is a crowd drawn from every nation, tribe and tongue <span class="ref">(Revelation 7:9)</span>, so it travels into a culture rather than replacing it with another one.</div></div>
+    <div class="row"><div class="row-icon">The mix-up</div><div class="row-text">Confuse the gospel with Western habits and of course mission looks like colonisation. Separate the two, as the faith always has when it says there is no Jew nor Greek in Christ <span class="ref">(Galatians 3:28)</span>, and the charge loses its footing.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Then the universe can be the eternal, uncaused thing instead of God.</b> It is the right move to consider, but the universe is a poor candidate. The evidence points to it having a beginning, and a thing with a beginning is precisely what cannot be the uncaused starting point. The buck stops at something that did not begin. The universe is not that something.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>In practice missionaries still brought Western clothes, schools and manners.</b> Some did, and confusing the two was a genuine failure. But that is a failure to live up to the message, not a feature of it. A faith that began in Roman-occupied Judea was never Western to begin with.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">An infinite regress of causes explains nothing; it just defers the question forever. Reason lands on an uncaused first cause, a floor rather than another link, and a universe that began cannot be it.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Spreading a faith that belongs to no one culture is not the same as exporting one culture. Hold those two apart and the objection thins out.</div></div>
   </div>
 </section>
 
-<!-- S3 THE WRONG QUESTION -->
+<!-- S3 DEFENDED -->
 <section id="s3" class="bg-e3">
-  <span class="hero hero-a blob-4"></span>
-  <div class="header"><div class="counter">Third / A category mistake</div><div class="pill">Step 3 of 3</div></div>
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The record</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">A category mistake</div>
-    <h1 class="display">It is the wrong question, not a hard one.</h1>
-    <p class="tagline">Once you see what God means, who made God stops being a tough question and becomes a confused one, like asking what the colour blue smells like.</p>
+    <div class="eyebrow">What missionaries actually did</div>
+    <h1 class="display">They fought for the people empire used.</h1>
+    <p class="tagline">If mission were merely a tool of empire, you would not expect to find missionaries so often standing against it. Yet that is what the record keeps showing.</p>
 
-    <div class="row"><div class="row-icon">Blue and Tuesday</div><div class="row-text">Some questions are grammatical but meaningless. What does blue smell like? How tall is Tuesday? Each takes a property from one category and forces it onto something it cannot apply to. Who made the uncreated maker does the same: it demands a beginning for the one thing defined as without beginning.</div></div>
-    <div class="row"><div class="row-icon">The simulation twist</div><div class="row-text">The modern version is simulation theory: maybe a programmer built our world, so that is our god. But it only moves the problem back a step. Who made the programmer's world? You still need an ultimate ground that was not itself made. As Wes Huff puts it, the idea just kicks the can down the road; you still arrive at the need for a God.</div></div>
-    <div class="row"><div class="row-icon">Not an extra thing</div><div class="row-text">So God is not one more item in the universe that we have failed to find a cause for. God is the answer to why there is a universe at all, the one in whom all things hold together <span class="ref">(Colossians 1:17)</span>. He does not need a maker, because being the uncaused Maker is the whole job description.</div></div>
+    <div class="row"><div class="row-icon">Against settlers</div><div class="row-text">Again and again missionaries defended indigenous peoples against the very colonists and traders they are now blamed for serving, protesting seizures of land, forced labour and the cruelty of the slave routes.</div></div>
+    <div class="row"><div class="row-icon">Languages saved</div><div class="row-text">By turning unwritten languages into written ones and translating Scripture into them, missionaries gave hundreds of peoples their first books and dictionaries. That preserved tongues that might otherwise have vanished.</div></div>
+    <div class="row"><div class="row-icon">The vulnerable</div><div class="row-text">They built schools and clinics open to all, taught reading widely rather than to a chosen few, and campaigned against practices that fell hardest on women, children and the poor.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>You are just defining God so the question cannot touch him; that is cheating.</b> Not quite. We are following the logic to where it leads: a chain of causes that has to end in something uncaused. And an uncaused reality is not a special trick we invented for God. We already grant several. Logical laws such as the law of identity, that a thing is itself, and moral truths such as love and justice being real, never began to exist; they are eternal, grounded in the mind of God. A thing with no beginning, holding everything else in being, is simply what the word God has always meant.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Writing down a language was just a tool for converting people more efficiently.</b> Motives can be mixed, but the result stands. A people with its language in writing, its own literate teachers and a record of its stories is harder to erase, not easier. Preservation is the opposite of erasure.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Who made God is a category mistake, like asking the smell of blue. The simulation version only defers it. God is not an unexplained thing inside the universe; he is the uncaused ground of there being a universe at all.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A movement that defended the conquered and wrote down their languages is doing the reverse of cultural imperialism. The blanket charge does not fit the evidence.</div></div>
+  </div>
+</section>
+
+<!-- S4 WHAT FOLLOWED -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The aftermath</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Look downstream</div>
+    <h1 class="display">Then look at what came after.</h1>
+    <p class="tagline">If mission were chiefly an arm of oppression, the places it reached should be worse off. The measurable pattern runs the other way.</p>
+
+    <div class="row"><div class="row-icon">Later freedom</div><div class="row-text">When researchers map where independent mission stations once stood, those regions tend to show stronger later democracy, broader voting and a freer press. The link is strong enough that it is hard to wave away as accident.</div></div>
+    <div class="row"><div class="row-icon">Mass literacy</div><div class="row-text">Mission schooling spread reading far beyond elites, often reaching girls first and widening literacy across whole societies. Much of the modern map of education in the developing world traces back to it.</div></div>
+    <div class="row"><div class="row-icon">The honest test</div><div class="row-text">None of this proves every missionary was good or every method wise. It does mean the simple equation of mission with colonial damage cannot survive contact with what the regions went on to become.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Correlation is not cause, so the data proves nothing.</b> Fair caution, and no one should claim a single cause for a continent. But a consistent link between early mission and later democracy and literacy is the opposite of what the colonialism story predicts. At minimum it sinks the easy version of the charge.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">When the long-run data ties missions to more democracy and more education, the caricature of mission as pure plunder simply stops holding up.</div></div>
   </div>
 </section>
 
@@ -347,19 +365,20 @@
   <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
   <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
   <div class="stack">
-    <div class="eyebrow">Three steps, taken together</div>
-    <h1 class="display">Nothing made God.</h1>
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">A caricature, not the record.</h1>
 
-    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The principle</div><div class="sum-text">The rule is everything that <b>begins</b> needs a cause, not everything full stop. The universe began; God did not.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The chain stops</div><div class="sum-text">An endless regress of causes <b>explains nothing</b>. Reason lands on an uncaused first cause, and a universe with a beginning cannot be it.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Wrong question</div><div class="sum-text">Who made God is a <b>category mistake</b>, like the smell of blue. Simulation theory only moves the problem back a step.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The honest part</div><div class="sum-text">Real abuses happened and should be <b>named plainly</b>. The question is whether they expressed the faith or betrayed it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The category error</div><div class="sum-text">The gospel <b>belongs to no culture</b>. It began in the East and travels into peoples rather than replacing them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The record</div><div class="sum-text">Missionaries <b>defended the conquered</b>, wrote down their languages and fought practices that harmed the vulnerable.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The aftermath</div><div class="sum-text">Regions touched by mission show <b>stronger later democracy and literacy</b>, the reverse of the plunder story.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
-    <p class="bottom-line">So who made God? Nothing did, and that is not special pleading, it is the entire point. Only things that begin need a maker. The chain of causes has to stop at something that never began. And a thing that never began, holding all else in being, is exactly what the word God has always meant. The question is not answered by hunting for God's maker. It dissolves the moment you see that the Maker of everything is, by definition, the one thing that was never made.</p>
+    <p class="bottom-line">So was missionary work just colonialism? Where it was, that betrayal deserves to be owned without excuse. But the wider record shows a movement that more often opposed empire, defended indigenous peoples, gave them their languages in writing and left behind more freedom and more reading than it found. Honest mission honours the people it reaches while still calling them to Christ. That is not conquest. It is the opposite of it.</p>
   </div>
 </section>
 
 <div class="dots" id="dots">
-  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 
 <script>
@@ -390,7 +409,6 @@
     });
   });
 </script>
-
 
 <button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
 <script>

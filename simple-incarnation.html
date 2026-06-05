@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0a18">
+<title>How can Jesus be both God and man? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f2fa;
+    --ink-muted: #ddd9ec;
+    --ink-soft: #a39fbc;
+    --warm-black: #0d0a18;
+    --cream: #efeaf3;
+    --clay: #463a7a;
+    --amber: #cda94e;
+    --hairline: rgba(238,236,250,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,236,250,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cosmic indigo and violet resolving to luminous gold */
+  .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
+  .bg-e5    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #524670 74%, #7e683e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c1640 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #5a4a8a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cda94e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">5 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">A claim that sounds impossible</div>
+    <h1 class="display display-lg">How can Jesus be both God and man?</h1>
+    <p class="tagline">Christians say Jesus is fully God and fully man at once. The sceptic hears a square circle. God is all powerful and all knowing, a man is neither, so claiming both of one person looks like saying he is and is not the same thing. The charge feels airtight until you slow down and ask what would actually make it a contradiction.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">What a contradiction really needs</div><div class="map-sub">The rule the objection quietly skips</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Essential is not the same as common</div><div class="map-sub">The distinction that does the work</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Fully human, not merely human</div><div class="map-sub">Two words that change everything</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">He added, he did not subtract</div><div class="map-sub">The incarnation is a gain, not a loss</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s5"><div class="map-e">5</div><div class="map-body"><div class="map-title">Pictures help, then they break</div><div class="map-sub">Why every analogy runs out</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 THE CONTRADICTION RULE -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The rule</div><div class="pill">Step 1 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">What a contradiction really needs</div>
+    <h1 class="display">A contradiction has strict conditions.</h1>
+    <p class="tagline">Before you call something impossible, it helps to know what impossible actually requires.</p>
+
+    <div class="row"><div class="row-icon">The rule</div><div class="row-text">A real contradiction says a thing both is and is not the same way, in the same respect, at the same time. Standing and sitting at once is impossible. Standing now and sitting later is not. The respect and the timing matter.</div></div>
+    <div class="row"><div class="row-icon">The charge</div><div class="row-text">The objection assumes the church claims Jesus is God and not God in the very same sense. If that were the claim, it would collapse. No careful believer has ever said it.</div></div>
+    <div class="row"><div class="row-icon">The actual claim</div><div class="row-text">Historic teaching says Jesus is one person with two complete natures, divine and human. The two are not the same kind of thing, so they do not cancel. Different respects, held in one person, is exactly the case the rule allows.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Fully God and fully man is just a square circle with nicer words.</b> A square circle fails because square and round describe the same feature, shape, in opposite ways. God and man describe two different natures, not one feature pulling two directions. So the comparison does not hold. The work is to show the two natures do not collide, and that is the rest of this card.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">It would only be a contradiction if Jesus were God and not God in the same sense at the same time. That is not what is claimed.</div></div>
+  </div>
+</section>
+
+<!-- S2 ESSENTIAL VS COMMON -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The distinction</div><div class="pill">Step 2 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Essential is not the same as common</div>
+    <h1 class="display">Most of what we share is not what makes us human.</h1>
+    <p class="tagline">The objection leans on a hidden assumption: that everything humans have in common is part of being human. The philosopher Thomas Morris showed why that breaks.</p>
+
+    <div class="row"><div class="row-icon">Essential</div><div class="row-text">An essential property is one that, if you removed it, would stop the thing being what it is. Take rationality away and you no longer have a human person. That kind of property is non negotiable.</div></div>
+    <div class="row"><div class="row-icon">Common</div><div class="row-text">A common property is one most members happen to share without it being required. It is common for a human to have two hands, but losing a hand does not make someone less than human. Common is not the same as essential.</div></div>
+    <div class="row"><div class="row-icon">The move</div><div class="row-text">Limits like not being all knowing or all present may be common to humans rather than essential to humanity. If so, a human being could lack those limits and still be fully and truly human.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Being limited just is part of being human. Drop the limits and it is not a real human any more.</b> That sounds obvious, yet the two hands case shows our instinct misfires. We routinely confuse what humans usually have with what humanness requires. Once you separate the two, an unlimited human is no longer a square circle. It is an unusual member of the kind, not a denial of it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Lacking a divine attribute may be merely common to humans, not essential to being human. That single distinction defuses the charge.</div></div>
+  </div>
+</section>
+
+<!-- S3 FULLY NOT MERELY -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The phrasing</div><div class="pill">Step 3 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Fully human, not merely human</div>
+    <h1 class="display">Fully human and merely human are different claims.</h1>
+    <p class="tagline">Two small words carry the whole answer. Miss them and the objection looks unbeatable. Catch them and it dissolves.</p>
+
+    <div class="row"><div class="row-icon">Merely human</div><div class="row-text">To be merely human is to be human and nothing more, which means carrying all the usual limits and no divine nature alongside. We are each merely human. That is the ordinary case.</div></div>
+    <div class="row"><div class="row-icon">Fully human</div><div class="row-text">To be fully human is to hold every property essential to humanity, a real body, a real mind, a real will. Jesus has all of these. He is human in the complete and proper sense, not a costume or a sketch.</div></div>
+    <div class="row"><div class="row-icon">The summary</div><div class="row-text">The philosopher Ronald Nash put it cleanly: Jesus has every property essential to deity and every property essential to humanity, and none of those is limiting. So he is fully human without being merely human.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>If he is not merely human then he is not really human, just God in a human suit.</b> Not so. Fully human means he lacks nothing humanity needs. He grew, learned, hungered, wept and died, all genuinely. He is more than merely human, never less than fully human. Adding a divine nature does not subtract a single thing from the human one.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Orthodox Christians claim Jesus is fully human without being merely human. Once that is clear, the alleged contradiction disappears.</div></div>
+  </div>
+</section>
+
+<!-- S4 ADDITION NOT SUBTRACTION -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The direction</div><div class="pill">Step 4 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">He added, he did not subtract</div>
+    <h1 class="display">The incarnation is a gain, not a loss.</h1>
+    <p class="tagline">A popular fix imagines God shrinking down to fit into a man. The church has always said the opposite happened.</p>
+
+    <div class="row"><div class="row-icon">The wrong picture</div><div class="row-text">Kenotic teaching says the divine Son set aside his divine powers to become a man, emptying himself of deity to make room for humanity. It reads the emptying of Philippians as God giving up being God.</div></div>
+    <div class="row"><div class="row-icon">The problem</div><div class="row-text">A God who can stop being God was never God to begin with. If deity can be switched off, it was never essential, and the one who switched it off is not the God of the Bible. That cure is worse than the disease.</div></div>
+    <div class="row"><div class="row-icon">The better reading</div><div class="row-text">The emptying was the Son taking the form of a servant, adding a human nature and laying down his glory and rights, not his deity <span class="ref">(Philippians 2:7)</span>. He veiled what he had. He did not delete it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Scripture says he emptied himself, so he must have given up being God.</b> The text says he emptied himself by taking on something, the nature of a servant, not by shedding deity. Emptying here is downward movement and self giving, the infinite stooping to serve. Read that way, deity is never at risk. The incarnation is addition, God taking up manhood, not subtraction of his Godhood.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Becoming man did not cost him his deity. He added a full human nature to an undiminished divine one.</div></div>
+  </div>
+</section>
+
+<!-- S5 ANALOGIES AND LIMITS -->
+<section id="s5" class="bg-e5">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Fifth / The pictures</div><div class="pill">Step 5 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Pictures help, then they break</div>
+    <h1 class="display">Every analogy helps a little, then runs out.</h1>
+    <p class="tagline">People reach for comparisons to make the union feel familiar. They are useful as far as they go, and it matters to know how far that is.</p>
+
+    <div class="row"><div class="row-icon">Useful pictures</div><div class="row-text">A person who is both a parent and a child, water that is solid and liquid at the right edge, a king who walks among his people as one of them. Each shows two true things held together without conflict.</div></div>
+    <div class="row"><div class="row-icon">Where they fail</div><div class="row-text">None is exact. The same water is rarely ice and liquid in the same place, and a parent and child are still one nature, not two. Press any picture hard and it bends into a different error, so hold them loosely.</div></div>
+    <div class="row"><div class="row-icon">The honest stance</div><div class="row-text">The union of God and man in one person is unique. Nothing else in creation is quite like it, so we should expect no analogy to land perfectly. A picture can open the door. The reality stands on its own.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>If you cannot give me a clean example, the idea is probably incoherent.</b> Having no perfect parallel is not the same as being impossible. Plenty of real things are one of a kind and resist tidy comparison. We do not reject them for lacking a twin. The argument never needed an analogy to work. The distinctions in the earlier steps carry it. The pictures are a kindness, not the proof.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A missing perfect analogy is exactly what you would expect for something genuinely unique. It is not evidence of a contradiction.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Five steps, taken together</div>
+    <h1 class="display">Two natures, one person, no collision.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The rule</div><div class="sum-text">It is only a contradiction if Jesus is God and <b>not God in the same sense</b> at once. Two different natures do not cancel.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The distinction</div><div class="sum-text">Two hands are <b>common</b> to humans, not essential. So a divine attribute being absent may be common to us, not required for humanness.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The phrasing</div><div class="sum-text">Jesus is <b>fully human without being merely human</b>. He lacks nothing humanity needs and holds a divine nature besides.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The direction</div><div class="sum-text">The emptying was <b>addition, not subtraction</b>. He took a servant's form <span class="ref">(Philippians 2:7)</span>, veiling his glory, never deleting his deity.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s5"><div class="sum-body"><div class="sum-e">5 &middot; The pictures</div><div class="sum-text">Analogies help then break, because the union is <b>genuinely unique</b>. No perfect parallel is needed for the answer to hold.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So how can Jesus be both God and man? Not by being God and not God in the same breath, which no one claims, but by holding two complete natures in one person. Once you see that being limited is common to us rather than essential, that fully human is not merely human, and that the incarnation added manhood without subtracting deity, the square circle turns out to be nothing of the kind. It is the deepest news in the world, that God came near without ceasing to be God.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

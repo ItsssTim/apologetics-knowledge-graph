@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0a18">
-<title>If God made everything, who made God? &middot; Simple Answers</title>
+<title>Isn't Christianity intolerant? &middot; Simple Answers</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -96,7 +96,7 @@
     font-size: 37px; font-weight: 600; line-height: 1.06;
     letter-spacing: -0.022em; margin-bottom: 12px;
   }
-  .display-lg { font-size: 34px; }
+  .display-lg { font-size: 33px; }
   .tagline {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 17px; font-weight: 400; line-height: 1.45;
@@ -148,7 +148,6 @@
     font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
   }
 
-  /* intro map */
   .map { margin-top: 6px; }
   .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
   .map-item:first-of-type { border-top: none; }
@@ -172,7 +171,6 @@
     opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
   }
 
-  /* summary cards */
   .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
   a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
   a.sum-card:hover { background: rgba(238,236,250,0.10); }
@@ -188,7 +186,8 @@
   .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
   .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
   .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
-  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #443a5a 74%, #9a7e3a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
   .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
 
   .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
@@ -202,14 +201,10 @@
     background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
   }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
   .dot.active { background: #fff; width: 18px; border-radius: 6px; }
-
-  /* --- Simple Answers: shared nav + transition polish --- */
-  .dot { position: relative; cursor: pointer; }
   .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
   .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
-  /* Touch devices: space the dots out and give each a large, tiling tap target. */
   @media (pointer: coarse) {
     .dots { gap: 13px; padding: 10px 16px; }
     .dot { width: 7px; height: 7px; }
@@ -259,86 +254,109 @@
   <span class="hero hero-b blob-2"></span>
   <div class="header">
     <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
-    <div class="pill">3 steps</div>
+    <div class="pill">4 steps</div>
   </div>
   <div class="stack">
-    <div class="eyebrow">The question that feels like checkmate</div>
-    <h1 class="display display-lg">If God made everything, who made God?</h1>
-    <p class="tagline">It feels like the move that ends the game. If everything needs a maker, then God needs one too, and if God can exist uncaused, why not just the universe? It sounds airtight. It rests on a quiet misunderstanding of the one word in the sentence that matters: God.</p>
+    <div class="eyebrow">A charged word, worth slowing down on</div>
+    <h1 class="display display-lg">Isn't Christianity intolerant?</h1>
+    <p class="tagline">It is one of the sharpest things said about the faith. Christians claim one way is true, so surely they look down on everyone else. Before the charge can stick, one question has to come first. What does intolerant actually mean? Once that word is pinned down, the picture changes.</p>
 
     <div class="map">
-      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Only things that begin need a cause</div><div class="map-sub">Fix the rule and the question changes</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The chain has to stop somewhere</div><div class="map-sub">Why not causes all the way down</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The wrong question, not a hard one</div><div class="map-sub">A category mistake, like the smell of blue</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Define the word first</div><div class="map-sub">An abused term, used to win arguments</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Tolerance needs disagreement</div><div class="map-sub">You cannot put up with what you accept</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">A truth claim is not a boast</div><div class="map-sub">The faith runs on grace, not status</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Reject the view, honour the person</div><div class="map-sub">And ask the only question that counts</div></div><span class="map-go">&rsaquo;</span></a>
     </div>
 
     <div class="cue">Swipe up to begin &darr;</div>
   </div>
 </section>
 
-<!-- S1 THE PRINCIPLE -->
+<!-- S1 DEFINE THE WORD -->
 <section id="s1" class="bg-e1">
   <span class="hero hero-a blob-2"></span>
-  <div class="header"><div class="counter">First / The principle</div><div class="pill">Step 1 of 3</div></div>
+  <div class="header"><div class="counter">First / The word</div><div class="pill">Step 1 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">The principle, stated correctly</div>
-    <h1 class="display">Only things that begin need a cause.</h1>
-    <p class="tagline">The objection smuggles in a rule nobody actually holds. Fix the rule, and the question changes.</p>
+    <div class="eyebrow">Pin the term down before using it</div>
+    <h1 class="display">Define intolerant before you throw it.</h1>
+    <p class="tagline">It is an emotionally charged word, and a charged word does a lot of damage before anyone checks what it means.</p>
 
-    <div class="row"><div class="row-icon">Not everything</div><div class="row-text">The principle was never that everything has a cause. It is that everything that begins to exist has a cause. Things that come into being need something to bring them about. That is the careful version of the idea, the one behind the cosmological argument that thinkers like William Lane Craig and John Lennox defend.</div></div>
-    <div class="row"><div class="row-icon">The universe began</div><div class="row-text">And the universe looks very much like a thing that began. Its expansion and the second law of thermodynamics, energy steadily spreading out, both point back to a finite past with a starting point, which sounds a great deal like in the beginning God created the heavens and the earth <span class="ref">(Genesis 1:1)</span>. Even the sceptic David Hume called creation from literal nothing absurd. Something that starts to exist does not bring itself into being out of nothing.</div></div>
-    <div class="row"><div class="row-icon">God did not begin</div><div class="row-text">God, by definition, is not that kind of thing. The God of the Bible has no beginning and no end; he simply is, before all things <span class="ref">(Psalm 90:2)</span>. So asking what caused God is asking what caused the one thing that never came into being.</div></div>
+    <div class="row"><div class="row-icon">The smear</div><div class="row-text">Intolerant has become a label you stick on a view to discredit it without arguing against it. The word does the work that evidence is supposed to do, and the conversation ends before it starts.</div></div>
+    <div class="row"><div class="row-icon">Teresa, not the Inquisition</div><div class="row-text">Then there is the history. Cruelty has been done in Christ's name, and it should be named for what it is. But the Inquisition contradicts the teaching it claimed to serve. Judge the faith by Mother Teresa kneeling in Calcutta, not by those who betrayed it.</div></div>
+    <div class="row"><div class="row-icon">The real question</div><div class="row-text">So two things get untangled at once. What the word means, and who actually counts as a Christian. Only then can the charge be tested rather than simply felt.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Everything needs a cause, so God needs one too.</b> Bertrand Russell pressed exactly this: if everything must have a cause, then God must have one as well. But that is not the principle. The principle is that everything which begins to exist needs a cause. God did not begin; the universe did. Applying a rule about things-that-start to the one thing that never started is not a fair use of the rule. It is a misuse of it.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Look at the Crusades and the Inquisition. That is your religion.</b> Those were real, and they were wrong. But a teacher is not judged by the student who ignores him. Measured against what Jesus actually taught, the cruelty is the betrayal, not the faith.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">The rule is not everything has a cause; it is everything that begins has a cause. The universe began. God did not. So who made God is asking after the maker of the one thing that was never made.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Before you accept the charge, ask what intolerant means and who is being judged. Most of the heat is in the undefined word.</div></div>
   </div>
 </section>
 
-<!-- S2 THE CHAIN -->
+<!-- S2 TOLERANCE NEEDS DISAGREEMENT -->
 <section id="s2" class="bg-e2">
   <span class="hero hero-a blob-3"></span>
-  <div class="header"><div class="counter">Second / The chain</div><div class="pill">Step 2 of 3</div></div>
+  <div class="header"><div class="counter">Second / The meaning</div><div class="pill">Step 2 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">Why not causes all the way down?</div>
-    <h1 class="display">The chain has to stop somewhere.</h1>
-    <p class="tagline">If you refuse a first cause, the alternative is an endless chain of causes, and that turns out to explain nothing at all.</p>
+    <div class="eyebrow">Tolerance presupposes disagreement</div>
+    <h1 class="display">You only tolerate what you disagree with.</h1>
+    <p class="tagline">Here is the twist most people miss. Tolerance only makes sense when you think the other view is wrong and bear with it anyway.</p>
 
-    <div class="row"><div class="row-icon">Passing the bill</div><div class="row-text">Imagine every cause needs an earlier cause, with no end. Each link just passes the bill to the one before it, forever. A debt endlessly deferred is never actually paid. An explanation endlessly postponed never actually explains. The chain that never stops never accounts for why anything is here.</div></div>
-    <div class="row"><div class="row-icon">The unmoved mover</div><div class="row-text">So reason pushes towards a stopping point: something that is not itself caused, that holds everything else up without needing to be held. Aristotle called it the unmoved mover. It is not a gap in the explanation; it is the floor the whole explanation stands on.</div></div>
-    <div class="row"><div class="row-icon">Eternal something</div><div class="row-text">Which leaves a simple choice. Either there is an eternal, uncaused something that grounds it all, or there is an infinite regress that grounds nothing. The everlasting God, Maker of all, who does not grow faint or weary, is the first option named <span class="ref">(Isaiah 40:28)</span>. He is where the chain rests, not one more link in it.</div></div>
+    <div class="row"><div class="row-icon">The modern myth</div><div class="row-text">Today people assume tolerance means accepting all views as equally true. Because Christians will not say every belief is true, they get charged with intolerance. But that definition is brand new, and it quietly cancels itself.</div></div>
+    <div class="row"><div class="row-icon">The older meaning</div><div class="row-text">Historically, to tolerate has meant to put up with what you find disagreeable or false. You cannot put up with something you already agree with. Real tolerance needs a real difference of view to be tolerant about.</div></div>
+    <div class="row"><div class="row-icon">So who is tolerant</div><div class="row-text">The sceptic who calls a Christian intolerant is, in that very moment, refusing to accept the Christian's belief as legitimate. So which side is the more tolerant? The charge boomerangs on the one who throws it.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Then the universe can be the eternal, uncaused thing instead of God.</b> It is the right move to consider, but the universe is a poor candidate. The evidence points to it having a beginning, and a thing with a beginning is precisely what cannot be the uncaused starting point. The buck stops at something that did not begin. The universe is not that something.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>A truly tolerant person treats every belief as equally valid.</b> Then no one alive is tolerant, including you. The moment you say my view is mistaken, you are doing what you accuse the Christian of. Tolerance was never about agreeing. It was about how you treat people you think are wrong.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">An infinite regress of causes explains nothing; it just defers the question forever. Reason lands on an uncaused first cause, a floor rather than another link, and a universe that began cannot be it.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Disagreeing with a belief is the very thing tolerance is built for. Calling that intolerant empties the word of meaning.</div></div>
   </div>
 </section>
 
-<!-- S3 THE WRONG QUESTION -->
+<!-- S3 A TRUTH CLAIM IS NOT A BOAST -->
 <section id="s3" class="bg-e3">
-  <span class="hero hero-a blob-4"></span>
-  <div class="header"><div class="counter">Third / A category mistake</div><div class="pill">Step 3 of 3</div></div>
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / Humility</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">A category mistake</div>
-    <h1 class="display">It is the wrong question, not a hard one.</h1>
-    <p class="tagline">Once you see what God means, who made God stops being a tough question and becomes a confused one, like asking what the colour blue smells like.</p>
+    <div class="eyebrow">Conviction is not the same as arrogance</div>
+    <h1 class="display">Claiming truth is not a boast.</h1>
+    <p class="tagline">The deeper worry is that saying I have the truth must mean I think I am better than you. The gospel says the opposite.</p>
 
-    <div class="row"><div class="row-icon">Blue and Tuesday</div><div class="row-text">Some questions are grammatical but meaningless. What does blue smell like? How tall is Tuesday? Each takes a property from one category and forces it onto something it cannot apply to. Who made the uncreated maker does the same: it demands a beginning for the one thing defined as without beginning.</div></div>
-    <div class="row"><div class="row-icon">The simulation twist</div><div class="row-text">The modern version is simulation theory: maybe a programmer built our world, so that is our god. But it only moves the problem back a step. Who made the programmer's world? You still need an ultimate ground that was not itself made. As Wes Huff puts it, the idea just kicks the can down the road; you still arrive at the need for a God.</div></div>
-    <div class="row"><div class="row-icon">Not an extra thing</div><div class="row-text">So God is not one more item in the universe that we have failed to find a cause for. God is the answer to why there is a universe at all, the one in whom all things hold together <span class="ref">(Colossians 1:17)</span>. He does not need a maker, because being the uncaused Maker is the whole job description.</div></div>
+    <div class="row"><div class="row-icon">Beggars and bread</div><div class="row-text">Christianity does not run on the idea that believers are smarter or finer than anyone else. It runs on grace. A Christian is simply one beggar who has been given bread, telling other beggars where the bread is found. There is nothing to boast in.</div></div>
+    <div class="row"><div class="row-icon">It condemns pride</div><div class="row-text">Arrogance is not a side effect the faith tolerates. It is something the faith openly condemns. The whole logic is unearned gift received with open hands, which leaves no room for looking down on anyone.</div></div>
+    <div class="row"><div class="row-icon">Levels of tolerance</div><div class="row-text">Tolerance also works at different levels. What a church asks of its own members is not what the law asks of a citizen. Paul could call for a man to be disciplined inside the church for adultery without anyone proposing he be jailed for it. Correcting your own is not the same as punishing the public.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>You are just defining God so the question cannot touch him; that is cheating.</b> Not quite. We are following the logic to where it leads: a chain of causes that has to end in something uncaused. And an uncaused reality is not a special trick we invented for God. We already grant several. Logical laws such as the law of identity, that a thing is itself, and moral truths such as love and justice being real, never began to exist; they are eternal, grounded in the mind of God. A thing with no beginning, holding everything else in being, is simply what the word God has always meant.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Saying you have the only true way is the height of arrogance.</b> Only if truth is something you earned. If a dying man is handed the cure and passes it on, that is not pride, it is honesty and care. The Christian claims to have received something, not to have achieved it.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Who made God is a category mistake, like asking the smell of blue. The simulation version only defers it. God is not an unexplained thing inside the universe; he is the uncaused ground of there being a universe at all.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A faith that calls its people beggars and condemns pride is not built on superiority. Conviction and humility can sit together.</div></div>
+  </div>
+</section>
+
+<!-- S4 REJECT THE VIEW, HONOUR THE PERSON -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The person</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">Love and conviction can coexist</div>
+    <h1 class="display">Reject the view, honour the person.</h1>
+    <p class="tagline">You can be fully convinced someone is wrong and still treat them with genuine warmth. We do it every day. The faith insists on it.</p>
+
+    <div class="row"><div class="row-icon">Two different things</div><div class="row-text">Rejecting a belief and disrespecting a person are not the same act. You can think a friend is mistaken about something that matters and still hold them in real regard. Disagreement is not contempt.</div></div>
+    <div class="row"><div class="row-icon">Made in God's image</div><div class="row-text">There is a reason the warmth is not optional. Every person bears the image of God, which means each one is owed honour whatever they believe. So far as it depends on you, live at peace with everyone <span class="ref">(Romans 12:18)</span>.</div></div>
+    <div class="row"><div class="row-icon">Is it actually true</div><div class="row-text">Which leaves the one question that matters. Not whether the claim is exclusive, but whether it is true. And this faith does not hide in private feeling. It stands on a public, testable claim. Did the historical Jesus rise from the dead? You can investigate it.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Faith is just a private preference, so keep it to yourself.</b> A preference would be private. A claim about whether a man rose from the dead in history is not. It is either true or it is not, and it can be examined. The honest move is not to silence the claim but to weigh it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Loving the person while rejecting the belief is not a contradiction. The real question was never exclusivity. It was truth.</div></div>
   </div>
 </section>
 
@@ -347,19 +365,20 @@
   <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
   <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
   <div class="stack">
-    <div class="eyebrow">Three steps, taken together</div>
-    <h1 class="display">Nothing made God.</h1>
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">The charge does not survive the definition.</h1>
 
-    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The principle</div><div class="sum-text">The rule is everything that <b>begins</b> needs a cause, not everything full stop. The universe began; God did not.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The chain stops</div><div class="sum-text">An endless regress of causes <b>explains nothing</b>. Reason lands on an uncaused first cause, and a universe with a beginning cannot be it.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Wrong question</div><div class="sum-text">Who made God is a <b>category mistake</b>, like the smell of blue. Simulation theory only moves the problem back a step.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The word</div><div class="sum-text">Define <b>intolerant</b> before using it, and judge the faith by Mother Teresa, not by those who betrayed it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The meaning</div><div class="sum-text">Tolerance <b>presupposes disagreement</b>. You can only put up with a view you think is wrong, which makes the charge boomerang.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Humility</div><div class="sum-text">A truth claim is <b>not a boast</b>. The faith runs on grace and condemns pride: beggars showing beggars where bread is found.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The person</div><div class="sum-text">Reject the belief, <b>honour the person</b>, since each bears God's image. The real question is whether it is true.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
-    <p class="bottom-line">So who made God? Nothing did, and that is not special pleading, it is the entire point. Only things that begin need a maker. The chain of causes has to stop at something that never began. And a thing that never began, holding all else in being, is exactly what the word God has always meant. The question is not answered by hunting for God's maker. It dissolves the moment you see that the Maker of everything is, by definition, the one thing that was never made.</p>
+    <p class="bottom-line">So is Christianity intolerant? Only if tolerance means never thinking anyone is wrong, which would convict everyone who has ever held a view. On the older, honest meaning, the faith bears with those it disagrees with, calls its own people beggars rather than betters, and asks you to honour the person while you weigh the claim <span class="ref">(Romans 12:18)</span>. The question worth your time is not whether the claim is exclusive. It is whether it is true.</p>
   </div>
 </section>
 
 <div class="dots" id="dots">
-  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 
 <script>
@@ -390,7 +409,6 @@
     });
   });
 </script>
-
 
 <button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
 <script>

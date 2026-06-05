@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0a18">
-<title>If God made everything, who made God? &middot; Simple Answers</title>
+<title>Who are you to judge? &middot; Simple Answers</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -96,7 +96,7 @@
     font-size: 37px; font-weight: 600; line-height: 1.06;
     letter-spacing: -0.022em; margin-bottom: 12px;
   }
-  .display-lg { font-size: 34px; }
+  .display-lg { font-size: 33px; }
   .tagline {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 17px; font-weight: 400; line-height: 1.45;
@@ -148,7 +148,6 @@
     font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
   }
 
-  /* intro map */
   .map { margin-top: 6px; }
   .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
   .map-item:first-of-type { border-top: none; }
@@ -172,7 +171,6 @@
     opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
   }
 
-  /* summary cards */
   .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
   a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
   a.sum-card:hover { background: rgba(238,236,250,0.10); }
@@ -188,7 +186,8 @@
   .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
   .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
   .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
-  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #443a5a 74%, #9a7e3a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
   .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
 
   .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
@@ -202,14 +201,10 @@
     background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
   }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
   .dot.active { background: #fff; width: 18px; border-radius: 6px; }
-
-  /* --- Simple Answers: shared nav + transition polish --- */
-  .dot { position: relative; cursor: pointer; }
   .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
   .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
-  /* Touch devices: space the dots out and give each a large, tiling tap target. */
   @media (pointer: coarse) {
     .dots { gap: 13px; padding: 10px 16px; }
     .dot { width: 7px; height: 7px; }
@@ -259,86 +254,109 @@
   <span class="hero hero-b blob-2"></span>
   <div class="header">
     <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
-    <div class="pill">3 steps</div>
+    <div class="pill">4 steps</div>
   </div>
   <div class="stack">
-    <div class="eyebrow">The question that feels like checkmate</div>
-    <h1 class="display display-lg">If God made everything, who made God?</h1>
-    <p class="tagline">It feels like the move that ends the game. If everything needs a maker, then God needs one too, and if God can exist uncaused, why not just the universe? It sounds airtight. It rests on a quiet misunderstanding of the one word in the sentence that matters: God.</p>
+    <div class="eyebrow">The most quoted line in the room</div>
+    <h1 class="display display-lg">Who are you to judge?</h1>
+    <p class="tagline">It is the verse everyone knows, often the only one. Say that something is wrong and back it comes: did not Jesus tell you not to judge? The worry underneath is real and worth honouring. Nobody likes a smug person looking down their nose. But the line is doing more work than it can carry, and a careful look shows what it actually forbids.</p>
 
     <div class="map">
-      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Only things that begin need a cause</div><div class="map-sub">Fix the rule and the question changes</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The chain has to stop somewhere</div><div class="map-sub">Why not causes all the way down</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The wrong question, not a hard one</div><div class="map-sub">A category mistake, like the smell of blue</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The objection judges too</div><div class="map-sub">Saying do not judge is itself a verdict</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Read the next breath</div><div class="map-sub">What the passage is really aimed at</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The same teacher judged</div><div class="map-sub">He told people to assess and to act</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">It is about the spirit</div><div class="map-sub">Humble assessment, not proud contempt</div></div><span class="map-go">&rsaquo;</span></a>
     </div>
 
     <div class="cue">Swipe up to begin &darr;</div>
   </div>
 </section>
 
-<!-- S1 THE PRINCIPLE -->
+<!-- S1 THE OBJECTION JUDGES -->
 <section id="s1" class="bg-e1">
   <span class="hero hero-a blob-2"></span>
-  <div class="header"><div class="counter">First / The principle</div><div class="pill">Step 1 of 3</div></div>
+  <div class="header"><div class="counter">First / The boomerang</div><div class="pill">Step 1 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">The principle, stated correctly</div>
-    <h1 class="display">Only things that begin need a cause.</h1>
-    <p class="tagline">The objection smuggles in a rule nobody actually holds. Fix the rule, and the question changes.</p>
+    <div class="eyebrow">A rule that cannot keep itself</div>
+    <h1 class="display">Telling me not to judge is a judgment.</h1>
+    <p class="tagline">Start with the move itself, before any Bible verse. The person says you have no right to call anything wrong. But notice what they just did.</p>
 
-    <div class="row"><div class="row-icon">Not everything</div><div class="row-text">The principle was never that everything has a cause. It is that everything that begins to exist has a cause. Things that come into being need something to bring them about. That is the careful version of the idea, the one behind the cosmological argument that thinkers like William Lane Craig and John Lennox defend.</div></div>
-    <div class="row"><div class="row-icon">The universe began</div><div class="row-text">And the universe looks very much like a thing that began. Its expansion and the second law of thermodynamics, energy steadily spreading out, both point back to a finite past with a starting point, which sounds a great deal like in the beginning God created the heavens and the earth <span class="ref">(Genesis 1:1)</span>. Even the sceptic David Hume called creation from literal nothing absurd. Something that starts to exist does not bring itself into being out of nothing.</div></div>
-    <div class="row"><div class="row-icon">God did not begin</div><div class="row-text">God, by definition, is not that kind of thing. The God of the Bible has no beginning and no end; he simply is, before all things <span class="ref">(Psalm 90:2)</span>. So asking what caused God is asking what caused the one thing that never came into being.</div></div>
+    <div class="row"><div class="row-icon">The claim</div><div class="row-text">No one should judge anyone. Calling a thing right or wrong is arrogant, intolerant, off limits to you.</div></div>
+    <div class="row"><div class="row-icon">The catch</div><div class="row-text">That sentence is a judgment. It rates your behaviour as wrong and corrects you for it. To forbid all moral assessment, the speaker has to make one, so the rule breaks itself the moment it is spoken.</div></div>
+    <div class="row"><div class="row-icon">What follows</div><div class="row-text">Making moral assessments is not optional or rare. We do it every time we say cruelty is bad or courage is good. The question was never whether to assess, only how.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Everything needs a cause, so God needs one too.</b> Bertrand Russell pressed exactly this: if everything must have a cause, then God must have one as well. But that is not the principle. The principle is that everything which begins to exist needs a cause. God did not begin; the universe did. Applying a rule about things-that-start to the one thing that never started is not a fair use of the rule. It is a misuse of it.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>That is just a clever word trick.</b> It is not a trick, it is the heart of the matter. Everyone draws moral lines, the sceptic included, the second they object to racism or cruelty. So the real disagreement is never about whether we judge. It is about which judgments are fair and humble and which are not.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">The rule is not everything has a cause; it is everything that begins has a cause. The universe began. God did not. So who made God is asking after the maker of the one thing that was never made.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A ban on all judging refutes itself, because the ban is a judgment. Moral assessment is something we all do and cannot avoid.</div></div>
   </div>
 </section>
 
-<!-- S2 THE CHAIN -->
+<!-- S2 READ THE CONTEXT -->
 <section id="s2" class="bg-e2">
   <span class="hero hero-a blob-3"></span>
-  <div class="header"><div class="counter">Second / The chain</div><div class="pill">Step 2 of 3</div></div>
+  <div class="header"><div class="counter">Second / The context</div><div class="pill">Step 2 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">Why not causes all the way down?</div>
-    <h1 class="display">The chain has to stop somewhere.</h1>
-    <p class="tagline">If you refuse a first cause, the alternative is an endless chain of causes, and that turns out to explain nothing at all.</p>
+    <div class="eyebrow">The line has a next sentence</div>
+    <h1 class="display">Read the next breath, not just the slogan.</h1>
+    <p class="tagline">Do not judge, so that you will not be judged <span class="ref">(Matthew 7:1)</span>. People stop there. Jesus does not. The very next lines tell you what he is targeting.</p>
 
-    <div class="row"><div class="row-icon">Passing the bill</div><div class="row-text">Imagine every cause needs an earlier cause, with no end. Each link just passes the bill to the one before it, forever. A debt endlessly deferred is never actually paid. An explanation endlessly postponed never actually explains. The chain that never stops never accounts for why anything is here.</div></div>
-    <div class="row"><div class="row-icon">The unmoved mover</div><div class="row-text">So reason pushes towards a stopping point: something that is not itself caused, that holds everything else up without needing to be held. Aristotle called it the unmoved mover. It is not a gap in the explanation; it is the floor the whole explanation stands on.</div></div>
-    <div class="row"><div class="row-icon">Eternal something</div><div class="row-text">Which leaves a simple choice. Either there is an eternal, uncaused something that grounds it all, or there is an infinite regress that grounds nothing. The everlasting God, Maker of all, who does not grow faint or weary, is the first option named <span class="ref">(Isaiah 40:28)</span>. He is where the chain rests, not one more link in it.</div></div>
+    <div class="row"><div class="row-icon">The target</div><div class="row-text">He pictures a man with a plank in his own eye fussing over the speck in someone else's <span class="ref">(Matthew 7:5)</span>. The fault he names is hypocrisy, the harsh critic who is blind to himself.</div></div>
+    <div class="row"><div class="row-icon">The fix</div><div class="row-text">His remedy is not to stop helping. First take the plank out of your own eye, then you will see clearly to remove the speck. The goal is clear sight that helps, not silence.</div></div>
+    <div class="row"><div class="row-icon">The balance</div><div class="row-text">A few breaths on he tells the same crowd not to throw what is holy to dogs or pearls to pigs <span class="ref">(Matthew 7:6)</span>. That instruction is impossible without first making a discerning judgment about people and things.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Then the universe can be the eternal, uncaused thing instead of God.</b> It is the right move to consider, but the universe is a poor candidate. The evidence points to it having a beginning, and a thing with a beginning is precisely what cannot be the uncaused starting point. The buck stops at something that did not begin. The universe is not that something.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>You are reading a loophole into a plain command.</b> The opposite is true. Pulling four words out of a paragraph and ignoring the rest is the misreading. The plank, the speck and the warning about pearls all sit in the same short speech. Taken whole, it condemns the proud fault-finder and assumes you will still assess wisely.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">An infinite regress of causes explains nothing; it just defers the question forever. Reason lands on an uncaused first cause, a floor rather than another link, and a universe that began cannot be it.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">In context the warning is against hypocritical, self-blind condemnation. The same passage tells you to keep your eyes open and discern.</div></div>
   </div>
 </section>
 
-<!-- S3 THE WRONG QUESTION -->
+<!-- S3 THE SAME TEACHER JUDGED -->
 <section id="s3" class="bg-e3">
-  <span class="hero hero-a blob-4"></span>
-  <div class="header"><div class="counter">Third / A category mistake</div><div class="pill">Step 3 of 3</div></div>
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The teacher</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">A category mistake</div>
-    <h1 class="display">It is the wrong question, not a hard one.</h1>
-    <p class="tagline">Once you see what God means, who made God stops being a tough question and becomes a confused one, like asking what the colour blue smells like.</p>
+    <div class="eyebrow">He practised what he is supposed to forbid</div>
+    <h1 class="display">The same teacher judged, plainly.</h1>
+    <p class="tagline">If Jesus banned all moral evaluation, he never told himself or his followers. He did the reverse.</p>
 
-    <div class="row"><div class="row-icon">Blue and Tuesday</div><div class="row-text">Some questions are grammatical but meaningless. What does blue smell like? How tall is Tuesday? Each takes a property from one category and forces it onto something it cannot apply to. Who made the uncreated maker does the same: it demands a beginning for the one thing defined as without beginning.</div></div>
-    <div class="row"><div class="row-icon">The simulation twist</div><div class="row-text">The modern version is simulation theory: maybe a programmer built our world, so that is our god. But it only moves the problem back a step. Who made the programmer's world? You still need an ultimate ground that was not itself made. As Wes Huff puts it, the idea just kicks the can down the road; you still arrive at the need for a God.</div></div>
-    <div class="row"><div class="row-icon">Not an extra thing</div><div class="row-text">So God is not one more item in the universe that we have failed to find a cause for. God is the answer to why there is a universe at all, the one in whom all things hold together <span class="ref">(Colossians 1:17)</span>. He does not need a maker, because being the uncaused Maker is the whole job description.</div></div>
+    <div class="row"><div class="row-icon">His own words</div><div class="row-text">Stop judging by outward appearances, he said, and judge with right judgment <span class="ref">(John 7:24)</span>. He does not cancel judging. He corrects bad judging and commands the good kind.</div></div>
+    <div class="row"><div class="row-icon">His instructions</div><div class="row-text">He told followers to size up a response and move on from those who would not receive them, even shaking the dust off their feet <span class="ref">(Matthew 10:14)</span>, which his messengers later did <span class="ref">(Acts 13:51)</span>. That is a clear assessment acted on.</div></div>
+    <div class="row"><div class="row-icon">The church too</div><div class="row-text">A community is told to act on a member's open sexual immorality rather than ignore it <span class="ref">(1 Corinthians 5:5)</span>, and to restore someone caught in sin gently <span class="ref">(Galatians 6:1)</span>. Both require an honest moral call.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>You are just defining God so the question cannot touch him; that is cheating.</b> Not quite. We are following the logic to where it leads: a chain of causes that has to end in something uncaused. And an uncaused reality is not a special trick we invented for God. We already grant several. Logical laws such as the law of identity, that a thing is itself, and moral truths such as love and justice being real, never began to exist; they are eternal, grounded in the mind of God. A thing with no beginning, holding everything else in being, is simply what the word God has always meant.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Then the Bible just contradicts itself on judging.</b> It would, if judge meant the same thing each time. It does not. Sometimes it means condemn with contempt, the thing forbidden. Sometimes it means assess wisely and act, the thing commanded. Two senses of one word, not a contradiction.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Who made God is a category mistake, like asking the smell of blue. The simulation version only defers it. God is not an unexplained thing inside the universe; he is the uncaused ground of there being a universe at all.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">The very teacher quoted against judging told people to judge rightly and to act on what they discern. The command targets a kind of judging, not the act itself.</div></div>
+  </div>
+</section>
+
+<!-- S4 THE SPIRIT -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The spirit</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The dividing line is the heart</div>
+    <h1 class="display">It was always about the spirit.</h1>
+    <p class="tagline">So what is actually forbidden? Not the assessment, but the posture behind it. Two people can say the same words from opposite hearts.</p>
+
+    <div class="row"><div class="row-icon">The wrong way</div><div class="row-text">Proud condemnation that looks down, writes a person off, and quietly assumes you would never fall yourself. That is the plank-eyed critic, and that is what Jesus shuts down.</div></div>
+    <div class="row"><div class="row-icon">The right way</div><div class="row-text">Humble, self-aware assessment that names a wrong while knowing you are capable of the same. The old line catches it well: there but for grace go I. Same honesty about the wrong, no contempt.</div></div>
+    <div class="row"><div class="row-icon">A simple test</div><div class="row-text">Treat others as you would want to be treated <span class="ref">(Matthew 7:12)</span>. Ask whether you are weighing this the way you would want yours weighed: fairly, kindly, hoping for the person's good.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>That still lets you call my choices wrong.</b> Yes, but it changes everything about how. The point is not to win or to feel superior. It is to be honest about right and wrong while staying humble about yourself, hoping for the other person rather than sneering at them. That is a world away from who do you think you are.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">What is forbidden is the proud, contemptuous spirit. What is asked is honest assessment held with humility and a wish for the other person's good.</div></div>
   </div>
 </section>
 
@@ -347,19 +365,20 @@
   <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
   <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
   <div class="stack">
-    <div class="eyebrow">Three steps, taken together</div>
-    <h1 class="display">Nothing made God.</h1>
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Not whether you judge, but how.</h1>
 
-    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The principle</div><div class="sum-text">The rule is everything that <b>begins</b> needs a cause, not everything full stop. The universe began; God did not.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The chain stops</div><div class="sum-text">An endless regress of causes <b>explains nothing</b>. Reason lands on an uncaused first cause, and a universe with a beginning cannot be it.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Wrong question</div><div class="sum-text">Who made God is a <b>category mistake</b>, like the smell of blue. Simulation theory only moves the problem back a step.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The boomerang</div><div class="sum-text">Telling someone not to judge is <b>itself a judgment</b>. We all make moral calls and cannot avoid it.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The context</div><div class="sum-text">Read on and the target is <b>hypocrisy</b>: the plank-eyed critic, not honest discernment, which the same passage assumes.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The teacher</div><div class="sum-text">Jesus said to <b>judge rightly</b> and told people to assess and act. He corrected bad judging, not the act itself.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The spirit</div><div class="sum-text">The line is the <b>heart</b>: humble, self-aware assessment is asked for, proud contempt is forbidden.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
-    <p class="bottom-line">So who made God? Nothing did, and that is not special pleading, it is the entire point. Only things that begin need a maker. The chain of causes has to stop at something that never began. And a thing that never began, holding all else in being, is exactly what the word God has always meant. The question is not answered by hunting for God's maker. It dissolves the moment you see that the Maker of everything is, by definition, the one thing that was never made.</p>
+    <p class="bottom-line">So who are you to judge? The honest answer is that everyone does, the sceptic included, and the verse never said otherwise. What Jesus shut down was the smug critic with a plank in his own eye, not the ordinary work of telling right from wrong. The question to carry is gentler than the slogan: am I weighing this the way I would want mine weighed, fairly, humbly, hoping for your good <span class="ref">(Matthew 7:12)</span>.</p>
   </div>
 </section>
 
 <div class="dots" id="dots">
-  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 
 <script>
@@ -390,7 +409,6 @@
     });
   });
 </script>
-
 
 <button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
 <script>

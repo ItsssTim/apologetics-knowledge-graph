@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0a18">
+<title>Is there life after death? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f2fa;
+    --ink-muted: #ddd9ec;
+    --ink-soft: #a39fbc;
+    --warm-black: #0d0a18;
+    --cream: #efeaf3;
+    --clay: #463a7a;
+    --amber: #cda94e;
+    --hairline: rgba(238,236,250,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,236,250,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cosmic indigo and violet resolving to luminous gold */
+  .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
+  .bg-e5    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #524670 74%, #7e683e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c1640 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #5a4a8a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cda94e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">5 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The question nobody escapes</div>
+    <h1 class="display display-lg">Is there life after death?</h1>
+    <p class="tagline">When someone you love dies, the question stops being abstract. The sceptic answers fast: you are only a body and a brain, the lights go out, and the longing for more is just wishful thinking. There are good reasons to think that is not the whole story, and they do not depend on simply wanting it to be true.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The longing that fits nothing here</div><div class="map-sub">Why the ache itself is evidence</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The self that outlasts its atoms</div><div class="map-sub">Your body changes, you stay you</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">A mind that matter cannot hold</div><div class="map-sub">Thoughts have a feel no brain cell has</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Seeing while the heart is stopped</div><div class="map-sub">The cases that resist a tidy explanation</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s5"><div class="map-e">5</div><div class="map-body"><div class="map-title">The one witness who came back</div><div class="map-sub">Where the case finally rests</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 THE LONGING -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The longing</div><div class="pill">Step 1 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why the ache counts</div>
+    <h1 class="display">The longing fits nothing in this world.</h1>
+    <p class="tagline">Almost everyone carries a deep refusal to believe death is simply the end. The philosopher J. P. Moreland asks a fair question about that feeling: where do our natural desires usually point?</p>
+
+    <div class="row"><div class="row-icon">The pattern</div><div class="row-text">Hunger tracks food. Thirst tracks water. Curiosity tracks things there are to know. As a rule, a natural and recurring desire matches some real state of affairs that can actually satisfy it.</div></div>
+    <div class="row"><div class="row-icon">The step</div><div class="row-text">The desire to live on past death is exactly that kind of deep, recurring longing. Scripture names the same instinct, saying God has set eternity in the human heart. <span class="ref">(Ecclesiastes 3:11)</span> If natural desires normally answer to something real, this one points beyond the grave to a life that meets it.</div></div>
+    <div class="row"><div class="row-icon">The honest limit</div><div class="row-text">Moreland grants this is a clue, not a knockdown proof. It moves the question. It does not close it. The weight comes when it stands beside everything that follows.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>That is just wishful thinking dressed up as an argument.</b> Some desires really are frustrated, and not everyone feels this one the same way. Fair. But notice the move. Calling it wishful thinking assumes in advance that nothing answers the longing. The argument never claimed certainty. It asked an honest question about where a deep, near universal desire usually leads, and let the other steps carry the load.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">The ache for life beyond death is not proof on its own. It is the kind of signal worth following, not dismissing.</div></div>
+  </div>
+</section>
+
+<!-- S2 PERSONAL IDENTITY -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The self</div><div class="pill">Step 2 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">You are more than your atoms</div>
+    <h1 class="display">The self outlasts its own matter.</h1>
+    <p class="tagline">Hank Hanegraaff points to something we all quietly assume but rarely examine. The stuff you are made of keeps changing, yet you do not become a different person.</p>
+
+    <div class="row"><div class="row-icon">The body turns over</div><div class="row-text">You shed vast numbers of microscopic particles every day. Apart from parts of the neurological system, almost the entire material make-up of your body is replaced over roughly seven years. The matter is on its way out and being swapped.</div></div>
+    <div class="row"><div class="row-icon">Yet you remain</div><div class="row-text">The law still holds you responsible for what you did years ago. So does your own conscience. We all assume one enduring self running through a lifetime of changing cells, not a fresh person every few years.</div></div>
+    <div class="row"><div class="row-icon">The intuition</div><div class="row-text">Lose a limb, part of the brain, memories, even personality traits, and you are not a partial person or a different one. You are still you. That points to a self that is not simply the matter it happens to occupy.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>The brain provides continuity, so no soul is needed.</b> A reasonable reply, and worth taking seriously. But try running the purely material version in a courtroom. Argue that you are not liable for a past act because your body is made of different stuff now. Even in a scientific age that defence would fail, because everyone, including the sceptic, treats the self as one continuous thing. The intuition the objection leans on is the very thing being explained.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">If the real you is not identical to your changing matter, then the loss of that matter at death is not obviously the loss of you.</div></div>
+  </div>
+</section>
+
+<!-- S3 IMMATERIAL MIND -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The mind</div><div class="pill">Step 3 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Thought has a texture matter lacks</div>
+    <h1 class="display">A mind that matter cannot hold.</h1>
+    <p class="tagline">Look inside your own experience for a moment. Moreland argues that what you find there is not the kind of thing brain tissue could ever be.</p>
+
+    <div class="row"><div class="row-icon">The inner feel</div><div class="row-text">A sensation, an emotion, a thought, a belief each has an inner, private, qualitative character that you know directly by introspection. The taste of coffee or the felt weight of grief is something only you live from the inside. Physical states, described from the outside, simply do not have that.</div></div>
+    <div class="row"><div class="row-icon">The conclusion</div><div class="row-text">If conscious states carry a feature that purely physical states lack, then consciousness is not just the brain. The self that has these experiences looks immaterial, and an immaterial self is the kind of thing that could survive the body.</div></div>
+    <div class="row"><div class="row-icon">Free will joins in</div><div class="row-text">Hanegraaff adds that if you were only matter, your choices would be fixed by genetics and brain chemistry. Reward and punishment, genuine reasoning and real love all assume you are free. Pure materialism turns reason into a conditioned reflex and love into an automatic process.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Neuroscience keeps showing the mind is just the brain at work.</b> Brain activity clearly links to mental life, and no one sensible denies it. But correlation is not identity. The argument is precise. There is a felt, first person quality to your inner life that a third person physical description leaves out entirely. Moreland is candid that this is strong evidence rather than airtight proof. It tells against the flat claim that you are nothing but matter.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">If your mind is not reducible to your brain, then switching off the brain is not automatically switching off the self.</div></div>
+  </div>
+</section>
+
+<!-- S4 NEAR-DEATH EVIDENCE -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The evidence</div><div class="pill">Step 4 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">When the heart had already stopped</div>
+    <h1 class="display">Seeing while clinically gone.</h1>
+    <p class="tagline">So far the case has been mostly reasoning. Gary Habermas points to a body of evidence that is harder to wave away: near-death cases where the report can be checked.</p>
+
+    <div class="row"><div class="row-icon">Verified later</div><div class="row-text">In the strongest cases, people describe things they could not have seen from where their body lay, details about the room, the corridor, the conversations of family elsewhere, that are confirmed afterwards as accurate.</div></div>
+    <div class="row"><div class="row-icon">No heartbeat, no signal</div><div class="row-text">Some of these accurate perceptions occurred during periods of absent heartbeat or no recorded brain activity. In several documented cases, people who are blind have given correct visual descriptions of what was happening around them.</div></div>
+    <div class="row"><div class="row-icon">What it shows</div><div class="row-text">Habermas is careful. These cases evidence the opening moments of an afterlife and tell against pure naturalism. They do not prove every detail of any one account, and Christians should not treat the experiences as if they ranked alongside Scripture.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Those are just hallucinations from an oxygen starved brain.</b> That story fits the vague, dreamlike cases well. It struggles badly with the evidential ones, where a person gains true, verifiable information while disembodied, sometimes with no heartbeat or measurable brain activity. A hallucination does not tell you what your relatives were saying in another room. And these subjects were near death rather than irreversibly dead, which is exactly why the honest claim is modest: evidence for the first moments beyond, not a guided tour of eternity.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">The best corroborated cases are real data pointing one way. Consciousness can carry on when the body has, by every instrument, stopped.</div></div>
+  </div>
+</section>
+
+<!-- S5 THE RESURRECTION -->
+<section id="s5" class="bg-e5">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fifth / The witness</div><div class="pill">Step 5 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Where the case rests</div>
+    <h1 class="display">The one witness who came back.</h1>
+    <p class="tagline">Every step so far says an afterlife is possible and reasonable to expect. Both Hanegraaff and Moreland say the strongest evidence is one man who did not just describe the other side but returned from it.</p>
+
+    <div class="row"><div class="row-icon">A real death</div><div class="row-text">Jesus of Nazareth was executed by professional Roman executioners. The outcome was fatal and certain. There is no serious case that he merely fainted and revived.</div></div>
+    <div class="row"><div class="row-icon">An empty tomb</div><div class="row-text">The empty tomb is among the best attested facts about him, followed by repeated, tangible appearances to people who touched and ate with him, not a fleeting vision.</div></div>
+    <div class="row"><div class="row-icon">A transformed crowd</div><div class="row-text">Within weeks, a community of at least three thousand Jews abandoned identity defining traditions to follow him as risen, the first to be raised of all who will follow. <span class="ref">(1 Corinthians 15:20)</span> That kind of rapid, costly change needs a cause. It sets Jesus apart from every other religious founder, who stayed in the grave.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>The first followers just had grief visions or made the story up.</b> Grief can produce a private vision. It does not produce an empty tomb, group appearances involving touch and shared meals, and a movement of thousands willing to lose everything within weeks. Invented legends do not usually demand that kind of price from the people closest to the events. The resurrection is the one place where the afterlife stops being an inference and becomes a reported fact, which is why Moreland says it qualifies Jesus to speak about what lies beyond, the one who said he was the resurrection and the life. <span class="ref">(John 11:25-26)</span></div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">If one man genuinely died and rose, the question is settled by a witness, not a wish. He has been there and back.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Five steps, taken together</div>
+    <h1 class="display">Death may not be the end of you.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The longing</div><div class="sum-text">The deep, near universal desire to live on points the way <b>natural desires usually do</b>, toward something real that answers them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The self</div><div class="sum-text">Your matter turns over completely about every <b>seven years</b>, yet the self endures, so you are not simply the stuff you are made of.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The mind</div><div class="sum-text">Thoughts and feelings have an <b>inner, felt quality</b> that physical states lack, evidence the mind and self are immaterial.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The evidence</div><div class="sum-text">In the best near-death cases people report <b>verified details</b> while the heart had stopped, which hallucination cannot explain.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s5"><div class="sum-body"><div class="sum-e">5 &middot; The witness</div><div class="sum-text">One man was executed, his <b>tomb found empty</b>, seen alive by many, and a movement of thousands sprang up within weeks.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is there life after death? The longing points one way, the enduring self and the immaterial mind keep that door open, the best near-death cases push it wider, and the resurrection of Jesus turns a reasonable hope into a reported event. None of these forces belief on its own. Together they make the Christian answer the more honest one. You are not only a body waiting to stop. If the grave could not hold him, it need not be the last word over you.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

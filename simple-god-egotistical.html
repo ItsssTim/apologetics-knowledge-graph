@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0d0a18">
-<title>If God made everything, who made God? &middot; Simple Answers</title>
+<title>Isn't God egotistical to demand our worship? &middot; Simple Answers</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
@@ -96,7 +96,7 @@
     font-size: 37px; font-weight: 600; line-height: 1.06;
     letter-spacing: -0.022em; margin-bottom: 12px;
   }
-  .display-lg { font-size: 34px; }
+  .display-lg { font-size: 33px; }
   .tagline {
     font-family: 'SF Pro Text', system-ui, sans-serif;
     font-size: 17px; font-weight: 400; line-height: 1.45;
@@ -148,7 +148,6 @@
     font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
   }
 
-  /* intro map */
   .map { margin-top: 6px; }
   .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
   .map-item:first-of-type { border-top: none; }
@@ -172,7 +171,6 @@
     opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
   }
 
-  /* summary cards */
   .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
   a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
   a.sum-card:hover { background: rgba(238,236,250,0.10); }
@@ -188,7 +186,8 @@
   .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
   .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
   .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
-  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #443a5a 74%, #9a7e3a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
   .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
 
   .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
@@ -202,14 +201,10 @@
     background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
   }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
   .dot.active { background: #fff; width: 18px; border-radius: 6px; }
-
-  /* --- Simple Answers: shared nav + transition polish --- */
-  .dot { position: relative; cursor: pointer; }
   .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
   .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
-  /* Touch devices: space the dots out and give each a large, tiling tap target. */
   @media (pointer: coarse) {
     .dots { gap: 13px; padding: 10px 16px; }
     .dot { width: 7px; height: 7px; }
@@ -259,86 +254,109 @@
   <span class="hero hero-b blob-2"></span>
   <div class="header">
     <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
-    <div class="pill">3 steps</div>
+    <div class="pill">4 steps</div>
   </div>
   <div class="stack">
-    <div class="eyebrow">The question that feels like checkmate</div>
-    <h1 class="display display-lg">If God made everything, who made God?</h1>
-    <p class="tagline">It feels like the move that ends the game. If everything needs a maker, then God needs one too, and if God can exist uncaused, why not just the universe? It sounds airtight. It rests on a quiet misunderstanding of the one word in the sentence that matters: God.</p>
+    <div class="eyebrow">A fair question worth facing</div>
+    <h1 class="display display-lg">Isn't God egotistical to demand our worship?</h1>
+    <p class="tagline">It sounds like a vain ruler fishing for applause. Picture any human who insisted everyone praise him, and you would rightly call him insecure. The objection only holds if God is one being among many. The whole shape of it changes once you ask what worship actually is and who it is for.</p>
 
     <div class="map">
-      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Only things that begin need a cause</div><div class="map-sub">Fix the rule and the question changes</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">The chain has to stop somewhere</div><div class="map-sub">Why not causes all the way down</div></div><span class="map-go">&rsaquo;</span></a>
-      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The wrong question, not a hard one</div><div class="map-sub">A category mistake, like the smell of blue</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Humility is seeing yourself truly</div><div class="map-sub">And only one being sees himself truly</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Worship is for you, not for him</div><div class="map-sub">It lines you up with what is real</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">A God who needs nothing</div><div class="map-sub">Praise completes joy, it does not feed ego</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">The one who stooped to serve</div><div class="map-sub">The cross is the opposite of vanity</div></div><span class="map-go">&rsaquo;</span></a>
     </div>
 
     <div class="cue">Swipe up to begin &darr;</div>
   </div>
 </section>
 
-<!-- S1 THE PRINCIPLE -->
+<!-- S1 HUMILITY -->
 <section id="s1" class="bg-e1">
   <span class="hero hero-a blob-2"></span>
-  <div class="header"><div class="counter">First / The principle</div><div class="pill">Step 1 of 3</div></div>
+  <div class="header"><div class="counter">First / The definition</div><div class="pill">Step 1 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">The principle, stated correctly</div>
-    <h1 class="display">Only things that begin need a cause.</h1>
-    <p class="tagline">The objection smuggles in a rule nobody actually holds. Fix the rule, and the question changes.</p>
+    <div class="eyebrow">What humility actually is</div>
+    <h1 class="display">Humility is seeing yourself truly.</h1>
+    <p class="tagline">We treat humility as thinking little of yourself. It is not. It is an honest read of who you really are.</p>
 
-    <div class="row"><div class="row-icon">Not everything</div><div class="row-text">The principle was never that everything has a cause. It is that everything that begins to exist has a cause. Things that come into being need something to bring them about. That is the careful version of the idea, the one behind the cosmological argument that thinkers like William Lane Craig and John Lennox defend.</div></div>
-    <div class="row"><div class="row-icon">The universe began</div><div class="row-text">And the universe looks very much like a thing that began. Its expansion and the second law of thermodynamics, energy steadily spreading out, both point back to a finite past with a starting point, which sounds a great deal like in the beginning God created the heavens and the earth <span class="ref">(Genesis 1:1)</span>. Even the sceptic David Hume called creation from literal nothing absurd. Something that starts to exist does not bring itself into being out of nothing.</div></div>
-    <div class="row"><div class="row-icon">God did not begin</div><div class="row-text">God, by definition, is not that kind of thing. The God of the Bible has no beginning and no end; he simply is, before all things <span class="ref">(Psalm 90:2)</span>. So asking what caused God is asking what caused the one thing that never came into being.</div></div>
+    <div class="row"><div class="row-icon">The real test</div><div class="row-text">A humble person is not the one who underrates themselves. It is the one who sees themselves accurately, without inflation and without false modesty. Even Paul could say his conscience was clear yet that this did not make him innocent <span class="ref">(1 Corinthians 4:4)</span>.</div></div>
+    <div class="row"><div class="row-icon">The one exception</div><div class="row-text">If you are the greatest and most worthy being there is, then an honest self-assessment will say so. For a human that is delusion. For God it is simply accurate. He cannot point to a higher standard than himself, because there is not one.</div></div>
+    <div class="row"><div class="row-icon">Not boasting</div><div class="row-text">This is not bragging in the human sense. Paul refused to boast in himself and boasted only in the cross <span class="ref">(Galatians 6:14)</span>. Truthful speech, even glad speech about something real, is not the same as conceit <span class="ref">(2 Corinthians 7:14)</span>.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Everything needs a cause, so God needs one too.</b> Bertrand Russell pressed exactly this: if everything must have a cause, then God must have one as well. But that is not the principle. The principle is that everything which begins to exist needs a cause. God did not begin; the universe did. Applying a rule about things-that-start to the one thing that never started is not a fair use of the rule. It is a misuse of it.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Calling yourself the greatest is the very definition of arrogance.</b> For anyone who is not, yes. Arrogance is a gap between the claim and the truth. Where there is no gap, where the being really is supreme, the claim is not pride. It is honesty about reality.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">The rule is not everything has a cause; it is everything that begins has a cause. The universe began. God did not. So who made God is asking after the maker of the one thing that was never made.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Pride is overrating yourself. A being who is genuinely supreme is not overrating anything by saying so.</div></div>
   </div>
 </section>
 
-<!-- S2 THE CHAIN -->
+<!-- S2 WORSHIP IS FOR US -->
 <section id="s2" class="bg-e2">
   <span class="hero hero-a blob-3"></span>
-  <div class="header"><div class="counter">Second / The chain</div><div class="pill">Step 2 of 3</div></div>
+  <div class="header"><div class="counter">Second / The purpose</div><div class="pill">Step 2 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">Why not causes all the way down?</div>
-    <h1 class="display">The chain has to stop somewhere.</h1>
-    <p class="tagline">If you refuse a first cause, the alternative is an endless chain of causes, and that turns out to explain nothing at all.</p>
+    <div class="eyebrow">Who the command serves</div>
+    <h1 class="display">Worship is for you, not for him.</h1>
+    <p class="tagline">A vain king demands praise to fill an emptiness in himself. The command to worship runs the other way.</p>
 
-    <div class="row"><div class="row-icon">Passing the bill</div><div class="row-text">Imagine every cause needs an earlier cause, with no end. Each link just passes the bill to the one before it, forever. A debt endlessly deferred is never actually paid. An explanation endlessly postponed never actually explains. The chain that never stops never accounts for why anything is here.</div></div>
-    <div class="row"><div class="row-icon">The unmoved mover</div><div class="row-text">So reason pushes towards a stopping point: something that is not itself caused, that holds everything else up without needing to be held. Aristotle called it the unmoved mover. It is not a gap in the explanation; it is the floor the whole explanation stands on.</div></div>
-    <div class="row"><div class="row-icon">Eternal something</div><div class="row-text">Which leaves a simple choice. Either there is an eternal, uncaused something that grounds it all, or there is an infinite regress that grounds nothing. The everlasting God, Maker of all, who does not grow faint or weary, is the first option named <span class="ref">(Isaiah 40:28)</span>. He is where the chain rests, not one more link in it.</div></div>
+    <div class="row"><div class="row-icon">Made for it</div><div class="row-text">We are made in his image and built with eternity set in our hearts <span class="ref">(Ecclesiastes 3:11)</span>. Worship is not a tax he levies. It is the activity we were designed for, the thing that finally fits.</div></div>
+    <div class="row"><div class="row-icon">Lining up</div><div class="row-text">To worship God is to see reality the right way up and respond to it honestly. To refuse is to live out of step with the way things actually are, which damages the worshipper, not the one declined.</div></div>
+    <div class="row"><div class="row-icon">The broken swap</div><div class="row-text">When people turn from the spring of living water, they dig their own cracked cisterns that hold nothing <span class="ref">(Jeremiah 2:13)</span>. We will worship something. Aiming it at what is worthy is what keeps us whole.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>Then the universe can be the eternal, uncaused thing instead of God.</b> It is the right move to consider, but the universe is a poor candidate. The evidence points to it having a beginning, and a thing with a beginning is precisely what cannot be the uncaused starting point. The buck stops at something that did not begin. The universe is not that something.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>A loving God would not need us bowing to him at all.</b> Correct, and he does not. The command is not for his benefit but for ours, the way a good parent insists a child eat well. It directs us toward the one good large enough to satisfy us, rather than the cisterns that leave us empty.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">An infinite regress of causes explains nothing; it just defers the question forever. Reason lands on an uncaused first cause, a floor rather than another link, and a universe that began cannot be it.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">He commands worship the way health is prescribed, not the way a tyrant extracts tribute. The benefit lands on us.</div></div>
   </div>
 </section>
 
-<!-- S3 THE WRONG QUESTION -->
+<!-- S3 GOD NEEDS NOTHING -->
 <section id="s3" class="bg-e3">
-  <span class="hero hero-a blob-4"></span>
-  <div class="header"><div class="counter">Third / A category mistake</div><div class="pill">Step 3 of 3</div></div>
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The need</div><div class="pill">Step 3 of 4</div></div>
   <div class="stack">
-    <div class="eyebrow">A category mistake</div>
-    <h1 class="display">It is the wrong question, not a hard one.</h1>
-    <p class="tagline">Once you see what God means, who made God stops being a tough question and becomes a confused one, like asking what the colour blue smells like.</p>
+    <div class="eyebrow">Why this is not insecurity</div>
+    <h1 class="display">A God who needs nothing.</h1>
+    <p class="tagline">Ego is hunger. The insecure crave applause because they lack something. God lacks nothing at all.</p>
 
-    <div class="row"><div class="row-icon">Blue and Tuesday</div><div class="row-text">Some questions are grammatical but meaningless. What does blue smell like? How tall is Tuesday? Each takes a property from one category and forces it onto something it cannot apply to. Who made the uncreated maker does the same: it demands a beginning for the one thing defined as without beginning.</div></div>
-    <div class="row"><div class="row-icon">The simulation twist</div><div class="row-text">The modern version is simulation theory: maybe a programmer built our world, so that is our god. But it only moves the problem back a step. Who made the programmer's world? You still need an ultimate ground that was not itself made. As Wes Huff puts it, the idea just kicks the can down the road; you still arrive at the need for a God.</div></div>
-    <div class="row"><div class="row-icon">Not an extra thing</div><div class="row-text">So God is not one more item in the universe that we have failed to find a cause for. God is the answer to why there is a universe at all, the one in whom all things hold together <span class="ref">(Colossians 1:17)</span>. He does not need a maker, because being the uncaused Maker is the whole job description.</div></div>
+    <div class="row"><div class="row-icon">Self-sufficient</div><div class="row-text">Everything that exists comes from him, through him and returns to him <span class="ref">(Romans 11:34-36)</span>. The whole earth already belongs to him <span class="ref">(Psalm 50:1)</span>. He gains nothing from praise that he did not already possess.</div></div>
+    <div class="row"><div class="row-icon">Joy overflowing</div><div class="row-text">C. S. Lewis noticed that we spontaneously praise whatever we enjoy, and that the praise is not flattery added on. It is enjoyment reaching its full height. Praise does not feed God. It completes our delight in him.</div></div>
+    <div class="row"><div class="row-icon">Stooping low</div><div class="row-text">Far from craving status, the high and holy God chooses to dwell with the lowly and crushed <span class="ref">(Isaiah 57:15)</span>, stooping even to look on the heavens and the earth <span class="ref">(Psalm 113:5-6)</span>.</div></div>
 
     <div class="objection">
-      <div class="label">The theory you'll hear</div>
-      <div class="otext"><b>You are just defining God so the question cannot touch him; that is cheating.</b> Not quite. We are following the logic to where it leads: a chain of causes that has to end in something uncaused. And an uncaused reality is not a special trick we invented for God. We already grant several. Logical laws such as the law of identity, that a thing is itself, and moral truths such as love and justice being real, never began to exist; they are eternal, grounded in the mind of God. A thing with no beginning, holding everything else in being, is simply what the word God has always meant.</div>
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Wanting praise at all is proof of insecurity.</b> Only when you need it. Think of a great piece of music. Withholding praise from it does not punish the music, it shortchanges you. Calling something glorious that truly is glorious is not flattery. It is the natural overflow of having seen it clearly.</div>
     </div>
 
-    <div class="confidence"><div class="check">&check;</div><div class="ctext">Who made God is a category mistake, like asking the smell of blue. The simulation version only defers it. God is not an unexplained thing inside the universe; he is the uncaused ground of there being a universe at all.</div></div>
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">A being who needs nothing cannot be feeding an ego. Our praise adds nothing to him and completes everything in us.</div></div>
+  </div>
+</section>
+
+<!-- S4 THE CROSS -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The evidence</div><div class="pill">Step 4 of 4</div></div>
+  <div class="stack">
+    <div class="eyebrow">The opposite of vanity</div>
+    <h1 class="display">The one who stooped to serve.</h1>
+    <p class="tagline">If you still suspect ego, look at what this God actually did when he came among us.</p>
+
+    <div class="row"><div class="row-icon">He emptied himself</div><div class="row-text">Though he was in the very form of God, he did not cling to it. He emptied himself, took the form of a servant and humbled himself to death on a cross <span class="ref">(Philippians 2:6-8)</span>. That is the record of the being accused of vanity.</div></div>
+    <div class="row"><div class="row-icon">Came to serve</div><div class="row-text">He said plainly that he came not to be served but to serve, and to give his life as a ransom for many <span class="ref">(Mark 10:45)</span>. He took the place of the one who waits at the table, not the one who reclines <span class="ref">(Luke 22:27)</span>.</div></div>
+    <div class="row"><div class="row-icon">Gentle and lowly</div><div class="row-text">The one who knows the Father fully invites the weary to come to him, describing himself as gentle and humble in heart <span class="ref">(Matthew 11:27-29)</span>. An egomaniac does not wash feet and die for his accusers.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>That is just clever branding for the same power grab.</b> A power grab does not end at a public execution between criminals. The cross gains him no applause and no advantage. It is the costliest possible disproof of ego, a supreme being laying down his life for people who could give him nothing in return.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">The God charged with arrogance is the one who knelt to serve and died for his critics. Vanity does not behave like that.</div></div>
   </div>
 </section>
 
@@ -347,19 +365,20 @@
   <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
   <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
   <div class="stack">
-    <div class="eyebrow">Three steps, taken together</div>
-    <h1 class="display">Nothing made God.</h1>
+    <div class="eyebrow">Four steps, taken together</div>
+    <h1 class="display">Fitting, not flattering.</h1>
 
-    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The principle</div><div class="sum-text">The rule is everything that <b>begins</b> needs a cause, not everything full stop. The universe began; God did not.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The chain stops</div><div class="sum-text">An endless regress of causes <b>explains nothing</b>. Reason lands on an uncaused first cause, and a universe with a beginning cannot be it.</div></div><span class="sum-jump">&rsaquo;</span></a>
-    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Wrong question</div><div class="sum-text">Who made God is a <b>category mistake</b>, like the smell of blue. Simulation theory only moves the problem back a step.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The definition</div><div class="sum-text">Humility is an <b>honest self-assessment</b>. For the one truly supreme being, saying so is accuracy, not pride.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The purpose</div><div class="sum-text">The command to worship is <b>for us</b>, lining us up with reality. It heals the worshipper rather than serving God.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The need</div><div class="sum-text">He <b>needs nothing</b>. Praise adds nothing to him. As Lewis saw, it simply completes our own enjoyment of him.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The evidence</div><div class="sum-text">He <b>emptied himself</b>, served, and died on a cross. The being accused of vanity behaves like its opposite.</div></div><span class="sum-jump">&rsaquo;</span></a>
 
-    <p class="bottom-line">So who made God? Nothing did, and that is not special pleading, it is the entire point. Only things that begin need a maker. The chain of causes has to stop at something that never began. And a thing that never began, holding all else in being, is exactly what the word God has always meant. The question is not answered by hunting for God's maker. It dissolves the moment you see that the Maker of everything is, by definition, the one thing that was never made.</p>
+    <p class="bottom-line">So is God egotistical to seek worship? Only if he is not really worthy of it. Worship is the fitting response to what is supremely good, the way awe is the fitting response to something magnificent. He commands it for our good, not to fill a need he does not have, and then he proves the point by stooping to serve and to die. Praising what is truly excellent does not flatter him. It completes our joy <span class="ref">(Romans 11:34-36)</span>.</p>
   </div>
 </section>
 
 <div class="dots" id="dots">
-  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 
 <script>
@@ -390,7 +409,6 @@
     });
   });
 </script>
-
 
 <button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
 <script>

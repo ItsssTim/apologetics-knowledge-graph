@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d0a18">
+<title>Is the New Testament historically reliable? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f4f2fa;
+    --ink-muted: #ddd9ec;
+    --ink-soft: #a39fbc;
+    --warm-black: #0d0a18;
+    --cream: #efeaf3;
+    --clay: #463a7a;
+    --amber: #cda94e;
+    --hairline: rgba(238,236,250,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 33px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(238,236,250,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(238,236,250,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: cosmic indigo and violet resolving to luminous gold */
+  .bg-intro { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 38%, #2c2360 78%, #6a5634 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0d0a18 0%, #15102c 34%, #241c52 74%, #322a5c 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0c0916 0%, #181230 34%, #2c2360 74%, #4a4252 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #3c3460 74%, #6e5a3c 100%); }
+  .bg-e4    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #4c3f5a 74%, #9a7e3a 100%); }
+  .bg-e5    { background: linear-gradient(180deg, #0d0a18 0%, #1a1438 34%, #524670 74%, #7e683e 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0d0a18 0%, #1a1438 45%, #4e4236 80%, #cda94e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #3a2f6e 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #1c1640 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #5a4a8a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #cda94e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(238,236,250,0.4); transition: all 0.3s ease; position: relative; cursor: pointer; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">5 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Sources you can actually examine</div>
+    <h1 class="display display-lg">Is the New Testament historically reliable?</h1>
+    <p class="tagline">The worry is fair. These are old documents about miracles, written by believers, and we are asked to take a lot on their word. So treat them the way you would treat any other ancient witness. Ask who wrote them, ask when, ask whether the story holds together under pressure, and ask whether anyone could have checked it. The answers are better than most people expect.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Eyewitnesses, with help</div><div class="map-sub">Why a scribe does not break the chain</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Treat them like a witness</div><div class="map-sub">The standard a courtroom would use</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">The accounts interlock</div><div class="map-sub">Honesty you can see from the inside</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s4"><div class="map-e">4</div><div class="map-body"><div class="map-title">Early, and well preserved</div><div class="map-sub">Less time, more copies than the classics</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s5"><div class="map-e">5</div><div class="map-body"><div class="map-title">The forgery charge</div><div class="map-sub">What the ancients did with fakes</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 EYEWITNESSES AND SECRETARIES -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The sources</div><div class="pill">Step 1 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Who is actually behind the page</div>
+    <h1 class="display">Eyewitnesses, and a scribe to hold the pen.</h1>
+    <p class="tagline">Start with the most basic question. Where did this material come from, and does a secretary doing the writing change the answer?</p>
+
+    <div class="row"><div class="row-icon">First hand</div><div class="row-text">The writers claim to report what they saw and touched, or careful research from those who did <span class="ref">(1 John 1:1)</span> <span class="ref">(Luke 1:1-4)</span>. John says Jesus promised the Spirit would remind them of what he had taught <span class="ref">(John 14:25-26)</span>.</div></div>
+    <div class="row"><div class="row-icon">A scribe helped</div><div class="row-text">Dictating to a secretary was simply normal in the ancient world. Paul names his scribe Tertius, who openly says he wrote the letter down <span class="ref">(Romans 16:22)</span>, much as Cicero describes dictating his own correspondence.</div></div>
+    <div class="row"><div class="row-icon">Signed by hand</div><div class="row-text">The named author still controlled the content and authenticated it personally. Paul takes the pen for his closing greeting in his own large hand <span class="ref">(Galatians 6:11)</span> <span class="ref">(1 Corinthians 16:21)</span>.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>If a secretary did the writing, Paul did not really write his letters.</b> A scribe taking dictation is not a ghostwriter inventing the content. Legal papyri of the period were drawn up by scribes yet remained the binding word of the named party. Paul authored, authenticated, and signed. The hand on the page does not own the letter.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">The chain runs to people who were there, and a scribe holding the pen never breaks it.</div></div>
+  </div>
+</section>
+
+<!-- S2 LEGAL STANDARD -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The standard</div><div class="pill">Step 2 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">The test a courtroom would use</div>
+    <h1 class="display">Treat them the way you treat a witness.</h1>
+    <p class="tagline">A long line of senior lawyers and judges have found the Gospel testimony solid. The reason is the standard they apply to evidence every day.</p>
+
+    <div class="row"><div class="row-icon">Admissible</div><div class="row-text">Under the ancient documents rule, old records of known origin are received as evidence. The Gospels offer firsthand testimony or careful research <span class="ref">(1 John 1:1)</span> <span class="ref">(Luke 1:1-4)</span>, and would be admitted in a common law court.</div></div>
+    <div class="row"><div class="row-icon">Innocent first</div><div class="row-text">Documents, like defendants, are taken as honest until shown otherwise. Critics have tried for two centuries and have not impeached the Gospels. The burden sits with the accuser, and the accusation has not landed.</div></div>
+    <div class="row"><div class="row-icon">Cross examined</div><div class="row-text">Hostile witnesses who knew the events were still alive. The historian A. N. Sherwin-White noted the reporting rate for the Jesus of the Gospels is better than for Tiberius Caesar, whose career rests on four sources.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>Believers wrote it, so of course it backs their man.</b> Then sift it as a court would, where bias is assumed and tested, not waved away. Enemies with the means, the motive and the opportunity to refute the story did not. The Harvard evidence scholar Simon Greenleaf judged that testimony sifted this way reaches, for all practical purposes, the certainty of demonstration.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Judged by the rules used to weigh real testimony, the Gospels are admissible and were never successfully impeached.</div></div>
+  </div>
+</section>
+
+<!-- S3 UNDESIGNED COINCIDENCES -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Third / The interlock</div><div class="pill">Step 3 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Honesty visible from the inside</div>
+    <h1 class="display">The accounts quietly answer each other.</h1>
+    <p class="tagline">Sometimes one writer leaves a small gap and another fills it without trying to. The more offhand the fit, the harder it is to fake.</p>
+
+    <div class="row"><div class="row-icon">A palace leak</div><div class="row-text">Matthew records Herod speaking privately to his own servants <span class="ref">(Matthew 14:1-2)</span>. How could a fisherman know that? Luke, elsewhere, mentions that a woman from Herod's household followed Jesus <span class="ref">(Luke 8:3)</span>.</div></div>
+    <div class="row"><div class="row-icon">An odd silence</div><div class="row-text">Luke says Peter, James and John told no one what they saw on the mountain, and never explains why <span class="ref">(Luke 9:36)</span>. Mark supplies the missing order, that Jesus told them to keep it quiet until after he rose <span class="ref">(Mark 9:9)</span>.</div></div>
+    <div class="row"><div class="row-icon">Pilate's question</div><div class="row-text">John has Pilate abruptly ask Jesus about being a king, with no lead-in. Luke gives the charge that prompts it <span class="ref">(Luke 23:1-4)</span>, and John later adds the reply that his kingdom is not of this world <span class="ref">(John 18:36)</span>.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>These are just the same stories copied between books.</b> Shared wording would prove copying and nothing more. This is the opposite. One account raises a question it never notices, and a separate account answers it in passing. Fiction does not interlock this way, because invented tales are not anchored in one shared reality. When many such links crisscross the narratives, they build a strong cumulative case.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Writers filling each other's gaps by accident are reporting something real, not rehearsing a script.</div></div>
+  </div>
+</section>
+
+<!-- S4 EARLY DATING AND MANUSCRIPTS -->
+<section id="s4" class="bg-e4">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Fourth / The text</div><div class="pill">Step 4 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">Less time, more copies</div>
+    <h1 class="display">Written early, and preserved better than the classics.</h1>
+    <p class="tagline">Two practical questions decide whether a text survives intact. How close to the events was it written, and how well was it copied down to us?</p>
+
+    <div class="row"><div class="row-icon">Early</div><div class="row-text">The first three Gospels come before the fall of Jerusalem in AD 70, and John not long after. That leaves too little time for legend to crowd out memory while eyewitnesses could still object.</div></div>
+    <div class="row"><div class="row-icon">Well attested</div><div class="row-text">The text survives in thousands of Greek copies and thousands more in Latin, where prized classical works survive in only a handful. Famous ancient histories sit on far fewer copies, written far longer after the events they record.</div></div>
+    <div class="row"><div class="row-icon">It checks out</div><div class="row-text">The cultural detail fits the ground. A Jerusalem pool once doubted by scholars <span class="ref">(John 5:2)</span> was confirmed by excavation. The writers knew they were not telling everything, only what mattered <span class="ref">(John 21:25)</span> <span class="ref">(2 Timothy 3:16-17)</span>.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>The text has been copied so often it cannot be the original.</b> The opposite follows. With thousands of manuscripts to compare, copying errors stand out and get corrected, rather than hiding. We can trust the New Testament far more than the classical works the same scholars cite without a second thought, because the evidence for its wording is richer by a wide margin.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Close to the events and abundantly copied, the New Testament is the best attested document of the ancient world.</div></div>
+  </div>
+</section>
+
+<!-- S5 FORGERY -->
+<section id="s5" class="bg-e5">
+  <span class="hero hero-a blob-3" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Fifth / The forgery charge</div><div class="pill">Step 5 of 5</div></div>
+  <div class="stack">
+    <div class="eyebrow">The last objection, faced squarely</div>
+    <h1 class="display">Were some letters written under a false name?</h1>
+    <p class="tagline">A serious charge deserves a serious hearing. The claim is that certain letters only pretend to be by Paul. Two findings undo it.</p>
+
+    <div class="row"><div class="row-icon">The old claim</div><div class="row-text">Nineteenth century scholars argued the Pastoral letters did not sound like Paul in vocabulary and style, and later extended the doubt to Second Thessalonians and Ephesians. It rested on counting words.</div></div>
+    <div class="row"><div class="row-icon">Better testing</div><div class="row-text">Sharper analysis, such as Anthony Kenny in 1986, found no subset of the letters that is genuinely non-Pauline. A writer who uses secretaries and varies his style across years will not read like a single fixed sample.</div></div>
+    <div class="row"><div class="row-icon">The verdict</div><div class="row-text">The ancients had blunt words for a fake, a lie, a counterfeit, an illegitimate writing, and they denounced forgers as thieves. When the church found a forgery, such as Third Corinthians, it threw the forgery out.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you will hear</div>
+      <div class="otext"><b>A devoted disciple wrote in Paul's name to honour him, and everyone understood.</b> The ancients did not work that way. Arrian recorded the teaching of Epictetus but signed it as his own. A man who published his father's notebooks put his father's real name on them. No one penned fresh letters under a borrowed name as a compliment. And a writing built on a lie about its own author is a strange place to look for truth. Paul, for his part, signed to prove it was his <span class="ref">(2 Thessalonians 3:17)</span>.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">There is no compelling case that any New Testament document is a forgery, and the ancients themselves would have been the first to say so.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Five steps, taken together</div>
+    <h1 class="display">Old, yes. Unreliable, no.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; The sources</div><div class="sum-text">Eyewitnesses or careful research, written down by a scribe and <b>signed by hand</b>. A secretary never broke the chain.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The standard</div><div class="sum-text">Sifted as a court sifts a witness, the Gospels are admissible and were <b>never impeached</b> by the enemies who could have.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; The interlock</div><div class="sum-text">The accounts <b>answer each other</b> by accident, the way honest reports do and invented ones cannot.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s4"><div class="sum-body"><div class="sum-e">4 &middot; The text</div><div class="sum-text">Written within the lifetime of witnesses and preserved in <b>thousands of copies</b>, far better than the classics.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s5"><div class="sum-body"><div class="sum-e">5 &middot; The forgery charge</div><div class="sum-text">Better testing found <b>no forged letters</b>, and the ancients denounced fakes rather than excusing them.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So is the New Testament historically reliable? Examine it the way you would examine any ancient witness and it stands up well. The sources go back to people who were there, the testimony survives cross examination, the accounts confirm each other from the inside, the text reaches us early and intact, and the forgery charge does not hold. You are not asked to believe blindly. You are asked to read the witnesses Luke set out to record in order <span class="ref">(Luke 1:1-4)</span>, and weigh them.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>
