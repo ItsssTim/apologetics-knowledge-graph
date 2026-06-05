@@ -205,6 +205,51 @@
   }
   .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(220,225,248,0.4); transition: all 0.3s ease; }
   .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
 </style>
 </head>
 <body>
@@ -369,6 +414,40 @@
       }, 900);
     });
   });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { threshold: [0.55] });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
 </script>
 
 </body>
