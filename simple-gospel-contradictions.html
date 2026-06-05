@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#160b13">
+<title>Don't the Gospels contradict each other? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #f6f0f3;
+    --ink-muted: #e6d9e0;
+    --ink-soft: #b596a4;
+    --warm-black: #160b13;
+    --cream: #f2ebe6;
+    --clay: #6e2f4a;
+    --amber: #d2a64e;
+    --hairline: rgba(245,235,240,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(245,235,240,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(245,235,240,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep plum and wine resolving to a warm gold (the signature of testimony) */
+  .bg-intro { background: linear-gradient(168deg, #160b13 0%, #2a1320 38%, #5a2840 78%, #7a5a36 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #160b13 0%, #22101b 34%, #3e1c2e 74%, #4a1f33 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #150a12 0%, #26121e 34%, #4a2034 74%, #5a3a38 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #160b13 0%, #2a1320 34%, #5e3036 74%, #7e5e36 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #160b13 0%, #2a1320 45%, #6e4a38 80%, #d2a64e 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #5a2840 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #2a1320 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6e2f4a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d2a64e 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,235,240,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">3 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">Four accounts, told four ways</div>
+    <h1 class="display display-lg">Don't the Gospels contradict each other?</h1>
+    <p class="tagline">There are four accounts of Jesus, and they do not line up perfectly. Different details, different emphases, different angles. Surely that means contradictions, and contradictions mean you cannot trust any of it. Ask a detective or a historian, though, and they will tell you that is exactly what truthful, independent witnesses look like.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Different angles aren't contradictions</div><div class="map-sub">The same event from different seats</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Perfect agreement is the red flag</div><div class="map-sub">Courts distrust word-for-word matches</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">United where it counts</div><div class="map-sub">Honest about the awkward details</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 DIFFERENT ANGLES -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Different angles</div><div class="pill">Step 1 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">What actually counts as a contradiction</div>
+    <h1 class="display">Different angles are not contradictions.</h1>
+    <p class="tagline">Most of the so-called contradictions are not contradictions at all. They are the same event seen from different seats.</p>
+
+    <div class="row"><div class="row-icon">The car crash</div><div class="row-text">Four people watch the same crash from four corners. One notices the colour of the car, one the sound, one the pedestrian, one the skid. Their accounts differ, yet none is false. They are filling in each other's blind spots. A real contradiction is one account saying a thing happened and another saying that same thing did not. Most alleged Gospel contradictions are nothing like that.</div></div>
+    <div class="row"><div class="row-icon">One angel or two</div><div class="row-text">Take a classic example: one account mentions an angel at the tomb, another mentions two. But one does not deny the other. If there were two, there was certainly one. At least one is not contradicted by two; it is completed by it. Much of the supposed conflict is this kind of partial telling.</div></div>
+    <div class="row"><div class="row-icon">Chosen on purpose</div><div class="row-text">The Gospels openly capitalise on different angles, each writer shaping his account for his own readers and his own emphasis. They never claim to be four identical transcripts. John even says there was far more that could have been written and was deliberately left out <span class="ref">(John 21:25)</span>. Selecting different details is what every honest storyteller does.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The details do not match, so the whole thing is unreliable.</b> Difference in peripheral detail is not the same as contradiction. Two reports conflict only if one affirms exactly what the other denies, and most of the famous examples are simply different witnesses noticing different things. Minor divergence is the texture of real testimony, not a crack in it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a contradiction is one account affirming what another denies. Most Gospel differences are not that; they are different witnesses filling in different details of the same event, the way any four honest accounts of one moment will.</div></div>
+  </div>
+</section>
+
+<!-- S2 PERFECT AGREEMENT IS THE RED FLAG -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The red flag</div><div class="pill">Step 2 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why the differences are evidence</div>
+    <h1 class="display">Perfect agreement would be the red flag.</h1>
+    <p class="tagline">Here is the twist. If the four accounts matched word for word, that would be the suspicious thing, not the reassuring one.</p>
+
+    <div class="row"><div class="row-icon">Ask any court</div><div class="row-text">Detectives and judges know the pattern well. When several witnesses give word-for-word identical testimony, the conclusion is not that they are honest. It is that they got together and agreed on a story. Flawless agreement is the fingerprint of collusion, not of truth.</div></div>
+    <div class="row"><div class="row-icon">They did not collude</div><div class="row-text">The Gospel writers do the opposite. They diverge in order and detail, each going his own way. As Wes Huff points out, if they all told it identically you could accuse them of colluding, and they plainly did not. The very differences that look like a weakness are the proof they were not reading from one shared script.</div></div>
+    <div class="row"><div class="row-icon">Independent witnesses</div><div class="row-text">So the messiness is doing real work. It marks these out as independent voices reporting the same events, not conspirators rehearsing a line. The variation is not the problem to explain away. It is part of the evidence that you are hearing from several people who actually saw something.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If they were edited later to agree, the differences would be gone.</b> Exactly, and that is the point: the differences are still there. Nobody smoothed them out. If a later hand had harmonised the four into one tidy story, we would have one tidy story. Instead we have four that keep their own angles, which is precisely what independent, un-coordinated testimony looks like.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: identical accounts signal collusion; courts treat word-for-word agreement as a warning, not a comfort. The Gospels diverge because they did not coordinate. The differences are evidence of independence, not of fiction.</div></div>
+  </div>
+</section>
+
+<!-- S3 UNITED WHERE IT COUNTS -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / United where it counts</div><div class="pill">Step 3 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">United on the core, honest about the awkward</div>
+    <h1 class="display">Where it counts, they agree, even when it hurts.</h1>
+    <p class="tagline">For all their differences in detail, the four converge completely where it matters, and they keep details no inventor would ever choose.</p>
+
+    <div class="row"><div class="row-icon">One core</div><div class="row-text">On the heart of it the four are united: Jesus was crucified, was buried, the tomb was found empty, and he was encountered alive. That shared core is exactly what the earliest summary of the faith already records <span class="ref">(1 Corinthians 15:3-7)</span>. The disagreements are at the edges; the centre holds.</div></div>
+    <div class="row"><div class="row-icon">The embarrassing detail</div><div class="row-text">And they preserve things a fabricator would have deleted. All four make women the first witnesses of the empty tomb, in a culture where a woman's testimony was given little weight. If you were inventing a story to convince people, those are the last witnesses you would choose. They are there because that is how it happened.</div></div>
+    <div class="row"><div class="row-icon">Liars tidy up</div><div class="row-text">Invented stories smooth away anything unhelpful. These accounts leave in the disciples cowering, doubting, misunderstanding, running away. You do not write your own founders as fools and cowards unless you are bound to tell it as it was. The awkward details are a mark of honesty, not of myth.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>You are just harmonising the problems away to protect the Bible.</b> The test is simple and fair: can both accounts be true at once? If yes, there is no contradiction, only difference. We are not forcing the pieces; complementary detail genuinely fits, the core is unanimous, and the embarrassing parts no liar would invent are left standing. That is following the evidence, not dodging it.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: on the central claims the four fully agree, matching the earliest creed, and they keep the embarrassing details, like women as first witnesses, that no inventor would choose. United where it counts, honest where it stings.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Three steps, taken together</div>
+    <h1 class="display">The signature of testimony.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; Angles, not conflicts</div><div class="sum-text">Most differences are <b>different witnesses noticing different things</b>, not one account denying another. At least one angel is not contradicted by two.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; The red flag</div><div class="sum-text">Word-for-word agreement signals <b>collusion</b>; courts distrust it. The Gospels diverge because they did not coordinate, which marks them independent.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Core and candour</div><div class="sum-text">On the core they fully <b>agree</b>, matching the earliest creed, and they keep the awkward details, like women as first witnesses, no liar would invent.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So do the Gospels contradict each other? On the small details they differ, exactly as four honest, independent witnesses to one event always will. On the core they stand united, and they keep the awkward details a forger would have quietly deleted. Flawless agreement would be the thing to fear, the mark of a rehearsed story. What we actually have looks like the opposite: four people who saw the same thing and each told it in their own voice. That is not the signature of fiction. It is the signature of testimony.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

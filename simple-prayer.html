@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c1418">
+<title>Does prayer actually do anything? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #eef4f4;
+    --ink-muted: #d8e4e2;
+    --ink-soft: #93a8a6;
+    --warm-black: #0c1418;
+    --cream: #f1ece4;
+    --clay: #2f5a5a;
+    --amber: #e0a875;
+    --hairline: rgba(228,240,238,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #15201f;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,240,238,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,240,238,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep slate-teal night resolving to a soft warm dawn rose-amber (quiet, prayerful) */
+  .bg-intro { background: linear-gradient(168deg, #0c1418 0%, #122229 38%, #1d3a40 78%, #5c4640 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c1418 0%, #102026 34%, #18353b 74%, #1d3a40 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b1216 0%, #122229 34%, #1d3a40 74%, #34403e 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c1418 0%, #14272d 34%, #36403e 74%, #6e5448 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c1418 0%, #122229 45%, #4e463e 80%, #e0a875 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #1d4046 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #102026 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #2f5a5a 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #e0a875 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,240,238,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(238,247,245,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(238,247,245,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">3 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The vending-machine test</div>
+    <h1 class="display display-lg">Does prayer actually do anything?</h1>
+    <p class="tagline">People prayed in the worst horrors of history and were not spared. Careful studies of prayed-for hospital patients show no measurable edge. So prayer does not seem to work, and the honest question follows: why bother? The objection lands cleanly against one idea of prayer. The trouble is that it is not the Christian one.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">Not a vending machine</div><div class="map-sub">The studies test the wrong thing</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">A relationship, not a transaction</div><div class="map-sub">Talking to a father, not a slot</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">Yes, no, or wait</div><div class="map-sub">Three real answers, not silence</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 NOT A VENDING MACHINE -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / Testing the wrong thing</div><div class="pill">Step 1 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">Testing the wrong thing</div>
+    <h1 class="display">Prayer is not a vending machine.</h1>
+    <p class="tagline">The objection pictures prayer as a machine: feed in the right words, receive the requested result. Christianity has never described it that way.</p>
+
+    <div class="row"><div class="row-icon">The genie model</div><div class="row-text">On the vending-machine view, prayer is an incantation. Say the correct words, perhaps often enough, and the outcome drops out, like a coin in a slot or a wish to a genie. Some ancient religions did treat it roughly like that: the right words and right offerings, and the gods deliver the harvest.</div></div>
+    <div class="row"><div class="row-icon">Jesus mocked it</div><div class="row-text">That is precisely the picture Jesus rejected. He told people not to pray by heaping up empty words like the pagans, who imagine they will be heard for their many words <span class="ref">(Matthew 6:7)</span>. The babble-until-it-works model is not the Christian one; it is the one Christianity explicitly threw out.</div></div>
+    <div class="row"><div class="row-icon">Testing a strawman</div><div class="row-text">So when a study finds that prayed-for patients do no better, it has tested the vending machine, the very thing the faith denies prayer is. It has measured a definition Christians do not hold. A fair test of Christian prayer would have to ask what Christian prayer actually claims to be.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>The studies are clear: prayer does not change outcomes.</b> They are clear about one thing: prayer is not a lever that reliably moves the physical world on demand. But no thoughtful Christian ever said it was. Testing prayer as a results-dispensing mechanism, then concluding the mechanism fails, leaves the actual Christian claim completely untouched.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the studies disprove prayer-as-vending-machine, an idea Christianity already rejects. Jesus himself mocked the babble-until-it-works model. A fair test has to start with what Christian prayer actually is.</div></div>
+  </div>
+</section>
+
+<!-- S2 A RELATIONSHIP -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / What prayer is</div><div class="pill">Step 2 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">What prayer actually is</div>
+    <h1 class="display">It is a relationship, not a transaction.</h1>
+    <p class="tagline">At its heart, prayer is not a technique for getting things. It is communication with a personal God: a relationship, not a mechanism.</p>
+
+    <div class="row"><div class="row-icon">Talking to a father</div><div class="row-text">Picture less a slot machine and more a child talking with a wise and loving father. The point of the conversation is not only the outcomes; it is the relationship itself, being known and being heard. That reframes the whole question. You do not ask whether talking to your father works. You ask whether he is there and whether he listens.</div></div>
+    <div class="row"><div class="row-icon">Room for the raw</div><div class="row-text">And this God invites the unpolished version. A third of the Psalms, the Bible's own prayer book, are laments: raw complaints, even the cry of my God, why have you forsaken me <span class="ref">(Psalm 22:1)</span>. Prayer that welcomes anger, grief and doubt is not a magic spell. It is the honesty of a real relationship.</div></div>
+    <div class="row"><div class="row-icon">It changes the one praying</div><div class="row-text">Because it is relational, prayer reshapes the person, not just the circumstances. Bringing your fears and wants to God, instead of only stewing on them, changes how you carry them <span class="ref">(Philippians 4:6)</span>. The first thing prayer often moves is not the world outside but the heart doing the praying.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If it mostly changes me, then it is just talking to yourself.</b> It would be, if no one were there. But that is the real question underneath: not does the technique work, but is there a personal God who hears. If there is, then prayer is no more talking to yourself than a phone call is, and the change it works in you is the natural effect of a real relationship, not a placebo.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: prayer is communication with a personal God, more like talking to a father than working a machine. It makes room for laments and honesty, and it reshapes the one praying, not only the circumstances.</div></div>
+  </div>
+</section>
+
+<!-- S3 YES, NO, OR WAIT -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / What answers look like</div><div class="pill">Step 3 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">What answered prayer looks like</div>
+    <h1 class="display">The answer can be yes, no, or wait.</h1>
+    <p class="tagline">Once prayer is relational, unanswered-in-my-way stops meaning unanswered. A good father has three replies, not one.</p>
+
+    <div class="row"><div class="row-icon">Three real answers</div><div class="row-text">A loving parent who granted a child every request the instant it was made would wreck the child. So God's answers come as yes, as no, and as not yet, and all three are genuine answers, not silence. Jesus says to keep asking, seeking and knocking, the language of an ongoing relationship, not a one-time transaction <span class="ref">(Matthew 7:7)</span>.</div></div>
+    <div class="row"><div class="row-icon">When the answer is no</div><div class="row-text">Even the apostle Paul begged three times for an affliction to be removed and was told no, that grace would be enough instead <span class="ref">(2 Corinthians 12:8-9)</span>. That was an answer, just not the one he wanted. And prayer can be asked wrongly, for the wrong things or from the wrong heart, which is its own kind of no <span class="ref">(James 4:3)</span>.</div></div>
+    <div class="row"><div class="row-icon">A real side effect</div><div class="row-text">There is even a measurable human effect: regular prayer is associated with lower stress, steadier attention and greater resilience over time. But that is a side benefit, not the point. The point is not the calm it produces; it is the One it puts you in contact with, who can actually act, in his own wisdom and timing.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>If God does what is best anyway, prayer is pointless.</b> Only if the sole point were to change God's mind. But a father does not want merely to hand out outcomes; he wants the relationship, the conversation, the child who comes to him. Prayer is how we take part rather than merely receive, and a God who values persons would rather be asked than simply dispense. Being in the conversation is itself much of the point.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: unanswered-in-my-way is not unanswered. God replies yes, no, and wait, as a loving father would; even Paul was told no. The relationship, not a guaranteed outcome, is the point.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Three steps, taken together</div>
+    <h1 class="display">Someone is there.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; Not a machine</div><div class="sum-text">The studies disprove prayer-as-vending-machine, a model <b>Christianity already rejects</b>. Jesus mocked the babble-until-it-works idea himself.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; A relationship</div><div class="sum-text">Prayer is <b>communication with a personal God</b>, more like talking to a father than working a slot machine. It welcomes laments and reshapes the one praying.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Yes, no, wait</div><div class="sum-text">A good father answers <b>yes, no, and not yet</b>, all real answers. Even Paul was told no. The relationship, not a guaranteed result, is the point.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So does prayer work? If work means a machine that outputs whatever you feed it, then no, and Christianity never claimed it did. Jesus himself mocked that idea. Prayer is something better: honest conversation with a personal God who already loves you, who welcomes your laments as readily as your requests, and who answers, sometimes yes, sometimes no, sometimes wait. It is less like pulling a lever and more like talking to a father. The real question was never whether the lever works. It is whether anyone is there to hear. And if someone is, then the conversation is the point.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>

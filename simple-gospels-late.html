@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0c1016">
+<title>Were the Gospels written too long after to trust? &middot; Simple Answers</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  :root {
+    --ink: #eef2f6;
+    --ink-muted: #d8dee6;
+    --ink-soft: #97a4b0;
+    --warm-black: #0c1016;
+    --cream: #f1ece1;
+    --clay: #3a4a5e;
+    --amber: #d3a857;
+    --hairline: rgba(228,236,243,0.13);
+  }
+
+  html, body {
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--warm-black);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+    width: 100%;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding:
+      max(env(safe-area-inset-top), 26px)
+      24px
+      max(env(safe-area-inset-bottom), 56px);
+    overflow: hidden;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 16px;
+  }
+  .header a { color: inherit; text-decoration: none; }
+  .counter {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.62;
+  }
+  .pill {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 9999px;
+    border: 0.5px solid currentColor; opacity: 0.72;
+  }
+  .back {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; opacity: 0.7;
+  }
+
+  .hero {
+    position: absolute; z-index: 0; pointer-events: none;
+    border-radius: 50%; filter: blur(50px); opacity: 0.82;
+  }
+  .hero-a { width: 72vh; height: 72vh; top: -22vh; right: -26vh; }
+  .hero-b { width: 60vh; height: 60vh; bottom: -24vh; left: -24vh; opacity: 0.55; }
+
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; }
+
+  .eyebrow {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .display {
+    font-size: 37px; font-weight: 600; line-height: 1.06;
+    letter-spacing: -0.022em; margin-bottom: 12px;
+  }
+  .display-lg { font-size: 34px; }
+  .tagline {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px; font-weight: 400; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--ink-muted); margin-bottom: 22px;
+  }
+
+  .row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .row:first-of-type { border-top: none; }
+  .row-icon {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+    flex: 0 0 92px; min-width: 0; line-height: 1.5; opacity: 0.6; text-transform: uppercase;
+  }
+  .row-text {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 15px; font-weight: 400; line-height: 1.46; letter-spacing: -0.006em;
+    color: var(--ink-muted); flex: 1;
+  }
+
+  .objection {
+    background: rgba(0,0,0,0.30);
+    border: 0.5px solid var(--hairline);
+    border-radius: 16px; padding: 15px 17px; margin-top: 18px;
+  }
+  .objection .label {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; opacity: 0.65; margin-bottom: 7px;
+  }
+  .objection .otext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14px; font-weight: 400; line-height: 1.5; color: var(--ink-muted);
+  }
+  .objection .otext b { color: var(--ink); font-weight: 600; }
+
+  .confidence {
+    display: flex; align-items: flex-start; gap: 11px;
+    margin-top: 20px; padding: 14px 16px;
+    background: var(--cream); color: #241a08;
+    border-radius: 14px;
+  }
+  .confidence .check {
+    flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%;
+    background: var(--clay); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .confidence .ctext {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  }
+
+  /* intro map */
+  .map { margin-top: 6px; }
+  .map-item { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-top: 0.5px solid var(--hairline); }
+  .map-item:first-of-type { border-top: none; }
+  a.map-item { text-decoration: none; color: inherit; }
+  a.map-item:active { opacity: 0.65; }
+  .map-body { flex: 1; }
+  .map-go { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.5; font-size: 18px; line-height: 1; }
+  .map-e {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    flex: 0 0 30px; opacity: 0.9;
+  }
+  .map-title { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+  .map-sub { font-family: 'SF Pro Text', system-ui, sans-serif; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+
+  .ref { opacity: 0.6; white-space: nowrap; }
+
+  .cue {
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    opacity: 0.5; margin-top: 24px; display: flex; align-items: center; gap: 7px;
+  }
+
+  /* summary cards */
+  .sum-card { display: flex; align-items: center; gap: 12px; background: rgba(228,236,243,0.06); border: 0.5px solid var(--hairline); border-radius: 15px; padding: 13px 16px; margin-top: 10px; }
+  a.sum-card { text-decoration: none; color: inherit; transition: background 0.18s ease, transform 0.18s ease; }
+  a.sum-card:hover { background: rgba(228,236,243,0.10); }
+  a.sum-card:active { transform: scale(0.99); }
+  .sum-body { flex: 1; }
+  .sum-jump { flex: 0 0 auto; color: var(--ink-soft); opacity: 0.55; font-size: 19px; line-height: 1; }
+  .sum-e { font-family:'SF Pro Text',system-ui,sans-serif; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--amber); margin-bottom: 5px; }
+  .sum-text { font-family:'SF Pro Text',system-ui,sans-serif; font-size:14px; font-weight:400; line-height:1.4; color: var(--ink-muted); }
+  .sum-text b { color: var(--ink); font-weight: 600; }
+  .bottom-line { font-size: 19px; font-weight: 600; line-height: 1.28; letter-spacing: -0.014em; margin-top: 20px; }
+
+  /* gradients: deep ink-blue and charcoal resolving to warm parchment gold (an aged-manuscript feel) */
+  .bg-intro { background: linear-gradient(168deg, #0c1016 0%, #141b26 38%, #2c3a4c 78%, #6b5733 100%); }
+  .bg-e1    { background: linear-gradient(180deg, #0c1016 0%, #121925 34%, #233141 74%, #303d4d 100%); }
+  .bg-e2    { background: linear-gradient(180deg, #0b0f15 0%, #131a26 34%, #2a3848 74%, #45474a 100%); }
+  .bg-e3    { background: linear-gradient(180deg, #0c1016 0%, #141b27 34%, #353b42 74%, #5c5034 100%); }
+  .bg-sum   { background: linear-gradient(168deg, #0c1016 0%, #141b26 45%, #4a4636 80%, #cf9f48 100%); }
+
+  .blob-1 { background: radial-gradient(circle at 32% 30%, #2b3a50 0%, transparent 58%); }
+  .blob-2 { background: radial-gradient(circle at 70% 72%, #16202c 0%, transparent 66%); }
+  .blob-3 { background: radial-gradient(circle at 30% 28%, #6b5430 0%, transparent 60%); }
+  .blob-4 { background: radial-gradient(circle at 72% 70%, #d3a857 0%, transparent 64%); }
+
+  .dots {
+    position: fixed; bottom: max(env(safe-area-inset-bottom), 12px); left: 50%;
+    transform: translateX(-50%); display: flex; gap: 7px; padding: 8px 14px;
+    background: rgba(0,0,0,0.4); backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); border-radius: 9999px; z-index: 100;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(228,236,243,0.4); transition: all 0.3s ease; }
+  .dot.active { background: #fff; width: 18px; border-radius: 6px; }
+
+  /* --- Simple Answers: shared nav + transition polish --- */
+  .dot { position: relative; cursor: pointer; }
+  .dot::before { content: ""; position: absolute; top: -14px; bottom: -14px; left: -5px; right: -5px; }
+  .dot:not(.active):hover { background: rgba(255,247,238,0.7); }
+  /* Touch devices: space the dots out and give each a large, tiling tap target. */
+  @media (pointer: coarse) {
+    .dots { gap: 13px; padding: 10px 16px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 20px; }
+    .dot::before { top: -18px; bottom: -18px; left: -7px; right: -7px; }
+  }
+
+  .next-btn {
+    position: fixed;
+    right: max(env(safe-area-inset-right), 22px);
+    bottom: max(env(safe-area-inset-bottom), 22px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px 11px 19px;
+    font-family: 'SF Pro Text', system-ui, sans-serif;
+    font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em;
+    color: var(--ink);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 0.5px solid rgba(255,247,238,0.18);
+    border-radius: 9999px;
+    cursor: pointer;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .next-btn:hover { opacity: 1; background: rgba(0,0,0,0.52); }
+  .next-btn:active { transform: scale(0.95); }
+  .next-btn .next-arrow {
+    display: inline-block; font-size: 17px; line-height: 1; opacity: 0.8;
+    transform: rotate(90deg); transition: transform 0.2s ease;
+  }
+  .next-btn:hover .next-arrow { transform: rotate(90deg) translateX(2px); }
+  .next-btn.is-hidden { opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) and (min-width: 700px) {
+    .next-btn { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<section class="bg-intro">
+  <span class="hero hero-a blob-1"></span>
+  <span class="hero hero-b blob-2"></span>
+  <div class="header">
+    <a class="back" href="simple-answers.html">&larr; Simple Answers</a>
+    <div class="pill">3 steps</div>
+  </div>
+  <div class="stack">
+    <div class="eyebrow">The gap, the memory, the drift</div>
+    <h1 class="display display-lg">Were the Gospels written too long after to trust?</h1>
+    <p class="tagline">I cannot accurately recount last week, let alone something from decades ago. The Gospels were written forty to sixty years after Jesus, so are they not just a game of Chinese whispers, a story drifting and swelling in the retelling? It is a fair worry. It rests on three assumptions, and all three turn out to be shaky.</p>
+
+    <div class="map">
+      <a class="map-item" href="#s1"><div class="map-e">1</div><div class="map-body"><div class="map-title">The gap is tiny</div><div class="map-sub">Short, not long, for ancient history</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s2"><div class="map-e">2</div><div class="map-body"><div class="map-title">Chinese whispers is wrong</div><div class="map-sub">Why the telephone game fails here</div></div><span class="map-go">&rsaquo;</span></a>
+      <a class="map-item" href="#s3"><div class="map-e">3</div><div class="map-body"><div class="map-title">You never forget your 9/11</div><div class="map-sub">Not all memory is equal</div></div><span class="map-go">&rsaquo;</span></a>
+    </div>
+
+    <div class="cue">Swipe up to begin &darr;</div>
+  </div>
+</section>
+
+<!-- S1 THE GAP IS TINY -->
+<section id="s1" class="bg-e1">
+  <span class="hero hero-a blob-2"></span>
+  <div class="header"><div class="counter">First / The gap is tiny</div><div class="pill">Step 1 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">How close is forty years, really?</div>
+    <h1 class="display">By ancient standards, that gap is tiny.</h1>
+    <p class="tagline">A forty-to-sixty-year gap sounds enormous to us. Set beside the rest of ancient history, it is astonishingly short.</p>
+
+    <div class="row"><div class="row-icon">The emperor test</div><div class="row-text">Take the most documented man of the age, the emperor Tiberius. Our main biographies of him come largely from the next century, generations after he died. For most figures of the ancient world the gap is not decades but centuries. The Gospels, landing within the lifetime of eyewitnesses, are unusually close to the events they report.</div></div>
+    <div class="row"><div class="row-icon">Earlier still</div><div class="row-text">And the Gospels are not even the earliest Christian source. Paul is writing before them, and inside one of his letters sits a summary of Jesus dying, being buried and rising that scholars trace to within a few years of the events <span class="ref">(1 Corinthians 15:3-8)</span>. The core claim is early, not a late invention.</div></div>
+    <div class="row"><div class="row-icon">Living memory</div><div class="row-text">Forty years feels long in a culture that writes everything down and forgets it the next day. But these were written while the people who had been there were still alive, still able to confirm or correct. This is testimony from inside living memory, not a rumour recovered centuries later.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Decades is plenty of time for a legend to grow.</b> Legends need two things to take root: long stretches of time, and distance from the events. The Gospel material had neither. The central claim was already fixed in a short, recited summary within a few years, while eyewitnesses were still around to object. That is the worst possible soil for a legend.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: a forty-to-sixty-year gap is short for ancient history, not long. Paul and an early creed take the core back within a few years, and it was all written while the witnesses were still alive to check.</div></div>
+  </div>
+</section>
+
+<!-- S2 CHINESE WHISPERS IS WRONG -->
+<section id="s2" class="bg-e2">
+  <span class="hero hero-a blob-3"></span>
+  <div class="header"><div class="counter">Second / The wrong picture</div><div class="pill">Step 2 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">Why the telephone game fails as a comparison</div>
+    <h1 class="display">Chinese whispers is the wrong picture.</h1>
+    <p class="tagline">The telephone game is designed to corrupt a message. The ancient handing-on of these stories broke every one of its rules.</p>
+
+    <div class="row"><div class="row-icon">Rigged to fail</div><div class="row-text">Chinese whispers only works because of strict rules: one person, whispering once, in private, with no chance to correct. Of course the message comes out mangled. Almost nothing about how these accounts were passed on looks like that.</div></div>
+    <div class="row"><div class="row-icon">An oral culture</div><div class="row-text">The ancient world was an oral culture that carried its history out loud, in public, in groups, repeated constantly. A travelling teacher gave the same talks many times over; his close followers would have heard them again and again. It is less like one person whispering down a line and more like a room of a hundred people who all heard it, reciting it together and correcting each other.</div></div>
+    <div class="row"><div class="row-icon">Out loud, in public</div><div class="row-text">And the boldest claims were made publicly, in Jerusalem, the very city where Jesus had been executed, where anyone could have checked the story and shut it down. Luke even opens by saying he has carefully investigated the eyewitness accounts before writing an orderly record <span class="ref">(Luke 1:1-4)</span>. This is not a secret whisper. It is a public claim, open to correction.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Stories always drift and grow when people retell them.</b> They drift when they travel quietly, person to person, with no one able to check. These did the opposite. They were told openly, in groups, by people who had heard them many times, in front of others who had been there, in the city where it all happened. Public, corroborated retelling is the enemy of drift, not its engine.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: the telephone game corrupts messages because it is private, single and uncorrected. The Gospel material was the reverse: an oral culture reciting in public, in groups, in the very place it happened, where it could be checked.</div></div>
+  </div>
+</section>
+
+<!-- S3 YOU NEVER FORGET YOUR 9/11 -->
+<section id="s3" class="bg-e3">
+  <span class="hero hero-a blob-4"></span>
+  <div class="header"><div class="counter">Third / Burned-in memory</div><div class="pill">Step 3 of 3</div></div>
+  <div class="stack">
+    <div class="eyebrow">Not all memory is equal</div>
+    <h1 class="display">You never forget your 9/11.</h1>
+    <p class="tagline">The worry treats all memory as equally leaky. But the mind holds some things with extraordinary grip, and names its sources.</p>
+
+    <div class="row"><div class="row-icon">Flashbulb memory</div><div class="row-text">You cannot recall an ordinary Tuesday from years ago. Yet most people can say exactly where they were when they heard about a world-changing shock. Earth-shattering events burn in. For the disciples, the public execution and then the reappearance of their own teacher was that kind of event, the most searing of their lives.</div></div>
+    <div class="row"><div class="row-icon">Frightened to fearless</div><div class="row-text">And something turned them. A frightened group hiding behind locked doors became people who proclaimed a risen Jesus in public for the rest of their lives, many of them to the point of death. Whatever happened, it was no faint half-memory. It reshaped who they were.</div></div>
+    <div class="row"><div class="row-icon">Go and ask them</div><div class="row-text">The accounts also name specific people, almost like citing sources: the man who carried the cross, named along with his sons; the official who owned the tomb. The likely point of dropping in real, locatable names is an unspoken invitation: these people are known, go and ask them yourselves.</div></div>
+
+    <div class="objection">
+      <div class="label">The theory you'll hear</div>
+      <div class="otext"><b>Memory is unreliable, so decades-old recollections cannot be trusted.</b> Ordinary memory of ordinary days, yes. But memory of the most shattering event of your life is a different thing, and it does not fade like a grocery list. Add an oral culture built to preserve, public retelling that could be corrected, and named witnesses you could go and question, and the unreliable-memory worry runs out of room.</div>
+    </div>
+
+    <div class="confidence"><div class="check">&check;</div><div class="ctext">Confidence: trauma and wonder carve deep, lasting memories, not vague ones. The disciples were transformed by what they saw, and the accounts name real, findable witnesses, as if to say go and check.</div></div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="bg-sum">
+  <span class="hero hero-a blob-4" style="opacity:0.5;"></span>
+  <div class="header"><div class="counter">Putting it together</div><div class="pill">The bottom line</div></div>
+  <div class="stack">
+    <div class="eyebrow">Three steps, taken together</div>
+    <h1 class="display">Close, not faded.</h1>
+
+    <a class="sum-card" href="#s1"><div class="sum-body"><div class="sum-e">1 &middot; A short gap</div><div class="sum-text">Forty to sixty years is <b>tiny by ancient standards</b>, and Paul plus an early creed reach the core within a few years, inside living memory.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s2"><div class="sum-body"><div class="sum-e">2 &middot; Wrong analogy</div><div class="sum-text">Chinese whispers corrupts because it is <b>private and uncorrected</b>. This was public, group retelling in an oral culture, in the city where it happened.</div></div><span class="sum-jump">&rsaquo;</span></a>
+    <a class="sum-card" href="#s3"><div class="sum-body"><div class="sum-e">3 &middot; Burned-in memory</div><div class="sum-text">You never forget your 9/11. The witnesses were <b>transformed by what they saw</b>, and the accounts name real people you could go and ask.</div></div><span class="sum-jump">&rsaquo;</span></a>
+
+    <p class="bottom-line">So were the Gospels written too late to trust? Only if you picture a lone whisper crossing silent centuries. The reality is the reverse: a gap that is short for the ancient world, an oral culture that told these stories aloud and corrected them in public, and the unforgettable memory of the most shattering event the witnesses ever lived through, with their sources named so you could go and check. The accounts do not reach us as a faded rumour. They reach us close to the people who were actually there.</p>
+  </div>
+</section>
+
+<div class="dots" id="dots">
+  <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.dot');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    });
+  });
+</script>
+
+
+<button class="next-btn" id="nextBtn" aria-label="Go to next section">Next <span class="next-arrow" aria-hidden="true">&rsaquo;</span></button>
+<script>
+  (function () {
+    var secs = document.querySelectorAll('section');
+    var dots = document.querySelectorAll('.dot');
+    var btn = document.getElementById('nextBtn');
+    var current = 0;
+    function jumpTo(target) {
+      if (!target) return;
+      document.body.style.scrollSnapType = 'none';
+      document.documentElement.style.scrollSnapType = 'none';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        document.body.style.scrollSnapType = '';
+        document.documentElement.style.scrollSnapType = '';
+      }, 900);
+    }
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { jumpTo(secs[i]); });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          current = Array.prototype.indexOf.call(secs, entry.target);
+          if (btn) btn.classList.toggle('is-hidden', current >= secs.length - 1);
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    secs.forEach(function (s) { io.observe(s); });
+    if (btn) btn.addEventListener('click', function () { jumpTo(secs[current + 1]); });
+  })();
+</script>
+
+</body>
+</html>
